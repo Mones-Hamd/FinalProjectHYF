@@ -1,11 +1,15 @@
 import express from "express";
 import cors from "cors";
+import passport from "passport";
 
+import { config } from "./config/pasport.js";
 import userRouter from "./routes/user.js";
 
 // Create an express server
 const app = express();
 
+config(passport);
+app.use(passport.initialize());
 // Tell express to use the json middleware
 app.use(express.json());
 // Allow everyone to access our API. In a real application, we would need to restrict this!

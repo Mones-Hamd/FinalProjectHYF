@@ -3,8 +3,11 @@ import mongoose from "mongoose";
 import validateAllowedFields from "../util/validateAllowedFields.js";
 
 const userSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  username: { type: String },
   email: { type: String, required: true, unique: true },
+  // password: { type: String, required: true },
+  hash: String,
+  salt: String,
 });
 
 const User = mongoose.model("users", userSchema);
