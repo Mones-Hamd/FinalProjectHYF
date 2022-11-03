@@ -110,3 +110,17 @@ export const login = async (req, res, next) => {
       next(err);
     });
 };
+
+export const verifyAccount = (req, res, next) => {
+  // TODO it will get code from query params and update the user.isVerified as true
+};
+
+export const forgotPassword = (req, res, next) => {
+  // TODO it will send email with a link that contains a unique code as a query parameter,
+  // TODO this code will also be saved to the db with expiration date.
+};
+
+export const updatePassword = (req, res, next) => {
+  // TODO it will get code and new password from the body of the request,
+  // TODO check the code from db, if it is available and not expired then update the password
+};
