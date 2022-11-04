@@ -31,20 +31,15 @@ export const genPassword = (password) => {
 export const issueJWT = (user) => {
   const _id = user._id;
 
-  const expiresIn = "1d";
-
   const payload = {
     sub: _id,
     iat: Date.now(),
   };
 
   const signedToken = jsonwebtoken.sign(payload, PRIV_KEY, {
-    expiresIn: expiresIn,
+    expiresIn: "1d",
     algorithm: "RS256",
   });
 
-  return {
-    token: "Bearer " + signedToken,
-    expires: expiresIn,
-  };
+  return "Bearer " + signedToken;
 };

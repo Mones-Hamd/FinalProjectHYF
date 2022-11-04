@@ -1,4 +1,4 @@
-export const sendVerificationMail = (verificationCode) => {
+export const sendVerificationMail = (email, verificationCode) => {
   // TODO
-  console.log(verificationCode);
+  console.log(email, verificationCode);
 };

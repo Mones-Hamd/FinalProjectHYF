@@ -1,8 +1,10 @@
+import { v4 as uuidv4 } from "uuid";
 import User, { validateUser } from "../models/User.js";
 import { logError } from "../util/logging.js";
 import validationErrorMessage from "../util/validationErrorMessage.js";
 import { genPassword, validPassword, issueJWT } from "../util/jwt.js";
 import { sendVerificationMail } from "../services/mailService.js";
+import { userMapper } from "../util/mapper.js";
 
 export const getUsers = async (req, res) => {
   try {
@@ -55,8 +57,7 @@ export const register = async (req, res) => {
 
   const salt = saltHash.salt;
   const hash = saltHash.hash;
-  // TODO make it unique
-  const verificationCode = "uniqueVerificationCode";
+  const verificationCode = createVerificationCode();
 
   const newUser = new User({
     username: req.body.username,
@@ -65,62 +66,70 @@ export const register = async (req, res) => {
     salt: salt,
     isVerified: false,
     isActive: true,
-    lastLoginDate: new Date().now(),
+    verificationCode: verificationCode,
   });
 
   try {
     const user = await newUser.save();
-    sendVerificationMail(verificationCode);
-    res.json({ success: true, user: user });
-
-    // .then((user) => {
-    // });
+    sendVerificationMail(user.email, verificationCode);
+    const jwtToken = issueJWT(user);
+    res.json({
+      success: true,
+      user: userMapper(user),
+      token: jwtToken,
+    });
   } catch (err) {
     res.json({ success: false, msg: err });
   }
 };
 
 export const login = async (req, res, next) => {
-  User.findOne({ username: req.body.username })
-    .then((user) => {
-      if (!user) {
-        return res
-          .status(401)
-          .json({ success: false, msg: "could not find user" });
-      }
+  try {
+    const user = await User.findOne({ email: req.body.email });
+    if (!user) {
+      return res
+        .status(401)
+        .json({ success: false, msg: "could not find user" });
+    }
 
-      // Function defined at bottom of app.js
-      const isValid = validPassword(req.body.password, user.hash, user.salt);
+    const isValid = validPassword(req.body.password, user.hash, user.salt);
 
-      if (isValid) {
-        const tokenObject = issueJWT(user);
+    if (isValid) {
+      const jwtToken = issueJWT(user);
 
-        res.status(200).json({
-          success: true,
-          token: tokenObject.token,
-          expiresIn: tokenObject.expires,
-        });
-      } else {
-        res
-          .status(401)
-          .json({ success: false, msg: "you entered the wrong password" });
-      }
-    })
-    .catch((err) => {
-      next(err);
-    });
+      res.status(200).json({
+        success: true,
+        user: userMapper(user),
+        token: jwtToken,
+      });
+    } else {
+      res
+        .status(401)
+        .json({ success: false, msg: "Email or password is incorrect" });
+    }
+  } catch (err) {
+    next(err);
+  }
 };
 
-export const verifyAccount = (req, res, next) => {
+export const verifyAccount = () => {
   // TODO it will get code from query params and update the user.isVerified as true
 };
 
-export const forgotPassword = (req, res, next) => {
+export const forgotPassword = () => {
   // TODO it will send email with a link that contains a unique code as a query parameter,
   // TODO this code will also be saved to the db with expiration date.
 };
 
-export const updatePassword = (req, res, next) => {
+export const updatePassword = () => {
   // TODO it will get code and new password from the body of the request,
   // TODO check the code from db, if it is available and not expired then update the password
+};
+
+const createVerificationCode = () => {
+  const expiredIn = new Date(Date.now() + 24 * 60 * 60 * 1000); // 1 day
+  return {
+    code: uuidv4(),
+    expiredIn: expiredIn,
+  };
 };
