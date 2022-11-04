@@ -117,14 +117,75 @@ export const verifyAccount = async (req, res) => {
   }
 };
 
-export const forgotPassword = () => {
-  // TODO it will send email with a link that contains a unique code as a query parameter,
-  // TODO this code will also be saved to the db with expiration date.
-};
+export const forgotPassword = async (req, res) => {
+  try {
+    let user = await User.findOne({ email: req.body.email });
+    if (!user)
+      return res
+        .status(409)
+        .send({ message: "User with given email does not exist!" });
 
-export const updatePassword = () => {
-  // TODO it will get code and new password from the body of the request,
-  // TODO check the code from db, if it is available and not expired then update the password
+    let token = await Token.findOne({ userId: user._id });
+    if (!token) {
+      token = await new Token({
+        userId: user._id,
+        token: crypto.randomBytes(32).toString("hex"),
+      }).save();
+    }
+
+    const url = `localhost:5000/api/user/${user._id}/reset/${token.token}/`;
+    await sendVerificationMail(user.email, "Password Reset", url);
+
+    res
+      .status(200)
+      .send({ message: "Password reset link sent to your email account" });
+  } catch (error) {
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+};
+export const verifyUrl = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.params.id });
+    if (!user) return res.status(400).send({ message: "Invalid link" });
+
+    const token = await Token.findOne({
+      userId: user._id,
+      token: req.params.token,
+    });
+    if (!token) return res.status(400).send({ message: "Invalid link" });
+
+    res.status(200).send("Valid Url");
+  } catch (error) {
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+};
+export const updatePassword = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.params.id });
+    if (!user) return res.status(400).send({ message: "Invalid link" });
+
+    const token = await Token.findOne({
+      userId: user._id,
+      token: req.params.token,
+    });
+    if (!token) return res.status(400).send({ message: "Invalid link" });
+
+    if (!user.verified) user.verified = true;
+
+    const saltHash = hashPassword(req.body.password);
+
+    const salt = saltHash.salt;
+    const password = saltHash.hash;
+
+    user.password = password;
+    user.salt = salt;
+    await user.save();
+    await token.remove();
+
+    res.status(200).send({ message: "Password reset successfully" });
+  } catch (error) {
+    res.status(500).send({ message: "Internal Server Error" });
+  }
 };
 
 const createVerificationCode = async (user) => {
