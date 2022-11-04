@@ -5,7 +5,7 @@ import User, {
 } from "../models/User.js";
 import { logError } from "../util/logging.js";
 import validationErrorMessage from "../util/validationErrorMessage.js";
-import { genPassword, validPassword, issueJWT } from "../util/auth.js";
+import { hashPassword, validatePassword, signJWT } from "../security/auth.js";
 import { sendVerificationMail } from "../services/mailService.js";
 
 export const register = async (req, res) => {
@@ -18,7 +18,7 @@ export const register = async (req, res) => {
     return;
   }
 
-  const saltHash = genPassword(req.body.password);
+  const saltHash = hashPassword(req.body.password);
 
   const salt = saltHash.salt;
   const password = saltHash.hash;
@@ -36,7 +36,7 @@ export const register = async (req, res) => {
   try {
     const user = await newUser.save();
     sendVerificationMail(user.email, verificationCode);
-    const jwtToken = issueJWT(user);
+    const jwtToken = signJWT(user);
     res.json({
       success: true,
       token: jwtToken,
@@ -65,10 +65,14 @@ export const login = async (req, res, next) => {
         .json({ success: false, msg: "could not find user" });
     }
 
-    const isValid = validPassword(req.body.password, user.password, user.salt);
+    const isValid = validatePassword(
+      req.body.password,
+      user.password,
+      user.salt
+    );
 
     if (isValid) {
-      const jwtToken = issueJWT(user);
+      const jwtToken = signJWT(user);
 
       res.status(200).json({
         success: true,

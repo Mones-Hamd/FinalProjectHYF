@@ -8,7 +8,7 @@ const options = {
   algorithms: ["RS256"],
 };
 
-const strategyFun = (jwt_payload, done) => {
+const strategyFunction = (jwt_payload, done) => {
   User.findOne({ _id: jwt_payload.sub }, function (err, user) {
     if (err) {
       return done(err, false);
@@ -22,5 +22,5 @@ const strategyFun = (jwt_payload, done) => {
 };
 
 export const config = (passport) => {
-  passport.use(new Strategy(options, strategyFun));
+  passport.use(new Strategy(options, strategyFunction));
 };
