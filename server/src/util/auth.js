@@ -1,6 +1,6 @@
 import crypto from "crypto";
 import jsonwebtoken from "jsonwebtoken";
-import { PRIV_KEY } from "../config/keys";
+import { PRIV_KEY } from "../config/keys.js";
 
 export const validPassword = (password, hash, salt) => {
   var hashVerify = crypto
