@@ -1,5 +1,5 @@
 import { Strategy, ExtractJwt } from "passport-jwt";
-import { PUB_KEY } from "./keys.js";
+import { PUB_KEY } from "../security/keys.js";
 import User from "../models/User.js";
 
 const options = {

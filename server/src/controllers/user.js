@@ -1,4 +1,3 @@
-import { v4 as uuidv4 } from "uuid";
 import User, {
   validateRegisterUser,
   validateLoginUser,
@@ -7,6 +6,8 @@ import { logError } from "../util/logging.js";
 import validationErrorMessage from "../util/validationErrorMessage.js";
 import { hashPassword, validatePassword, signJWT } from "../security/auth.js";
 import { sendVerificationMail } from "../services/mailService.js";
+import crypto from "crypto";
+import Token from "../models/Token.js";
 
 export const register = async (req, res) => {
   const errorList = validateRegisterUser(req.body);
@@ -22,7 +23,6 @@ export const register = async (req, res) => {
 
   const salt = saltHash.salt;
   const password = saltHash.hash;
-  const verificationCode = createVerificationCode();
 
   const newUser = new User({
     username: req.body.username,
@@ -35,11 +35,19 @@ export const register = async (req, res) => {
 
   try {
     const user = await newUser.save();
-    sendVerificationMail(user.email, verificationCode);
+    const verificationCode = await createVerificationCode(user);
+
+    await sendVerificationMail(
+      user.email,
+      "Verify Email",
+      verificationCode.url
+    );
+
     const jwtToken = signJWT(user);
-    res.json({
+    res.status(201).json({
       success: true,
       token: jwtToken,
+      message: "An Email sent to your account please verify",
     });
   } catch (err) {
     logError(err);
@@ -88,8 +96,25 @@ export const login = async (req, res, next) => {
   }
 };
 
-export const verifyAccount = () => {
-  // TODO it will get code from query params and update the user.isVerified as true
+export const verifyAccount = async (req, res) => {
+  try {
+    const user = await User.findOne({ _id: req.params.id });
+
+    if (!user) return res.status(400).send({ message: "Invalid link" });
+
+    const token = await Token.findOne({
+      userId: user._id,
+      token: req.params.token,
+    });
+    if (!token) return res.status(400).send({ message: "Invalid link" });
+
+    await User.findByIdAndUpdate(user._id, { isVerified: true });
+    await token.remove();
+
+    res.status(200).send({ message: "Email verified successfully" });
+  } catch (error) {
+    res.status(500).send({ message: "Internal Server Error" });
+  }
 };
 
 export const forgotPassword = () => {
@@ -102,10 +127,14 @@ export const updatePassword = () => {
   // TODO check the code from db, if it is available and not expired then update the password
 };
 
-const createVerificationCode = () => {
-  const expiredIn = new Date(Date.now() + 24 * 60 * 60 * 1000); // 1 day
+const createVerificationCode = async (user) => {
+  const verificationToken = await new Token({
+    userId: user._id,
+    token: crypto.randomBytes(32).toString("hex"),
+  }).save();
+  const url = `localhost:5000/api/user/${user._id}/verify/${verificationToken.token}`;
   return {
-    code: uuidv4(),
-    expiredIn: expiredIn,
+    code: verificationToken,
+    url,
   };
 };
