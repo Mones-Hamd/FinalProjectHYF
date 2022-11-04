@@ -5,7 +5,7 @@ import User, {
 import { logError } from "../util/logging.js";
 import validationErrorMessage from "../util/validationErrorMessage.js";
 import { hashPassword, validatePassword, signJWT } from "../security/auth.js";
-import { sendVerificationMail } from "../services/mailService.js";
+import { sendMail } from "../services/mailService.js";
 import crypto from "crypto";
 import Token from "../models/Token.js";
 
@@ -35,13 +35,10 @@ export const register = async (req, res) => {
 
   try {
     const user = await newUser.save();
-    const verificationCode = await createVerificationCode(user);
 
-    await sendVerificationMail(
-      user.email,
-      "Verify Email",
-      verificationCode.url
-    );
+    const token = await createToken(user);
+    const verificationUrl = `${process.env.CLIENT_HOST}:${process.env.CLIENT_PORT}/verifyAccount/user/${user._id}/token/${token.token}`;
+    await sendMail(user.email, "Verify Email", verificationUrl);
 
     const jwtToken = signJWT(user);
     res.status(201).json({
@@ -127,14 +124,10 @@ export const forgotPassword = async (req, res) => {
 
     let token = await Token.findOne({ userId: user._id });
     if (!token) {
-      token = await new Token({
-        userId: user._id,
-        token: crypto.randomBytes(32).toString("hex"),
-      }).save();
+      token = await createToken(user);
     }
-
-    const url = `localhost:5000/api/user/${user._id}/reset/${token.token}/`;
-    await sendVerificationMail(user.email, "Password Reset", url);
+    const url = `${process.env.CLIENT_HOST}:${process.env.CLIENT_PORT}/forgetPassword/user/${user._id}/reset/${token.token}/`;
+    await sendMail(user.email, "Password Reset", url);
 
     res
       .status(200)
@@ -188,14 +181,9 @@ export const updatePassword = async (req, res) => {
   }
 };
 
-const createVerificationCode = async (user) => {
-  const verificationToken = await new Token({
+const createToken = async (user) => {
+  return await new Token({
     userId: user._id,
     token: crypto.randomBytes(32).toString("hex"),
   }).save();
-  const url = `localhost:5000/api/user/${user._id}/verify/${verificationToken.token}`;
-  return {
-    code: verificationToken,
-    url,
-  };
 };

@@ -1,13 +1,8 @@
-import nodemailer from "nodemailer";
-export const sendVerificationMail = async (email, subject, text) => {
+import { getTransporter } from "../config/mail.js";
+
+export const sendMail = async (email, subject, text) => {
   try {
-    const transporter = nodemailer.createTransport({
-      service: "hotmail",
-      auth: {
-        user: "komje-app@outlook.com",
-        pass: "ABM123456@",
-      },
-    });
+    const transporter = getTransporter();
 
     await transporter.sendMail({
       from: "komje-app@outlook.com",
