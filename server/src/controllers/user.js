@@ -4,7 +4,6 @@ import { logError } from "../util/logging.js";
 import validationErrorMessage from "../util/validationErrorMessage.js";
 import { genPassword, validPassword, issueJWT } from "../util/jwt.js";
 import { sendVerificationMail } from "../services/mailService.js";
-import { userMapper } from "../util/mapper.js";
 
 export const getUsers = async (req, res) => {
   try {
@@ -75,7 +74,6 @@ export const register = async (req, res) => {
     const jwtToken = issueJWT(user);
     res.json({
       success: true,
-      user: userMapper(user),
       token: jwtToken,
     });
   } catch (err) {
@@ -99,7 +97,6 @@ export const login = async (req, res, next) => {
 
       res.status(200).json({
         success: true,
-        user: userMapper(user),
         token: jwtToken,
       });
     } else {

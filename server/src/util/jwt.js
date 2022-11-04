@@ -29,11 +29,13 @@ export const genPassword = (password) => {
 };
 
 export const issueJWT = (user) => {
-  const _id = user._id;
-
   const payload = {
-    sub: _id,
+    sub: user._id,
     iat: Date.now(),
+    isVerified: user.isVerified,
+    isActive: user.isActive,
+    lastLoginDate: user.lastLoginDate,
+    email: user.email,
   };
 
   const signedToken = jsonwebtoken.sign(payload, PRIV_KEY, {
