@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import passport from "passport";
 
-import { config } from "./config/pasport.js";
+import { config } from "./config/passport.js";
 import userRouter from "./routes/user.js";
 
 // Create an express server

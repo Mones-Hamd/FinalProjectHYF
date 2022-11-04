@@ -31,6 +31,7 @@ export const genPassword = (password) => {
 export const issueJWT = (user) => {
   const payload = {
     sub: user._id,
+    iss: "komje.com",
     iat: Date.now(),
     isVerified: user.isVerified,
     isActive: user.isActive,

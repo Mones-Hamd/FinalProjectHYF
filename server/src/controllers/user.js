@@ -2,7 +2,7 @@ import { v4 as uuidv4 } from "uuid";
 import User, { validateUser } from "../models/User.js";
 import { logError } from "../util/logging.js";
 import validationErrorMessage from "../util/validationErrorMessage.js";
-import { genPassword, validPassword, issueJWT } from "../util/jwt.js";
+import { genPassword, validPassword, issueJWT } from "../util/auth.js";
 import { sendVerificationMail } from "../services/mailService.js";
 
 export const getUsers = async (req, res) => {
