@@ -37,8 +37,14 @@ export const register = async (req, res) => {
     const user = await newUser.save();
 
     const token = await createToken(user);
-    const verificationUrl = `${process.env.CLIENT_HOST}:${process.env.CLIENT_PORT}/verifyAccount/user/${user._id}/token/${token.token}`;
-    await sendMail(user.email, "Verify Email", verificationUrl);
+    const url = `${process.env.CLIENT_HOST}:${process.env.CLIENT_PORT}/verifyAccount/user/${user._id}/token/${token.token}`;
+    await sendMail({
+      type: "VERIFY_ACCOUNT",
+      subject: "Verify Email",
+      email: user.email,
+      username: user.username,
+      url: url,
+    });
 
     const jwtToken = signJWT(user);
     res.status(201).json({
@@ -127,7 +133,13 @@ export const forgotPassword = async (req, res) => {
       token = await createToken(user);
     }
     const url = `${process.env.CLIENT_HOST}:${process.env.CLIENT_PORT}/forgetPassword/user/${user._id}/reset/${token.token}/`;
-    await sendMail(user.email, "Password Reset", url);
+    await sendMail({
+      type: "UPDATE_PASSWORD",
+      subject: "Password Reset",
+      email: user.email,
+      username: user.username,
+      url: url,
+    });
 
     res
       .status(200)
