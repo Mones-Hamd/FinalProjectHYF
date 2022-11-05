@@ -1,0 +1,71 @@
+
+.home-container {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.welcoming-section {
+  font-size: 3rem;
+  text-align: center;
+  background-color: #9674d5;
+  color: aliceblue;
+  border-radius: 20px;
+  margin-top: 1.7rem;
+  margin-bottom: 1.7rem;
+  padding: 2rem;
+}
+
+
+.teamIntro-container {
+  margin-top: 2rem;
+  margin: 3rem;
+  padding-bottom: 3rem;
+  padding-top: 3rem;
+}
+
+.team-container {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.team-title {
+  text-align: right;
+}
+
+.team-text {
+  text-align: center;
+  font-size: 2.3rem;
+}
+
+/* =============================Media Query section================================== */
+
+@media only screen and (min-width: 1000px) {
+  .welcoming-section {
+    font-size: 2.7rem;
+  }
+
+  .first-title {
+    font-size: 3.5rem;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .welcoming-section {
+    font-size: 3rem;
+  }
+
+  .first-title {
+    font-size: 4.3rem;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .welcoming-section {
+    font-size: 3.5rem;
+  }
+
+  .first-title {
+    font-size: 5rem;
+  }
+}

@@ -6,6 +6,7 @@ import Welcome from "./pages/WelcomePage/Welcome";
 import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import CreateForm from "./pages/CreateForm/CreateForm";
+import AboutUs from "./pages/User/AboutUs/AboutUs";
 
 const App = () => {
   return (
@@ -13,6 +14,7 @@ const App = () => {
       <Nav />
       <Routes>
         <Route path="/" element={<Welcome />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
         <Route path="/homePage" element={<Home />} />
         <Route path="/createForm" element={<CreateForm />} />
         <Route path="/login" element={<Login />} />
