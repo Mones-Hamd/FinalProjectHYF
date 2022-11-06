@@ -2,7 +2,7 @@ import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import "./formInput.css";
-// eslint-disable-next-line react/prop-types
+import PropTypes from "prop-types";
 function FormInput({ onChange, errorMessage, ...inputProps }) {
   const [focused, setFocused] = useState(false);
   const [hide, setHide] = useState(false);
@@ -60,4 +60,8 @@ function FormInput({ onChange, errorMessage, ...inputProps }) {
   );
 }
 
+FormInput.propTypes = {
+  onChange: PropTypes.func,
+  errorMessage: PropTypes.string,
+};
 export default FormInput;
