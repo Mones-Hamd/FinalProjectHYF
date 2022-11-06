@@ -41,6 +41,9 @@ const Nav = () => {
                 <Link to="/register" className="navbar-text">
                   <li>Register</li>
                 </Link>
+                <Link to="/aboutUs" className="navbar-text">
+                  About Us
+                </Link>
               </>
             )}
           </div>
