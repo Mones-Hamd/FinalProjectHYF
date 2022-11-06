@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import "./formInput.css";
 // eslint-disable-next-line react/prop-types
 function FormInput({ onChange, errorMessage, ...inputProps }) {
-  
   const [focused, setFocused] = useState(false);
   const [hide, setHide] = useState(false);
 
