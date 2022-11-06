@@ -117,6 +117,9 @@ const Nav = () => {
                 <Link to="/createForm" className="navbar-text-hamburger">
                   <li>Create Form</li>
                 </Link>
+                <Link to="/aboutUs" className="navbar-text">
+                  About Us
+                </Link>
               </>
             )}
           </ul>
