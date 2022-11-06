@@ -1,30 +1,57 @@
+:root {
+  --white-color: #fff;
+  --text-color: #edf6f9;
+  --light-color: #83c5be;
+  --dark-color: #006d77;
+  --orange-color: #e29578;
+  --light-orange-color: #ffddd2;
+  --black-color: #000;
+}
+
 .home-container {
   margin-left: auto;
   margin-right: auto;
 }
 
 .welcoming-section {
-  font-size: 3rem;
   text-align: center;
-  background-color: #9674d5;
-  color: aliceblue;
+  background-color: var(--dark-color);
+  color: var(--text-color);
   border-radius: 20px;
-  margin-top: 1.7rem;
-  margin-bottom: 1.7rem;
-  padding: 2rem;
+  margin: 2rem;
+}
+
+.welcoming-paragraph {
+  font-size: 1rem;
+  text-align: justify;
+  padding: 0.7rem;
+  margin-top: -1rem;
+}
+
+.first-title {
+  font-size: 1.7rem;
+  padding-top: 1rem;
+}
+
+.button {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
 }
 
 .getStart-btn {
+  font-size: 1rem;
   border-radius: 8px;
   border: none;
-  padding: 9px;
-  padding-left: 19px;
-  padding-right: 19px;
-  margin-top: 27px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 13px;
-  margin-right: 1rem;
+  margin-top: -1.7rem;
+  padding: 0.6rem;
+  background-color: var(--light-orange-color);
+  color: var(--dark-color);
+}
+
+.slide {
+  margin: 1rem;
 }
 
 #Wedding-pic {
@@ -45,31 +72,31 @@
 /* =============================Media Query section================================== */
 
 @media only screen and (min-width: 1000px) {
-  .welcoming-section {
-    font-size: 2.7rem;
+  .welcoming-paragraph {
+    font-size: 1.7rem;
   }
 
-  .first-title {
-    font-size: 3.5rem;
+  .getStart-btn {
+    font-size: 1.7rem;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .welcoming-section {
-    font-size: 3rem;
+  .welcoming-paragraph {
+    font-size: 2.5rem;
   }
 
-  .first-title {
-    font-size: 4.3rem;
+  .getStart-btn {
+    font-size: 2rem;
   }
 }
 
 @media only screen and (min-width: 1600px) {
-  .welcoming-section {
-    font-size: 3.5rem;
+  .welcoming-paragraph {
+    font-size: 3rem;
   }
 
-  .first-title {
-    font-size: 5rem;
+  .getStart-btn {
+    font-size: 3.3rem;
   }
 }

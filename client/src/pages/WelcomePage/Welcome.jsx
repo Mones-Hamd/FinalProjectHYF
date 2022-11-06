@@ -9,14 +9,16 @@ const Welcome = () => {
   return (
     <div className="home-container">
       <div className="welcoming-section">
-        <h1 className="first-title">WELCOME TO KOMJE</h1>
-        <p>
+        <p className="first-title">WELCOME TO KOMJE</p>
+        <p className="welcoming-paragraph">
           We are here for your wedding invitation! Create your invitation
           online, see the participants and have fun at this amazing event
         </p>
-        <button type="button" className="getStart-btn">
-          Get start
-        </button>
+        <div className="button">
+          <button type="button" className="getStart-btn">
+            Get start
+          </button>
+        </div>
       </div>
 
       <div
