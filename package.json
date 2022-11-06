@@ -51,6 +51,10 @@
     "husky": "^7.0.0"
   },
   "dependencies": {
-    "concurrently": "^6.4.0"
+    "bootstrap": "^5.2.2",
+    "concurrently": "^6.4.0",
+    "install": "^0.13.0",
+    "npm": "^8.19.3",
+    "react-bootstrap": "^2.5.0"
   }
 }
