@@ -8,7 +8,6 @@ import "../WelcomePage/welcome.css";
 const Welcome = () => {
   return (
     <div className="home-container">
-      
       <div className="welcoming-section">
         <h1 className="first-title">WELCOME TO KOMJE</h1>
         <p>

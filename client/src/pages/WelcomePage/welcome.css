@@ -29,7 +29,7 @@
 
 #Wedding-pic {
   height: 100%;
-  width:100%;
+  width: 100%;
   border-radius: 20px;
   margin-left: auto;
   margin-right: auto;
@@ -41,7 +41,6 @@
   max-height: 100%;
   z-index: -999;
 }
-
 
 /* =============================Media Query section================================== */
 
