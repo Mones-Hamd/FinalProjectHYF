@@ -3,16 +3,16 @@ import React from "react";
 //Bootstrap/css section
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
-// import "../AboutUs/aboutUs.css"
+import "../AboutUs/aboutUs.css";
 
 const AboutUs = () => {
   return (
     <div className="home-container">
       <div className="teamIntro-container welcoming-section">
-        <h1 className="first-title">
-          Special Invitation for Your Special Day{" "}
-        </h1>
-        <p>
+        <p className="first-team-title">
+          Special Invitation for Your Special Day
+        </p>
+        <p className="aboutUs-paragraph">
           You will know exactly the number of attendees or the amount of
           preparations for the wedding if you are using our app{" "}
         </p>
@@ -27,7 +27,7 @@ const AboutUs = () => {
                 className="team-pic card-img-tom"
               />
               <p className="team-text card text">Say some thing about you</p>
-              <h3 className="team-title card-title">Team Name </h3>
+              <p className="team-title card-title">Team Name </p>
             </div>
           </div>
 
@@ -39,7 +39,7 @@ const AboutUs = () => {
                 className="team-pic card-img-tom"
               />
               <p className="team-text card text">Say some thing about you</p>
-              <h3 className="team-title card-title">Team Name </h3>
+              <p className="team-title card-title">Team Name </p>
             </div>
           </div>
 
@@ -51,7 +51,7 @@ const AboutUs = () => {
                 className="team-pic card-img-tom"
               />
               <p className="team-text card text">Say some thing about you</p>
-              <h3 className="team-title card-title">Team Name </h3>
+              <p className="team-title card-title">Team Name </p>
             </div>
           </div>
 
@@ -63,7 +63,7 @@ const AboutUs = () => {
                 className="team-pic card-img-tom"
               />
               <p className="team-text card text">Say some thing about you</p>
-              <h3 className="team-title card-title">Team Name </h3>
+              <p className="team-title card-title">Team Name </p>
             </div>
           </div>
 
@@ -75,7 +75,7 @@ const AboutUs = () => {
                 className="team-pic card-img-tom"
               />
               <p className="team-text card text">Say some thing about you</p>
-              <h3 className="team-title card-title">Team Name </h3>
+              <p className="team-title card-title">Team Name </p>
             </div>
           </div>
         </div>
