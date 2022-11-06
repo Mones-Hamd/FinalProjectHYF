@@ -38,7 +38,7 @@ const accountVerificationTemplate = ({ username, url }) => {
 
 const passwordUpdateTemplate = ({ username, url }) => {
   const htmlTemplate = fs.readFileSync(
-    "templates/accountVerificationTemplate.html",
+    "templates/updatePasswordTemplate.html",
     {
       encoding: "utf-8",
     }

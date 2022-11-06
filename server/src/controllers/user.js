@@ -148,6 +148,7 @@ export const forgotPassword = async (req, res) => {
     res.status(500).send({ message: "Internal Server Error" });
   }
 };
+
 export const verifyUrl = async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.params.id });
@@ -164,6 +165,7 @@ export const verifyUrl = async (req, res) => {
     res.status(500).send({ message: "Internal Server Error" });
   }
 };
+
 export const updatePassword = async (req, res) => {
   try {
     const user = await User.findOne({ _id: req.params.id });
