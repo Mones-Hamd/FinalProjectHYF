@@ -30,6 +30,7 @@ export const signJWT = (user) => {
     isActive: user.isActive,
     lastLoginDate: user.lastLoginDate,
     email: user.email,
+    username: user.username,
   };
 
   const signedToken = jsonwebtoken.sign(payload, PRIV_KEY, {

@@ -7,19 +7,22 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import CreateForm from "./pages/CreateForm/CreateForm";
 import AboutUs from "./pages/User/AboutUs/AboutUs";
+import { UserProvider } from "./contexts/userContext";
 
 const App = () => {
   return (
     <>
-      <Nav />
-      <Routes>
-        <Route path="/" element={<Welcome />} />
-        <Route path="/aboutUs" element={<AboutUs />} />
-        <Route path="/homePage" element={<Home />} />
-        <Route path="/createForm" element={<CreateForm />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-      </Routes>
+      <UserProvider>
+        <Nav />
+        <Routes>
+          <Route path="/" element={<Welcome />} />
+          <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/homePage" element={<Home />} />
+          <Route path="/createForm" element={<CreateForm />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+        </Routes>
+      </UserProvider>
     </>
   );
 };

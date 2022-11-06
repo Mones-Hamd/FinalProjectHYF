@@ -1,13 +1,41 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import jwt_decode from "jwt-decode";
+
+import { UserContext } from "../../contexts/userContext.jsx";
+import useFetch from "../../hooks/useFetch.js";
 import FormInput from "./FormInput.jsx";
-import "./signupForm.css";
+import "./signUpForm.css";
+
 const SignUpForm = () => {
   const [values, setValues] = useState({
     username: "",
     email: "",
     password: "",
-    confirmpassword: "",
+    confirmPassword: "",
   });
+  const { setUser } = useContext(UserContext);
+
+  const route = "/user/register";
+  const onReceived = (result) => {
+    const token = result.token.replace("Bearer ", "");
+    var decoded = jwt_decode(token);
+    setUser({
+      userId: decoded.sub,
+      email: decoded.email,
+      username: decoded.username,
+      isVerified: decoded.idVerified,
+      isActive: decoded.isActive,
+      lastLoginDate: decoded.lastLoginDate,
+      expirationDate: decoded.exp,
+      token: result.token,
+    });
+  };
+
+  const { /* isLoading, error, */ performFetch /* cancelFetch */ } = useFetch(
+    route,
+    onReceived
+  );
+
   const inputs = [
     {
       id: 1,
@@ -50,6 +78,19 @@ const SignUpForm = () => {
   ];
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const options = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({
+        email: values.email,
+        username: values.username,
+        password: values.password,
+      }),
+    };
+    performFetch(options);
   };
 
   const onChange = (e) => {
