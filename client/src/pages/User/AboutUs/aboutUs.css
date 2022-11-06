@@ -1,30 +1,46 @@
+:root {
+  --white-color: #fff;
+  --text-color: #edf6f9;
+  --light-color: #83c5be;
+  --dark-color: #006d77;
+  --orange-color: #e29578;
+  --light-orange-color: #ffddd2;
+  --black-color: #000;
+}
 .home-container {
   margin-left: auto;
   margin-right: auto;
 }
 
 .welcoming-section {
-  font-size: 3rem;
   text-align: center;
-  background-color: #9674d5;
-  color: aliceblue;
+  background-color: var(--dark-color);
+  color: var(--text-color);
   border-radius: 20px;
-  margin-top: 1.7rem;
-  margin-bottom: 1.7rem;
-  padding: 2rem;
+  margin: 2rem;
 }
-
+.first-team-title {
+  text-align: center;
+  font-size: 1.5rem;
+  padding-top: 1rem;
+}
+.aboutUs-paragraph {
+  font-size: 1.2rem;
+  text-align: justify;
+  padding-top: 1rem;
+  margin: 0.5rem 0.5rem 0.5rem 0;
+}
 .teamIntro-container {
-  margin-top: 2rem;
-  margin: 3rem;
-  padding-bottom: 3rem;
-  padding-top: 3rem;
+  text-align: justify;
+  padding: 0.7rem;
 }
 
 .team-container {
-  width: 80%;
+  width: 70%;
   margin-left: auto;
   margin-right: auto;
+  padding: 2rem;
+  border-radius: 20px;
 }
 
 .team-title {
@@ -33,37 +49,34 @@
 
 .team-text {
   text-align: center;
-  font-size: 2.3rem;
+  font-size: 1rem;
 }
 
 /* =============================Media Query section================================== */
 
 @media only screen and (min-width: 1000px) {
-  .welcoming-section {
-    font-size: 2.7rem;
+  .first-team-title {
+    font-size: 2rem;
   }
-
-  .first-title {
-    font-size: 3.5rem;
+  .aboutUs-paragraph {
+    font-size: 1.7rem;
   }
 }
 
 @media only screen and (min-width: 1200px) {
-  .welcoming-section {
+  .first-team-title {
     font-size: 3rem;
   }
-
-  .first-title {
-    font-size: 4.3rem;
+  .aboutUs-paragraph {
+    font-size: 1.6rem;
   }
 }
 
 @media only screen and (min-width: 1600px) {
-  .welcoming-section {
-    font-size: 3.5rem;
+  .first-team-title {
+    font-size: 3rem;
   }
-
-  .first-title {
-    font-size: 5rem;
+  .aboutUs-paragraph {
+    font-size: 2rem;
   }
 }
