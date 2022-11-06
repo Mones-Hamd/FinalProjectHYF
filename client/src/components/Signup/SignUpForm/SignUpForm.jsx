@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import jwt_decode from "jwt-decode";
 
-import { UserContext } from "../../contexts/userContext.jsx";
-import useFetch from "../../hooks/useFetch.js";
-import FormInput from "./FormInput.jsx";
+import { UserContext } from "../../../contexts/userContext.jsx";
+import useFetch from "../../../hooks/useFetch.js";
+import FormInput from "../InputForm/FormInput.jsx";
 import "./signUpForm.css";
 
 const SignUpForm = () => {
