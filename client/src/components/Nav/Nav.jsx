@@ -38,6 +38,9 @@ const Nav = () => {
                 <Link to="/createForm" className="navbar-text">
                   <li>Create Form</li>
                 </Link>
+                <Link to="/register" className="navbar-text">
+                  <li>Register</li>
+                </Link>
               </>
             )}
           </div>

@@ -1,0 +1,33 @@
+.formInput {
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+}
+
+input {
+  padding: 15px;
+  margin: 10px 0px;
+  border-radius: 5px;
+  border: 1px solid #006d77;
+  width: 70%;
+}
+
+span {
+  font-size: 12px;
+  padding: 6px;
+  color: #e63946;
+  visibility: hidden;
+}
+
+input:invalid[focused="true"] {
+  border: 1px solid #e63946;
+}
+
+input:invalid[focused="true"] ~ span {
+  visibility: visible;
+}
+
+.hideIcon {
+  cursor: pointer;
+  padding-left: 20px;
+}
