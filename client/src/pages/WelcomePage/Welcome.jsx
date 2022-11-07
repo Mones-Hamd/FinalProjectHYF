@@ -52,7 +52,7 @@ const Welcome = () => {
           <div className="carousel-item active">
             <img
               src="https://www.moooveventservices.com/wp-content/uploads/2020/04/KatieandBen-ceremony-1200px-1-1200x800.jpeg"
-              className="d-block w-100"
+              classNameName="d-block w-100"
               id="Wedding-pic"
               alt="Wedding-pic"
             />
@@ -60,7 +60,7 @@ const Welcome = () => {
           <div className="carousel-item">
             <img
               src="https://mediafiles.beckyharleyphotography.co.uk/uploads/2018/08/tips-for-wedding-confetti-030.jpg"
-              className="d-block w-100 "
+              classNameName="d-block w-100 "
               id="Wedding-pic"
               alt="Wedding-pic"
             />
@@ -68,7 +68,7 @@ const Welcome = () => {
           <div className="carousel-item">
             <img
               src="https://cdn0.weddingwire.com/vendor/697699/3_2/640/jpg/charlottesville-wedding-photography-portfolio7-of-34_51_996796-160632768959530.webp"
-              className="d-block w-100 "
+              classNameName="d-block w-100 "
               id="Wedding-pic"
               alt="Wedding-pic"
             />
