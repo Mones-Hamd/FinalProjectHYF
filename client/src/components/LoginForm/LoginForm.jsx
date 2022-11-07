@@ -81,7 +81,7 @@ const LoginForm = () => {
   return (
     <div className="login-box">
       <form className="login-form" onSubmit={handleSubmit}>
-        <h1>Create new account</h1>
+        <h1>Login</h1>
         {inputs.map((input) => (
           <FormInput
             key={input.id}

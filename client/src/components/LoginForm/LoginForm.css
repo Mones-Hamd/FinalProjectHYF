@@ -1,29 +1,37 @@
-.login-box-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
+:root {
+  --white-color: #fff;
+  --text-color: #edf6f9;
+  --light-color: #83c5be;
+  --dark-color: #006d77;
+  --orange-color: #e29578;
+  --light-orange-color: #ffddd2;
+  --black-color: #000;
 }
 
-.login-form {
-  background-color: #83c5be;
-  padding: 0px 60px;
-  border-radius: 10px;
+h1 {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.login-box {
+  background-color: var(--dark-color);
+  color: var(--text-color);
+  border-radius: 20px;
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0 0 0;
 }
 
 button {
-  width: 50%;
-  height: 50px;
-  padding: 10px;
-  border: none;
-  background-color: #1d3557;
-  color: white;
+  font-size: 1.2rem;
   border-radius: 5px;
-  font-weight: bold;
-  font-size: 17px;
-  cursor: pointer;
-  margin-top: 15px;
-  margin-bottom: 30px;
+  border: none;
+  padding: 0.6rem 1rem;
+  background-color: var(--light-orange-color);
+  color: var(--dark-color);
+  width: 50%;
+  margin-bottom: 20px;
+  margin-left: 60px;
 }
