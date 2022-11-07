@@ -15,7 +15,7 @@ const LoginForm = () => {
   });
   const { setUser } = useContext(UserContext);
 
-  const route = "/user/register";
+  const route = "/user/login";
   const onReceived = (result) => {
     const token = result.token.replace("Bearer ", "");
     var decoded = jwt_decode(token);
@@ -79,8 +79,8 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="signup-box">
-      <form className="signup-form" onSubmit={handleSubmit}>
+    <div className="login-box">
+      <form className="login-form" onSubmit={handleSubmit}>
         <h1>Create new account</h1>
         {inputs.map((input) => (
           <FormInput
@@ -91,7 +91,7 @@ const LoginForm = () => {
             errorMessage={input.errorMessage}
           />
         ))}
-        <button>Sign-up</button>
+        <button>Login</button>
       </form>
     </div>
   );

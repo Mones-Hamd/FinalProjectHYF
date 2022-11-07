@@ -44,6 +44,9 @@ const Nav = () => {
                 <Link to="/register" className="navbar-text">
                   <li>Register</li>
                 </Link>
+                <Link to="/login" className="navbar-text">
+                  <li>Login</li>
+                </Link>
                 <Link to="/aboutUs" className="navbar-text">
                   About Us
                 </Link>
@@ -124,6 +127,12 @@ const Nav = () => {
                 </Link>
                 <Link to="/aboutUs" className="navbar-text">
                   About Us
+                </Link>
+                <Link to="/register" className="navbar-text">
+                  Register
+                </Link>
+                <Link to="/login" className="navbar-text">
+                  Login
                 </Link>
               </>
             )}
