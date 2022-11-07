@@ -67,7 +67,6 @@ const LoginForm = () => {
       },
       body: JSON.stringify({
         email: values.email,
-        username: values.username,
         password: values.password,
       }),
     };
