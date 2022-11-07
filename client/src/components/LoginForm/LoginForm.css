@@ -35,3 +35,11 @@ button {
   margin-bottom: 20px;
   margin-left: 60px;
 }
+
+p {
+  padding-left: 1rem;
+}
+
+a {
+  color: #000;
+}

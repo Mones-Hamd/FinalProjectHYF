@@ -91,7 +91,17 @@ const LoginForm = () => {
             errorMessage={input.errorMessage}
           />
         ))}
+
+        <p>
+          Remember me <input type="checkbox" className="input-check-box" />{" "}
+        </p>
         <button>Login</button>
+        <p>
+          Dont have an account ,create an account <a href="/register"> here!</a>
+        </p>
+        <p>
+          <a>Forgot the password?</a>
+        </p>
       </form>
     </div>
   );
