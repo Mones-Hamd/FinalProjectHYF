@@ -3,13 +3,16 @@
   list-style: none;
 }
 :root {
-  --app-light: #efd6ac;
-  --app-dark: #0f4c5c;
-  --app-progress: #6fc3d1;
-  --app-gray: #a6c9c9;
+  --white-colour: #fff;
+  --text-colour: #edf6f9;
+  --light-colour: #83c5be;
+  --dark-colour: #006d77;
+  --orange-colour: #e29578;
+  --light-orange-colour: #ffddd2;
+  --black-colour: #000;
 }
 .nav-bar {
-  background-color: var(--app-dark);
+  background-color: var(--light-orange-colour);
   height: 4rem;
   display: flex;
   justify-content: space-between;
@@ -26,7 +29,7 @@
   background: none;
 }
 .nav-menu {
-  background-color: var(--app-dark);
+  background-color: var(--light-orange-colour);
   width: 25rem;
   height: 100%;
   display: flex;
@@ -52,10 +55,10 @@
   margin-right: 3rem;
 }
 .navbar-button {
-  background-color: var(--app-gray);
+  background-color: var(--orange-colour);
   border-radius: 0.65rem;
   border: none;
-  box-shadow: 0px 3px 6px var(--app-gray);
+  box-shadow: 0px 3px 6px var(--orange-colour);
   padding: 0.5rem 2rem;
   font-family: "Poppins", sans-serif;
   align-items: center;
@@ -67,7 +70,7 @@
   transform: scale(1.02);
 }
 .button-hamburger {
-  background-color: var(--app-gray);
+  background-color: var(--light-orange-colour);
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   border: none;
   color: var(--app-dark);
@@ -103,10 +106,10 @@
   display: flex;
   justify-content: center;
   padding-top: 0.5rem;
-  height: 3rem;
+  height: 6rem;
   color: var(--app-gray);
   font-family: "Poppins", sans-serif;
-  margin: 0.6rem 2rem 0rem 0rem;
+  margin: 3rem;
   font-size: 22px;
 }
 
@@ -120,7 +123,7 @@
   justify-content: flex-start;
   padding-top: 0.4rem;
   height: 2.5rem;
-  color: #000000;
+  color: var(--black-colour);
   font-family: "Poppins", sans-serif;
   border-bottom: 1px solid;
   margin: 0.5rem 3rem 0rem 0rem;
@@ -145,26 +148,15 @@
 }
 
 .user-name-nav {
-  color: var(--app-gray);
+  color: var(--black-colour);
   font-family: "Poppins", sans-serif;
   font-size: 1.2em;
 }
 
 .user-name-hamburger {
-  color: var(--app-gray);
+  color: var(--black-colour);
   font-family: "Poppins", sans-serif;
   font-size: 1.2em;
-}
-
-.logo-img {
-  cursor: pointer;
-  width: 12rem;
-}
-
-.logo-img-no-user {
-  cursor: pointer;
-  width: 12rem;
-  margin: 0rem auto;
 }
 
 @media only screen and (min-width: 1000px) {
