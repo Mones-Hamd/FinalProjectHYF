@@ -7,6 +7,7 @@ import useFetch from "../../hooks/useFetch.js";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./signupForm.css";
 import Loading from "../Loading/Loading.jsx";
+import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
 
 const SignUpForm = () => {
   const [values, setValues] = useState({
@@ -109,23 +110,26 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="signup-box">
-      <form className="signup-form" onSubmit={handleSubmit}>
-        <h1>Create new account</h1>
-        {inputs.map((input) => (
-          <FormInput
-            key={input.id}
-            {...input}
-            value={values[input.name]}
-            onChange={onChange}
-            errorMessage={input.errorMessage}
-          />
-        ))}
-        <button disabled={isLoading}>Sign-up</button>
-      </form>
-      {isLoading ? <Loading /> : <></>}
-      {error ? <p>error</p> : <></>}
-    </div>
+    <>
+      <div className="signup-box">
+        <form className="signup-form" onSubmit={handleSubmit}>
+          <h1>Create new account</h1>
+          {inputs.map((input) => (
+            <FormInput
+              key={input.id}
+              {...input}
+              value={values[input.name]}
+              onChange={onChange}
+              errorMessage={input.errorMessage}
+            />
+          ))}
+          <button disabled={isLoading}>Sign-up</button>
+        </form>
+
+        {isLoading ? <Loading /> : <></>}
+      </div>
+      {error ? <ErrorMsg error={error} /> : <></>}
+    </>
   );
 };
 

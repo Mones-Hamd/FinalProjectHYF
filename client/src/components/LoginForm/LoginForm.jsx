@@ -8,6 +8,7 @@ import "./LoginForm.css";
 
 import Loading from "../Loading/Loading.jsx";
 import { useNavigate } from "react-router-dom";
+import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
 
 const LoginForm = () => {
   const [values, setValues] = useState({
@@ -90,33 +91,37 @@ const LoginForm = () => {
   };
 
   return (
-    <div className="login-box">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        {inputs.map((input) => (
-          <FormInput
-            key={input.id}
-            {...input}
-            value={values[input.name]}
-            onChange={onChange}
-            errorMessage={input.errorMessage}
-          />
-        ))}
+    <>
+      <div className="login-box">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h1>Login</h1>
+          {inputs.map((input) => (
+            <FormInput
+              key={input.id}
+              {...input}
+              value={values[input.name]}
+              onChange={onChange}
+              errorMessage={input.errorMessage}
+            />
+          ))}
 
-        <p>
-          Remember me <input type="checkbox" className="input-check-box" />{" "}
-        </p>
-        <button disabled={isLoading}>Login</button>
-        <p>
-          Dont have an account ,create an account <a href="/register"> here!</a>
-        </p>
-        <p>
-          <a>Forgot the password?</a>
-        </p>
-      </form>
-      {isLoading ? <Loading /> : <></>}
-      {error ? <p>Error</p> : <></>}
-    </div>
+          <p>
+            Remember me <input type="checkbox" className="input-check-box" />{" "}
+          </p>
+          <button disabled={isLoading}>Login</button>
+          <p>
+            Dont have an account ,create an account{" "}
+            <a href="/register"> here!</a>
+          </p>
+          <p>
+            <a>Forgot the password?</a>
+          </p>
+        </form>
+        {isLoading ? <Loading /> : <></>}
+      </div>
+
+      {error ? <ErrorMsg error={error} /> : <></>}
+    </>
   );
 };
 
