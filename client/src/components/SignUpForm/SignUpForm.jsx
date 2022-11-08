@@ -29,6 +29,7 @@ const SignUpForm = () => {
       expirationDate: decoded.exp,
       token: result.token,
     });
+    localStorage.setItem("user", token);
   };
 
   const { /* isLoading, error, */ performFetch /* cancelFetch */ } = useFetch(
