@@ -1,10 +1,13 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import jwt_decode from "jwt-decode";
 
 import { UserContext } from "../../contexts/userContext.jsx";
 import useFetch from "../../hooks/useFetch.js";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./LoginForm.css";
+
+import Loading from "../Loading/Loading.jsx";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
   const [values, setValues] = useState({
@@ -13,7 +16,14 @@ const LoginForm = () => {
     password: "",
     confirmPassword: "",
   });
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  const [shouldRedirect, setShouldRedirect] = useState(false);
+  useEffect(() => {
+    if (shouldRedirect) {
+      navigate("/homePage");
+    }
+  }, [shouldRedirect]);
 
   const route = "/user/login";
   const onReceived = (result) => {
@@ -29,10 +39,11 @@ const LoginForm = () => {
       expirationDate: decoded.exp,
       token: result.token,
     });
-    localStorage.setItem("user", token);
+    localStorage.setItem("user", user);
+    setShouldRedirect(true);
   };
 
-  const { /* isLoading, error, */ performFetch /* cancelFetch */ } = useFetch(
+  const { isLoading, error, performFetch /* cancelFetch */ } = useFetch(
     route,
     onReceived
   );
@@ -58,7 +69,7 @@ const LoginForm = () => {
       required: true,
     },
   ];
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const options = {
@@ -95,7 +106,7 @@ const LoginForm = () => {
         <p>
           Remember me <input type="checkbox" className="input-check-box" />{" "}
         </p>
-        <button>Login</button>
+        <button disabled={isLoading}>Login</button>
         <p>
           Dont have an account ,create an account <a href="/register"> here!</a>
         </p>
@@ -103,6 +114,8 @@ const LoginForm = () => {
           <a>Forgot the password?</a>
         </p>
       </form>
+      {isLoading ? <Loading /> : <></>}
+      {error ? <p>Error</p> : <></>}
     </div>
   );
 };

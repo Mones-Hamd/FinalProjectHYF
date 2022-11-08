@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
 import { UserContext } from "../../contexts/userContext.jsx";
 import useFetch from "../../hooks/useFetch.js";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./signupForm.css";
+import Loading from "../Loading/Loading.jsx";
 
 const SignUpForm = () => {
   const [values, setValues] = useState({
@@ -13,7 +15,14 @@ const SignUpForm = () => {
     password: "",
     confirmPassword: "",
   });
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
+  const navigate = useNavigate();
+  const [shouldRedirect, setShouldRedirect] = useState(false);
+  useEffect(() => {
+    if (shouldRedirect) {
+      navigate("/homePage");
+    }
+  }, [shouldRedirect]);
 
   const route = "/user/register";
   const onReceived = (result) => {
@@ -29,10 +38,11 @@ const SignUpForm = () => {
       expirationDate: decoded.exp,
       token: result.token,
     });
-    localStorage.setItem("user", token);
+    localStorage.setItem("user", user);
+    setShouldRedirect(true);
   };
 
-  const { /* isLoading, error, */ performFetch /* cancelFetch */ } = useFetch(
+  const { isLoading, error, performFetch /* cancelFetch */ } = useFetch(
     route,
     onReceived
   );
@@ -77,7 +87,7 @@ const SignUpForm = () => {
       required: true,
     },
   ];
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const options = {
@@ -111,8 +121,10 @@ const SignUpForm = () => {
             errorMessage={input.errorMessage}
           />
         ))}
-        <button>Sign-up</button>
+        <button disabled={isLoading}>Sign-up</button>
       </form>
+      {isLoading ? <Loading /> : <></>}
+      {error ? <p>error</p> : <></>}
     </div>
   );
 };
