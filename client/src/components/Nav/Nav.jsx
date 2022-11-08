@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
-
+import logo from "../../../public/images/ourlogo.png";
 import { IconContext } from "react-icons";
 import "./nav.css";
 import { FaBars } from "react-icons/fa";
@@ -56,9 +56,7 @@ const Nav = () => {
           <Link to="#" className="menu">
             <FaBars className="hamburger" onClick={showSidebar} />
           </Link>
-          <h3 className="logo-text" onClick={() => navigate("/")}>
-            KOMJE
-          </h3>
+          <img className="logo-text" onClick={() => navigate("/")} src={logo} />
           <ul className="navbar-buttons">
             {!isUser ? (
               <>
