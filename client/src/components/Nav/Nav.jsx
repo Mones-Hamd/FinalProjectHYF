@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { IconContext } from "react-icons";
@@ -6,9 +6,12 @@ import "./nav.css";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../../contexts/userContext";
 
 const Nav = () => {
   const [sidebar, setSidebar] = useState(false);
+  const { user } = useContext(UserContext);
+
   const isUser = true;
 
   const navigate = useNavigate();
@@ -38,7 +41,9 @@ const Nav = () => {
                 <Link to="/createForm" className="navbar-text">
                   <li>Create Form</li>
                 </Link>
-
+                <Link to="/register" className="navbar-text">
+                  <li>Register</li>
+                </Link>
                 <Link to="/aboutUs" className="navbar-text">
                   About Us
                 </Link>
@@ -64,7 +69,7 @@ const Nav = () => {
             ) : (
               <>
                 <Link to="/" className="user-name-nav">
-                  <p>Hello Beyza</p>
+                  {user && user.username && <p>Hello {user.username}</p>}
                 </Link>
                 <Link to="/login">
                   <button className="navbar-button" onClick={onLogout}>
