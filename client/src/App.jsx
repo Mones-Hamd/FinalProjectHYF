@@ -8,7 +8,7 @@ import Register from "./pages/Register/Register";
 import CreateForm from "./pages/CreateForm/CreateForm";
 import AboutUs from "./pages/User/AboutUs/AboutUs";
 import { UserProvider } from "./contexts/userContext";
-
+import Footer from "./components/Footer/Footer";
 const App = () => {
   return (
     <>
@@ -20,8 +20,10 @@ const App = () => {
           <Route path="/homePage" element={<Home />} />
           <Route path="/createForm" element={<CreateForm />} />
           <Route path="/login" element={<Login />} />
+
           <Route path="/register" element={<Register />} />
         </Routes>
+        <Footer />
       </UserProvider>
     </>
   );
