@@ -1,7 +1,17 @@
+:root {
+  --white-color: #fff;
+  --text-color: #edf6f9;
+  --light-color: #83c5be;
+  --dark-color: #006d77;
+  --orange-color: #e29578;
+  --light-orange-color: #ffddd2;
+  --black-color: #000;
+}
+
 .formInput {
   display: flex;
   flex-direction: column;
-  width: 280px;
+  padding-left: 3rem;
 }
 
 input {
@@ -13,9 +23,11 @@ input {
 }
 
 span {
-  font-size: 12px;
-  padding: 6px;
-  color: #e63946;
+  font-size: 10px;
+  font-weight: 500;
+  padding-bottom: 10px;
+  padding-right: 3px;
+  color: #bb0c1b;
   visibility: hidden;
 }
 
