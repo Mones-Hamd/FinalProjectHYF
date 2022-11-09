@@ -1,11 +1,7 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import jwt_decode from "jwt-decode";
-
-import useFetch from "../../hooks/useFetch.js";
+import React, { useState, useEffect } from "react";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./LoginForm.css";
-import { useAuthContext } from "../../hooks/useAuthContext.jsx";
+import { useAuth } from "../../hooks/useAuth.jsx";
 import Loading from "../Loading/Loading.jsx";
 
 import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
@@ -17,29 +13,12 @@ const LoginForm = () => {
     password: "",
     confirmPassword: "",
   });
-  const { dispatch } = useAuthContext();
-  const navigate = useNavigate();
-  const [shouldRedirect, setShouldRedirect] = useState(false);
+  const { login } = useAuth();
+  const { isLoading, error, performLogin, cancelFetch } = login;
+
   useEffect(() => {
-    if (shouldRedirect) {
-      navigate("/homePage");
-    }
-  }, [shouldRedirect]);
-
-  const route = "/user/login";
-  const onReceived = (result) => {
-    const token = result.token.replace("Bearer ", "");
-    var decoded = jwt_decode(token);
-    localStorage.setItem("user", JSON.stringify(decoded));
-    localStorage.setItem("token", JSON.stringify(token));
-    dispatch({ type: "LOGIN", payload: JSON.stringify(decoded) });
-    setShouldRedirect(true);
-  };
-
-  const { isLoading, error, performFetch /* cancelFetch */ } = useFetch(
-    route,
-    onReceived
-  );
+    return cancelFetch;
+  }, []);
 
   const inputs = [
     {
@@ -64,18 +43,10 @@ const LoginForm = () => {
   ];
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const options = {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        email: values.email,
-        password: values.password,
-      }),
-    };
-    performFetch(options);
+    performLogin({
+      email: values.email,
+      password: values.password,
+    });
   };
 
   const onChange = (e) => {

@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { useAuthContext } from "./hooks/useAuthContext";
 import Nav from "./components/Nav/Nav";
 import Home from "./pages/HomePage/Home";
 import Welcome from "./pages/WelcomePage/Welcome";
@@ -10,7 +11,6 @@ import AboutUs from "./pages/User/AboutUs/AboutUs";
 
 import Footer from "./components/Footer/Footer";
 
-import { useAuthContext } from "./hooks/useAuthContext";
 const App = () => {
   const { user } = useAuthContext();
   return (

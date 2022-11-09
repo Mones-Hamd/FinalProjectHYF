@@ -1,34 +1,37 @@
-import React, { createContext, useReducer, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 import PropTypes from "prop-types";
+
+const USER = "USER";
+const TOKEN = "TOKEN";
 
 export const AuthContext = createContext();
 
-export const authReducer = (state, action) => {
-  switch (action.type) {
-    case "LOGIN":
-      return { user: action.payload };
-    case "LOGOUT":
-      return { user: null };
-    default:
-      return state;
-  }
-};
-
 export const AuthContextProvider = ({ children }) => {
-  const [state, dispatch] = useReducer(authReducer, {
-    user: null,
-  });
+  const [user, setUser] = useState();
+  const [token, setToken] = useState();
+
+  const update = (token, user) => {
+    setUser(user);
+    setToken(token);
+    localStorage.setItem(USER, JSON.stringify(user));
+    localStorage.setItem(TOKEN, JSON.stringify(token));
+  };
 
   useEffect(() => {
-    const user = JSON.parse(localStorage.getItem("user"));
+    const userItem = JSON.parse(localStorage.getItem(USER));
+    const tokenItem = JSON.parse(localStorage.getItem(TOKEN));
 
-    if (user) {
-      dispatch({ type: "LOGIN", payload: user });
+    if (userItem) {
+      setUser(userItem);
+    }
+
+    if (tokenItem) {
+      setToken(tokenItem);
     }
   }, []);
 
   return (
-    <AuthContext.Provider value={{ ...state, dispatch }}>
+    <AuthContext.Provider value={{ user, token, update }}>
       {children}
     </AuthContext.Provider>
   );

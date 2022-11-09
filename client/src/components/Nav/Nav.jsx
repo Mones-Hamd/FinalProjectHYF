@@ -7,23 +7,18 @@ import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 
-import { useAuthContext } from "../../hooks/useAuthContext";
+import { useAuth } from "../../hooks/useAuth";
 
 const Nav = () => {
   const [sidebar, setSidebar] = useState(false);
-  const { user, dispatch } = useAuthContext();
-
+  const { user, logout } = useAuth();
   const isUser = true;
 
   const navigate = useNavigate();
   const goLogin = () => {
     navigate("/login");
   };
-  const onLogout = () => {
-    localStorage.removeItem("user");
-    localStorage.removeItem("token");
-    dispatch({ type: "LOGOUT" });
-  };
+
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
@@ -84,7 +79,7 @@ const Nav = () => {
                 </Link>
                 <Link to="/login">
                   {user ? (
-                    <button className="navbar-button" onClick={onLogout}>
+                    <button className="navbar-button" onClick={logout}>
                       Log Out
                     </button>
                   ) : (
@@ -111,7 +106,7 @@ const Nav = () => {
                   <Link to="/" className="user-name-hamburger">
                     <p>Hello Beyza</p>
                   </Link>
-                  <button className="button-hamburger" onClick={onLogout}>
+                  <button className="button-hamburger" onClick={logout}>
                     Log out
                   </button>
                 </>

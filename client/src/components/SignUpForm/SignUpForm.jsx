@@ -1,13 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import jwt_decode from "jwt-decode";
-
-import useFetch from "../../hooks/useFetch.js";
+import React, { useState, useEffect } from "react";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./signupForm.css";
 import Loading from "../Loading/Loading.jsx";
 import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
-import { useAuthContext } from "../../hooks/useAuthContext.jsx";
+import { useAuth } from "../../hooks/useAuth";
 
 const SignUpForm = () => {
   const [values, setValues] = useState({
@@ -16,31 +12,13 @@ const SignUpForm = () => {
     password: "",
     confirmPassword: "",
   });
-  const { dispatch } = useAuthContext();
 
-  const navigate = useNavigate();
-  const [shouldRedirect, setShouldRedirect] = useState(false);
+  const { register } = useAuth();
+  const { isLoading, error, performRegister, cancelFetch } = register;
+
   useEffect(() => {
-    if (shouldRedirect) {
-      navigate("/homePage");
-    }
-  }, [shouldRedirect]);
-
-  const route = "/user/register";
-  const onReceived = (result) => {
-    const token = result.token.replace("Bearer ", "");
-    var decoded = jwt_decode(token);
-    localStorage.setItem("user", JSON.stringify(decoded));
-    localStorage.setItem("token", JSON.stringify(token));
-    dispatch({ type: "LOGIN", payload: JSON.stringify(decoded) });
-
-    setShouldRedirect(true);
-  };
-
-  const { isLoading, error, performFetch /* cancelFetch */ } = useFetch(
-    route,
-    onReceived
-  );
+    return cancelFetch;
+  }, []);
 
   const inputs = [
     {
@@ -85,18 +63,11 @@ const SignUpForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const options = {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        email: values.email,
-        username: values.username,
-        password: values.password,
-      }),
-    };
-    performFetch(options);
+    performRegister({
+      email: values.email,
+      username: values.username,
+      password: values.password,
+    });
   };
 
   const onChange = (e) => {
