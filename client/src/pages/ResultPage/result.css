@@ -7,7 +7,7 @@
   --light-orange-color: #ffddd2;
   --black-color: #000;
 }
-.container {
+.containerResult {
   background-color: var(--light-orange-color);
   margin: auto;
   margin-top: 1.6rem;

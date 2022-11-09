@@ -76,7 +76,7 @@ const Result = () => {
   });
 
   return (
-    <div className="container">
+    <div className="containerResult">
       <div className="guests-count-box">
         <h4>Total result</h4>
 
