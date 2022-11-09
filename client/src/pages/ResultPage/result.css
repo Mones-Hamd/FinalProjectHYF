@@ -1,0 +1,49 @@
+:root {
+  --white-color: #fff;
+  --text-color: #edf6f9;
+  --light-color: #83c5be;
+  --dark-color: #006d77;
+  --orange-color: #e29578;
+  --light-orange-color: #ffddd2;
+  --black-color: #000;
+}
+.container {
+  background-color: var(--light-orange-color);
+  margin: auto;
+  margin-top: 1.6rem;
+  padding: 0.4rem 3rem;
+  border-radius: 20px;
+  text-align: center;
+  font-size: 14px;
+  width: fit-content;
+}
+.guests-count-box {
+  padding: 1.5rem;
+  background-color: var(--dark-color);
+  color: var(--text-color);
+  margin: 2rem;
+  border-radius: 20px;
+}
+.count-box {
+  display: flex;
+  justify-content: space-between;
+}
+.guestList-btn {
+  width: fit-content;
+  margin: 0.3rem;
+  font-size: 14px;
+}
+.exit {
+  padding: 0.5rem;
+  width: fit-content;
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: -1rem;
+  float: right;
+}
+.list-box {
+  text-align: start;
+}
+h4 {
+  text-decoration: underline;
+}
