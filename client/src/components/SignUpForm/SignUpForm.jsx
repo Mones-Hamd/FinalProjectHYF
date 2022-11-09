@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
-import { UserContext } from "../../contexts/userContext.jsx";
 import useFetch from "../../hooks/useFetch.js";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./signupForm.css";
 import Loading from "../Loading/Loading.jsx";
 import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
+import { useAuthContext } from "../../hooks/useAuthContext.jsx";
 
 const SignUpForm = () => {
   const [values, setValues] = useState({
@@ -16,7 +16,8 @@ const SignUpForm = () => {
     password: "",
     confirmPassword: "",
   });
-  const { user, setUser } = useContext(UserContext);
+  const { dispatch } = useAuthContext();
+
   const navigate = useNavigate();
   const [shouldRedirect, setShouldRedirect] = useState(false);
   useEffect(() => {
@@ -29,17 +30,10 @@ const SignUpForm = () => {
   const onReceived = (result) => {
     const token = result.token.replace("Bearer ", "");
     var decoded = jwt_decode(token);
-    setUser({
-      userId: decoded.sub,
-      email: decoded.email,
-      username: decoded.username,
-      isVerified: decoded.idVerified,
-      isActive: decoded.isActive,
-      lastLoginDate: decoded.lastLoginDate,
-      expirationDate: decoded.exp,
-      token: result.token,
-    });
-    localStorage.setItem("user", user);
+    localStorage.setItem("user", JSON.stringify(decoded));
+    localStorage.setItem("token", JSON.stringify(token));
+    dispatch({ type: "LOGIN", payload: JSON.stringify(decoded) });
+
     setShouldRedirect(true);
   };
 

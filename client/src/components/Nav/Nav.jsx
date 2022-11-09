@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../../public/images/ourlogo.png";
 import { IconContext } from "react-icons";
@@ -6,18 +6,23 @@ import "./nav.css";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { UserContext } from "../../contexts/userContext";
+
+import { useAuthContext } from "../../hooks/useAuthContext";
 
 const Nav = () => {
   const [sidebar, setSidebar] = useState(false);
-  const { user } = useContext(UserContext);
+  const { user, dispatch } = useAuthContext();
 
   const isUser = true;
 
   const navigate = useNavigate();
-
-  const onLogout = () => {
+  const goLogin = () => {
     navigate("/login");
+  };
+  const onLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+    dispatch({ type: "LOGOUT" });
   };
   const showSidebar = () => setSidebar(!sidebar);
 
@@ -70,12 +75,24 @@ const Nav = () => {
             ) : (
               <>
                 <Link to="/" className="user-name-nav">
-                  {user && user.username && <p>Hello {user.username}</p>}
+                  {user && user.username && (
+                    <div>
+                      <p>Hello {user.username}</p>
+                      <p>{user.email}</p>
+                    </div>
+                  )}
                 </Link>
                 <Link to="/login">
-                  <button className="navbar-button" onClick={onLogout}>
-                    Log Out
-                  </button>
+                  {user ? (
+                    <button className="navbar-button" onClick={onLogout}>
+                      Log Out
+                    </button>
+                  ) : (
+                    <button className="navbar-button" onClick={goLogin}>
+                      {" "}
+                      Profile{" "}
+                    </button>
+                  )}
                 </Link>
               </>
             )}
