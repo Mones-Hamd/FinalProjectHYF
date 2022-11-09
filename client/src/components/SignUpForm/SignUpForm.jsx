@@ -16,6 +16,28 @@ const SignUpForm = () => {
     password: "",
     confirmPassword: "",
   });
+
+  const [checked, setChecked] = React.useState(false);
+  const handleChangeCheckBox = () => {
+    setChecked(!checked);
+    if (!checked) {
+      localStorage.setItem("remember", values.email);
+    } else {
+      localStorage.removeItem("remember");
+    }
+  };
+
+  useEffect(() => {
+    const rememberMeEmail = localStorage.getItem("remember");
+
+    if (rememberMeEmail) {
+      setChecked(true);
+      setValues({ email: rememberMeEmail });
+    } else {
+      setValues({ email: "" });
+    }
+  }, []);
+
   const { dispatch } = useAuthContext();
 
   const navigate = useNavigate();
@@ -117,6 +139,15 @@ const SignUpForm = () => {
               errorMessage={input.errorMessage}
             />
           ))}
+          <p>
+            Remember me{" "}
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={handleChangeCheckBox}
+              className="input-check-box"
+            />{" "}
+          </p>
           <button disabled={isLoading}>Sign-up</button>
         </form>
 

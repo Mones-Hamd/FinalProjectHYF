@@ -17,6 +17,28 @@ const LoginForm = () => {
     password: "",
     confirmPassword: "",
   });
+
+  const [checked, setChecked] = React.useState(false);
+  const handleChangeCheckBox = () => {
+    setChecked(!checked);
+    if (!checked) {
+      localStorage.setItem("remember", values.email);
+    } else {
+      localStorage.removeItem("remember");
+    }
+  };
+
+  useEffect(() => {
+    const rememberMeEmail = localStorage.getItem("remember");
+
+    if (rememberMeEmail) {
+      setChecked(true);
+      setValues({ email: rememberMeEmail });
+    } else {
+      setValues({ email: "" });
+    }
+  }, []);
+
   const { dispatch } = useAuthContext();
   const navigate = useNavigate();
   const [shouldRedirect, setShouldRedirect] = useState(false);
@@ -98,7 +120,13 @@ const LoginForm = () => {
           ))}
 
           <p>
-            Remember me <input type="checkbox" className="input-check-box" />{" "}
+            Remember me{" "}
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={handleChangeCheckBox}
+              className="input-check-box"
+            />{" "}
           </p>
           <button disabled={isLoading}>Login</button>
           <p>
