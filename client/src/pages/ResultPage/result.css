@@ -33,6 +33,17 @@
   margin: 0.3rem;
   font-size: 14px;
 }
+.exit {
+  padding: 0.5rem;
+  width: fit-content;
+  font-size: 10px;
+  font-weight: 700;
+  margin-top: -1rem;
+  float: right;
+}
+.list-box {
+  text-align: start;
+}
 h4 {
   text-decoration: underline;
 }

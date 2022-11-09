@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./result.css";
@@ -22,7 +22,9 @@ const results = [
 ];
 
 const Result = () => {
-  let gustsNum = 0;
+  const [show, setShow] = useState(false);
+
+  let guestsNum = 0;
 
   let allRef = {
     lowCarbs: 0,
@@ -39,7 +41,7 @@ const Result = () => {
 
   results.map((result) => {
     if (result.attend == true) {
-      gustsNum += 1;
+      guestsNum += 1;
     }
     if (result.attend == true && result.foodList === "lowCarbs") {
       allRef.lowCarbs += 1;
@@ -77,11 +79,36 @@ const Result = () => {
     <div className="container">
       <div className="guests-count-box">
         <h4>Total result</h4>
-        <div className="count-box">
-          <p>
-            Total guests number is : {gustsNum}/{results.length}
-          </p>
-          <button className="guestList-btn">Get Guests List </button>
+
+        <p>
+          Total guests number is : {guestsNum}/{results.length}
+        </p>
+        <button className="guestList-btn" onClick={() => setShow(true)}>
+          Guests List{" "}
+        </button>
+        <div>
+          {show && (
+            <div>
+              <hr />
+              <h3>Showing list </h3>
+              <hr />
+
+              <ul className="list-box">
+                {results.map((result) => {
+                  if (result.attend == true) {
+                    return <li key={result.Name}>{result.Name}</li>;
+                  }
+                })}
+              </ul>
+              <button
+                className="exit"
+                type="button"
+                onClick={() => setShow(false)}
+              >
+                X
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
