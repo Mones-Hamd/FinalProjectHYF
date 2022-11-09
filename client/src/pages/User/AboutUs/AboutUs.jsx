@@ -5,6 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "../AboutUs/aboutUs.css";
 
+import beyzaPic from "./teamImg/beyza.jpg";
+import baraahPic from "./teamImg/baraah.jpg";
+import monesPic from "./teamImg/mones.jpg";
+import akinPic from "./teamImg/akin.jpg";
+import abdullaPic from "./teamImg/abdulla.jpg";
+
 const AboutUs = () => {
   return (
     <div className="home-container">
@@ -22,60 +28,60 @@ const AboutUs = () => {
           <div className="team-card col-12 col-md-6 col-lg-4">
             <div className="card">
               <img
-                src="https://www.clipartmax.com/png/middle/0-884_big-image-man-and-woman-animated.png"
+                src={monesPic}
                 alt="teamPic1"
                 className="team-pic card-img-tom"
               />
               <p className="team-text card text">Say some thing about you</p>
-              <p className="team-title card-title">Team Name </p>
+              <p className="team-title card-title">Mones</p>
             </div>
           </div>
 
           <div className="team-card col-12 col-md-6 col-lg-4">
             <div className="card">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjm6jdsDe1XQfqhTRv1ekS2b2xMUZWw6OGX7vEC8dZIeCt0IRnj3Xg-2OMm42le6ivJlw&usqp=CAU"
+                src={beyzaPic}
                 alt="teamPic1"
                 className="team-pic card-img-tom"
               />
               <p className="team-text card text">Say some thing about you</p>
-              <p className="team-title card-title">Team Name </p>
+              <p className="team-title card-title">Beyza</p>
             </div>
           </div>
 
           <div className="team-card col-12 col-md-6 col-lg-4">
             <div className="card">
               <img
-                src="https://www.clipartmax.com/png/middle/0-884_big-image-man-and-woman-animated.png"
+                src={abdullaPic}
                 alt="teamPic1"
                 className="team-pic card-img-tom"
               />
               <p className="team-text card text">Say some thing about you</p>
-              <p className="team-title card-title">Team Name </p>
+              <p className="team-title card-title">Abdullah</p>
             </div>
           </div>
 
           <div className="team-card col-12 col-md-6 col-lg-4">
             <div className="card">
               <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjm6jdsDe1XQfqhTRv1ekS2b2xMUZWw6OGX7vEC8dZIeCt0IRnj3Xg-2OMm42le6ivJlw&usqp=CAU"
+                src={baraahPic}
                 alt="teamPic1"
                 className="team-pic card-img-tom"
               />
               <p className="team-text card text">Say some thing about you</p>
-              <p className="team-title card-title">Team Name </p>
+              <p className="team-title card-title">Baraah</p>
             </div>
           </div>
 
           <div className="team-card col-12 col-md-6 col-lg-4">
             <div className="card">
               <img
-                src="https://www.clipartmax.com/png/middle/0-884_big-image-man-and-woman-animated.png"
+                src={akinPic}
                 alt="teamPic1"
                 className="team-pic card-img-tom"
               />
               <p className="team-text card text">Say some thing about you</p>
-              <p className="team-title card-title">Team Name </p>
+              <p className="team-title card-title">Akın</p>
             </div>
           </div>
         </div>
