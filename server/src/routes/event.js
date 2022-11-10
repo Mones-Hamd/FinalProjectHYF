@@ -11,7 +11,7 @@ eventRouter.post(
 );
 
 eventRouter.get(
-  "/:userId/event/eventId",
+  "/:userId/eventId/:eventId",
   passport.authenticate("jwt", { session: false }),
   getEvent
 );

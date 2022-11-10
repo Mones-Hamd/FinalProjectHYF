@@ -13,11 +13,16 @@ const templateDetailsSchema = new mongoose.Schema({
 
 const attributesSchema = new mongoose.Schema({
   type: { type: String, required: true },
-  required: { type: Boolean, default: false },
-  max: { type: Number, default: 10 },
-  min: { type: Number, default: 0 },
+  required: { type: Boolean },
+  max: { type: Number },
+  min: { type: Number },
   after: { type: String },
   before: { type: String },
+});
+
+const optionSchema = new mongoose.Schema({
+  key: { type: String, required: true },
+  value: { type: String, required: true },
 });
 
 const eventSchema = new mongoose.Schema({
@@ -33,8 +38,10 @@ const eventSchema = new mongoose.Schema({
       key: String,
       label: String,
       attributes: { type: attributesSchema, required: false },
+      options: [{ type: optionSchema }],
     },
   ],
+  url: { type: String, required: true, unique: true },
 });
 
 const Event = mongoose.model("events", eventSchema);
