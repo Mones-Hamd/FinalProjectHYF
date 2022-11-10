@@ -1,5 +1,5 @@
 import express from "express";
-// import passport from "passport";
+
 import {
   register,
   login,
@@ -11,7 +11,6 @@ import {
 
 const userRouter = express.Router();
 
-// userRouter.get("/", passport.authenticate("jwt", { session: false }), "Hello world");
 userRouter.post("/register", register);
 userRouter.post("/login", login);
 userRouter.get("/:id/verify/:token/", verifyAccount);
