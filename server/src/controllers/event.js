@@ -25,7 +25,17 @@ export const createEvent = async (req, res) => {
 
 export const getEvent = async (/* req, res, next */) => {};
 
-export const getEvents = async (/* req, res, next */) => {};
+export const getEvents = async (req, res) => {
+  const { userId } = req.user._id;
+
+  try {
+    const events = await new Event.find({ creatorId: userId });
+    if (!events) res.json({ message: "There is no events yet" });
+    res.status(200).json(events);
+  } catch (err) {
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+};
 
 const generateShortLink = () => {
   const id = nanoid(process.env.SHORT_LINK_LENGTH || 7);
