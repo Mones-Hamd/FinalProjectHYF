@@ -11,8 +11,11 @@ const Welcome = () => {
         <p className="first-title">WELCOME TO KOMJE</p>
         <p className="welcoming-paragraph">
           We are here for your wedding invitation!
-          <hr /> Create your invitation form online get the answers from your
-          guests, be ready, see the participants and have fun at your wedding
+        </p>
+        <hr />
+        <p className="welcoming-paragraph">
+          Create your invitation form online get the answers from your guests,
+          be ready, see the participants and have fun at your wedding
         </p>
         <div className="btn-container">
           <Link className=" getStart-btn" to="/register">

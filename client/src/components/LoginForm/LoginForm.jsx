@@ -1,36 +1,31 @@
 import React, { useState, useEffect } from "react";
 import FormInput from "../InputForm/FormInput.jsx";
-import "./signupForm.css";
+import "./LoginForm.css";
+import { useAuth } from "../../hooks/useAuth.jsx";
 import Loading from "../Loading/Loading.jsx";
-import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
-import { useAuth } from "../../hooks/useAuth";
 
-const SignUpForm = () => {
+import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
+
+const REMEMBER_ME = "REMEMBER_ME";
+
+const LoginForm = () => {
   const [values, setValues] = useState({
     username: "",
-    email: "",
+    email: localStorage.getItem(REMEMBER_ME) || "",
     password: "",
     confirmPassword: "",
   });
-
-  const { register } = useAuth();
-  const { isLoading, error, performRegister, cancelFetch } = register;
+  const { login } = useAuth();
+  const { isLoading, error, performLogin, cancelFetch } = login;
+  const [checked, setChecked] = useState(
+    localStorage.getItem(REMEMBER_ME) !== null
+  );
 
   useEffect(() => {
     return cancelFetch;
   }, []);
 
   const inputs = [
-    {
-      id: 1,
-      name: "username",
-      type: "text",
-      placeholder: "User Name",
-      errorMessage:
-        "User name should be 3-16 characters and should not include any special character!",
-      pattern: "^[A-Za-z0-9]{3,16}$",
-      required: true,
-    },
     {
       id: 2,
       name: "email",
@@ -50,24 +45,23 @@ const SignUpForm = () => {
         "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,20}$",
       required: true,
     },
-    {
-      id: 4,
-      name: "confirmpassword",
-      type: "password",
-      placeholder: "Confirm Password",
-      errorMessage: "Passwords dont match",
-      pattern: values.password,
-      required: true,
-    },
   ];
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    performRegister({
+    localStorage.setItem(REMEMBER_ME, values.email);
+    performLogin({
       email: values.email,
-      username: values.username,
       password: values.password,
     });
+  };
+
+  const handleChangeCheckBox = () => {
+    setChecked((checked) => !checked);
+    if (checked) {
+      localStorage.removeItem(REMEMBER_ME);
+    } else {
+      localStorage.setItem(REMEMBER_ME, values.email);
+    }
   };
 
   const onChange = (e) => {
@@ -76,9 +70,9 @@ const SignUpForm = () => {
 
   return (
     <>
-      <div className="signup-box">
-        <form className="signup-form" onSubmit={handleSubmit}>
-          <h1>Create new account</h1>
+      <div className="login-box">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h1>Login</h1>
           {inputs.map((input) => (
             <FormInput
               key={input.id}
@@ -88,14 +82,31 @@ const SignUpForm = () => {
               errorMessage={input.errorMessage}
             />
           ))}
-          <button disabled={isLoading}>Sign-up</button>
-        </form>
 
+          <p>
+            Remember me
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={handleChangeCheckBox}
+              className="input-check-box"
+            />
+          </p>
+          <button disabled={isLoading}>Login</button>
+          <p>
+            Dont have an account ,create an account{" "}
+            <a href="/register"> here!</a>
+          </p>
+          <p>
+            <a>Forgot the password?</a>
+          </p>
+        </form>
         {isLoading ? <Loading /> : <></>}
       </div>
+
       {error ? <ErrorMsg error={error} /> : <></>}
     </>
   );
 };
 
-export default SignUpForm;
+export default LoginForm;

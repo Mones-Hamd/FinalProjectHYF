@@ -1,5 +1,6 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useAuthContext } from "./hooks/useAuthContext";
 import Nav from "./components/Nav/Nav";
 import Home from "./pages/HomePage/Home";
 import Welcome from "./pages/WelcomePage/Welcome";
@@ -8,25 +9,36 @@ import Register from "./pages/Register/Register";
 import CreateForm from "./pages/CreateForm/CreateForm";
 import AboutUs from "./pages/User/AboutUs/AboutUs";
 import Result from "./pages/ResultPage/Result";
-import { UserProvider } from "./contexts/userContext";
 import Footer from "./components/Footer/Footer";
+
 const App = () => {
+  const { user } = useAuthContext();
   return (
     <>
-      <UserProvider>
-        <Nav />
-        <Routes>
-          <Route path="/" element={<Welcome />} />
-          <Route path="/aboutUs" element={<AboutUs />} />
-          <Route path="/homePage" element={<Home />} />
-          <Route path="/createForm" element={<CreateForm />} />
-          <Route path="/login" element={<Login />} />
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Welcome />} />
+        <Route path="/aboutUs" element={<AboutUs />} />
+        <Route
+          path="/homePage"
+          element={user ? <Home /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/createForm"
+          element={user ? <CreateForm /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/login"
+          element={!user ? <Login /> : <Navigate to="/homePage" />}
+        />
 
-          <Route path="/register" element={<Register />} />
-          <Route path="/result" element={<Result />} />
-        </Routes>
-        <Footer />
-      </UserProvider>
+        <Route
+          path="/register"
+          element={!user ? <Register /> : <Navigate to="/homePage" />}
+        />
+        <Route path="/result" element={<Result />} />
+      </Routes>
+      <Footer />
     </>
   );
 };
