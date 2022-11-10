@@ -84,13 +84,13 @@ const LoginForm = () => {
           ))}
 
           <p>
-            Remember me{" "}
+            Remember me
             <input
               type="checkbox"
               checked={checked}
               onChange={handleChangeCheckBox}
               className="input-check-box"
-            />{" "}
+            />
           </p>
           <button disabled={isLoading}>Login</button>
           <p>
