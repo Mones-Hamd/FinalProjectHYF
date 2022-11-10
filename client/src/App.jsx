@@ -8,7 +8,7 @@ import Login from "./pages/Login/Login";
 import Register from "./pages/Register/Register";
 import CreateForm from "./pages/CreateForm/CreateForm";
 import AboutUs from "./pages/User/AboutUs/AboutUs";
-
+import Result from "./pages/ResultPage/Result";
 import Footer from "./components/Footer/Footer";
 
 const App = () => {
@@ -36,6 +36,7 @@ const App = () => {
           path="/register"
           element={!user ? <Register /> : <Navigate to="/homePage" />}
         />
+        <Route path="/result" element={<Result />} />
       </Routes>
       <Footer />
     </>
