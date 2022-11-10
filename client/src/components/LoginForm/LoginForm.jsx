@@ -6,15 +6,20 @@ import Loading from "../Loading/Loading.jsx";
 
 import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
 
+const REMEMBER_ME = "REMEMBER_ME";
+
 const LoginForm = () => {
   const [values, setValues] = useState({
     username: "",
-    email: "",
+    email: localStorage.getItem(REMEMBER_ME) || "",
     password: "",
     confirmPassword: "",
   });
   const { login } = useAuth();
   const { isLoading, error, performLogin, cancelFetch } = login;
+  const [checked, setChecked] = useState(
+    localStorage.getItem(REMEMBER_ME) !== null
+  );
 
   useEffect(() => {
     return cancelFetch;
@@ -43,10 +48,20 @@ const LoginForm = () => {
   ];
   const handleSubmit = async (e) => {
     e.preventDefault();
+    localStorage.setItem(REMEMBER_ME, values.email);
     performLogin({
       email: values.email,
       password: values.password,
     });
+  };
+
+  const handleChangeCheckBox = () => {
+    setChecked((checked) => !checked);
+    if (checked) {
+      localStorage.removeItem(REMEMBER_ME);
+    } else {
+      localStorage.setItem(REMEMBER_ME, values.email);
+    }
   };
 
   const onChange = (e) => {
@@ -69,7 +84,13 @@ const LoginForm = () => {
           ))}
 
           <p>
-            Remember me <input type="checkbox" className="input-check-box" />{" "}
+            Remember me{" "}
+            <input
+              type="checkbox"
+              checked={checked}
+              onChange={handleChangeCheckBox}
+              className="input-check-box"
+            />{" "}
           </p>
           <button disabled={isLoading}>Login</button>
           <p>
