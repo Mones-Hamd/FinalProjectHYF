@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import logo from "../../../public/images/ourlogo.png";
+import logo from "../Nav/ourlogo.png";
 import { IconContext } from "react-icons";
 import "./nav.css";
 import { FaBars } from "react-icons/fa";
@@ -12,7 +12,7 @@ import { useAuth } from "../../hooks/useAuth";
 const Nav = () => {
   const [sidebar, setSidebar] = useState(false);
   const { user, logout } = useAuth();
-  const isUser = true;
+  const isAuthenticated = user != null;
 
   const navigate = useNavigate();
   const goLogin = () => {
@@ -26,28 +26,26 @@ const Nav = () => {
       <IconContext.Provider value={{ color: "#000000" }}>
         <div className="nav-bar">
           <div className="links">
-            {!isUser && (
-              <Link to="/" className="navbar-text">
-                Home
-              </Link>
-            )}
-
-            {isUser && (
-              <>
-                <Link to="/homePage" className="navbar-text">
+            {!isAuthenticated && (
+              <div className="links">
+                <Link to="/" className="links">
                   Home
                 </Link>
+                <Link to="/aboutUs" className="links">
+                  About Us
+                </Link>
+              </div>
+            )}
 
-                <Link to="/createForm" className="navbar-text">
-                  <li>Create Form</li>
+            {isAuthenticated && (
+              <>
+                <Link to="/homePage" className="links">
+                  Home
                 </Link>
-                <Link to="/register" className="navbar-text">
-                  <li>Register</li>
+                <Link to="/createForm" className="links">
+                  Create Form
                 </Link>
-                <Link to="/login" className="navbar-text">
-                  <li>Login</li>
-                </Link>
-                <Link to="/aboutUs" className="navbar-text">
+                <Link to="/aboutUs" className="links">
                   About Us
                 </Link>
               </>
@@ -56,9 +54,9 @@ const Nav = () => {
           <Link to="#" className="menu">
             <FaBars className="hamburger" onClick={showSidebar} />
           </Link>
-          <img className="logo-text" onClick={() => navigate("/")} src={logo} />
+          <img className="logo-text" src={logo} />
           <ul className="navbar-buttons">
-            {!isUser ? (
+            {!isAuthenticated ? (
               <>
                 <Link to="/login">
                   <button className="navbar-button">Log in</button>
@@ -69,17 +67,14 @@ const Nav = () => {
               </>
             ) : (
               <>
-                <Link to="/" className="user-name-nav">
-                  {user && user.username && (
-                    <div>
-                      <p>Hello {user.username}</p>
-                      <p>{user.email}</p>
-                    </div>
-                  )}
-                </Link>
+                {user && user.username && (
+                  <div className="user-name-nav">
+                    <p className="user-name-nav">Hello {user.username}</p>
+                  </div>
+                )}
                 <Link to="/login">
                   {user ? (
-                    <button className="navbar-button" onClick={logout}>
+                    <button className="button-hamburger" onClick={logout}>
                       Log Out
                     </button>
                   ) : (
@@ -101,10 +96,10 @@ const Nav = () => {
               </Link>
             </li>
             <li className="buttons-hamburger">
-              {isUser ? (
+              {isAuthenticated ? (
                 <>
                   <Link to="/" className="user-name-hamburger">
-                    <p>Hello Beyza</p>
+                    {user.username}
                   </Link>
                   <button className="button-hamburger" onClick={logout}>
                     Log out
@@ -116,18 +111,23 @@ const Nav = () => {
                     <button className="button-hamburger">Log in</button>
                   </Link>
                   <Link to="/register">
-                    <button className="button-hamburger">Sign up</button>
+                    <button className="button-hamburger">Signup</button>
                   </Link>
                 </>
               )}
             </li>
-            {!isUser && (
-              <Link to="/" className="navbar-text-hamburger">
-                <li>Home</li>
-              </Link>
+            {!isAuthenticated && (
+              <>
+                <Link to="/" className="navbar-text-hamburger">
+                  <li>Home</li>
+                </Link>
+                <Link to="/aboutUs" className="navbar-text-hamburger">
+                  <li> About Us</li>
+                </Link>
+              </>
             )}
 
-            {isUser && (
+            {isAuthenticated && (
               <>
                 <Link to="/homePage" className="navbar-text-hamburger">
                   <li>Home</li>
@@ -135,14 +135,8 @@ const Nav = () => {
                 <Link to="/createForm" className="navbar-text-hamburger">
                   <li>Create Form</li>
                 </Link>
-                <Link to="/aboutUs" className="navbar-text">
-                  About Us
-                </Link>
-                <Link to="/register" className="navbar-text">
-                  Register
-                </Link>
-                <Link to="/login" className="navbar-text">
-                  Login
+                <Link to="/aboutUs" className="navbar-text-hamburger">
+                  <li> About Us</li>
                 </Link>
               </>
             )}
