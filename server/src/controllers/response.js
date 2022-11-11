@@ -14,7 +14,6 @@ export const postResponse = async (req, res) => {
       response,
     });
   } catch (err) {
-    console.log(err);
     res.status(500).send({ message: "Internal Server Error" });
   }
 };

@@ -2,10 +2,8 @@ import mongoose, { Schema } from "mongoose";
 
 const questionSchema = new mongoose.Schema({
   questionKey: { type: String, required: true },
-  questionText: { type: String, required: true },
 });
 const answerSchema = new mongoose.Schema({
-  answerKey: { type: String, required: true },
   answerValue: { type: Schema.Types.Mixed, required: true },
 });
 const responseSchema = new mongoose.Schema({
