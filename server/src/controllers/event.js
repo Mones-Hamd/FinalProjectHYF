@@ -1,7 +1,17 @@
-import Event from "../models/Event.js";
+import Event, { validateEvent } from "../models/Event.js";
+import validationErrorMessage from "../util/validationErrorMessage.js";
 import { nanoid } from "nanoid";
 
 export const createEvent = async (req, res) => {
+  const errorList = validateEvent(req.body);
+
+  if (errorList.length > 0) {
+    res
+      .status(400)
+      .json({ success: false, msg: validationErrorMessage(errorList) });
+    return;
+  }
+
   const newEvent = new Event({
     creatorId: req.user._id,
     creatorName: req.user.username,
@@ -22,8 +32,6 @@ export const createEvent = async (req, res) => {
     msg: "You are successfully authenticated to this route!",
   });
 };
-
-export const getEvent = async (/* req, res, next */) => {};
 
 export const getEvents = async (req, res) => {
   const { userId } = req.user._id;

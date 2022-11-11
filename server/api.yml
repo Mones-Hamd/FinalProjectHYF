@@ -30,8 +30,8 @@ tags:
     externalDocs:
       description: Find out more
       url: http://swagger.io
-  - name: user
-    description: Operations about user
+  - name: event
+    description: Operations about event
 paths:
   /user/register:
     post:
@@ -212,6 +212,27 @@ paths:
                     example: Password reset successfully
         "400":
           description: Bad request
+
+  /event:
+    post:
+      tags:
+        - event
+      summary: create new event
+      description: create an event to invite someone
+      operationId: createEvent
+      requestBody:
+        description: enter information about event and the question form
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Event"
+      responses:
+        "401":
+          $ref: "#/components/responses/UnauthorizedError"
+
+      security:
+        - bearerAuth: []
+
 components:
   schemas:
     Token:
@@ -226,3 +247,112 @@ components:
         message:
           type: string
           example: An Email sent to your account please verify
+    Event:
+      type: object
+      properties:
+        isPrivate:
+          type: boolean,
+          example: false
+        type:
+          type: String,
+          example: WEDDING
+        template:
+          type: String
+          example: DEFAULT,
+        templateDetails:
+          $ref: "#/components/schemas/TemplateDetails"
+        form:
+          $ref: "#/components/schemas/Form"
+    TemplateDetails:
+      type: object
+      properties:
+        eventTitle:
+          type: String
+          example: Our Wedding
+        brideName:
+          type: String
+          example: Camelia
+        groomName:
+          type: String
+          example: Oliver
+        date:
+          type: Date
+          example: 2022-09-09T13:00:00
+        address:
+          type: String
+          example: somewhere
+        description:
+          type: String
+          example: wedding description
+        contactNumber:
+          type: String
+          example: 0612345678
+        contactName:
+          type: String
+          example: Leonel Messi
+        images:
+          type: array
+          items:
+            type: object
+            properties:
+              url:
+                type: String
+                example: http://localhost:1234/images/unique-image-name
+              alt:
+                type: String
+                example: wedding image
+    Form:
+      type: array
+      items:
+        type: object
+        properties:
+          key:
+            type: String
+            example: questionId
+          label:
+            type: String
+            example: question text?
+          attributes:
+            $ref: "#/components/schemas/Attributes"
+          options:
+            $ref: "#/components/schemas/Options"
+    Attributes:
+      type: object
+      properties:
+        type:
+          type: String
+          example: typeOfAttribute
+        required:
+          type: boolean
+          example: true
+        max:
+          type: number
+          example: 5
+        min:
+          type: number
+          example: 0
+        after:
+          type: String
+          example: 13:30
+        before:
+          type: String
+          example: 17:30
+    Options:
+      type: array
+      items:
+        type: object
+        properties:
+          key:
+            type: String
+            example: 1
+          value:
+            type: String
+            example: yes
+  responses:
+    UnauthorizedError:
+      description: Access token is missing or invalid
+  securitySchemes:
+    bearerAuth: # arbitrary name for the security scheme
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
