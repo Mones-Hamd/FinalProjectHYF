@@ -1,3 +1,8 @@
+* {
+  text-decoration: none;
+  list-style: none;
+}
+
 #myVideo {
   position: fixed;
 
@@ -5,6 +10,7 @@
   max-height: 100%;
   z-index: -999;
 }
+
 .homePage {
   height: 100vh;
 }
