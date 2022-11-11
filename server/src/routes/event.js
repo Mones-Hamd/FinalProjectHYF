@@ -1,6 +1,7 @@
 import express from "express";
 import passport from "passport";
 import { createEvent, getEvents } from "../controllers/event.js";
+import { getEventResults } from "../controllers/results.js";
 
 const eventRouter = express.Router();
 
@@ -14,6 +15,11 @@ eventRouter.get(
   "/:userId",
   passport.authenticate("jwt", { session: false }),
   getEvents
+);
+eventRouter.get(
+  "/results/:eventId",
+  passport.authenticate("jwt", { session: false }),
+  getEventResults
 );
 
 export default eventRouter;
