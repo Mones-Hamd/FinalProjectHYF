@@ -7,6 +7,7 @@ import YAML from "yamljs";
 import { config } from "./config/passport.js";
 import userRouter from "./routes/user.js";
 import eventRouter from "./routes/event.js";
+import responseRouter from "./routes/response.js";
 
 // Create an express server
 const app = express();
@@ -30,5 +31,5 @@ app.use(cors());
  */
 app.use("/api/user", userRouter);
 app.use("/api/event", eventRouter);
-
+app.use("/api/response", responseRouter);
 export default app;
