@@ -1,0 +1,34 @@
+.questionBox {
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+  margin: auto;
+  align-items: left;
+}
+
+label {
+  width: 70%;
+  padding: 5px;
+}
+
+input {
+  width: 30%;
+}
+.answerBox {
+  display: flex;
+}
+
+.questions {
+  width: 80%;
+  margin: auto;
+}
+
+.textAnswers {
+  width: 80%;
+  margin: auto;
+}
+
+.textAnswers input {
+  width: 70%;
+}

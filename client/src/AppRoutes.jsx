@@ -10,6 +10,7 @@ import CreateForm from "./pages/CreateForm/CreateForm";
 import EventPage from "./pages/EventPage/EventPage";
 import AboutUs from "./pages/User/AboutUs/AboutUs";
 import Result from "./pages/ResultPage/Result";
+import EventGuestPage from "./pages/EventGuestPage/EventGuestPage";
 
 const AppRoutes = () => {
   const { user } = useAuthContext();
@@ -17,6 +18,7 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Welcome />} />
       <Route path="/aboutUs" element={<AboutUs />} />
+      <Route path="/guestPage" element={<EventGuestPage />} />
       <Route
         path="/homePage"
         element={user ? <Home /> : <Navigate to="/login" />}
