@@ -1,0 +1,19 @@
+.event-line-error-message {
+  font-size: 12px;
+  padding: 0.3rem;
+  margin-left: 1rem;
+  color: red;
+  display: none;
+}
+
+input:invalid[focused="true"] ~ .event-line-error-message {
+  display: block;
+}
+
+.event-line-title {
+  margin-left: 0.5rem;
+}
+
+datalist {
+  background-color: red;
+}
