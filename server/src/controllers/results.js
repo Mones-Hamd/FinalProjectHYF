@@ -11,7 +11,6 @@ import {
 
 export const getEventResults = async (req, res) => {
   const eventId = req.params.eventId;
-  console.log(eventId);
   try {
     const targetEvent = await Event.findById(eventId);
     const keys = targetEvent.form.map((question) => question.key);
