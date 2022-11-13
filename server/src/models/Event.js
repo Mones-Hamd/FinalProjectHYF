@@ -30,6 +30,7 @@ const optionSchema = new mongoose.Schema({
 });
 
 const eventSchema = new mongoose.Schema({
+  status: { type: String, default: "ACTIVE" },
   creatorId: { type: String, required: true },
   creatorName: { type: String, required: true },
   creatorEmail: { type: String, required: true },

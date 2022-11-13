@@ -1,4 +1,5 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
 
 import Nav from "./components/Nav/Nav";
 
@@ -8,6 +9,7 @@ import AppRoutes from "./AppRoutes";
 const App = () => {
   return (
     <>
+      <ToastContainer />
       <Nav />
       <AppRoutes />
       <Footer />
