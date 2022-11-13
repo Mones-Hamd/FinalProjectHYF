@@ -6,7 +6,7 @@ import { useAuthContext } from "../../hooks/useAuthContext";
 import { useEvent } from "../../hooks/useEvent";
 import axios from "axios";
 import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import Spinner from "../../components/Spinner/Spinner";
 
 const CreateForm = () => {
@@ -79,7 +79,7 @@ const CreateForm = () => {
         template: "DEFAULT",
         templateDetails: {
           ...rest,
-          images: url,
+          images: [{ url, alt: userFile.file.name.split(".")[0] }],
         },
         form: [
           {
@@ -190,7 +190,6 @@ const CreateForm = () => {
 
   return (
     <>
-      <ToastContainer />
       <div className="create-page">
         {(isLoading || isImageUploading) && <Spinner />}
 

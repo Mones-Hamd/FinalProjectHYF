@@ -36,11 +36,13 @@ const useFetch = (route, onReceived) => {
 
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
 
   // Add any args given to the function to the fetch function
   const performFetch = (options) => {
     setError(null);
     setIsLoading(true);
+    setIsSuccess(false);
 
     const baseOptions = {
       method: "GET",
@@ -66,6 +68,7 @@ const useFetch = (route, onReceived) => {
       const jsonResult = await res.json();
 
       if (jsonResult.success === true) {
+        setIsSuccess(true);
         onReceived(jsonResult);
       } else {
         setError(
@@ -85,7 +88,7 @@ const useFetch = (route, onReceived) => {
     });
   };
 
-  return { isLoading, error, performFetch, cancelFetch };
+  return { isLoading, isSuccess, error, performFetch, cancelFetch };
 };
 
 export default useFetch;

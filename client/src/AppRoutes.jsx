@@ -26,7 +26,7 @@ const AppRoutes = () => {
         element={user ? <CreateForm /> : <Navigate to="/login" />}
       />
       <Route
-        path="/event/:id"
+        path="/event/:eventId"
         element={user ? <EventPage /> : <Navigate to="/login" />}
       />
       <Route
@@ -38,7 +38,7 @@ const AppRoutes = () => {
         path="/register"
         element={!user ? <Register /> : <Navigate to="/homePage" />}
       />
-      <Route path="/result" element={<Result />} />
+      <Route path="/result/:eventId" element={<Result />} />
     </Routes>
   );
 };
