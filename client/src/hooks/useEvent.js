@@ -48,6 +48,7 @@ export const useEvent = () => {
       error: useCreateEvent.error,
       perform: createEvent,
       cancel: useCreateEvent.cancelFetch,
+      isSuccess: useCreateEvent.isSuccess,
     },
     getAll: {
       isLoading: useGetAllEvents.isLoading,

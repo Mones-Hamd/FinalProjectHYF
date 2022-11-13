@@ -11,7 +11,7 @@ const handleDatePicker = (day) => {
 export const textInputsAttributes = [
   {
     id: 1,
-    name: "title",
+    name: "eventTitle",
     type: "text",
     placeholder: "What is your wedding's title?",
     errorMessage: "Wedding title should be between 5 and 50 characters long.",
@@ -22,7 +22,7 @@ export const textInputsAttributes = [
   },
   {
     id: 2,
-    name: "bride-name",
+    name: "brideName",
     type: "text",
     placeholder: "What is bride's name?",
     errorMessage: "Bride's name should be between 1 and 30 characters long.",
@@ -33,7 +33,7 @@ export const textInputsAttributes = [
   },
   {
     id: 3,
-    name: "groom-name",
+    name: "groomName",
     type: "text",
     placeholder: "What is groom's name?",
     errorMessage: "Groom's name should be between 1 and 30 characters long.",
@@ -67,9 +67,9 @@ export const textInputsAttributes = [
 
   {
     id: 6,
-    name: "poC_name",
+    name: "contactName",
     type: "text",
-    placeholder: "Who is point of contact of your wediing?",
+    placeholder: "Who is point of contact of your wedding?",
     errorMessage: "PoC name should be entered.",
     label: "PoC Name",
     required: true,
@@ -78,7 +78,7 @@ export const textInputsAttributes = [
   },
   {
     id: 7,
-    name: "poC_phone_number",
+    name: "contactNumber",
     type: "tel",
     placeholder: "What is the phone number of the point of contact?",
     label: "PoC Phone Number",
