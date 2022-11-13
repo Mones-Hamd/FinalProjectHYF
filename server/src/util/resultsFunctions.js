@@ -7,7 +7,7 @@ const getTargetResponses = (answers) => {
     answer.responses.forEach((response) => {
       if (
         response.question.questionKey === "response" &&
-        response.answer.answerValue
+        response.answer.answerValue === "yes"
       ) {
         targetResponses.push(answer);
       }
@@ -38,6 +38,8 @@ const getTotalPrevelageByKey = (answers, key) => {
     answer.responses.forEach((response) => {
       if (response.question.questionKey === key) {
         allAnswers.push(answer);
+      } else {
+        return;
       }
     });
   });
@@ -45,14 +47,26 @@ const getTotalPrevelageByKey = (answers, key) => {
   return total;
 };
 export const getAllTotalPrevelage = (answers, keys) => {
-  const allTotalPrevelages = [];
+  const allTotalPrevelages = {};
+
   keys.forEach((key) => {
     const total = getTotalPrevelageByKey(answers, key);
-    allTotalPrevelages.push({ key: total });
+    allTotalPrevelages[key] = total;
   });
+
   return allTotalPrevelages;
 };
 export const countPercentage = (total, amount) => {
   const percentage = (amount / total) * 100;
   return percentage;
+};
+export const getAllTotalPrevelagePercnetages = (answers, keys) => {
+  const allTotalPrevelagesPercentage = {};
+  const total = numberOfAttending(answers);
+  keys.forEach((key) => {
+    const amount = getTotalPrevelageByKey(answers, key);
+    const percentage = countPercentage(total, amount);
+    allTotalPrevelagesPercentage[key] = percentage;
+  });
+  return allTotalPrevelagesPercentage;
 };
