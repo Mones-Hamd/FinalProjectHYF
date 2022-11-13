@@ -69,7 +69,7 @@ export const textInputsAttributes = [
     id: 6,
     name: "contactName",
     type: "text",
-    placeholder: "Who is point of contact of your wediing?",
+    placeholder: "Who is point of contact of your wedding?",
     errorMessage: "PoC name should be entered.",
     label: "PoC Name",
     required: true,

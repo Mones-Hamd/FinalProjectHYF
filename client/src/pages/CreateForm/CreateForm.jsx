@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./createPage.css";
 import { textInputsAttributes } from "./dataInform";
-import InputWeddingForm from "../../components/InputWeddingForm/FormWeddingInput";
+import InputWeddingForm from "../../components/InputWeddingForm/InputWeddingForm";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useEvent } from "../../hooks/useEvent";
 import axios from "axios";
@@ -228,7 +228,7 @@ const CreateForm = () => {
                 />
               ))}
               <div className="form-line">
-                <p className="create-form-tag-title">Image of Event</p>
+                <p className="create-form-tag-title">Image of Wedding</p>
                 <label>
                   <input
                     name="file"
