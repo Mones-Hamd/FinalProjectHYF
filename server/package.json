@@ -1,7 +1,6 @@
 {
   "name": "project-server",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -50,5 +49,6 @@
     "prop-types": "^15.8.1",
     "swagger-ui-express": "^4.5.0",
     "yamljs": "^0.3.0"
-  }
+  },
+  "description": ""
 }
