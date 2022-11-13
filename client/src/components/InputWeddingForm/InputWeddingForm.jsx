@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import "./inputWeddingForm.css";
+import "./InputWeddingForm.css";
 
 const InputWeddingForm = (props) => {
   const [focused, setFocused] = useState(false);
