@@ -6,7 +6,7 @@ import {
   numberOfAttending,
   getAllTotalAnswers,
   countPercentage,
-  getAllTotalAnswersPercnetages,
+  getAllTotalAnswersPercentages,
 } from "../util/resultsFunctions.js";
 
 export const getEventResults = async (req, res) => {
@@ -18,19 +18,19 @@ export const getEventResults = async (req, res) => {
     if (answers) {
       const totalResponse = answers.length;
       const attending = numberOfAttending(answers);
-      const attendenigPercnetage = countPercentage(totalResponse, attending);
+      const attendingPercentage = countPercentage(totalResponse, attending);
       const notAttending = numberOfNotAttending(answers);
-      const notAttendingPercentage = 100 - attendenigPercnetage;
+      const notAttendingPercentage = 100 - attendingPercentage;
       const guestsInformation = getGuestsInformation(answers);
       const allTotalAnswers = getAllTotalAnswers(answers, keys);
-      const allTotalAnswersPercentage = getAllTotalAnswersPercnetages(
+      const allTotalAnswersPercentage = getAllTotalAnswersPercentages(
         answers,
         keys
       );
       res.status(200).json({
         totalResponse,
         attending,
-        attendenigPercnetage,
+        attendingPercentage,
         notAttending,
         notAttendingPercentage,
         guestsInformation,

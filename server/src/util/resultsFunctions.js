@@ -16,25 +16,25 @@ const getTargetResponses = (answers) => {
   return targetResponses;
 };
 export const numberOfAttending = (answers) => {
-  const attendenig = getTargetResponses(answers).length;
-  return attendenig;
+  const attending = getTargetResponses(answers).length;
+  return attending;
 };
 export const numberOfNotAttending = (answers) => {
   const notAttending = numberOfResponses(answers) - numberOfAttending(answers);
   return notAttending;
 };
 export const getGuestsInformation = (answers) => {
-  const guestsInformations = [];
+  const guestsInformation = [];
   const obj = {};
   getTargetResponses(answers).forEach((response) => {
     const guestName = response.guestName;
     const guestEmail = response.guestEmail;
     obj["guestName"] = guestName;
     obj["guestEmail"] = guestEmail;
-    guestsInformations.push(obj);
+    guestsInformation.push(obj);
   });
 
-  return guestsInformations;
+  return guestsInformation;
 };
 const getTotalAnswersByKey = (answers, key) => {
   const allAnswers = [];
@@ -51,26 +51,26 @@ const getTotalAnswersByKey = (answers, key) => {
   return total;
 };
 export const getAllTotalAnswers = (answers, keys) => {
-  const allTotalAnswerss = {};
+  const allTotalAnswers = {};
 
   keys.forEach((key) => {
     const total = getTotalAnswersByKey(answers, key);
-    allTotalAnswerss[key] = total;
+    allTotalAnswers[key] = total;
   });
 
-  return allTotalAnswerss;
+  return allTotalAnswers;
 };
 export const countPercentage = (total, amount) => {
   const percentage = (amount / total) * 100;
   return percentage;
 };
-export const getAllTotalAnswersPercnetages = (answers, keys) => {
-  const allTotalAnswerssPercentage = {};
+export const getAllTotalAnswersPercentages = (answers, keys) => {
+  const allTotalAnswersPercentage = {};
   const total = numberOfAttending(answers);
   keys.forEach((key) => {
     const amount = getTotalAnswersByKey(answers, key);
     const percentage = countPercentage(total, amount);
-    allTotalAnswerssPercentage[key] = percentage;
+    allTotalAnswersPercentage[key] = percentage;
   });
-  return allTotalAnswerssPercentage;
+  return allTotalAnswersPercentage;
 };
