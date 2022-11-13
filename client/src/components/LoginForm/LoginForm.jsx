@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./LoginForm.css";
 import { useAuth } from "../../hooks/useAuth.jsx";
-import Loading from "../Loading/Loading.jsx";
 
 import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
+import Spinner from "../Spinner/Spinner.jsx";
 
 const REMEMBER_ME = "REMEMBER_ME";
 
@@ -101,7 +101,7 @@ const LoginForm = () => {
             <a>Forgot the password?</a>
           </p>
         </form>
-        {isLoading ? <Loading /> : <></>}
+        {isLoading ? <Spinner /> : <></>}
       </div>
 
       {error ? <ErrorMsg error={error} /> : <></>}

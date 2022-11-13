@@ -13,10 +13,10 @@ const templateDetails = {
 const EventInfo = () => {
   return (
     <div className="eventInfoBox">
-      {Object.entries(templateDetails).map(([value]) => (
-        <>
+      {Object.entries(templateDetails).map(([key, value]) => (
+        <div key={key}>
           <p>{value}</p>
-        </>
+        </div>
       ))}
     </div>
   );

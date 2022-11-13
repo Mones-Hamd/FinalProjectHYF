@@ -42,6 +42,8 @@ function EventGuestForm() {
       placeholder: "0-5 people",
       errorMessage: "Should  not be more than 5 people",
       required: true,
+      min: 0,
+      max: 5,
     },
   ];
   const questions = [
@@ -114,8 +116,8 @@ function EventGuestForm() {
       <form onSubmit={handleSubmit}>
         <div className="textAnswers">
           {inputs.map((input) => (
-            <>
-              <label>{input.label}</label>
+            <div key={input.name}>
+              <label key={input.label}>{input.label}</label>
               <FormInput
                 key={input.key}
                 {...input}
@@ -123,16 +125,16 @@ function EventGuestForm() {
                 onChange={onChange}
                 errorMessage={input.errorMessage}
               />
-            </>
+            </div>
           ))}
         </div>
 
         <div className="questions">
           {questions.map((question) => (
-            <div key={question.index} className="questionBox">
-              <p key={question.key}>{question.label}</p>
+            <div key={question.name} className="questionBox">
+              <p key={question.label}>{question.label}</p>
               {question.options.map((option) => (
-                <div className="answerBox" key={question.key}>
+                <div key={option.answer}>
                   <input
                     name={question.key}
                     key={question.key}
