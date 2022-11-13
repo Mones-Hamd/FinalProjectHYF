@@ -46,7 +46,7 @@ const eventSchema = new mongoose.Schema({
       options: [{ type: optionSchema }],
     },
   ],
-  url: { type: String, required: true, unique: true },
+  shortLink: { type: String, required: true, unique: true },
 });
 
 const Event = mongoose.model("events", eventSchema);
@@ -55,7 +55,12 @@ export default Event;
 
 export const validateEvent = (eventObject) => {
   const errorList = [];
-  const defaultFields = ["creatorId", "creatorName", "creatorEmail", "url"];
+  const defaultFields = [
+    "creatorId",
+    "creatorName",
+    "creatorEmail",
+    "shortLink",
+  ];
   const requiredKeys = ["templateDetails", "form"];
   const optionalKeys = ["isPrivate", "type", "template"];
 
