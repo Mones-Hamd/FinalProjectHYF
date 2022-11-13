@@ -1,5 +1,5 @@
 import Event from "../models/Event.js";
-import Response from "../models/Response1.js";
+import Response from "../models/Response.js";
 import {
   getGuestsInformations,
   numberOfNotAttending,
