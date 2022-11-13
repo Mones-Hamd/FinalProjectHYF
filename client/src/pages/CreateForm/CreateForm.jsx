@@ -202,17 +202,7 @@ const CreateForm = () => {
             page
           </p>
         )}
-        {event && (
-          <>
-            <div>
-              {event.templateDetails.brideName} &{" "}
-              {event.templateDetails.groomName}
-            </div>
-            <div>{event.templateDetails.date}</div>
-            <div>created by {event.creatorName}</div>
-            <div>url: {event.url}</div>
-          </>
-        )}
+        {event && <></>}
         <div className="create-form-container">
           <div className="create-form">
             <form className="" onSubmit={createEvent}>
