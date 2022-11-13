@@ -23,16 +23,20 @@ export const numberOfNotAttending = (answers) => {
   const notAttending = numberOfResponses(answers) - numberOfAttending(answers);
   return notAttending;
 };
-export const getGuestsInformations = (answers) => {
-  const nameOfGuest = getTargetResponses(answers).map(
-    (response) => response.guestName
-  );
-  const emailOfGuests = getTargetResponses(answers).map(
-    (response) => response.guestEmail
-  );
-  return { nameOfGuest, emailOfGuests };
+export const getGuestsInformation = (answers) => {
+  const guestsInformations = [];
+  const obj = {};
+  getTargetResponses(answers).forEach((response) => {
+    const guestName = response.guestName;
+    const guestEmail = response.guestEmail;
+    obj["guestName"] = guestName;
+    obj["guestEmail"] = guestEmail;
+    guestsInformations.push(obj);
+  });
+
+  return guestsInformations;
 };
-const getTotalPrevelageByKey = (answers, key) => {
+const getTotalAnswersByKey = (answers, key) => {
   const allAnswers = [];
   getTargetResponses(answers).forEach((answer) => {
     answer.responses.forEach((response) => {
@@ -46,27 +50,27 @@ const getTotalPrevelageByKey = (answers, key) => {
   const total = allAnswers.length;
   return total;
 };
-export const getAllTotalPrevelage = (answers, keys) => {
-  const allTotalPrevelages = {};
+export const getAllTotalAnswers = (answers, keys) => {
+  const allTotalAnswerss = {};
 
   keys.forEach((key) => {
-    const total = getTotalPrevelageByKey(answers, key);
-    allTotalPrevelages[key] = total;
+    const total = getTotalAnswersByKey(answers, key);
+    allTotalAnswerss[key] = total;
   });
 
-  return allTotalPrevelages;
+  return allTotalAnswerss;
 };
 export const countPercentage = (total, amount) => {
   const percentage = (amount / total) * 100;
   return percentage;
 };
-export const getAllTotalPrevelagePercnetages = (answers, keys) => {
-  const allTotalPrevelagesPercentage = {};
+export const getAllTotalAnswersPercnetages = (answers, keys) => {
+  const allTotalAnswerssPercentage = {};
   const total = numberOfAttending(answers);
   keys.forEach((key) => {
-    const amount = getTotalPrevelageByKey(answers, key);
+    const amount = getTotalAnswersByKey(answers, key);
     const percentage = countPercentage(total, amount);
-    allTotalPrevelagesPercentage[key] = percentage;
+    allTotalAnswerssPercentage[key] = percentage;
   });
-  return allTotalPrevelagesPercentage;
+  return allTotalAnswerssPercentage;
 };

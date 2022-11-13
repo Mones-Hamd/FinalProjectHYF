@@ -1,12 +1,12 @@
 import Event from "../models/Event.js";
 import Response from "../models/Response.js";
 import {
-  getGuestsInformations,
+  getGuestsInformation,
   numberOfNotAttending,
   numberOfAttending,
-  getAllTotalPrevelage,
+  getAllTotalAnswers,
   countPercentage,
-  getAllTotalPrevelagePercnetages,
+  getAllTotalAnswersPercnetages,
 } from "../util/resultsFunctions.js";
 
 export const getEventResults = async (req, res) => {
@@ -21,9 +21,9 @@ export const getEventResults = async (req, res) => {
       const attendenigPercnetage = countPercentage(totalResponse, attending);
       const notAttending = numberOfNotAttending(answers);
       const notAttendingPercentage = 100 - attendenigPercnetage;
-      const guestsInformations = getGuestsInformations(answers);
-      const allTotalPrevelages = getAllTotalPrevelage(answers, keys);
-      const allTotalPrevelagesPercentage = getAllTotalPrevelagePercnetages(
+      const guestsInformation = getGuestsInformation(answers);
+      const allTotalAnswers = getAllTotalAnswers(answers, keys);
+      const allTotalAnswersPercentage = getAllTotalAnswersPercnetages(
         answers,
         keys
       );
@@ -33,9 +33,9 @@ export const getEventResults = async (req, res) => {
         attendenigPercnetage,
         notAttending,
         notAttendingPercentage,
-        guestsInformations,
-        allTotalPrevelages,
-        allTotalPrevelagesPercentage,
+        guestsInformation,
+        allTotalAnswers,
+        allTotalAnswersPercentage,
       });
     } else {
       res.json({

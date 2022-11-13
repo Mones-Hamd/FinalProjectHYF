@@ -16,10 +16,6 @@ eventRouter.get(
   passport.authenticate("jwt", { session: false }),
   getEvents
 );
-eventRouter.get(
-  "/results/:eventId",
-  passport.authenticate("jwt", { session: false }),
-  getEventResults
-);
+eventRouter.get("/results/:eventId", getEventResults);
 
 export default eventRouter;

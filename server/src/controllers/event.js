@@ -1,6 +1,7 @@
 import Event, { validateEvent } from "../models/Event.js";
 import validationErrorMessage from "../util/validationErrorMessage.js";
 import { nanoid } from "nanoid";
+import { logError } from "../util/logging.js";
 
 export const createEvent = async (req, res) => {
   const errorList = validateEvent(req.body);
@@ -29,18 +30,51 @@ export const createEvent = async (req, res) => {
   res.status(200).json({
     success: true,
     event: event,
-    msg: "You are successfully authenticated to this route!",
+    msg: "Event successfully created!",
   });
 };
 
 export const getEvents = async (req, res) => {
-  const { userId } = req.user._id;
-
   try {
-    const events = await new Event.find({ creatorId: userId });
+    const events = await Event.find({
+      creatorId: req.user._id,
+      status: "ACTIVE",
+    });
     if (!events) res.json({ message: "There is no events yet" });
-    res.status(200).json(events);
+    res.status(200).json({
+      success: true,
+      events: events,
+    });
   } catch (err) {
+    logError(err);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+};
+
+export const cancelEvent = async (req, res) => {
+  try {
+    const event = await Event.findOne({ _id: req.params.eventId });
+    if (event.creatorId !== req.user._id.valueOf()) {
+      res.status(401).send({
+        success: false,
+        message: "You do not have permission to perform this operation",
+      });
+      return;
+    }
+
+    const response = await Event.findOneAndUpdate(
+      { creatorName: "akin" },
+      { status: "DELETED" },
+      {
+        new: true,
+      }
+    );
+    res.status(200).json({
+      success: true,
+      event: response,
+    });
+  } catch (err) {
+    logError(err);
     res.status(500).send({ message: "Internal Server Error" });
   }
 };
