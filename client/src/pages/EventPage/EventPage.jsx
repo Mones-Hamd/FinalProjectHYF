@@ -2,10 +2,12 @@ import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEvent } from "../../hooks/useEvent";
 import { useCancelEvent } from "../../hooks/useCancelEvent";
+import { baseUrl } from "../../config/config";
 import Carousel from "../../components/Carousel/Carousel";
 import "./eventPage.css";
 import Accordion from "../../components/Accordion/Accordion";
 import Spinner from "../../components/Spinner/Spinner";
+import { toast } from "react-toastify";
 
 const EventPage = () => {
   const { events } = useEvent();
@@ -14,6 +16,12 @@ const EventPage = () => {
   const { isLoading, isSuccess, cancelEvent, cancelFetch } =
     useCancelEvent(eventId);
   const event = events.find((event) => event._id === eventId);
+
+  const generateUrl = () => {
+    if (event?.shortLink) {
+      return `${baseUrl}/to/${event.shortLink}`;
+    }
+  };
 
   useEffect(() => {
     return () => cancelFetch();
@@ -33,7 +41,18 @@ const EventPage = () => {
     navigate(`/result/${event._id}`);
   };
   const copyLink = async () => {
-    await navigator.clipboard.writeText(event?.url);
+    await navigator.clipboard.writeText(generateUrl());
+    toast.info("Copied", {
+      autoClose: 2000,
+      hideProgressBar: true,
+      isLoading: false,
+      closeButton: false,
+      icon: false,
+      bodyStyle: {
+        backgroundColor: "#000000ff",
+        width: "100%",
+      },
+    });
   };
 
   return (
@@ -54,9 +73,9 @@ const EventPage = () => {
           Cancel Event
         </button>
       </div>
-      <div className="copyLinkGroup">
-        <input type="text" disabled value={event?.url}></input>
-        <button type="button" disabled={isLoading} onClick={copyLink}>
+      <div className="copyLinkGroup" onClick={copyLink}>
+        <input type="text" disabled value={generateUrl()}></input>
+        <button type="button" disabled={isLoading}>
           Copy Link
         </button>
       </div>
