@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./createPage.css";
 import { textInputsAttributes } from "./dataInform";
-import InputWeddingForm from "../../components/InputWeddingForm/InputWeddingForm";
+import InputWeddingForm from "../../components/InputWeddingForm/FormWeddingInput";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useEvent } from "../../hooks/useEvent";
 import axios from "axios";
