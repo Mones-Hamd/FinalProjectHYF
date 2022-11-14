@@ -34,9 +34,6 @@ const Nav = () => {
                 <Link to="/aboutUs" className="links">
                   About Us
                 </Link>
-                <Link to="/guestPage" className="links">
-                  GuestPage
-                </Link>
               </div>
             )}
 
@@ -126,9 +123,6 @@ const Nav = () => {
                 </Link>
                 <Link to="/aboutUs" className="navbar-text-hamburger">
                   <li> About Us</li>
-                </Link>
-                <Link to="/guestPage" className="navbar-text-hamburger">
-                  <li> GuestPage</li>
                 </Link>
               </>
             )}
