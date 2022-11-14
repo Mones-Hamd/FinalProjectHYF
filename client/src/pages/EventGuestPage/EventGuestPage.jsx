@@ -40,14 +40,9 @@ const getEventForm = (form) => {
     guestEmail: "",
     response: [
       {
-        question: {
-          questionKey: {},
-          questionText: "",
-        },
-        answer: {
-          answerKey: "",
-          answerText: "",
-        },
+        question: "",
+
+        answer: "",
       },
     ],
   });
