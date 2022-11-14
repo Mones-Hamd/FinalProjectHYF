@@ -18,7 +18,6 @@ const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Welcome />} />
       <Route path="/aboutUs" element={<AboutUs />} />
-      <Route path="/guestPage" element={<EventGuestPage />} />
       <Route
         path="/homePage"
         element={user ? <Home /> : <Navigate to="/login" />}

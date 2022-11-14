@@ -22,7 +22,6 @@ export const useEvent = () => {
 
   const useGetEvent = useFetch(`/event/${eventId}`, (data) => {
     setEvent(data.event);
-    setEvents((events) => [...events, data.event]);
   });
 
   const getEvent = () => {
