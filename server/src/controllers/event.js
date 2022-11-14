@@ -22,7 +22,7 @@ export const createEvent = async (req, res) => {
     template: req.body.template || "DEFAULT",
     templateDetails: req.body.templateDetails,
     form: req.body.form,
-    url: generateShortLink(),
+    shortLink: nanoid(process.env.SHORT_LINK_LENGTH || 7),
   });
 
   const event = await newEvent.save();
@@ -51,6 +51,27 @@ export const getEvents = async (req, res) => {
   }
 };
 
+export const getEventByShortLink = async (req, res) => {
+  try {
+    const events = await Event.findOne({
+      shortLink: req.params.shortLink,
+      status: "ACTIVE",
+    });
+    if (!events)
+      res.json({
+        message:
+          "There is not any events with this shortLink or event expired.",
+      });
+    res.status(200).json({
+      success: true,
+      event: events,
+    });
+  } catch (err) {
+    logError(err);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+};
+
 export const cancelEvent = async (req, res) => {
   try {
     const event = await Event.findOne({ _id: req.params.eventId });
@@ -69,6 +90,7 @@ export const cancelEvent = async (req, res) => {
         new: true,
       }
     );
+    //TODO we will send mail to the all participants
     res.status(200).json({
       success: true,
       event: response,
@@ -77,9 +99,4 @@ export const cancelEvent = async (req, res) => {
     logError(err);
     res.status(500).send({ message: "Internal Server Error" });
   }
-};
-
-const generateShortLink = () => {
-  const id = nanoid(process.env.SHORT_LINK_LENGTH || 7);
-  return `${process.env.CLIENT_HOST}:${process.env.CLIENT_PORT}/to/${id}`;
 };

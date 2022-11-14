@@ -3,6 +3,147 @@
   list-style: none;
 }
 
-.create-page {
+.create-form-container {
+  display: flex;
+  flex-direction: column;
+  --orange-colour: #e29578;
+  background-image: radial-gradient(#006d77, #006d77, #83c5be);
   min-height: 100vh;
+  border-radius: 3rem;
+}
+
+.create-form {
+  margin: 3rem;
+  font-family: "Poppins", sans-serif;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  align-self: center;
+  background-color: #ffffff;
+}
+.create-form-header {
+  margin-top: 2rem;
+  text-align: center;
+  color: #dc281e;
+}
+
+.form-line {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.create-form-input {
+  border-bottom: 1px solid #000000;
+  outline: none;
+  font-size: 12px;
+  border-radius: 20px;
+  padding: 0.5rem;
+}
+
+.create-form-input-date {
+  border: none;
+  outline: none;
+  font-size: 16px;
+  padding: 0.5rem;
+}
+::-webkit-calendar-picker-indicator {
+  cursor: pointer;
+}
+
+.create-form-tag {
+  margin-right: 0.5rem;
+  background-color: red;
+}
+.create-form-tag-title {
+  margin-left: 0.5rem;
+}
+.create-form-tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  font-size: 12px;
+  margin-left: 0.5rem;
+}
+input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+.create-form-success {
+  padding: 1.5rem;
+  text-align: center;
+  color: hsl(120, 100%, 25%);
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  width: 60%;
+  background-color: hsla(120, 100%, 25%, 0.2);
+}
+
+.create-form-submit {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 0.4rem 2rem;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+  align-items: center;
+  width: 8rem;
+  align-self: center;
+  margin: 3rem;
+}
+
+.form-line-description {
+  padding: 0.5rem;
+  border-radius: 20px;
+  border-bottom: 1px solid #000000;
+  outline: none;
+}
+
+input::file-selector-button {
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 0.3rem;
+  cursor: pointer;
+  font-family: "Poppins", sans-serif;
+}
+.create-form-image-preview {
+  width: 10cm;
+  height: 10cm;
+  object-fit: cover;
+  border-radius: 60%;
+}
+
+.create-form-input-photo {
+  margin-left: 0.5rem;
+}
+
+.create-form-description-tag {
+  margin-left: 0.5rem;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}
+
+@media only screen and (min-width: 600px) {
+  .create-form-input-date {
+    width: 50%;
+  }
+  .create-form {
+    width: 30rem;
+  }
+  .create-form-tags {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .create-form-input-date {
+    width: 40%;
+  }
+  .create-form {
+    width: 40rem;
+  }
 }
