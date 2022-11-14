@@ -76,7 +76,8 @@
 }
 
 .create-form-tag-title {
-  margin-left: 0.5rem;
+  margin-left: 4rem;
+  color: #edf6f9;
 }
 
 input[type="checkbox"]:hover {
@@ -119,6 +120,7 @@ input::file-selector-button {
 .create-form-description-tag {
   margin-left: 0.5rem;
   color: #edf6f9;
+  border-radius: 50%;
 }
 
 .error {
