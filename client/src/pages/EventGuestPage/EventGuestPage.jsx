@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
 import { useEvent } from "../../hooks/useEvent";
+import useFetch from "../../hooks/useFetch";
 import "./EventGuestPage.css";
 
 function EventGuestPage() {
@@ -10,12 +12,21 @@ function EventGuestPage() {
   const onChange = (e) => {
     setFormValues({ ...formValues, [e.target.name]: e.target.value });
   };
+  const POST_RESPONSE_ROUTE = "/response/";
+  const { /* isLoading, error, */ performFetch /* cancelFetch */ } = useFetch(
+    POST_RESPONSE_ROUTE,
+    onReceived
+  );
+  const navigate = useNavigate();
+  const onReceived = () => {
+    navigate("/");
+  };
 
   const submit = async (e) => {
     e.preventDefault();
-    // console.log(formValues);
+
     const requestBody = {
-      eventId: "",
+      eventId: event._id,
       guestName: "",
       guestEmail: "",
       response: Object.entries(formValues).map(([question, answer]) => {
@@ -32,7 +43,16 @@ function EventGuestPage() {
     requestBody.guestEmail = requestBody.response.find(
       (item) => item.question === "email"
     ).answer;
-    // console.log(requestBody);
+
+    const options = {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(requestBody),
+    };
+    performFetch(options);
+    //console.log("success", JSON.stringify(requestBody));
   };
 
   useEffect(() => {
@@ -52,7 +72,6 @@ function EventGuestPage() {
   };
   return (
     <>
-      <p>EventID :{event?._id}</p>
       <Carousel images={event?.templateDetails?.images} />
       {getEventDetails()}
       <div className="form">{getEventForm(event?.form, onChange, submit)}</div>
