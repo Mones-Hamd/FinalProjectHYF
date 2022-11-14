@@ -75,37 +75,16 @@
   cursor: pointer;
 }
 
-.create-form-tag {
-  margin-right: 0.5rem;
-  background-color: red;
-}
 .create-form-tag-title {
   margin-left: 0.5rem;
 }
-.create-form-tags {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  width: 50%;
-  font-size: 12px;
-  margin-left: 0.5rem;
-}
+
 input[type="checkbox"]:hover {
   cursor: pointer;
 }
 
-.create-form-success {
-  padding: 1.5rem;
-  text-align: center;
-  color: hsl(120, 100%, 25%);
-  border-radius: 0.5rem;
-  margin: 1rem auto;
-  width: 60%;
-  background-color: hsla(120, 100%, 25%, 0.2);
-}
-
 .create-form-submit {
-  background-color: tomato;
+  background-color: rgb(241, 47, 13);
   color: #ffffff;
   border-radius: 10px;
   padding: 0.4rem 2rem;
@@ -117,15 +96,8 @@ input[type="checkbox"]:hover {
   margin: 3rem;
 }
 
-.form-line-description {
-  padding: 0.5rem;
-  border-radius: 20px;
-  border-bottom: 1px solid #000000;
-  outline: none;
-}
-
 input::file-selector-button {
-  background-color: tomato;
+  background-color: rgb(241, 47, 13);
   color: #ffffff;
   border-radius: 10px;
   padding: 0.3rem;
@@ -146,10 +118,11 @@ input::file-selector-button {
 
 .create-form-description-tag {
   margin-left: 0.5rem;
+  color: #edf6f9;
 }
 
 .error {
-  color: #e73c7e;
+  color: rgb(241, 47, 13);
   text-align: center;
 }
 
@@ -184,6 +157,9 @@ input::file-selector-button {
   }
   .create-form-description-tag {
     margin-left: 2rem;
+  }
+  span .evet-line.error-message {
+    margin-left: 5rem;
   }
 }
 

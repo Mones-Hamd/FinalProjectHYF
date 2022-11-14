@@ -1,8 +1,8 @@
 .event-line-error-message {
-  font-size: 12px;
+  font-size: 14px;
   padding: 0.3rem;
-  margin-left: 1rem;
-  color: red;
+  margin-left: 5rem;
+  color: rgb(241, 47, 13);
   display: none;
 }
 
@@ -17,5 +17,5 @@ input:invalid[focused="true"] ~ .event-line-error-message {
 }
 
 datalist {
-  background-color: red;
+  background-color: rgb(241, 47, 13);
 }
