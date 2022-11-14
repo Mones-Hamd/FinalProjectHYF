@@ -1,23 +1,36 @@
 import React from "react";
 import "./EventInfo.css";
-const templateDetails = {
-  eventTitle: "Our Wedding",
-  brideName: "Camelia",
-  groomName: "Oliver",
-  date: "2022-09-09T13:00:00",
-  address: "Amsterdam",
-  description: "wedding description",
-  contactName: "John",
-  contactNumber: "+305221235151",
-};
-const EventInfo = () => {
+
+const EventInfo = (details) => {
+  const weddingDate = new Date(details.date).toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+
   return (
-    <div className="eventInfoBox">
-      {Object.entries(templateDetails).map(([key, value]) => (
-        <div key={key}>
-          <p>{value}</p>
-        </div>
-      ))}
+    <div className="weddingDefault">
+      <div className="item">
+        <span className="title">Title:</span> {details.eventTitle}
+      </div>
+      <div className="item">
+        <span className="title">Bride and Groom:</span> {details.brideName}&
+        {details.groomName}
+      </div>
+      <div className="item">
+        <span className="title">Date:</span> {weddingDate}
+      </div>
+      <div className="item">
+        <span className="title">Address:</span> {details.address}
+      </div>
+      <div className="item">
+        <span className="title">Contact:</span> {details.contactNumber} -{" "}
+        {details.contactName}
+      </div>
+      <div className="item">
+        <span className="title">PS:</span> {details.description}
+      </div>
     </div>
   );
 };

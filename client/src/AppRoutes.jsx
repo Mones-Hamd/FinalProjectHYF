@@ -40,6 +40,7 @@ const AppRoutes = () => {
         path="/register"
         element={!user ? <Register /> : <Navigate to="/homePage" />}
       />
+      <Route path="/to/:eventId" element={<EventGuestPage />} />
       <Route path="/result/:eventId" element={<Result />} />
     </Routes>
   );
