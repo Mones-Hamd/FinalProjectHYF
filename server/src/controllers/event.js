@@ -90,6 +90,7 @@ export const cancelEvent = async (req, res) => {
         new: true,
       }
     );
+    //TODO we will send mail to the all participants
     res.status(200).json({
       success: true,
       event: response,
