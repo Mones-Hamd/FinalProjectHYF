@@ -43,9 +43,6 @@ const Home = () => {
             >
               {index + 1} - {e.templateDetails.brideName}&
               {e.templateDetails.groomName}
-              <div>{e.templateDetails.date}</div>
-              <div>created by {e.creatorName}</div>
-              <div>url: {e.url}</div>
             </div>
           ))}
         </div>
