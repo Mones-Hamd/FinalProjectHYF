@@ -21,7 +21,11 @@ eventRouter.get(
   passport.authenticate("jwt", { session: false }),
   getEvents
 );
-eventRouter.get("/results/:eventId", getEventResults);
+eventRouter.get(
+  "/results/:eventId",
+  passport.authenticate("jwt", { session: false }),
+  getEventResults
+);
 
 eventRouter.get("/:shortLink", getEventByShortLink);
 
@@ -30,8 +34,6 @@ eventRouter.delete(
   passport.authenticate("jwt", { session: false }),
   cancelEvent
 );
-
-eventRouter.get("/:shortLink", getEventByShortLink);
 
 eventRouter.delete(
   "/:eventId",

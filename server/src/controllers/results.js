@@ -1,5 +1,6 @@
 import Event from "../models/Event.js";
 import Response from "../models/Response.js";
+import { logError } from "../util/logging.js";
 import {
   getGuestsInformation,
   numberOfNotAttending,
@@ -44,6 +45,7 @@ export const getEventResults = async (req, res) => {
       });
     }
   } catch (err) {
+    logError(err);
     res.status(500).send({ message: "Internal Server Error" });
   }
 };

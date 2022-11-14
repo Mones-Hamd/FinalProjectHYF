@@ -1,4 +1,5 @@
 import Response from "../models/Response.js";
+import { logError } from "../util/logging.js";
 
 export const postResponse = async (req, res) => {
   const newResponse = new Response({
@@ -14,6 +15,7 @@ export const postResponse = async (req, res) => {
       response,
     });
   } catch (err) {
+    logError(err);
     res.status(500).send({ message: "Internal Server Error" });
   }
 };
