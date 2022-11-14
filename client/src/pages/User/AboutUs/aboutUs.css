@@ -7,10 +7,29 @@
   --light-orange-color: #ffddd2;
   --black-color: #000;
 }
+.teamIntro-container {
+  padding: 1rem;
+}
+.first-team-title {
+  margin-left: auto;
+  margin-right: auto;
+}
+.aboutUs-paragraph {
+  text-align: justify;
+}
+.accordion {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.accordion-button {
+  margin-left: -0.8rem;
+}
 
 .team-member-box {
   margin: 2rem;
-  border: solid 2px;
+  border: solid 2px var(--orange-color);
+
   border-radius: 20px;
 }
 
@@ -38,14 +57,21 @@
 
 .team-member-name {
   font-size: 1.4rem;
+  color: var(--dark-color);
 }
 
 .paragraph {
   margin-left: auto;
   margin-right: auto;
-  font-size: 20px;
+  font-size: 1rem;
   text-align: justify;
   padding: 2rem;
+  color: var(--dark-color);
+}
+.meet-team {
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: -2rem;
 }
 
 /* =============================Media Query section================================== */
@@ -54,14 +80,14 @@
     display: flex;
   }
   .team-pic {
-    width: 100%;
+    width: 70%;
   }
 
   .paragraph {
     margin-top: 3rem;
     margin-left: auto;
     margin-right: auto;
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 
@@ -88,9 +114,12 @@
 }
 
 @media only screen and (min-width: 1200px) {
+  .accordion {
+    margin-top: 2rem;
+  }
   .team-pic {
     margin-top: 3rem;
-    width: 100%;
+    width: 50%;
   }
   .home-container {
     display: grid;
