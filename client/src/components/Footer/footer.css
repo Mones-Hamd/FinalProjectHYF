@@ -84,6 +84,9 @@
   .col:nth-child(3) {
     flex-basis: 100%;
   }
+  .logo {
+    border-radius: 70%;
+  }
 }
 
 .social-icons {
