@@ -1,0 +1,75 @@
+.buttonGroup {
+  display: flex;
+  padding-right: 10px;
+}
+
+.buttonGroup button {
+  margin-left: 10px;
+}
+
+.copyLinkGroup {
+  display: flex;
+  padding-right: 10px;
+}
+
+.copyLinkGroup button {
+  max-width: 150px;
+  margin-left: 10px;
+  flex-grow: 0;
+  flex-basis: 150px;
+}
+
+.copyLinkGroup input[type="text"] {
+  margin: 0px 0px 0px 10px;
+  height: 47px;
+  flex-grow: 1;
+}
+
+.details {
+  margin: 16px;
+}
+
+.weddingDefault .title {
+  color: dimgray;
+  visibility: visible;
+  font-size: 10px;
+}
+
+.weddingDefault .item {
+  line-height: 30px;
+}
+
+.form {
+  margin: 16px;
+}
+
+.form .question {
+  margin-bottom: 20px;
+}
+
+.form .required {
+  font-size: 10px;
+  color: red;
+  visibility: visible;
+  vertical-align: super;
+}
+
+.form input[type="text"],
+.form input[type="email"],
+.form input[type="number"] {
+  height: 40px;
+  width: calc(100% - 40px);
+  border-color: var(--bs-accordion-border-color);
+  margin-left: 20px;
+}
+
+.form input[type="radio"],
+.form input[type="checkbox"] {
+  width: fit-content;
+  margin-right: 6px;
+  margin-left: 20px;
+}
+
+.form .option {
+  color: dimgray;
+}

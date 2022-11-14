@@ -12,7 +12,7 @@
   --black-colour: #000;
 }
 .nav-bar {
-  background-color: var(--light-orange-colour);
+  background-color: rgba(255, 255, 255, 0.5);
   height: 4rem;
   display: flex;
   justify-content: space-between;
@@ -29,7 +29,7 @@
   background: none;
 }
 .nav-menu {
-  background-color: var(--light-orange-colour);
+  background-color: white;
   width: 25rem;
   height: 100%;
   display: flex;
@@ -52,39 +52,51 @@
 .buttons-hamburger {
   display: flex;
   justify-content: space-between;
-  margin-right: 3rem;
+  margin-right: 4rem;
 }
 .navbar-button {
-  background-color: var(--orange-colour);
+  background-color: linear-gradient(
+    to right,
+    var(--light-colour),
+    var(--dark-colour)
+  );
   border-radius: 0.65rem;
   border: none;
-  box-shadow: 0px 3px 6px var(--orange-colour);
-  padding: 0.5rem 2rem;
+  box-shadow: 0px 3px 6px var(--dark-color);
+  padding: 0.5rem 1rem;
   font-family: "Poppins", sans-serif;
   align-items: center;
   margin-left: 1rem;
   width: 8rem;
+  margin-top: 0.8rem;
 }
 .navbar-button:hover {
   cursor: pointer;
   transform: scale(1.02);
+  color: var(--dark-colour);
 }
 .button-hamburger {
-  background-color: var(--light-orange-colour);
+  background-color: linear-gradient(
+    to,
+    var(--light-colour),
+    var(--dark-colour)
+  );
   box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
   border: none;
-  color: var(--app-dark);
+  color: var(--dark-colour);
   border-radius: 10px;
-  padding: 0.4rem 2rem;
+  padding: 0.4rem 0.5rem;
   margin: 0.5rem 0rem 3rem 0rem;
   width: 100%;
   font-family: "Poppins", sans-serif;
   align-items: center;
   width: 8rem;
+  margin-top: 1rem;
 }
 .button-hamburger:hover {
   cursor: pointer;
   transform: scale(1.02);
+  color: var(--dark-colour);
 }
 
 .links {
@@ -92,50 +104,53 @@
   align-self: flex-start;
   align-items: center;
   display: none;
+  text-decoration: none;
+  list-style: none;
 }
 
 .navbar-text {
   display: flex;
   justify-content: flex-start;
-  padding-top: 0.5rem;
-  height: 2.5rem;
-  color: #000000;
+  padding-bottom: 0.5rem;
+  height: 8rem;
   font-family: "Poppins", sans-serif;
+  text-decoration: none;
+  list-style: none;
+  font-size: medium;
 }
 .logo-text {
   display: flex;
   justify-content: center;
-  padding-top: 0.5rem;
-  height: 6rem;
-  color: var(--app-gray);
+  height: 5rem;
   font-family: "Poppins", sans-serif;
   margin: 3rem;
-  font-size: 22px;
-}
-
-.navbar-text:hover {
-  cursor: pointer;
-  transform: scale(1.02);
+  font-size: 20px;
+  border-radius: 3rem;
+  margin-left: 3rem;
 }
 
 .navbar-text-hamburger {
   display: flex;
   justify-content: flex-start;
   padding-top: 0.4rem;
-  height: 2.5rem;
-  color: var(--black-colour);
+  height: 3rem;
+  color: var(--dark-colour);
   font-family: "Poppins", sans-serif;
   border-bottom: 1px solid;
   margin: 0.5rem 3rem 0rem 0rem;
+  text-decoration: none;
+  list-style: none;
 }
 
 .navbar-text-hamburger:hover {
   cursor: pointer;
   transform: scale(1.02);
+  color: var(--dark-color);
 }
 
 .nav-menu-items {
   width: 100%;
+  color: var(--dark-color);
 }
 
 .nav-bar-toggle {
@@ -148,15 +163,22 @@
 }
 
 .user-name-nav {
-  color: var(--black-colour);
+  color: var(--dark-color);
   font-family: "Poppins", sans-serif;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  margin-top: 0.8rem;
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
 }
 
 .user-name-hamburger {
-  color: var(--black-colour);
+  color: var(--dark-colour);
   font-family: "Poppins", sans-serif;
-  font-size: 1.2em;
+  font-size: 1.3em;
+  list-style: none;
+  text-decoration: none;
+  padding-top: 1rem;
 }
 
 @media only screen and (min-width: 1000px) {
@@ -175,6 +197,7 @@
     height: 2rem;
     font-size: 1rem;
     margin-left: 2rem;
+    color: var(--dark-color);
   }
   .menu {
     display: none;
@@ -216,7 +239,7 @@
   .links {
     font-size: 1.4rem;
   }
-  .logo-img {
+  .logo-text {
     margin: auto;
   }
 }
