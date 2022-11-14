@@ -11,7 +11,9 @@ input:invalid[focused="true"] ~ .event-line-error-message {
 }
 
 .event-line-title {
-  margin-left: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 datalist {
