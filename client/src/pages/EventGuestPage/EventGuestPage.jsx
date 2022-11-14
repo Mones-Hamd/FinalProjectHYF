@@ -5,6 +5,36 @@ import "./EventGuestPage.css";
 
 function EventGuestPage() {
   const { event, getOneEvent } = useEvent();
+  const [formValues, setFormValues] = useState();
+
+  const onChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const submit = async (e) => {
+    e.preventDefault();
+    // console.log(formValues);
+    const requestBody = {
+      eventId: "",
+      guestName: "",
+      guestEmail: "",
+      response: Object.entries(formValues).map(([question, answer]) => {
+        return {
+          question,
+          answer,
+        };
+      }),
+    };
+
+    requestBody.guestName = requestBody.response.find(
+      (item) => item.question === "fullName"
+    ).answer;
+    requestBody.guestEmail = requestBody.response.find(
+      (item) => item.question === "email"
+    ).answer;
+    // console.log(requestBody);
+  };
+
   useEffect(() => {
     getOneEvent.perform();
 
@@ -25,38 +55,22 @@ function EventGuestPage() {
       <p>EventID :{event?._id}</p>
       <Carousel images={event?.templateDetails?.images} />
       {getEventDetails()}
-      <div className="form">{getEventForm(event?.form)}</div>
+      <div className="form">{getEventForm(event?.form, onChange, submit)}</div>
     </>
   );
 }
 
 export default EventGuestPage;
 
-const getEventForm = (form) => {
+const getEventForm = (form, onChange, submit) => {
   const [focused, setFocused] = useState(false);
-  const [values, setValues] = useState({
-    eventId: "",
-    guestName: "",
-    guestEmail: "",
-    response: [
-      {
-        question: "",
 
-        answer: "",
-      },
-    ],
-  });
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-  };
   const handleFocus = () => {
     setFocused(true);
   };
-  const onChange = (e) => {
-    setValues({ ...values, [e.target.name]: e.target.value });
-  };
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={submit}>
       {form?.map((question, index) => {
         return (
           <div key={question.key} className="question">
@@ -70,7 +84,7 @@ const getEventForm = (form) => {
               {question.attributes.type === "text" && (
                 <input
                   type="text"
-                  name={question.label}
+                  name={question.key}
                   placeholder="free text"
                   onChange={onChange}
                   onBlur={handleFocus}
@@ -81,7 +95,7 @@ const getEventForm = (form) => {
               {question.attributes.type === "email" && (
                 <input
                   type="email"
-                  name={question.label}
+                  name={question.key}
                   placeholder="email"
                   onChange={onChange}
                   onBlur={handleFocus}
@@ -91,7 +105,7 @@ const getEventForm = (form) => {
               {question.attributes.type === "number" && (
                 <input
                   type="number"
-                  name={question.label}
+                  name={question.key}
                   placeholder="number"
                   min={question.attributes.min}
                   max={question.attributes.max}
@@ -107,7 +121,7 @@ const getEventForm = (form) => {
                       <input
                         type="radio"
                         value={option.value}
-                        name={question.label}
+                        name={question.key}
                         onChange={onChange}
                         focused={focused.toString()}
                       />{" "}
@@ -122,7 +136,7 @@ const getEventForm = (form) => {
                       <input
                         type="radio"
                         value={option.value}
-                        name={question.label}
+                        name={question.key}
                         onChange={onChange}
                       />{" "}
                       {option.value}
