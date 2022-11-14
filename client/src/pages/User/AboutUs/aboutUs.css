@@ -92,10 +92,6 @@
 }
 
 @media only screen and (min-width: 700px) {
-  /* .paragraph {
-    font-size: 24px;
-    margin-top: 3rem;
-  } */
   .team-pic {
     width: 80%;
   }
