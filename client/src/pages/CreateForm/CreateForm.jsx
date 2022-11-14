@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./createPage.css";
+import "./CreatePage.css";
 import { textInputsAttributes } from "./dataInform";
 import InputWeddingForm from "../../components/InputWeddingForm/InputWeddingForm";
 import { useAuthContext } from "../../hooks/useAuthContext";
