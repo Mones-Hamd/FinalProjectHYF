@@ -1,6 +1,11 @@
 import express from "express";
 import passport from "passport";
-import { createEvent, getEvent, getEvents } from "../controllers/event.js";
+import {
+  createEvent,
+  getEventByShortLink,
+  getEvents,
+  cancelEvent,
+} from "../controllers/event.js";
 
 const eventRouter = express.Router();
 
@@ -11,15 +16,17 @@ eventRouter.post(
 );
 
 eventRouter.get(
-  "/:userId/eventId/:eventId",
-  passport.authenticate("jwt", { session: false }),
-  getEvent
-);
-
-eventRouter.get(
-  "/:userId",
+  "/",
   passport.authenticate("jwt", { session: false }),
   getEvents
+);
+
+eventRouter.get("/:shortLink", getEventByShortLink);
+
+eventRouter.delete(
+  "/:eventId",
+  passport.authenticate("jwt", { session: false }),
+  cancelEvent
 );
 
 export default eventRouter;
