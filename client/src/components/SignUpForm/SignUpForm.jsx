@@ -79,7 +79,8 @@ const SignUpForm = () => {
     <>
       <div className="signup-box">
         <form className="signup-form" onSubmit={handleSubmit}>
-          <h1>Create new account</h1>
+          <h2 className="create-title">Create new account</h2>
+          <hr />
           {inputs.map((input) => (
             <FormInput
               key={input.id}
@@ -89,12 +90,13 @@ const SignUpForm = () => {
               errorMessage={input.errorMessage}
             />
           ))}
-          <button disabled={isLoading}>Sign-up</button>
+          <button className="sign-up-btn" disabled={isLoading}>
+            Sign-up
+          </button>
         </form>
-
+        {error ? <ErrorMsg error={error} /> : <></>}
         {isLoading ? <Spinner /> : <></>}
       </div>
-      {error ? <ErrorMsg error={error} /> : <></>}
     </>
   );
 };
