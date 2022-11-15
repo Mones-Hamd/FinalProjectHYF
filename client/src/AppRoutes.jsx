@@ -10,6 +10,7 @@ import CreateForm from "./pages/CreateForm/CreateForm";
 import EventPage from "./pages/EventPage/EventPage";
 import AboutUs from "./pages/User/AboutUs/AboutUs";
 import Result from "./pages/ResultPage/Result";
+import EventGuestPage from "./pages/EventGuestPage/EventGuestPage";
 
 const AppRoutes = () => {
   const { user } = useAuthContext();
@@ -38,6 +39,7 @@ const AppRoutes = () => {
         path="/register"
         element={!user ? <Register /> : <Navigate to="/homePage" />}
       />
+      <Route path="/to/:eventId" element={<EventGuestPage />} />
       <Route path="/result/:eventId" element={<Result />} />
     </Routes>
   );

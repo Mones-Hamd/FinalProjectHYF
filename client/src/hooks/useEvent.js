@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useEventContext } from "../hooks/useEventContext";
 import useFetch from "../hooks/useFetch";
@@ -6,6 +6,7 @@ import useFetch from "../hooks/useFetch";
 export const useEvent = () => {
   const { token } = useAuthContext();
   const { event, events, setEvent, setEvents } = useEventContext();
+  const { eventId } = useParams();
 
   const navigate = useNavigate();
 
@@ -18,6 +19,20 @@ export const useEvent = () => {
   const useGetAllEvents = useFetch("/event", (data) => {
     setEvents(data.events);
   });
+
+  const useGetEvent = useFetch(`/event/${eventId}`, (data) => {
+    setEvent(data.event);
+  });
+
+  const getEvent = () => {
+    const options = {
+      method: "GET",
+      headers: {
+        "content-type": "application/json",
+      },
+    };
+    useGetEvent.performFetch(options);
+  };
 
   const createEvent = (eventObject) => {
     const options = {
@@ -55,6 +70,13 @@ export const useEvent = () => {
       error: useGetAllEvents.error,
       perform: getAllEvents,
       cancel: useGetAllEvents.cancelFetch,
+    },
+    getOneEvent: {
+      isLoading: useGetEvent.isLoading,
+      error: useGetEvent.error,
+      perform: getEvent,
+      cancel: useGetEvent.cancelFetch,
+      isSuccess: useGetEvent.isSuccess,
     },
     event,
     events,
