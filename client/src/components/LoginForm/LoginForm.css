@@ -24,7 +24,7 @@ h1 {
   padding: 2rem 0 0 0;
 }
 
-button {
+.log-in-btn {
   font-size: 1.2rem;
   border-radius: 5px;
   border: none;

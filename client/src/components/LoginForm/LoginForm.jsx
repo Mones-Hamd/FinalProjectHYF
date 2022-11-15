@@ -92,7 +92,9 @@ const LoginForm = () => {
               className="input-check-box"
             />
           </p>
-          <button disabled={isLoading}>Login</button>
+          <button className="log-in-btn" disabled={isLoading}>
+            Login
+          </button>
           <p>
             Dont have an account ,create an account{" "}
             <a href="/register"> here!</a>
