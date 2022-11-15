@@ -43,3 +43,15 @@ p {
 a {
   color: #000;
 }
+.input-check-box {
+  width: 15px;
+  margin-left: 10px;
+}
+
+.remember-box {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  padding-left: 1rem;
+}
