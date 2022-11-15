@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./signupForm.css";
-import Loading from "../Loading/Loading.jsx";
+
 import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
 import { useAuth } from "../../hooks/useAuth";
+import Spinner from "../Spinner/Spinner.jsx";
 
 const SignUpForm = () => {
   const [values, setValues] = useState({
@@ -91,7 +92,7 @@ const SignUpForm = () => {
           <button disabled={isLoading}>Sign-up</button>
         </form>
 
-        {isLoading ? <Loading /> : <></>}
+        {isLoading ? <Spinner /> : <></>}
       </div>
       {error ? <ErrorMsg error={error} /> : <></>}
     </>
