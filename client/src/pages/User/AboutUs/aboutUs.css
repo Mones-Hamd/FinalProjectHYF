@@ -115,13 +115,14 @@
   }
   .team-pic {
     margin-top: 3rem;
-    width: 50%;
+    width: 200px;
   }
-  .home-container {
-    display: grid;
-    grid-template-columns: 50% 50%;
-  }
+
   .paragraph {
-    font-size: 14px;
+    font-size: 20px;
+  }
+  .teamIntro-container {
+    margin-left: 7rem;
+    margin-right: 7rem;
   }
 }
