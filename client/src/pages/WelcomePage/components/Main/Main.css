@@ -1,20 +1,17 @@
 .main {
   width: 100vw;
-  margin-bottom: 1rem;
-  width: 100%;
   max-width: 700px;
-  margin-right: auto;
-  margin-left: auto;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 6rem auto;
+  margin: 4rem auto;
 }
 
 .imagePhoto {
-  width: 90%;
-  height: 90%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
   border-radius: 10%;
+  height: auto;
+  vertical-align: bottom;
 }
