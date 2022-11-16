@@ -19,7 +19,8 @@ export const postResponse = async (req, res) => {
         { new: true }
       );
       res.status(200).json({
-        message: "Success! Thanks you for Updating you Answers  ",
+        success: true,
+        message: "Success! Thanks you for Updating your Answers  ",
         response,
       });
     } else {
@@ -27,10 +28,12 @@ export const postResponse = async (req, res) => {
       const response = await newResponse.save();
 
       res.status(200).json({
+       success: true,
         message: "Success! Thanks you for answering this invitation  ",
         response,
       });
     }
+
   } catch (err) {
     res.status(500).send({ message: "Internal Server Error" });
   }

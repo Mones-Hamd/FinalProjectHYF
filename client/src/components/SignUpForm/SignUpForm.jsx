@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./signupForm.css";
-import Loading from "../Loading/Loading.jsx";
+
 import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
 import { useAuth } from "../../hooks/useAuth";
+import Spinner from "../Spinner/Spinner.jsx";
 
 const SignUpForm = () => {
   const [values, setValues] = useState({
@@ -78,7 +79,8 @@ const SignUpForm = () => {
     <>
       <div className="signup-box">
         <form className="signup-form" onSubmit={handleSubmit}>
-          <h1>Create new account</h1>
+          <h2 className="create-title">Create new account</h2>
+          <hr />
           {inputs.map((input) => (
             <FormInput
               key={input.id}
@@ -88,12 +90,13 @@ const SignUpForm = () => {
               errorMessage={input.errorMessage}
             />
           ))}
-          <button disabled={isLoading}>Sign-up</button>
+          <button className="sign-up-btn" disabled={isLoading}>
+            Sign-up
+          </button>
         </form>
-
-        {isLoading ? <Loading /> : <></>}
+        {error ? <ErrorMsg error={error} /> : <></>}
+        {isLoading ? <Spinner /> : <></>}
       </div>
-      {error ? <ErrorMsg error={error} /> : <></>}
     </>
   );
 };

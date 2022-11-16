@@ -2,9 +2,9 @@ import React, { useState, useEffect } from "react";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./LoginForm.css";
 import { useAuth } from "../../hooks/useAuth.jsx";
-import Loading from "../Loading/Loading.jsx";
 
 import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
+import Spinner from "../Spinner/Spinner.jsx";
 
 const REMEMBER_ME = "REMEMBER_ME";
 
@@ -72,7 +72,7 @@ const LoginForm = () => {
     <>
       <div className="login-box">
         <form className="login-form" onSubmit={handleSubmit}>
-          <h1>Login</h1>
+          <h2 className="log-title">Login</h2>
           {inputs.map((input) => (
             <FormInput
               key={input.id}
@@ -83,25 +83,24 @@ const LoginForm = () => {
             />
           ))}
 
-          <p>
-            Remember me
+          <div className="remember-box">
+            <label>Remember me</label>
             <input
               type="checkbox"
               checked={checked}
               onChange={handleChangeCheckBox}
               className="input-check-box"
             />
-          </p>
-          <button disabled={isLoading}>Login</button>
-          <p>
+          </div>
+          <button className="log-in-btn" disabled={isLoading}>
+            Login
+          </button>
+          <p className="new-account-link ">
             Dont have an account ,create an account{" "}
             <a href="/register"> here!</a>
           </p>
-          <p>
-            <a>Forgot the password?</a>
-          </p>
         </form>
-        {isLoading ? <Loading /> : <></>}
+        {isLoading ? <Spinner /> : <></>}
       </div>
 
       {error ? <ErrorMsg error={error} /> : <></>}
