@@ -10,6 +10,7 @@ export const postResponse = async (req, res) => {
   try {
     const response = await newResponse.save();
     res.status(200).json({
+      success: true,
       message: "Success! Thanks you for answering this invitation  ",
       response,
     });
