@@ -1,0 +1,32 @@
+* {
+  text-decoration: none;
+  list-style: none;
+}
+:root {
+  --white-colour: #fff;
+  --text-colour: #edf6f9;
+  --light-colour: #83c5be;
+  --dark-colour: #006d77;
+  --orange-colour: #e29578;
+  --light-orange-colour: #ffddd2;
+  --black-colour: #000;
+}
+.secondary-nav {
+  margin: 20px auto;
+  display: flex;
+  max-width: 90%;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .secondary-nav {
+    margin-top: 20px;
+    font-size: small;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .secondary-nav h1 {
+    max-width: 50%;
+    font-size: 13px;
+  }
+}
