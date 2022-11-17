@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Carousel from "../../components/Carousel/Carousel";
 import EventGuestForm from "../../components/EventGuestPage/EventGuestForm/EventGuestForm";
 import EventInfo from "../../components/EventGuestPage/EventInfo/EventInfo";
+import Spinner from "../../components/Spinner/Spinner";
 import { useEvent } from "../../hooks/useEvent";
 import useFetch from "../../hooks/useFetch";
 import "./EventGuestPage.css";
@@ -17,7 +18,7 @@ function EventGuestPage() {
   }, []);
 
   const POST_RESPONSE_ROUTE = "/response/";
-  const { /* isLoading, error, */ performFetch /* cancelFetch */ } = useFetch(
+  const { isLoading, /* error ,*/ performFetch /* cancelFetch */ } = useFetch(
     POST_RESPONSE_ROUTE,
     onReceived
   );
@@ -73,6 +74,8 @@ function EventGuestPage() {
           onChange={onChange}
           onSubmit={submit}
         />
+
+        {isLoading ? <Spinner /> : <></>}
       </div>
     </>
   );
