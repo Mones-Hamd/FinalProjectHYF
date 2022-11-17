@@ -1,8 +1,8 @@
 import React from "react";
 import "./EventInfo.css";
 
-const EventInfo = (details) => {
-  const weddingDate = new Date(details.date).toLocaleDateString("en-us", {
+const EventInfo = ({ ...infos }) => {
+  const weddingDate = new Date(infos.date).toLocaleDateString("en-us", {
     weekday: "long",
     year: "numeric",
     month: "short",
@@ -12,24 +12,24 @@ const EventInfo = (details) => {
   return (
     <div className="weddingDefault">
       <div className="item">
-        <span className="title">Title:</span> {details.eventTitle}
+        <span className="title">Title:</span> {infos.eventTitle}
       </div>
       <div className="item">
-        <span className="title">Bride and Groom:</span> {details.brideName}&
-        {details.groomName}
+        <span className="title">Bride and Groom:</span> {infos.brideName}&
+        {infos.groomName}
       </div>
       <div className="item">
         <span className="title">Date:</span> {weddingDate}
       </div>
       <div className="item">
-        <span className="title">Address:</span> {details.address}
+        <span className="title">Address:</span> {infos.address}
       </div>
       <div className="item">
-        <span className="title">Contact:</span> {details.contactNumber} -{" "}
-        {details.contactName}
+        <span className="title">Contact:</span> {infos.contactNumber} -{" "}
+        {infos.contactName}
       </div>
       <div className="item">
-        <span className="title">PS:</span> {details.description}
+        <span className="title">PS:</span> {infos.description}
       </div>
     </div>
   );
