@@ -1,3 +1,7 @@
 .guestEventContainer {
   padding-top: 5rem;
 }
+.eventContainer {
+  width: 80%;
+  margin: auto;
+}

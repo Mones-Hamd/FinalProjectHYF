@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+
+import "./EventGuestForm.css";
 const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
   const [focused, setFocused] = useState(false);
 
@@ -7,29 +9,31 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
     setFocused(true);
   };
   return (
-    <>
+    <div className="questionBox">
       <form onSubmit={onSubmit}>
         {formProps?.map((question, index) => {
           return (
             <div key={question.key} className="question">
-              <div>
-                {index + 1} - {question.label}{" "}
-                {question.attributes.required && (
-                  <span className="required">(required)</span>
-                )}
-              </div>
-              <div>
-                {question.attributes.type === "text" && (
-                  <input
-                    type="text"
-                    name={question.key}
-                    placeholder="free text"
-                    onChange={onChange}
-                    onBlur={handleFocus}
-                    onFocus={handleFocus}
-                    focused={focused.toString()}
-                  ></input>
-                )}
+              <div className="question-options">
+                <div>
+                  {index + 1} - {question.label}{" "}
+                  {question.attributes.required && (
+                    <span className="required">(required)</span>
+                  )}
+                </div>
+                <div>
+                  {question.attributes.type === "text" && (
+                    <input
+                      type="text"
+                      name={question.key}
+                      placeholder="free text"
+                      onChange={onChange}
+                      onBlur={handleFocus}
+                      onFocus={handleFocus}
+                      focused={focused.toString()}
+                    ></input>
+                  )}
+                </div>
                 {question.attributes.type === "email" && (
                   <input
                     type="email"
@@ -58,6 +62,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                       <div key={option.key} className="option">
                         <input
                           type="radio"
+                          className="radio"
                           value={option.value}
                           name={question.key}
                           onChange={onChange}
@@ -72,6 +77,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                     return (
                       <div key={option.key} className="option">
                         <input
+                          className="radio"
                           type="radio"
                           value={option.value}
                           name={question.key}
@@ -87,7 +93,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
         })}
         <button>Submit</button>
       </form>
-    </>
+    </div>
   );
 };
 

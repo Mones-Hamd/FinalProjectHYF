@@ -1,8 +1,6 @@
 .questionBox {
   display: flex;
   flex-direction: column;
-
-  padding: 20px;
   margin: auto;
   align-items: left;
 }
@@ -14,6 +12,11 @@ label {
 
 input {
   width: 80%;
+}
+.radio {
+  width: 20px;
+  height: 20px;
+  margin: auto;
 }
 .answerBox {
   display: flex;

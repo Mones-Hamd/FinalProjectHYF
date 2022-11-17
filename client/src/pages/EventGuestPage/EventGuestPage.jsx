@@ -64,14 +64,16 @@ function EventGuestPage() {
 
   return (
     <>
-      <Carousel images={event?.templateDetails?.images} />
-      <EventInfo {...event?.templateDetails} />
+      <Carousel className="picture" images={event?.templateDetails?.images} />
+      <div className="eventContainer">
+        <EventInfo {...event?.templateDetails} />
 
-      <EventGuestForm
-        formProps={event?.form}
-        onChange={onChange}
-        onSubmit={submit}
-      />
+        <EventGuestForm
+          formProps={event?.form}
+          onChange={onChange}
+          onSubmit={submit}
+        />
+      </div>
     </>
   );
 }
