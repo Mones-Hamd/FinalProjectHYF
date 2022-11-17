@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./home.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useEvent } from "../../hooks/useEvent";
+import wedding from "../../Image/wedding-theme.gif";
 
 const Home = () => {
   const { user } = useAuthContext();
@@ -14,6 +15,9 @@ const Home = () => {
 
     return () => getAll.cancel();
   }, []);
+  const handleOnClick = () => {
+    navigate("/createForm");
+  };
 
   const selectEvent = (eventId) => {
     navigate(`/event/${eventId}`);
@@ -22,12 +26,24 @@ const Home = () => {
   return (
     <div className="homePage">
       {user ? (
-        <h1>This is {user.username} home page</h1>
+        <h1> Start your wedding plan with creating your invitation </h1>
       ) : (
         <p>
           Something went wrong ,Normally you should not be able to see this page
         </p>
       )}
+      <div className="home-first-section">
+        <div className="home-first-container">
+          <div className="home-image-first">
+            <img src={wedding} alt="wedding image" />
+          </div>
+
+          <button className="home-create-button" onClick={handleOnClick}>
+            {" "}
+            Create invitation{" "}
+          </button>
+        </div>
+      </div>
       {getAll.isLoading && <div>loading...</div>}
       {events && (
         <div>
