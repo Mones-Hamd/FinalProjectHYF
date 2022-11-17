@@ -10,7 +10,7 @@ export const postResponse = async (req, res) => {
 
   try {
     const isExists = await Response.find({ guestEmail: req.body.guestEmail });
-    if (isExists) {
+    if (isExists.length > 0) {
       const response = await Response.findOneAndUpdate(
         {
           guestEmail: req.body.guestEmail,
