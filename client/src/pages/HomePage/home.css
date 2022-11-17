@@ -15,7 +15,7 @@
   height: 100vh;
 }
 
-.button {
+.home-create-button {
   min-width: 300px;
   min-height: 60px;
   font-family: "Nunito", sans-serif;
@@ -27,8 +27,8 @@
   background: #051715;
   background: linear-gradient(90deg, rgb(37, 41, 53) 0%, rgb(17, 86, 164) 100%);
   border: none;
-  border-radius: 1000px;
-  box-shadow: 12px 12px 24px rgba(3, 10, 56, 0.64);
+  border-radius: 5px;
+  box-shadow: 5px 5px 10px rgba(3, 10, 56, 0.64);
   transition: all 0.3s ease-in-out 0s;
   cursor: pointer;
   outline: none;
@@ -36,13 +36,13 @@
   padding: 10px;
 }
 
-.button::before {
+.home-create-button::before {
   content: "";
-  border-radius: 1000px;
+  border-radius: 5px;
   min-width: calc(300px + 12px);
   min-height: calc(60px + 12px);
-  border: 6px solid #99b6f1;
-  box-shadow: 0 0 60px rgba(28, 137, 246, 0.64);
+  border: 1px solid #99b6f1;
+  box-shadow: 0 0 15px rgba(28, 137, 246, 0.64);
   position: absolute;
   top: 50%;
   left: 50%;
@@ -51,18 +51,18 @@
   transition: all 0.3s ease-in-out 0s;
 }
 
-.button:hover,
-.button:focus {
+.home-create-button:hover,
+.home-create-button:focus {
   color: #bebee8;
   transform: translateY(-6px);
 }
 
-.button:hover::before,
-.button:focus::before {
+.home-create-button:hover::before,
+.home-create-button:focus::before {
   opacity: 1;
 }
 
-.button::after {
+.home-create-button::after {
   content: "";
   width: 30px;
   height: 30px;
@@ -76,8 +76,8 @@
   animation: ring 1.5s infinite;
 }
 
-.button:hover::after,
-.button:focus::after {
+.home-create-button:hover::after,
+.home-create-button:focus::after {
   animation: none;
   display: none;
 }
