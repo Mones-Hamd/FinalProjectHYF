@@ -84,7 +84,7 @@ export const cancelEvent = async (req, res) => {
     }
 
     const response = await Event.findOneAndUpdate(
-      { creatorName: "akin" },
+      { _id: req.params.eventId },
       { status: "DELETED" },
       {
         new: true,
