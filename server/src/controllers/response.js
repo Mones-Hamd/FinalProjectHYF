@@ -9,14 +9,17 @@ export const postResponse = async (req, res) => {
   };
 
   try {
-    const isExists = await Response.find({ guestEmail: req.body.guestEmail });
-    if (isExists) {
+    const isExists = await Response.find({
+      guestEmail: req.body.guestEmail,
+      eventId: req.body.eventId,
+    });
+    if (isExists.length > 0) {
       const response = await Response.findOneAndUpdate(
         {
           guestEmail: req.body.guestEmail,
+          eventId: req.body.eventId,
         },
-        responseRequest,
-        { new: true }
+        responseRequest
       );
       res.status(200).json({
         success: true,

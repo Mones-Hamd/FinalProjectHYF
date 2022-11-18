@@ -29,7 +29,7 @@ function EventGuestPage() {
       eventId: event._id,
       guestName: "",
       guestEmail: "",
-      response: Object.entries(formValues).map(([question, answer]) => {
+      responses: Object.entries(formValues).map(([question, answer]) => {
         return {
           question,
           answer,
@@ -37,10 +37,10 @@ function EventGuestPage() {
       }),
     };
 
-    requestBody.guestName = requestBody.response.find(
+    requestBody.guestName = requestBody.responses.find(
       (item) => item.question === "fullName"
     ).answer;
-    requestBody.guestEmail = requestBody.response.find(
+    requestBody.guestEmail = requestBody.responses.find(
       (item) => item.question === "email"
     ).answer;
 

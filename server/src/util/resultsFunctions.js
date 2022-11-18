@@ -5,10 +5,7 @@ const getTargetResponses = (answers) => {
   const targetResponses = [];
   answers.forEach((answer) => {
     answer.responses.forEach((response) => {
-      if (
-        response.question.questionKey === "response" &&
-        response.answer.answerValue === "yes"
-      ) {
+      if (response.question === "response" && response.answer === "yes") {
         targetResponses.push(answer);
       }
     });
@@ -20,57 +17,54 @@ export const numberOfAttending = (answers) => {
   return attending;
 };
 export const numberOfNotAttending = (answers) => {
-  const notAttending = numberOfResponses(answers) - numberOfAttending(answers);
+  const notAttending =
+    numberOfResponses(answers) - getTargetResponses(answers).length;
   return notAttending;
 };
 export const getGuestsInformation = (answers) => {
   const guestsInformation = [];
-  const obj = {};
-  getTargetResponses(answers).forEach((response) => {
-    const guestName = response.guestName;
-    const guestEmail = response.guestEmail;
-    obj["guestName"] = guestName;
-    obj["guestEmail"] = guestEmail;
+  const targetResponses = getTargetResponses(answers);
+  targetResponses.forEach((response) => {
+    const obj = {};
+    obj["guestName"] = response.guestName;
+    obj["guestEmail"] = response.guestEmail;
     guestsInformation.push(obj);
   });
-
   return guestsInformation;
 };
 const getTotalAnswersByKey = (answers, key) => {
-  const allAnswers = [];
+  const obj = {};
   getTargetResponses(answers).forEach((answer) => {
     answer.responses.forEach((response) => {
-      if (response.question.questionKey === key) {
-        allAnswers.push(answer);
-      } else {
-        return;
+      if (response.question === key) {
+        const amount = (obj[response.answer] || 0) + 1;
+        obj[response.answer] = amount;
       }
     });
   });
-  const total = allAnswers.length;
-  return total;
+  return obj;
 };
 export const getAllTotalAnswers = (answers, keys) => {
   const allTotalAnswers = {};
-
   keys.forEach((key) => {
     const total = getTotalAnswersByKey(answers, key);
     allTotalAnswers[key] = total;
   });
-
   return allTotalAnswers;
 };
 export const countPercentage = (total, amount) => {
   const percentage = (amount / total) * 100;
-  return percentage;
+  return percentage.toFixed(2);
 };
 export const getAllTotalAnswersPercentages = (answers, keys) => {
   const allTotalAnswersPercentage = {};
   const total = numberOfAttending(answers);
   keys.forEach((key) => {
-    const amount = getTotalAnswersByKey(answers, key);
-    const percentage = countPercentage(total, amount);
-    allTotalAnswersPercentage[key] = percentage;
+    const obj = getTotalAnswersByKey(answers, key);
+    Object.entries(obj).forEach((entry) => {
+      obj[entry[0]] = countPercentage(total, entry[1]);
+      allTotalAnswersPercentage[key] = obj;
+    });
   });
   return allTotalAnswersPercentage;
 };

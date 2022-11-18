@@ -1,11 +1,5 @@
 import mongoose, { Schema } from "mongoose";
 
-const questionSchema = new mongoose.Schema({
-  questionKey: { type: String, required: true },
-});
-const answerSchema = new mongoose.Schema({
-  answerValue: { type: Schema.Types.Mixed, required: true },
-});
 const responseSchema = new mongoose.Schema({
   eventId: {
     type: String,
@@ -21,8 +15,8 @@ const responseSchema = new mongoose.Schema({
   },
   responses: [
     {
-      question: questionSchema,
-      answer: answerSchema,
+      question: { type: String, required: true },
+      answer: { type: Schema.Types.Mixed, required: true },
     },
   ],
 });
