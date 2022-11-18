@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./home.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useEvent } from "../../hooks/useEvent";
+import wedding from "../../Image/wedding-theme.gif";
 
 const Home = () => {
   const { user } = useAuthContext();
@@ -33,7 +34,10 @@ const Home = () => {
       )}
       <div className="home-first-section">
         <div className="home-first-container">
-          <div className="home-image-first"></div>
+          <div className="home-image-first">
+            <img src={wedding} alt="wedding image" />
+          </div>
+
           <button className="home-create-button" onClick={handleOnClick}>
             {" "}
             Create invitation{" "}
