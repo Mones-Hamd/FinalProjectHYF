@@ -17,19 +17,20 @@ function EventGuestPage() {
     return () => getOneEvent.cancel();
   }, []);
 
+  const onChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  };
+
+  const navigate = useNavigate();
+  const onReceived = () => {
+    navigate("/");
+  };
   const POST_RESPONSE_ROUTE = "/response/";
   const { isLoading, /* error ,*/ performFetch /* cancelFetch */ } = useFetch(
     POST_RESPONSE_ROUTE,
     onReceived
   );
-  const navigate = useNavigate();
-  const onReceived = () => {
-    navigate("/");
-  };
 
-  const onChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
-  };
   const submit = async (e) => {
     e.preventDefault();
 
