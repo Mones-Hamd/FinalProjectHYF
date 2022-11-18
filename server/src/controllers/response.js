@@ -17,6 +17,7 @@ export const postResponse = async (req, res) => {
       const response = await Response.findOneAndUpdate(
         {
           guestEmail: req.body.guestEmail,
+          eventId: req.body.eventId,
         },
         responseRequest
       );

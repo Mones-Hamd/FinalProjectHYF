@@ -54,7 +54,7 @@ export const getAllTotalAnswers = (answers, keys) => {
 };
 export const countPercentage = (total, amount) => {
   const percentage = (amount / total) * 100;
-  return percentage;
+  return percentage.toFixed(2);
 };
 export const getAllTotalAnswersPercentages = (answers, keys) => {
   const allTotalAnswersPercentage = {};
