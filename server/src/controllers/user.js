@@ -37,7 +37,7 @@ export const register = async (req, res) => {
     const user = await newUser.save();
 
     const token = await createToken(user);
-    const url = `${process.env.CLIENT_HOST}:${process.env.CLIENT_PORT}/verifyAccount/user/${user._id}/token/${token.token}`;
+    const url = `http://${process.env.CLIENT_HOST}:${process.env.CLIENT_PORT}/verifyAccount/user/${user._id}/token/${token.token}`;
     await sendMail({
       type: "VERIFY_ACCOUNT",
       subject: "Verify Email",
