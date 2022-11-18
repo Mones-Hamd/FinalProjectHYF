@@ -52,8 +52,11 @@ export const register = async (req, res) => {
       type: "VERIFY_ACCOUNT",
       subject: "Verify Email",
       email: user.email,
-      username: user.username,
-      url: url,
+      text: "Welcome to Komje! /n Please hit the link below to verify your email",
+      payload: {
+        username: user.username,
+        url: url,
+      },
     });
 
     const jwtToken = signJWT(user);
@@ -147,8 +150,11 @@ export const forgotPassword = async (req, res) => {
       type: "UPDATE_PASSWORD",
       subject: "Password Reset",
       email: user.email,
-      username: user.username,
-      url: url,
+      text: "Welcome to Komje! /n Please hit the link below to reset your password",
+      payload: {
+        username: user.username,
+        url: url,
+      },
     });
 
     res
