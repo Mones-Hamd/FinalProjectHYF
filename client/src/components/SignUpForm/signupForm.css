@@ -1,29 +1,35 @@
+:root {
+  --white-color: #fff;
+  --text-color: #edf6f9;
+  --light-color: #83c5be;
+  --dark-color: #006d77;
+  --orange-color: #e29578;
+  --light-orange-color: #ffddd2;
+  --black-color: #000;
+}
+
 .signup-box {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
+  display: block;
+  margin: 2rem auto 2rem auto;
+  width: fit-content;
+  background-color: var(--dark-color);
+  color: var(--text-color);
+  border-radius: 15px;
+  padding: 1.5rem 1rem 1.5rem 2rem;
+  /* padding-left: 2rem; */
 }
 
-.signup-form {
-  background-color: #83c5be;
-  padding: 0px 60px;
-  border-radius: 10px;
+.create-title {
+  margin: 1.2rem;
+  margin-top: -0.7rem;
+  text-align: center;
 }
-
-button {
-  width: 50%;
-  height: 50px;
-  padding: 10px;
-  border: none;
-  background-color: #1d3557;
-  color: white;
+.sign-up-btn {
   border-radius: 5px;
-  font-weight: bold;
-  font-size: 17px;
-  cursor: pointer;
-  margin-top: 15px;
-  margin-bottom: 30px;
+  background-color: var(--light-orange-color);
+  color: var(--dark-color);
+  width: 90%;
+  border: none;
+  height: 50px;
+  margin-top: 30px;
 }

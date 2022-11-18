@@ -19,6 +19,16 @@ export const register = async (req, res) => {
     return;
   }
 
+  if (await isEmailExists(req.body.email)) {
+    res.status(400).json({ success: false, msg: "Email is already exists" });
+    return;
+  }
+
+  if (await isUsernameExists(req.body.username)) {
+    res.status(400).json({ success: false, msg: "Username is already exists" });
+    return;
+  }
+
   const saltHash = hashPassword(req.body.password);
 
   const salt = saltHash.salt;
@@ -200,4 +210,12 @@ const createToken = async (user) => {
     userId: user._id,
     token: crypto.randomBytes(32).toString("hex"),
   }).save();
+};
+
+const isEmailExists = async (email) => {
+  return await User.findOne({ email: email });
+};
+
+const isUsernameExists = async (username) => {
+  return await User.findOne({ username: username });
 };

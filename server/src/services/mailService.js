@@ -1,6 +1,7 @@
 import fs from "fs";
 import ejs from "ejs";
 import { getTransporter } from "../config/mail.js";
+import { logError, logInfo } from "../util/logging.js";
 
 export const sendMail = async ({ type, email, subject, username, url }) => {
   try {
@@ -17,10 +18,10 @@ export const sendMail = async ({ type, email, subject, username, url }) => {
       text: `Welcome to Komje! /n Please hit the link below to ${subject}`,
       html: payload,
     });
-    console.log("email sent successfully");
+    logInfo("email sent successfully");
   } catch (error) {
-    console.log("email not sent!");
-    console.log(error);
+    logError("email not sent!");
+    logError(error);
     return error;
   }
 };

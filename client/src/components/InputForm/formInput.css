@@ -1,26 +1,38 @@
+:root {
+  --white-color: #fff;
+  --text-color: #edf6f9;
+  --light-color: #83c5be;
+  --dark-color: #006d77;
+  --orange-color: #e29578;
+  --light-orange-color: #ffddd2;
+  --black-color: #000;
+}
+
 .formInput {
   display: flex;
   flex-direction: column;
-  width: 280px;
+}
+
+.inputLine {
+  margin-right: -5rem;
+  width: 100%;
 }
 
 input {
-  padding: 15px;
-  margin: 10px 0px;
+  height: 50px;
+  width: 80%;
   border-radius: 5px;
   border: 1px solid #006d77;
-  width: 70%;
 }
 
 span {
   font-size: 12px;
-  padding: 6px;
-  color: #e63946;
+  color: #f3a6ad;
   visibility: hidden;
 }
 
 input:invalid[focused="true"] {
-  border: 1px solid #e63946;
+  border: 1px solid #f3a6ad;
 }
 
 input:invalid[focused="true"] ~ span {
@@ -29,5 +41,9 @@ input:invalid[focused="true"] ~ span {
 
 .hideIcon {
   cursor: pointer;
-  padding-left: 20px;
+  padding-left: 10px;
+}
+
+.input-placeholder {
+  padding-left: 1rem;
 }

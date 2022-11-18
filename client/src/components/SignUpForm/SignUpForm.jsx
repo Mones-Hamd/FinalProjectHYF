@@ -1,10 +1,10 @@
-import React, { useContext, useState } from "react";
-import jwt_decode from "jwt-decode";
-
-import { UserContext } from "../../contexts/userContext.jsx";
-import useFetch from "../../hooks/useFetch.js";
+import React, { useState, useEffect } from "react";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./signupForm.css";
+
+import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
+import { useAuth } from "../../hooks/useAuth";
+import Spinner from "../Spinner/Spinner.jsx";
 
 const SignUpForm = () => {
   const [values, setValues] = useState({
@@ -13,28 +13,13 @@ const SignUpForm = () => {
     password: "",
     confirmPassword: "",
   });
-  const { setUser } = useContext(UserContext);
 
-  const route = "/user/register";
-  const onReceived = (result) => {
-    const token = result.token.replace("Bearer ", "");
-    var decoded = jwt_decode(token);
-    setUser({
-      userId: decoded.sub,
-      email: decoded.email,
-      username: decoded.username,
-      isVerified: decoded.idVerified,
-      isActive: decoded.isActive,
-      lastLoginDate: decoded.lastLoginDate,
-      expirationDate: decoded.exp,
-      token: result.token,
-    });
-  };
+  const { register } = useAuth();
+  const { isLoading, error, performRegister, cancelFetch } = register;
 
-  const { /* isLoading, error, */ performFetch /* cancelFetch */ } = useFetch(
-    route,
-    onReceived
-  );
+  useEffect(() => {
+    return cancelFetch;
+  }, []);
 
   const inputs = [
     {
@@ -76,21 +61,14 @@ const SignUpForm = () => {
       required: true,
     },
   ];
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const options = {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify({
-        email: values.email,
-        username: values.username,
-        password: values.password,
-      }),
-    };
-    performFetch(options);
+    performRegister({
+      email: values.email,
+      username: values.username,
+      password: values.password,
+    });
   };
 
   const onChange = (e) => {
@@ -98,21 +76,28 @@ const SignUpForm = () => {
   };
 
   return (
-    <div className="signup-box">
-      <form className="signup-form" onSubmit={handleSubmit}>
-        <h1>Create new account</h1>
-        {inputs.map((input) => (
-          <FormInput
-            key={input.id}
-            {...input}
-            value={values[input.name]}
-            onChange={onChange}
-            errorMessage={input.errorMessage}
-          />
-        ))}
-        <button>Sign-up</button>
-      </form>
-    </div>
+    <>
+      <div className="signup-box">
+        <form className="signup-form" onSubmit={handleSubmit}>
+          <h2 className="create-title">Create new account</h2>
+          <hr />
+          {inputs.map((input) => (
+            <FormInput
+              key={input.id}
+              {...input}
+              value={values[input.name]}
+              onChange={onChange}
+              errorMessage={input.errorMessage}
+            />
+          ))}
+          <button className="sign-up-btn" disabled={isLoading}>
+            Sign-up
+          </button>
+        </form>
+        {error ? <ErrorMsg error={error} /> : <></>}
+        {isLoading ? <Spinner /> : <></>}
+      </div>
+    </>
   );
 };
 
