@@ -25,6 +25,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                   {question.attributes.type === "text" && (
                     <input
                       type="text"
+                      className="text-number-input"
                       name={question.key}
                       placeholder="free text"
                       onChange={onChange}
@@ -37,6 +38,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                 {question.attributes.type === "email" && (
                   <input
                     type="email"
+                    className="text-number-input"
                     name={question.key}
                     placeholder="email"
                     onChange={onChange}
@@ -48,6 +50,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                   <input
                     type="number"
                     name={question.key}
+                    className="text-number-input"
                     placeholder="number"
                     min={question.attributes.min}
                     max={question.attributes.max}
@@ -62,7 +65,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                       <div key={option.key} className="option">
                         <input
                           type="radio"
-                          className="radio"
+                          className="radio-input"
                           value={option.value}
                           name={question.key}
                           onChange={onChange}
@@ -77,7 +80,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                     return (
                       <div key={option.key} className="option">
                         <input
-                          className="radio"
+                          className="radio-input"
                           type="radio"
                           value={option.value}
                           name={question.key}

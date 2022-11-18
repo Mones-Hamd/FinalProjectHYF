@@ -10,10 +10,10 @@ label {
   padding: 5px;
 }
 
-input {
+.text-number-input {
   width: 80%;
 }
-.radio {
+.radio-input {
   width: 20px;
   height: 20px;
   margin: auto;
