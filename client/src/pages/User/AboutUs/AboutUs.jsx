@@ -9,7 +9,6 @@ import "../AboutUs/aboutUs.css";
 import beyzaPic from "./teamImg/beyza.jpg";
 import baraahPic from "./teamImg/baraah.jpg";
 import monesPic from "./teamImg/mones.jpg";
-import akinPic from "./teamImg/akin.jpg";
 import abdullaPic from "./teamImg/abdulla.jpg";
 
 const AboutUs = () => {
@@ -241,7 +240,11 @@ const AboutUs = () => {
 
         <div className="team-member-box">
           <div>
-            <img src={akinPic} alt="teamPic1" className="team-pic" />
+            <img
+              src="https://avatars.githubusercontent.com/u/82180752?v=4"
+              alt="teamPic1"
+              className="team-pic"
+            />
             <hr />
             <div className="data-box">
               <p className="team-member-name">Akın Tanış</p>
