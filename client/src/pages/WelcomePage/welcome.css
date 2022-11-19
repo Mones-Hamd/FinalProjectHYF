@@ -3,17 +3,18 @@
 }
 
 .description {
-  margin: 3rem auto;
+  margin: 10rem auto;
   text-align: center;
 }
 .description > p {
   letter-spacing: 2px;
   text-indent: 2rem;
+  margin-top: 7rem;
 }
 .description > h1 {
   margin-bottom: 1rem;
   text-indent: 2rem;
-  font-family: "Bradley Hand", sans-serif;
+  font-family: "Arial Black", sans-serif;
   padding: 1rem;
 }
 .desc1 {
@@ -32,7 +33,7 @@
 .desc1-container p {
   font-size: 1.2rem;
   line-height: 2rem;
-  margin-top: 2rem;
+  margin-top: 6rem;
 }
 .aboutApp {
   display: flex;
@@ -43,7 +44,7 @@
 .free {
   height: 10rem;
   width: 10rem;
-  background-color: #ff5a5f;
+  background-color: #ff8185;
   margin: auto;
   display: flex;
   flex-direction: column;
@@ -55,30 +56,102 @@
 .tree {
   height: 10rem;
   width: 10rem;
-  background-color: #ff5a5f;
+  background-color: #ff8185;
   margin: auto;
 }
 .simple {
   height: 10rem;
   width: 10rem;
-  background-color: #ff5a5f;
+  background-color: #ff8185;
   margin: auto;
 }
 .easy {
   height: 10rem;
   width: 10rem;
-  background-color: #ff5a5f;
+  background-color: #ff8185;
   margin: auto;
 }
+
+.header {
+  width: 100vw;
+  margin-bottom: 2rem;
+  background: linear-gradient(
+    -45deg,
+    #5c6b73,
+    #9db4c0,
+    #1f7a8c,
+    #e0fbfc,
+    #80ffdb
+  );
+  margin-top: 3rem;
+}
+.image-container {
+  width: 100%;
+  max-width: 700px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.hero-img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+.down {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  flex-flow: row;
+  height: 331px;
+  -webkit-box-pack: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  background-color: rgb(24, 59, 84);
+  margin-bottom: 3rem;
+}
+
+.par-2 {
+  color: rgb(255, 255, 255);
+  font-family: new-spirit, serif;
+  font-weight: 500;
+  font-size: 64px;
+  letter-spacing: -0.666667px;
+  line-height: 90px;
+  margin: 0px 0px 20px;
+  text-align: center;
+  max-width: 100%;
+}
+.btn-down {
+  border: 1px solid rgb(14, 14, 14);
+  border-radius: 100px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  height: 44px;
+  padding-left: 16px;
+  padding-right: 16px;
+  display: inline-flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  transition: background-color 0.3s ease 0s;
+  background-color: rgb(255, 255, 255);
+  color: rgb(14, 14, 14);
+}
+.down-container {
+  -webkit-box-align: center;
+  align-items: center;
+  display: flex;
+  flex-flow: column;
+  -webkit-box-pack: center;
+  justify-content: center;
+  position: relative;
+  z-index: 20;
+}
 @media screen and (min-width: 1000px) {
-  .free {
-    height: 10rem;
-    width: 10rem;
-    background-color: #ff5a5f;
-    margin: auto;
-    display: flex;
-    flex-direction: row;
-  }
   .aboutApp {
     display: flex;
     flex-direction: row;

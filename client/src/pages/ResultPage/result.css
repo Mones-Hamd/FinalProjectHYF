@@ -13,7 +13,6 @@
   --black-color: #000;
 }
 .containerResult {
-  background-color: var(--light-orange-color);
   margin: auto;
   margin-top: 1.6rem;
   padding: 0.4rem 3rem;
@@ -24,8 +23,6 @@
 }
 .guests-count-box {
   padding: 1.5rem;
-  background-color: var(--dark-color);
-  color: var(--text-color);
   margin: 2rem;
   border-radius: 20px;
 }
