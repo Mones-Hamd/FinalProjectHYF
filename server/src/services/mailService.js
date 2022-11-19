@@ -3,20 +3,28 @@ import ejs from "ejs";
 import { getTransporter } from "../config/mail.js";
 import { logError, logInfo } from "../util/logging.js";
 
-export const sendMail = async ({ type, email, subject, username, url }) => {
+export const sendMail = async ({ type, email, subject, text, payload }) => {
   try {
     const transporter = getTransporter();
-    const payload =
-      type === "VERIFY_ACCOUNT"
-        ? accountVerificationTemplate({ username, url })
-        : passwordUpdateTemplate({ username, url });
 
+    let template;
+    switch (type) {
+      case "VERIFY_ACCOUNT":
+        template = accountVerificationTemplate(payload);
+        break;
+      case "UPDATE_PASSWORD":
+        template = passwordUpdateTemplate(payload);
+        break;
+      case "CANCEL_EVENT":
+        template = cancelEventTemplate(payload);
+        break;
+    }
     await transporter.sendMail({
-      from: "komje-app@outlook.com",
+      from: process.env.MAIL_USERNAME,
       to: email,
-      subject: subject,
-      text: `Welcome to Komje! /n Please hit the link below to ${subject}`,
-      html: payload,
+      subject,
+      text,
+      html: template,
     });
     logInfo("email sent successfully");
   } catch (error) {
@@ -46,4 +54,12 @@ const passwordUpdateTemplate = ({ username, url }) => {
   );
 
   return ejs.render(htmlTemplate, { username, url });
+};
+
+const cancelEventTemplate = ({ username, event }) => {
+  const htmlTemplate = fs.readFileSync("templates/cancelEventTemplate.html", {
+    encoding: "utf-8",
+  });
+
+  return ejs.render(htmlTemplate, { username, event });
 };
