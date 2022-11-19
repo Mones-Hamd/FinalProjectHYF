@@ -2,6 +2,8 @@ import Event, { validateEvent } from "../models/Event.js";
 import validationErrorMessage from "../util/validationErrorMessage.js";
 import { nanoid } from "nanoid";
 import { logError } from "../util/logging.js";
+import Response from "../models/Response.js";
+import { sendMail } from "../services/mailService.js";
 
 export const createEvent = async (req, res) => {
   const errorList = validateEvent(req.body);
@@ -86,11 +88,11 @@ export const cancelEvent = async (req, res) => {
     const response = await Event.findOneAndUpdate(
       { _id: req.params.eventId },
       { status: "DELETED" },
-      {
-        new: true,
-      }
+      { new: true }
     );
-    //TODO we will send mail to the all participants
+
+    sendCancelMail(req.params.eventId, event.type).then();
+
     res.status(200).json({
       success: true,
       event: response,
@@ -98,5 +100,32 @@ export const cancelEvent = async (req, res) => {
   } catch (err) {
     logError(err);
     res.status(500).send({ message: "Internal Server Error" });
+  }
+};
+
+const sendCancelMail = async (eventId, eventType) => {
+  const answers = await Response.find({ eventId });
+  const mailList = answers
+    .filter((ans) =>
+      ans.responses.find((a) => a.question === "response" && a.answer === "yes")
+    )
+    .map((ans) => {
+      return { mail: ans.guestEmail, username: ans.guestName };
+    });
+
+  let event = "wedding";
+  switch (eventType) {
+    case "WEDDING":
+      event = "wedding";
+      break;
+  }
+  for (const contact of mailList) {
+    await sendMail({
+      type: "CANCEL_EVENT",
+      subject: "Event Cancellation",
+      text: `Sorry, we regrettably inform you that the ${event} that you are prepared to go to, was canceled by its organizer.`,
+      email: contact.mail,
+      payload: { username: contact.username, event },
+    });
   }
 };
