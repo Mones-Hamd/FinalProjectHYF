@@ -18,32 +18,60 @@ const Result = () => {
     <div className="containerResult">
       <div className="guests-count-box">
         <h4>Total result</h4>
-        <p>Total guests number: {result.attending}</p>
+        <p>Guests number: {result.attending}</p>
         <p>Attending Percentage: {result.attendingPercentage}</p>
-        <p>Total responses in your event: {result.totalResponse}</p>
-        <button className="guestList-btn" onClick={() => setShow(true)}>
-          Guests List{" "}
+        <p>Responses in your event: {result.totalResponse}</p>
+        <button className="guestList-btn" onClick={() => setShow(!show)}>
+          Show List{" "}
         </button>
         <div>
           {show && (
             <div>
               <hr />
-              <h3>Showing list </h3>
+              <h3>Guests List </h3>
               <hr />
               <ul className="list-box">
                 {result.guestsInformation?.map((guest) => {
                   return <li key={guest.guestName}>{guest.guestName}</li>;
                 })}
               </ul>
-              <button
-                className="exit"
-                type="button"
-                onClick={() => setShow(false)}
-              >
-                X
-              </button>
             </div>
           )}
+          <div className="food-reference-list">
+            <h4>Food References</h4>
+            {result.allTotalAnswers?.map((getResult) => {
+              const diet = getResult.diet;
+
+              return (
+                <ul key={diet}>
+                  <li key={diet.Vegan}>Vegan:{diet.Vegan ? diet.Vegan : 0}</li>
+                  <li key={diet.Halal}>Halal:{diet.Halal ? diet.Halal : 0}</li>
+                  <li key={diet.Vegetarian}>
+                    Vegetarian:{diet.Vegetarian ? diet.Vegetarian : 0}
+                  </li>
+                  <li key={diet.Normal}>
+                    Normal:{diet.Normal ? diet.Normal : 0}
+                  </li>
+                </ul>
+              );
+            })}
+          </div>
+          <div className="car-reference-list">
+            {result.allTotalAnswers?.map((getResult) => {
+              const car = getResult.car;
+
+              return (
+                <ul key={car}>
+                  <li key={car.yes}>
+                    Coming with car: {car.yes ? car.yes : 0}
+                  </li>
+                  <li key={car.no}>
+                    Coming without car: {car.no ? car.no : 0}
+                  </li>
+                </ul>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
