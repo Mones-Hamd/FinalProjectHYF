@@ -82,7 +82,7 @@ const LoginForm = () => {
               errorMessage={input.errorMessage}
             />
           ))}
-
+          <a href="/forgotPassword">Forgot your password ?</a>
           <div className="remember-box">
             <label>Remember me</label>
             <input

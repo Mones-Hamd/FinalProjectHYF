@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import FormInput from "../InputForm/FormInput";
 import useFetch from "../../hooks/useFetch";
+import Spinner from "../Spinner/Spinner";
+import "./VerifyEmailForm.css";
 const VerifyEmailForm = () => {
   const [value, setValue] = useState({
     email: "",
@@ -10,7 +12,7 @@ const VerifyEmailForm = () => {
     setMessage(result.message);
   };
   const route = "/user/forgotPassword";
-  const { /* isLoading, error, */ performFetch /* cancelFetch */ } = useFetch(
+  const { isLoading, error, performFetch /* cancelFetch */ } = useFetch(
     route,
     onReceived
   );
@@ -39,7 +41,9 @@ const VerifyEmailForm = () => {
   const onChange = (e) => {
     setValue({ ...value, [e.target.name]: e.target.value });
   };
-
+  const handleResendEmail = (e) => {
+    handleSubmit(e);
+  };
   return (
     <div className="verify-container">
       <div className="verify-box">
@@ -55,13 +59,37 @@ const VerifyEmailForm = () => {
             onChange={onChange}
             errorMessage={input.errorMessage}
           />
-          <button type="submit">Send-link</button>
-          {message && (
-            <div className="verify-message">
-              <span>{message}</span>
+          <button
+            type="submit"
+            className="btn btn-outline-primary send-link-btn"
+          >
+            Send-link
+          </button>
+        </form>
+        <div>
+          {isLoading && <Spinner />}
+          {error && (
+            <div className="alert alert-danger" role="alert">
+              {error}
             </div>
           )}
-        </form>
+          {message && (
+            <div>
+              <div className="alert alert-success" role="alert">
+                {message}
+              </div>
+              <p>
+                Dont receive email ?? ..{" "}
+                <button
+                  className="resend-email-button"
+                  onClick={handleResendEmail}
+                >
+                  resend email
+                </button>
+              </p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

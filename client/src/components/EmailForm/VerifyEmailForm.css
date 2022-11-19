@@ -1,0 +1,45 @@
+.verify-container {
+  height: 80vh;
+  width: 100%;
+}
+.verify-box {
+  max-width: 50%;
+  display: block;
+  margin: 2rem auto 2rem auto;
+  width: fit-content;
+  background-color: var(--light-color);
+  color: var(--text-color);
+  border-radius: 15px;
+  padding: 1.5rem 1rem 1.5rem 2rem;
+}
+.verify-header {
+  margin-top: 1rem;
+}
+.verify-text {
+  margin-top: 2rem;
+}
+.verify-form {
+  padding: 2rem 0rem 1rem 0rem;
+}
+.send-link-btn {
+  border-radius: 5px;
+  background-color: var(--light-orange-color);
+  color: var(--dark-color);
+  width: 40%;
+  border: none;
+  height: 50px;
+  margin-top: 10px;
+}
+.resend-email-button {
+  border: none;
+  background: none;
+  color: blue;
+  cursor: pointer;
+  text-decoration: underline;
+}
+@media (max-width: 600px) {
+  .verify-box {
+    margin-top: 4rem;
+    min-width: 90%;
+  }
+}

@@ -94,8 +94,8 @@ const SignUpForm = () => {
             Sign-up
           </button>
         </form>
-        {error ? <ErrorMsg error={error} /> : <></>}
-        {isLoading ? <Spinner /> : <></>}
+        {error ? <ErrorMsg error={error} /> : <>{register.message}</>}
+        {isLoading && <Spinner />}
       </div>
     </>
   );
