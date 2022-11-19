@@ -1,9 +1,9 @@
 import React from "react";
 import SignUpForm from "../../components/SignUpForm/SignUpForm";
-
+import "./Register.css";
 const Register = () => {
   return (
-    <div>
+    <div className="register-page-main-container">
       <SignUpForm />
     </div>
   );
