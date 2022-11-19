@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Carousel from "../../components/Carousel/Carousel";
+
 import EventGuestForm from "../../components/EventGuestPage/EventGuestForm/EventGuestForm";
 import EventInfo from "../../components/EventGuestPage/EventInfo/EventInfo";
 import Spinner from "../../components/Spinner/Spinner";
@@ -65,20 +65,25 @@ function EventGuestPage() {
   };
 
   return (
-    <>
-      <Carousel className="picture" images={event?.templateDetails?.images} />
-      <div className="eventContainer">
-        <EventInfo {...event?.templateDetails} />
-
-        <EventGuestForm
-          formProps={event?.form}
-          onChange={onChange}
-          onSubmit={submit}
+    <div className="eventContainer">
+      <div className="img-box">
+        <img
+          className="event-img"
+          src={event?.templateDetails?.images[0].url}
+          alt={event?.templateDetails?.images[0].alt}
         />
-
-        {isLoading ? <Spinner /> : <></>}
       </div>
-    </>
+
+      <EventInfo {...event?.templateDetails} className="information-box" />
+
+      <EventGuestForm
+        formProps={event?.form}
+        onChange={onChange}
+        onSubmit={submit}
+      />
+
+      {isLoading ? <Spinner /> : <></>}
+    </div>
   );
 }
 

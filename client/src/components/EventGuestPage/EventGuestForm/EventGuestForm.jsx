@@ -15,7 +15,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
           return (
             <div key={question.key} className="question">
               <div className="question-options">
-                <div>
+                <div className="question-text">
                   {index + 1} - {question.label}{" "}
                   {question.attributes.required && (
                     <span className="required">(required)</span>
@@ -25,9 +25,10 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                   {question.attributes.type === "text" && (
                     <input
                       type="text"
+                      required={question.attributes.required}
                       className="text-number-input"
                       name={question.key}
-                      placeholder="free text"
+                      placeholder="Full name"
                       onChange={onChange}
                       onBlur={handleFocus}
                       onFocus={handleFocus}
@@ -38,9 +39,10 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                 {question.attributes.type === "email" && (
                   <input
                     type="email"
+                    required={question.attributes.required}
                     className="text-number-input"
                     name={question.key}
-                    placeholder="email"
+                    placeholder="Email"
                     onChange={onChange}
                     onBlur={handleFocus}
                     focused={focused.toString()}
@@ -49,9 +51,10 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                 {question.attributes.type === "number" && (
                   <input
                     type="number"
+                    required={question.attributes.required}
                     name={question.key}
                     className="text-number-input"
-                    placeholder="number"
+                    placeholder="Number"
                     min={question.attributes.min}
                     max={question.attributes.max}
                     onChange={onChange}
@@ -65,6 +68,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                       <div key={option.key} className="option">
                         <input
                           type="radio"
+                          required={question.attributes.required}
                           className="radio-input"
                           value={option.value}
                           name={question.key}
@@ -81,6 +85,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                       <div key={option.key} className="option">
                         <input
                           className="radio-input"
+                          required={question.attributes.required}
                           type="radio"
                           value={option.value}
                           name={question.key}
@@ -94,7 +99,8 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
             </div>
           );
         })}
-        <button>Submit</button>
+
+        <button className="guest-submit-btn">Submit</button>
       </form>
     </div>
   );
