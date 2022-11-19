@@ -4,11 +4,24 @@ import "./home.css";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { useEvent } from "../../hooks/useEvent";
 import wedding from "../../Image/wedding-theme.gif";
+import Card from "../../components/HomaPage/Card/Card";
+import { MdChevronLeft, MdChevronRight } from "react-icons/md";
 
 const Home = () => {
   const { user } = useAuthContext();
   const { events, getAll } = useEvent();
   const navigate = useNavigate();
+
+  //////
+
+  const goToPrevious = () => {
+    var slider = document.getElementById("slider");
+    slider.scrollLeft = slider.scrollLeft - 500;
+  };
+  const goToNext = () => {
+    var slider = document.getElementById("slider");
+    slider.scrollLeft = slider.scrollLeft + 500;
+  };
 
   useEffect(() => {
     getAll.perform();
@@ -45,24 +58,44 @@ const Home = () => {
         </div>
       </div>
       {getAll.isLoading && <div>loading...</div>}
-      {events && (
-        <div>
-          {events.map((e, index) => (
-            <div
-              style={
-                e.status === "ACTIVE"
-                  ? { backgroundColor: "white" }
-                  : { backgroundColor: "gray" }
-              }
-              key={e._id}
-              onClick={() => selectEvent(e._id)}
-            >
-              {index + 1} - {e.templateDetails.brideName}&
-              {e.templateDetails.groomName}
-            </div>
-          ))}
+
+      <div className="invitation-container">
+        <div className="header-box">
+          <h1 className="invitation-header">My Invitations</h1>
         </div>
-      )}
+
+        {events.length > 0 ? (
+          <div className="slider-box">
+            <MdChevronLeft
+              className={"slider-icon"}
+              onClick={goToPrevious}
+              size={40}
+            />
+            <div className="cards-container" id="slider">
+              {events.map((event) => (
+                <>
+                  <Card
+                    {...event}
+                    key={event._id}
+                    onClick={() => {
+                      selectEvent(event._id);
+                    }}
+                  />
+                </>
+              ))}
+            </div>
+            <MdChevronRight
+              className={"slider-icon"}
+              onClick={goToNext}
+              size={40}
+            />
+          </div>
+        ) : (
+          <div className="cards-container" id="slider">
+            <p className="errror-msg">You did not create any invitation yet </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
