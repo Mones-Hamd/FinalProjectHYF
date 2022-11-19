@@ -14,15 +14,15 @@ const Welcome = () => {
       <div className="header">
         <div className="image-container">
           <img src={photo} className="hero-img" alt="hero-image"></img>
-          <p className="btn-start">We are here for you</p>
         </div>
       </div>
       <div className="description">
-        <h1>Planning the Wedding of Your Dreams Just Got Easier </h1>
+        <h1 className="description">
+          Planning the Wedding of Your Dreams Just Got Easier{" "}
+        </h1>
       </div>
       <div className="desc1">
         <Main />
-
         <div className="desc1-container">
           <p>
             {" "}
@@ -36,7 +36,7 @@ const Welcome = () => {
       </div>
       <div>
         <div className="description">
-          <h1>WHY KOMJE? </h1>
+          <h1 className="description">ADVANTAGES OF USING THE KOMJE ! </h1>
         </div>
       </div>
       <div className="aboutApp">
@@ -55,7 +55,7 @@ const Welcome = () => {
       </div>{" "}
       <div className="down">
         <div className="down-container">
-          <h1 className="ww">Ready When You Are</h1>
+          <h1 className="par-2">Ready When You Are</h1>
           <Link to="/register">
             <button className="btn-down">Get Started</button>
           </Link>
