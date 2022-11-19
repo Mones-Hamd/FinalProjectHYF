@@ -1,14 +1,22 @@
 import React from "react";
-import free from "../WelcomePage/free.png";
-import eco from "../WelcomePage/eco.png";
-import fast from "../WelcomePage/fast.png";
-import easy from "../WelcomePage/easy.png";
+import free from "../WelcomePage/Images/free.png";
+import eco from "../WelcomePage/Images/eco.png";
+import fast from "../WelcomePage/Images/fast.png";
+import easy from "../WelcomePage/Images/easy.png";
+import photo from "../WelcomePage/Images/photo3.jpg";
 import Main from "../WelcomePage/components/Main/Main.jsx";
-//import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../WelcomePage/welcome.css";
+import Review from "../WelcomePage/components/Reviews/Reviews";
 const Welcome = () => {
   return (
     <div className="welcome">
+      <div className="header">
+        <div className="image-container">
+          <img src={photo} className="hero-img" alt="hero-image"></img>
+          <p className="btn-start">We are here for you</p>
+        </div>
+      </div>
       <div className="description">
         <h1>Planning the Wedding of Your Dreams Just Got Easier </h1>
       </div>
@@ -44,7 +52,24 @@ const Welcome = () => {
         <div className="easy">
           <img src={easy} className="about-section" />
         </div>
+      </div>{" "}
+      <div className="down">
+        <div className="down-container">
+          <h1 className="ww">Ready When You Are</h1>
+          <Link to="/register">
+            <button className="btn-down">Get Started</button>
+          </Link>
+        </div>
       </div>
+      <main>
+        <section className="container">
+          <div className="title">
+            <h2>Our Reviews</h2>
+            <div className="underline1"></div>
+          </div>
+          <Review />
+        </section>
+      </main>
     </div>
   );
 };
