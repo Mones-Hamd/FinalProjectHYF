@@ -1,0 +1,35 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  margin: 0 15px;
+  flex: 1 0 250px;
+  box-shadow: 0 1px 1rem -4px #000;
+  background: #fff;
+  margin: 1rem;
+  overflow: hidden;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.card:hover {
+  box-shadow: 0 4px 1rem -4px #000;
+  transform: translateY(-15px);
+}
+.names {
+  text-align: center;
+}
+.card-img {
+  width: 250px;
+  height: 250px;
+  object-fit: center;
+}
+
+.card-content {
+  padding: 0.5rem;
+}
