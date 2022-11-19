@@ -59,37 +59,43 @@ const Home = () => {
       </div>
       {getAll.isLoading && <div>loading...</div>}
 
-      {events.length > 0 ? (
-        <div className="slider-box">
-          <MdChevronLeft
-            className={"slider-icon"}
-            onClick={goToPrevious}
-            size={40}
-          />
-          <div className="cards-container" id="slider">
-            {events.map((event) => (
-              <>
-                <Card
-                  {...event}
-                  key={event._id}
-                  onClick={() => {
-                    selectEvent(event._id);
-                  }}
-                />
-              </>
-            ))}
+      <div className="invitation-container">
+        <div className="header-box">
+          <h1 className="invitation-header">My Invitations</h1>
+        </div>
+
+        {events.length > 0 ? (
+          <div className="slider-box">
+            <MdChevronLeft
+              className={"slider-icon"}
+              onClick={goToPrevious}
+              size={40}
+            />
+            <div className="cards-container" id="slider">
+              {events.map((event) => (
+                <>
+                  <Card
+                    {...event}
+                    key={event._id}
+                    onClick={() => {
+                      selectEvent(event._id);
+                    }}
+                  />
+                </>
+              ))}
+            </div>
+            <MdChevronRight
+              className={"slider-icon"}
+              onClick={goToNext}
+              size={40}
+            />
           </div>
-          <MdChevronRight
-            className={"slider-icon"}
-            onClick={goToNext}
-            size={40}
-          />
-        </div>
-      ) : (
-        <div className="cards-container" id="slider">
-          <p className="errror-msg">You did not create any invitation yet </p>
-        </div>
-      )}
+        ) : (
+          <div className="cards-container" id="slider">
+            <p className="errror-msg">You did not create any invitation yet </p>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

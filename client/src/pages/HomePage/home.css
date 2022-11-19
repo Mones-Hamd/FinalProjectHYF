@@ -29,6 +29,16 @@
   max-width: 70%;
   scroll-behavior: smooth;
 }
+.invitation-container {
+  margin-top: 7rem;
+}
+.header-box {
+  display: flex;
+  align-items: center;
+}
+.invitation-header {
+  margin: auto;
+}
 .cards-container::-webkit-scrollbar {
   display: none;
 }
