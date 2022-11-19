@@ -3,12 +3,13 @@
 }
 
 .description {
-  margin: 3rem auto;
+  margin: 10rem auto;
   text-align: center;
 }
 .description > p {
   letter-spacing: 2px;
   text-indent: 2rem;
+  margin-top: 7rem;
 }
 .description > h1 {
   margin-bottom: 1rem;
@@ -32,7 +33,7 @@
 .desc1-container p {
   font-size: 1.2rem;
   line-height: 2rem;
-  margin-top: 2rem;
+  margin-top: 6rem;
 }
 .aboutApp {
   display: flex;
@@ -74,8 +75,14 @@
 .header {
   width: 100vw;
   margin-bottom: 2rem;
-  background-color: #ffddd2;
-  background-image: conic-gradient(white, pink, white);
+  background: linear-gradient(
+    -45deg,
+    #5c6b73,
+    #9db4c0,
+    #1f7a8c,
+    #e0fbfc,
+    #80ffdb
+  );
   margin-top: 3rem;
 }
 .image-container {
@@ -103,24 +110,8 @@
   background-color: rgb(24, 59, 84);
   margin-bottom: 3rem;
 }
-.btn-start {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-image: conic-gradient(white, pink, white);
-  color: var(--dark-color);
-  font-size: 16px;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-  text-decoration: none;
-  list-style: none;
-  margin-top: 5rem;
-}
-.ww {
+
+.par-2 {
   color: rgb(255, 255, 255);
   font-family: new-spirit, serif;
   font-weight: 500;
@@ -166,21 +157,5 @@
     flex-direction: row;
     gap: 3rem;
     margin-bottom: 3rem;
-  }
-
-  .btn-start {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    background-color: red;
-    color: white;
-    font-size: 16px;
-    padding: 12px 24px;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-top: 5rem;
   }
 }
