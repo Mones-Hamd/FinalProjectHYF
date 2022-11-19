@@ -21,11 +21,10 @@ export const getEventResults = async (req, res) => {
       const attendingPercentage = countPercentage(totalResponse, attending);
       const notAttendingPercentage = 100 - attendingPercentage;
       const guestsInformation = getGuestsInformation(answers);
-      const allTotalAnswers = getAllTotalAnswers(answers, keys);
-      const allTotalAnswersPercentage = getAllTotalAnswersPercentages(
-        answers,
-        keys
-      );
+      const allTotalAnswers = [getAllTotalAnswers(answers, keys)];
+      const allTotalAnswersPercentage = [
+        getAllTotalAnswersPercentages(answers, keys),
+      ];
       res.status(200).json({
         success: true,
         result: {
