@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEvent } from "../../hooks/useEvent";
 import { useCancelEvent } from "../../hooks/useCancelEvent";
 import { baseUrl } from "../../config/config";
-import Carousel from "../../components/Carousel/Carousel";
 import "./eventPage.css";
 import Accordion from "../../components/Accordion/Accordion";
 import Spinner from "../../components/Spinner/Spinner";
@@ -59,7 +58,11 @@ const EventPage = () => {
     <div className="event-page-container">
       {(isLoading || isSuccess) && <Spinner />}
       <div className="img-box">
-        <Carousel images={event?.templateDetails?.images} />
+        <img
+          className="event-img"
+          src={event?.templateDetails?.images[0].url}
+          alt={event?.templateDetails?.images[0].alt}
+        />
       </div>
 
       <div className="details">
