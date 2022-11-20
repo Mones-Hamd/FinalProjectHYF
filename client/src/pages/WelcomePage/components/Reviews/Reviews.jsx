@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import people from "./Reviewdata";
-import { FaChevronLeft, FaChevronRight, FaQuoteRight } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import "../Reviews/Reviews.css";
 
 const Review = () => {
@@ -51,9 +51,6 @@ const Review = () => {
     <article className="review">
       <div className="img-container">
         <img src={image} alt={name} className="person-img" />
-        <span className="quote-icon">
-          <FaQuoteRight />
-        </span>
       </div>
       <h4 className="author">{name}</h4>
       <p className="info">{text}</p>
