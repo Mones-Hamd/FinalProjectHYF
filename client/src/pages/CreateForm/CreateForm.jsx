@@ -194,7 +194,7 @@ const CreateForm = () => {
         {(isLoading || isImageUploading) && <Spinner />}
 
         {user ? (
-          <h1>This is {user.username} create page</h1>
+          <></>
         ) : (
           <p>
             Something went wrong ,Normally you should not be able to see this
@@ -216,8 +216,8 @@ const CreateForm = () => {
                   onChange={onChange}
                 />
               ))}
-              <div className="form-line">
-                <p className="create-form-tag-title">Image of Wedding</p>
+              <div className="event-line">
+                <label className="event-line-title">Image of Wedding</label>
                 <label>
                   <input
                     name="file"
@@ -229,11 +229,13 @@ const CreateForm = () => {
                   ></input>
                 </label>
                 {userFile.filePreview !== null ? (
-                  <img
-                    className="create-form-image-preview"
-                    src={userFile.filePreview}
-                    alt=""
-                  />
+                  <div className="form-img-box">
+                    <img
+                      className="create-form-image-preview"
+                      src={userFile.filePreview}
+                      alt=""
+                    />
+                  </div>
                 ) : null}
               </div>
               <div className="form-line">
