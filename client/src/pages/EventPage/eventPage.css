@@ -30,8 +30,7 @@
 
 .event-page-container {
   min-height: 100vh;
-}
-.btn-div {
+  margin-top: 3rem;
 }
 
 .copyLinkGroup {
