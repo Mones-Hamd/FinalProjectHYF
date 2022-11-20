@@ -55,19 +55,7 @@
   border-radius: 50%;
   position: relative;
 }
-.quote-icon {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 2.5rem;
-  height: 2.5rem;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  transform: translateY(25%);
-  background: var(--text-color);
-  color: var(--clr-white);
-}
+
 .img-container::before {
   content: "";
   width: 100%;
