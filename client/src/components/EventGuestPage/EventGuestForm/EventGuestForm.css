@@ -13,8 +13,9 @@
 .radio-input {
   width: 20px;
   height: 20px;
-  margin: auto;
+  margin-right: 5px;
 }
+
 .answerBox {
   display: flex;
 }
@@ -41,8 +42,15 @@
   vertical-align: super;
 }
 
-.option {
-  margin: 15px 15px 15px 15px;
+.answer-input-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 1rem;
+  margin: 10px;
+}
+.value-box {
+  margin-left: 5px;
 }
 
 .question-text {
@@ -61,7 +69,4 @@
 }
 .questionBox {
   margin-left: 5rem;
-}
-input {
-  padding: 22px;
 }
