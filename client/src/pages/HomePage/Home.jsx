@@ -12,15 +12,13 @@ const Home = () => {
   const { events, getAll } = useEvent();
   const navigate = useNavigate();
 
-  //////
-
   const goToPrevious = () => {
     var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft - 500;
+    slider.scrollLeft = slider.scrollLeft - 300;
   };
   const goToNext = () => {
     var slider = document.getElementById("slider");
-    slider.scrollLeft = slider.scrollLeft + 500;
+    slider.scrollLeft = slider.scrollLeft + 300;
   };
 
   useEffect(() => {
@@ -61,7 +59,7 @@ const Home = () => {
 
       <div className="invitation-container">
         <div className="header-box">
-          <h1 className="invitation-header">My Invitations</h1>
+          <h2 className="invitation-header">My Invitations</h2>
         </div>
 
         {events.length > 0 ? (
@@ -92,7 +90,7 @@ const Home = () => {
           </div>
         ) : (
           <div className="cards-container" id="slider">
-            <p className="errror-msg">You did not create any invitation yet </p>
+            <p className="error-msg">You did not create any invitation yet </p>
           </div>
         )}
       </div>
