@@ -62,3 +62,6 @@
 .questionBox {
   margin-left: 5rem;
 }
+input {
+  padding: 22px;
+}

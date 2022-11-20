@@ -74,7 +74,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                           name={question.key}
                           onChange={onChange}
                           focused={focused.toString()}
-                        />{" "}
+                        />
                         {option.value}
                       </div>
                     );
@@ -90,7 +90,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                           value={option.value}
                           name={question.key}
                           onChange={onChange}
-                        />{" "}
+                        />
                         {option.value}
                       </div>
                     );

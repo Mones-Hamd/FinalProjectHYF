@@ -56,9 +56,12 @@ const EventPage = () => {
   };
 
   return (
-    <>
+    <div className="event-page-container">
       {(isLoading || isSuccess) && <Spinner />}
-      <Carousel images={event?.templateDetails?.images} />
+      <div className="img-box">
+        <Carousel images={event?.templateDetails?.images} />
+      </div>
+
       <div className="details">
         <Accordion title="Details">{getEventDetails()}</Accordion>
       </div>
@@ -66,12 +69,16 @@ const EventPage = () => {
         <Accordion title="Form">{getEventForm(event?.form)}</Accordion>
       </div>
       <div className="buttonGroup">
-        <button type="button" disabled={isLoading} onClick={showResults}>
-          Show Results
-        </button>
-        <button type="button" disabled={isLoading} onClick={cancelEvent}>
-          Cancel Event
-        </button>
+        <div className="btn-div">
+          <button type="button" disabled={isLoading} onClick={showResults}>
+            Show Results
+          </button>
+        </div>
+        <div className="btn-div">
+          <button type="button" disabled={isLoading} onClick={cancelEvent}>
+            Cancel Event
+          </button>
+        </div>
       </div>
       <div className="copyLinkGroup" onClick={copyLink}>
         <input type="text" disabled value={generateUrl()}></input>
@@ -79,7 +86,7 @@ const EventPage = () => {
           Copy Link
         </button>
       </div>
-    </>
+    </div>
   );
 };
 

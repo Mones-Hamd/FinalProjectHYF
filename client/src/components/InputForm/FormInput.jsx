@@ -55,7 +55,7 @@ function FormInput({ onChange, errorMessage, ...inputProps }) {
           <></>
         )}
         <br></br>
-        <span>{errorMessage}</span>
+        <span className="error-span">{errorMessage}</span>
       </div>
     </div>
   );

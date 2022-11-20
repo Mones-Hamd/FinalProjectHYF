@@ -12,13 +12,21 @@
   display: block;
   margin: 2rem auto 2rem auto;
   width: fit-content;
-  background-color: var(--dark-color);
-  color: var(--text-color);
+  background-color: white;
+  color: black;
   border-radius: 15px;
-  padding: 1.5rem 1rem 1.5rem 2rem;
-  /* padding-left: 2rem; */
-}
+  padding: 3rem 1rem 1.5rem 2rem;
 
+  box-shadow: 0px 3px 6px var(--dark-color);
+}
+.signup-form {
+  width: 90%;
+  margin: auto;
+}
+.btn-box {
+  width: 50%;
+  margin: auto;
+}
 .create-title {
   margin: 1.2rem;
   margin-top: -0.7rem;
@@ -26,10 +34,30 @@
 }
 .sign-up-btn {
   border-radius: 5px;
-  background-color: var(--light-orange-color);
-  color: var(--dark-color);
-  width: 90%;
+  background-color: var(--dark-color);
+  color: white;
+  width: 70%;
   border: none;
   height: 50px;
-  margin-top: 30px;
+  margin: auto;
+  margin-top: 10px;
+}
+.sign-up-btn:hover {
+  background-color: white;
+  color: var(--dark-color);
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+}
+.form-box {
+  padding: 10px;
+}
+@media only screen and (min-width: 200px) {
+  .signup-box {
+    max-width: 90%;
+    margin: auto;
+    margin-top: -8rem;
+  }
+  .sign-up-btn {
+    min-width: 50px;
+  }
 }
