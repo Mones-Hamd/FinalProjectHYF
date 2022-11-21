@@ -47,7 +47,7 @@ export const register = async (req, res) => {
     const user = await newUser.save();
 
     const token = await createToken(user);
-    const url = `${process.env.CLIENT_HOST}/verifyAccount/user/${user._id}/token/${token.token}`;
+    const url = `${process.env.CLIENT_HOST}verifyAccount/user/${user._id}/token/${token.token}`;
     await sendMail({
       type: "VERIFY_ACCOUNT",
       subject: "Verify Email",
@@ -148,7 +148,7 @@ export const forgotPassword = async (req, res) => {
     if (!token) {
       token = await createToken(user);
     }
-    const url = `${process.env.CLIENT_HOST}/forgetPassword/user/${user._id}/reset/${token.token}/`;
+    const url = `${process.env.CLIENT_HOST}forgetPassword/user/${user._id}/reset/${token.token}/`;
     await sendMail({
       type: "UPDATE_PASSWORD",
       subject: "Password Reset",
