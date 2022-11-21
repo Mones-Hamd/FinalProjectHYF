@@ -9,7 +9,9 @@
   font-size: 13px;
 }
 
-.container {
+.container-footer {
+  width: fit-content;
+  margin: auto;
   display: flex;
   justify-content: space-between;
 }
@@ -21,6 +23,7 @@
 .logo {
   width: 150px;
   border-radius: 5rem;
+  padding: 10px;
 }
 
 .icons {
@@ -34,7 +37,7 @@
 
 .text {
   color: white;
-  margin-top: 15px;
+  margin-top: 10px;
 }
 
 .social-icons {
@@ -67,9 +70,13 @@
   color: white;
 }
 
-.sci li a:hover {
+.mailp:hover {
+  color: tomato;
+}
+
+.sci li a :hover {
   background: tomato;
-  align-items: center;
+  width: 120px;
 }
 
 .icons {
@@ -89,7 +96,7 @@
   padding: 10px;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 700px) {
   .footer {
     font-size: 20px;
     width: 100%;
@@ -99,14 +106,14 @@
     min-width: 200px;
   }
 
+  .social-box {
+    margin-left: 3rem;
+  }
+
   .contact-container {
     display: flex;
     flex-direction: row;
     margin: auto;
-  }
-
-  .container {
-    justify-content: center;
   }
 
   .col {
@@ -123,8 +130,12 @@
   }
 }
 
-@media (min-width: 1000px) {
-  .social-box {
-    padding-right: 9rem;
+@media (min-width: 1100px) {
+  .contact-us-box {
+    margin-left: 10rem;
+  }
+
+  .logo {
+    margin-right: 10rem;
   }
 }

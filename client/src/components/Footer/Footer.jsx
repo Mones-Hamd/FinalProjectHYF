@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="container">
+      <div className="container-footer">
         <div className="col">
           <Link to="/">
             <img src={logo} className="logo" />
@@ -16,7 +16,7 @@ const Footer = () => {
 
         <div className="contact-container">
           <div className="col social-box">
-            <h3 className="text">Follow Us</h3>
+            <h5 className="text">Follow Us</h5>
 
             <div className="social-icons">
               <ul className="sci">
@@ -62,7 +62,7 @@ const Footer = () => {
 
           <div className=" contact-us-box">
             <div>
-              <h3 className="text">Contact Us</h3>
+              <h5 className="text">Contact Us</h5>
             </div>
             <p className="mail">
               <a className="mailp" href="mailto:komje-app@outlook.com">
