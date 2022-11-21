@@ -11,6 +11,8 @@ import EventPage from "./pages/EventPage/EventPage";
 import AboutUs from "./pages/User/AboutUs/AboutUs";
 import Result from "./pages/ResultPage/Result";
 import EventGuestPage from "./pages/EventGuestPage/EventGuestPage";
+import VerifyEmailFormPage from "./pages/EmailForm/VerifyEmail";
+import UpdatePassword from "./pages/UpdatePassword/UpdatePassword";
 
 const AppRoutes = () => {
   const { user } = useAuthContext();
@@ -38,6 +40,15 @@ const AppRoutes = () => {
       <Route
         path="/register"
         element={!user ? <Register /> : <Navigate to="/homePage" />}
+      />
+      <Route
+        path="verifyAccount/user/:userId/token/:token"
+        element={<Login />}
+      />
+      <Route path="forgotPassword/" element={<VerifyEmailFormPage />} />
+      <Route
+        path="forgetPassword/user/:userId/reset/:token/"
+        element={<UpdatePassword />}
       />
       <Route path="/to/:eventId" element={<EventGuestPage />} />
       <Route path="/result/:eventId" element={<Result />} />
