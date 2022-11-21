@@ -71,35 +71,39 @@ const LoginForm = () => {
   return (
     <>
       <div className="login-box">
-        <form className="login-form" onSubmit={handleSubmit}>
-          <h2 className="log-title">Login</h2>
-          {inputs.map((input) => (
-            <FormInput
-              key={input.id}
-              {...input}
-              value={values[input.name]}
-              onChange={onChange}
-              errorMessage={input.errorMessage}
-            />
-          ))}
-
-          <div className="remember-box">
-            <label>Remember me</label>
-            <input
-              type="checkbox"
-              checked={checked}
-              onChange={handleChangeCheckBox}
-              className="input-check-box"
-            />
-          </div>
-          <button className="log-in-btn" disabled={isLoading}>
-            Login
-          </button>
-          <p className="new-account-link ">
-            Dont have an account ,create an account{" "}
-            <a href="/register"> here!</a>
-          </p>
-        </form>
+        <div className="form-box">
+          <form className="login-form" onSubmit={handleSubmit}>
+            <h2 className="log-title">Login</h2>
+            {inputs.map((input) => (
+              <FormInput
+                key={input.id}
+                {...input}
+                value={values[input.name]}
+                onChange={onChange}
+                errorMessage={input.errorMessage}
+              />
+            ))}
+            <a href="/forgotPassword">Forgot your password ?</a>
+            <div className="remember-box">
+              <input
+                type="checkbox"
+                checked={checked}
+                onChange={handleChangeCheckBox}
+                className="input-check-box"
+              />
+              <label className="remeber-me">Remember me</label>
+            </div>
+            <div className="btn-box">
+              <button className="log-in-btn" disabled={isLoading}>
+                Login
+              </button>
+            </div>
+            <label className="new-account-link ">
+              Don`t have an account ,create an account{" "}
+              <a href="/register"> here!</a>
+            </label>
+          </form>
+        </div>
         {isLoading ? <Spinner /> : <></>}
       </div>
 

@@ -5,6 +5,7 @@ import Nav from "./components/Nav/Nav";
 
 import Footer from "./components/Footer/Footer";
 import AppRoutes from "./AppRoutes";
+import "./App.css";
 
 const App = () => {
   return (

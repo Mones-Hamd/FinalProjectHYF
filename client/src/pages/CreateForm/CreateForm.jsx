@@ -194,7 +194,7 @@ const CreateForm = () => {
         {(isLoading || isImageUploading) && <Spinner />}
 
         {user ? (
-          <h1>This is {user.username} create page</h1>
+          <></>
         ) : (
           <p>
             Something went wrong ,Normally you should not be able to see this

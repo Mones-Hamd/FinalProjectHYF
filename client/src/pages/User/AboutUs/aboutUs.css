@@ -11,11 +11,12 @@
   padding: 1rem;
 }
 .first-team-title {
-  margin-left: auto;
-  margin-right: auto;
+  text-align: justify;
+  margin: 2rem;
 }
 .aboutUs-paragraph {
   text-align: justify;
+  margin: 2rem;
 }
 .accordion {
   width: 80%;
@@ -29,12 +30,11 @@
 .team-member-box {
   margin: 2rem;
   border: solid 2px var(--orange-color);
-
-  border-radius: 20px;
+  border-radius: 15px;
 }
 
 .team-pic {
-  width: 200px;
+  width: 150px;
   border-radius: 20px;
   display: block;
   padding: 0.5rem;
@@ -63,9 +63,9 @@
 .paragraph {
   margin-left: auto;
   margin-right: auto;
-  font-size: 1rem;
+  font-size: 14px;
   text-align: justify;
-  padding: 2rem;
+  padding: 0.7rem;
   color: var(--dark-color);
 }
 .meet-team {
@@ -80,32 +80,28 @@
     display: flex;
   }
   .team-pic {
-    width: 70%;
+    min-width: 150px;
   }
 
   .paragraph {
     margin-top: 3rem;
     margin-left: auto;
     margin-right: auto;
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
 @media only screen and (min-width: 700px) {
-  .team-pic {
-    width: 80%;
-  }
-}
-
-@media only screen and (min-width: 800px) {
   .team-member-box {
-    width: 60%;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
   }
-
   .paragraph {
     font-size: 17px;
+  }
+  .team-pic {
+    min-width: 200px;
   }
 }
 
@@ -115,11 +111,11 @@
   }
   .team-pic {
     margin-top: 3rem;
-    width: 200px;
+    min-width: 200px;
   }
 
   .paragraph {
-    font-size: 20px;
+    font-size: 18px;
   }
   .teamIntro-container {
     margin-left: 7rem;

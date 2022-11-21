@@ -3,7 +3,6 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEvent } from "../../hooks/useEvent";
 import { useCancelEvent } from "../../hooks/useCancelEvent";
 import { baseUrl } from "../../config/config";
-import Carousel from "../../components/Carousel/Carousel";
 import "./eventPage.css";
 import Accordion from "../../components/Accordion/Accordion";
 import Spinner from "../../components/Spinner/Spinner";
@@ -60,9 +59,16 @@ const EventPage = () => {
   };
 
   return (
-    <>
+    <div className="event-page-container">
       {(isLoading || isSuccess) && <Spinner />}
-      <Carousel images={event?.templateDetails?.images} />
+      <div className="img-box">
+        <img
+          className="event-img"
+          src={event?.templateDetails?.images[0].url}
+          alt={event?.templateDetails?.images[0].alt}
+        />
+      </div>
+
       <div className="details">
         <Accordion title="Details">{getEventDetails()}</Accordion>
       </div>
@@ -70,12 +76,16 @@ const EventPage = () => {
         <Accordion title="Form">{getEventForm(event?.form)}</Accordion>
       </div>
       <div className="buttonGroup">
-        <button type="button" disabled={isLoading} onClick={showResults}>
-          Show Results
-        </button>
-        <button type="button" disabled={isLoading} onClick={cancelEvent}>
-          Cancel Event
-        </button>
+        <div className="btn-div">
+          <button type="button" disabled={isLoading} onClick={showResults}>
+            Show Results
+          </button>
+        </div>
+        <div className="btn-div">
+          <button type="button" disabled={isLoading} onClick={cancelEvent}>
+            Cancel Event
+          </button>
+        </div>
       </div>
       <div className="copyLinkGroup" onClick={copyLink}>
         <input type="text" disabled value={generateUrl()}></input>
@@ -83,7 +93,7 @@ const EventPage = () => {
           Copy Link
         </button>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -1,24 +1,64 @@
 .buttonGroup {
   display: flex;
-  padding-right: 10px;
+  margin: 2rem auto;
+  width: 50%;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .buttonGroup button {
-  margin-left: 10px;
+  border-radius: 5px;
+  background-color: var(--dark-color);
+  color: white;
+  width: 15%;
+  border: none;
+  height: 50px;
+  margin: auto;
+  margin-top: 10px;
+  max-width: 200px;
+  min-width: 120px;
+  padding: 5px;
+  margin-right: 5px;
+}
+
+.buttonGroup button:hover {
+  background-color: white;
+  color: var(--dark-color);
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+}
+
+.event-page-container {
+  min-height: 100vh;
+  margin-top: 3rem;
 }
 
 .copyLinkGroup {
   display: flex;
   padding-right: 10px;
+  width: 50%;
+  margin: auto;
+  min-width: 300px;
 }
 
 .copyLinkGroup button {
-  max-width: 150px;
-  margin-left: 10px;
-  flex-grow: 0;
-  flex-basis: 150px;
+  border-radius: 5px;
+  background-color: var(--dark-color);
+  color: white;
+  width: 20%;
+  border: none;
+  margin-left: 5px;
+  min-width: 100px;
 }
-
+.copyLinkGroup button:hover {
+  background-color: white;
+  color: var(--dark-color);
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+}
+.img-box {
+  max-width: 50%;
+}
 .copyLinkGroup input[type="text"] {
   margin: 0px 0px 0px 10px;
   height: 47px;
@@ -26,13 +66,15 @@
 }
 
 .details {
-  margin: 16px;
+  margin: auto;
+  width: 60%;
+  min-width: 400px;
 }
 
 .weddingDefault .title {
   color: dimgray;
   visibility: visible;
-  font-size: 10px;
+  font-size: 15px;
 }
 
 .weddingDefault .item {
@@ -41,6 +83,9 @@
 
 .form {
   margin: 16px;
+  margin: auto;
+  width: 60%;
+  min-width: 400px;
 }
 
 .form .question {
@@ -72,4 +117,11 @@
 
 .form .option {
   color: dimgray;
+}
+.option {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 1rem;
+  margin-top: -1rem;
 }
