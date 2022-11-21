@@ -47,7 +47,7 @@ export const register = async (req, res) => {
     const user = await newUser.save();
 
     const token = await createToken(user);
-    const url = `${getBaseUrl()}/verifyAccount/user/${user._id}/token/${
+    const url = `${getBaseUrl()}verifyAccount/user/${user._id}/token/${
       token.token
     }`;
     await sendMail({
@@ -150,7 +150,7 @@ export const forgotPassword = async (req, res) => {
     if (!token) {
       token = await createToken(user);
     }
-    const url = `${getBaseUrl()}/forgetPassword/user/${user._id}/reset/${
+    const url = `${getBaseUrl()}forgetPassword/user/${user._id}/reset/${
       token.token
     }/`;
     await sendMail({
