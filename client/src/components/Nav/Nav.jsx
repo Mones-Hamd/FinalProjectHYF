@@ -54,7 +54,10 @@ const Nav = () => {
           <Link to="#" className="menu">
             <FaBars className="hamburger" onClick={showSidebar} />
           </Link>
-          <img className="logo-text" src={logo} />
+          <Link to="/">
+            <img className="logo-text" src={logo} />
+          </Link>
+
           <ul className="navbar-buttons">
             {!isAuthenticated ? (
               <>
