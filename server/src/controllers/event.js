@@ -52,7 +52,20 @@ export const getEvents = async (req, res) => {
     res.status(500).send({ message: "Internal Server Error" });
   }
 };
-
+export const getSingleEvent = async (req, res) => {
+  const eventId = req.params.eventId;
+  try {
+    const event = await Event.findById(eventId);
+    if (!event) res.json({ message: "There is no events yet" });
+    res.status(200).json({
+      success: true,
+      event: event,
+    });
+  } catch (err) {
+    logError(err);
+    res.status(500).send({ message: "Internal Server Error" });
+  }
+};
 export const getEventByShortLink = async (req, res) => {
   try {
     const events = await Event.findOne({

@@ -3,6 +3,7 @@ import passport from "passport";
 import {
   createEvent,
   getEventByShortLink,
+  getSingleEvent,
   getEvents,
   cancelEvent,
 } from "../controllers/event.js";
@@ -26,7 +27,11 @@ eventRouter.get(
   passport.authenticate("jwt", { session: false }),
   getEventResults
 );
-
+eventRouter.get(
+  "/:eventId",
+  passport.authenticate("jwt", { session: false }),
+  getSingleEvent
+);
 eventRouter.get("/:shortLink", getEventByShortLink);
 
 eventRouter.delete(

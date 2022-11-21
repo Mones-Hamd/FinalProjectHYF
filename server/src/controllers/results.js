@@ -7,6 +7,8 @@ import {
   getAllTotalAnswers,
   countPercentage,
   getAllTotalAnswersPercentages,
+  getSubject,
+  getChartsArrays,
 } from "../util/resultsFunctions.js";
 export const getEventResults = async (req, res) => {
   const eventId = req.params.eventId;
@@ -21,10 +23,13 @@ export const getEventResults = async (req, res) => {
       const attendingPercentage = countPercentage(totalResponse, attending);
       const notAttendingPercentage = 100 - attendingPercentage;
       const guestsInformation = getGuestsInformation(answers);
-      const allTotalAnswers = [getAllTotalAnswers(answers, keys)];
-      const allTotalAnswersPercentage = [
-        getAllTotalAnswersPercentages(answers, keys),
-      ];
+      const allTotalAnswers = getAllTotalAnswers(answers, keys);
+      const allTotalAnswersPercentage = getAllTotalAnswersPercentages(
+        answers,
+        keys
+      );
+      const subjectArray = getSubject(answers, keys);
+      const chartArray = getChartsArrays(answers, keys);
       res.status(200).json({
         success: true,
         result: {
@@ -36,6 +41,8 @@ export const getEventResults = async (req, res) => {
           guestsInformation,
           allTotalAnswers,
           allTotalAnswersPercentage,
+          subjectArray,
+          chartArray,
         },
       });
     } else {
@@ -46,6 +53,7 @@ export const getEventResults = async (req, res) => {
       });
     }
   } catch (err) {
+    console.log(err);
     res.status(500).send({ message: "Internal Server Error" });
   }
 };

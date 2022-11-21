@@ -8,15 +8,15 @@ import "./eventPage.css";
 import Accordion from "../../components/Accordion/Accordion";
 import Spinner from "../../components/Spinner/Spinner";
 import { toast } from "react-toastify";
+import { useResult } from "../../hooks/useResult";
 
 const EventPage = () => {
-  const { events } = useEvent();
+  const { event, getOneEvent } = useEvent();
+  const { getResult } = useResult();
   const { eventId } = useParams();
   const navigate = useNavigate();
   const { isLoading, isSuccess, cancelEvent, cancelFetch } =
     useCancelEvent(eventId);
-  const event = events.find((event) => event._id === eventId);
-
   const generateUrl = () => {
     if (event?.shortLink) {
       return `${baseUrl}/to/${event.shortLink}`;
@@ -24,6 +24,8 @@ const EventPage = () => {
   };
 
   useEffect(() => {
+    getOneEvent.perform();
+
     return () => cancelFetch();
   }, []);
 
@@ -38,7 +40,8 @@ const EventPage = () => {
   };
 
   const showResults = () => {
-    navigate(`/result/${event._id}`);
+    getResult.perform();
+    if (!getResult.isLoading) navigate(`/result/${event._id}`);
   };
   const copyLink = async () => {
     await navigator.clipboard.writeText(generateUrl());

@@ -1,13 +1,11 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { useAuthContext } from "../hooks/useAuthContext";
 import { useEventContext } from "../hooks/useEventContext";
 import useFetch from "../hooks/useFetch";
 
 export const useEvent = () => {
-  const { token } = useAuthContext();
+  const token = JSON.parse(localStorage.getItem("TOKEN"));
   const { event, events, setEvent, setEvents } = useEventContext();
   const { eventId } = useParams();
-
   const navigate = useNavigate();
 
   const useCreateEvent = useFetch("/event", (data) => {
@@ -29,6 +27,7 @@ export const useEvent = () => {
       method: "GET",
       headers: {
         "content-type": "application/json",
+        Authorization: "Bearer " + token,
       },
     };
     useGetEvent.performFetch(options);
@@ -56,7 +55,6 @@ export const useEvent = () => {
     };
     useGetAllEvents.performFetch(options);
   };
-
   return {
     create: {
       isLoading: useCreateEvent.isLoading,
