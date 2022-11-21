@@ -39,6 +39,23 @@
   border: 1px solid var(--dark-color);
   border-radius: 5px;
 }
+.resend-email-button {
+  border-radius: 5px;
+  background-color: var(--dark-color);
+  color: white;
+  width: 70%;
+  border: none;
+  height: 50px;
+  margin: auto;
+  margin-top: 10px;
+}
+.resend-email-button:hover {
+  background-color: white;
+  color: var(--dark-color);
+  border: 1px solid var(--dark-color);
+  border-radius: 5px;
+}
+
 @media (max-width: 600px) {
   .verify-box {
     margin-top: 4rem;

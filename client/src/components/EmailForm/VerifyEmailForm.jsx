@@ -80,15 +80,15 @@ const VerifyEmailForm = () => {
               <div className="alert alert-success" role="alert">
                 {message}
               </div>
-              <p>
-                Dont receive email ?? ..{" "}
+
+              <div className="btn-box">
                 <button
                   className="resend-email-button"
                   onClick={handleResendEmail}
                 >
                   resend email
                 </button>
-              </p>
+              </div>
             </div>
           )}
         </div>
