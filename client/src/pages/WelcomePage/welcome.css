@@ -3,8 +3,9 @@
 }
 
 .description {
-  margin: 10rem auto;
+  margin: 3rem auto;
   text-align: center;
+  padding: 10px;
 }
 .description > p {
   letter-spacing: 2px;
@@ -22,6 +23,8 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  margin-top: 5rem;
+  margin-bottom: 7rem;
 }
 .desc1-container {
   width: 80%;
@@ -75,7 +78,7 @@
 .header {
   width: 80vw;
   margin: auto;
-  margin-bottom: 2rem;
+  margin-bottom: 6rem;
   margin-top: 6rem;
   display: flex;
   justify-content: space-between;
@@ -166,11 +169,20 @@
     margin-bottom: 3rem;
   }
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .image-container {
-    width: 80%;
+    width: 100%;
   }
   .header-text-box {
-    width: 80%;
+    width: 100%;
+  }
+  .header {
+    width: 100vw;
+  }
+  .hero-img {
+    border-radius: 0;
+  }
+  .desc1-container {
+    width: 100vw;
   }
 }

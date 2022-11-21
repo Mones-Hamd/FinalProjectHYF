@@ -15,3 +15,11 @@
   height: auto;
   vertical-align: bottom;
 }
+@media screen and (max-width: 600px) {
+  .imagePhoto {
+    border-radius: 0;
+  }
+  .main1 {
+    width: 100vw;
+  }
+}
