@@ -9,8 +9,10 @@
   font-size: 13px;
 }
 
+
 .container-footer {
   width: fit-content;
+
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -34,7 +36,6 @@
   margin-right: 15px;
   margin-top: -2rem;
 }
-
 .text {
   color: white;
   margin-top: 10px;
@@ -127,6 +128,16 @@
 
   .contact-us-box {
     margin-top: 10px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .contact-us-box {
+    margin-left: 10rem;
+  }
+
+  .logo {
+    margin-right: 10rem;
   }
 }
 

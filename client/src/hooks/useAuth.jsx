@@ -1,9 +1,11 @@
 import jwt_decode from "jwt-decode";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import useFetch from "../hooks/useFetch";
 
 export const useAuth = () => {
+  const [message, setMessage] = useState("");
   const context = useAuthContext();
 
   const navigate = useNavigate();
@@ -17,8 +19,11 @@ export const useAuth = () => {
     context.update(token, user);
     navigate("/homePage");
   };
+  const onReceivedSignup = (result) => {
+    setMessage(result.message);
+  };
 
-  const useRegister = useFetch(REGISTER_ROUTE, onReceived);
+  const useRegister = useFetch(REGISTER_ROUTE, onReceivedSignup);
 
   const useLogin = useFetch(LOGIN_ROUTE, onReceived);
 
@@ -63,6 +68,7 @@ export const useAuth = () => {
     register: {
       isLoading: useRegister.isLoading,
       error: useRegister.error,
+      message: message,
       performRegister: register,
       cancel: useRegister.cancelFetch,
     },

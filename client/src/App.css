@@ -1,0 +1,13 @@
+:root {
+  --primary-color: #bc9ec1;
+  --secondary-color: #e3bac6;
+  --accent-color: #596475;
+  --primary-dark-color: #1f2232;
+  --primary-light-color: #fde8e9;
+  --error-color: #f48c06;
+}
+
+* {
+  text-decoration: none;
+  list-style: none;
+}
