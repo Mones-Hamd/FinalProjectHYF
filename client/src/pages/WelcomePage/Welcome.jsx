@@ -53,16 +53,16 @@ const Welcome = () => {
         <div className="free">
           <img src={free} className="about-section" />
         </div>
-        <div className="simple">
+        <div className="free">
           <img src={eco} className="about-section" />
         </div>
-        <div className="tree">
+        <div className="free">
           <img src={fast} className="about-section" />
         </div>
-        <div className="easy">
+        <div className="free">
           <img src={easy} className="about-section" />
         </div>
-      </div>{" "}
+      </div>
       <div className="down">
         <div className="down-container">
           <h1 className="par-2">Ready When You Are</h1>
