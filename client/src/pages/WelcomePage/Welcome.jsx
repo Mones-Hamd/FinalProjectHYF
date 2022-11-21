@@ -4,10 +4,11 @@ import eco from "../WelcomePage/Images/eco.png";
 import fast from "../WelcomePage/Images/fast.png";
 import easy from "../WelcomePage/Images/easy.png";
 import photo from "../WelcomePage/Images/photo3.jpg";
-import Main from "../WelcomePage/components/Main/Main.jsx";
+
 import { Link } from "react-router-dom";
 import "../WelcomePage/welcome.css";
-import Review from "../WelcomePage/components/Reviews/Reviews";
+import Review from "../../components/Review/Reviews";
+import background from "./Images/background.jpg";
 const Welcome = () => {
   return (
     <div className="welcome">
@@ -30,7 +31,9 @@ const Welcome = () => {
         </h1>
       </div>
       <div className="desc1">
-        <Main />
+        <div className="main1">
+          <img className="imagePhoto" alt="" src={background} />
+        </div>
         <div className="desc1-container">
           <p>
             You are getting married, what a great news! We know there are many

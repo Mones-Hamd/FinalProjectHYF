@@ -161,6 +161,31 @@
   position: relative;
   z-index: 20;
 }
+.main1 {
+  width: 80vw;
+  max-width: 700px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin-top: -15;
+}
+
+.imagePhoto {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  height: auto;
+  vertical-align: bottom;
+}
+@media screen and (max-width: 600px) {
+  .imagePhoto {
+    border-radius: 0;
+  }
+  .main1 {
+    width: 100vw;
+  }
+}
 @media screen and (min-width: 1000px) {
   .aboutApp {
     display: flex;
