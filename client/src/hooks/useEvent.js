@@ -2,6 +2,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useEventContext } from "../hooks/useEventContext";
 import useFetch from "../hooks/useFetch";
+import { toast } from "react-toastify";
 
 export const useEvent = () => {
   const { token } = useAuthContext();
@@ -13,7 +14,11 @@ export const useEvent = () => {
   const useCreateEvent = useFetch("/event", (data) => {
     setEvent(data.event);
     setEvents((events) => [...events, data.event]);
-    navigate("/event/" + data.event._id);
+    toast.success("You have created your invitation successfully", {
+      onClose: () => {
+        navigate("/event/" + data.event._id);
+      },
+    });
   });
 
   const useGetAllEvents = useFetch("/event", (data) => {
