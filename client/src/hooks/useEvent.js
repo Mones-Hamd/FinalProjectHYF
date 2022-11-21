@@ -2,15 +2,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useEventContext } from "../hooks/useEventContext";
 import useFetch from "../hooks/useFetch";
-import { toast } from "react-toastify";
 
+import { toast } from "react-toastify";
 export const useEvent = () => {
   const { token } = useAuthContext();
   const { event, events, setEvent, setEvents } = useEventContext();
   const { eventId } = useParams();
-
   const navigate = useNavigate();
-
   const useCreateEvent = useFetch("/event", (data) => {
     setEvent(data.event);
     setEvents((events) => [...events, data.event]);
@@ -20,15 +18,12 @@ export const useEvent = () => {
       },
     });
   });
-
   const useGetAllEvents = useFetch("/event", (data) => {
     setEvents(data.events);
   });
-
   const useGetEvent = useFetch(`/event/${eventId}`, (data) => {
     setEvent(data.event);
   });
-
   const getEvent = () => {
     const options = {
       method: "GET",
@@ -38,7 +33,6 @@ export const useEvent = () => {
     };
     useGetEvent.performFetch(options);
   };
-
   const createEvent = (eventObject) => {
     const options = {
       method: "POST",
@@ -50,7 +44,6 @@ export const useEvent = () => {
     };
     useCreateEvent.performFetch(options);
   };
-
   const getAllEvents = () => {
     const options = {
       method: "GET",
@@ -61,7 +54,6 @@ export const useEvent = () => {
     };
     useGetAllEvents.performFetch(options);
   };
-
   return {
     create: {
       isLoading: useCreateEvent.isLoading,

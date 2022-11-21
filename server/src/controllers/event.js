@@ -4,17 +4,14 @@ import { nanoid } from "nanoid";
 import { logError } from "../util/logging.js";
 import Response from "../models/Response.js";
 import { sendMail } from "../services/mailService.js";
-
 export const createEvent = async (req, res) => {
   const errorList = validateEvent(req.body);
-
   if (errorList.length > 0) {
     res
       .status(400)
       .json({ success: false, msg: validationErrorMessage(errorList) });
     return;
   }
-
   const newEvent = new Event({
     creatorId: req.user._id,
     creatorName: req.user.username,
@@ -26,16 +23,13 @@ export const createEvent = async (req, res) => {
     form: req.body.form,
     shortLink: nanoid(process.env.SHORT_LINK_LENGTH || 7),
   });
-
   const event = await newEvent.save();
-
   res.status(200).json({
     success: true,
     event: event,
     msg: "Event successfully created!",
   });
 };
-
 export const getEvents = async (req, res) => {
   try {
     const events = await Event.find({
@@ -52,7 +46,6 @@ export const getEvents = async (req, res) => {
     res.status(500).send({ message: "Internal Server Error" });
   }
 };
-
 export const getEventByShortLink = async (req, res) => {
   try {
     const events = await Event.findOne({
@@ -73,7 +66,6 @@ export const getEventByShortLink = async (req, res) => {
     res.status(500).send({ message: "Internal Server Error" });
   }
 };
-
 export const cancelEvent = async (req, res) => {
   try {
     const event = await Event.findOne({ _id: req.params.eventId });
@@ -84,15 +76,12 @@ export const cancelEvent = async (req, res) => {
       });
       return;
     }
-
     const response = await Event.findOneAndUpdate(
       { _id: req.params.eventId },
       { status: "DELETED" },
       { new: true }
     );
-
     sendCancelMail(req.params.eventId, event.type).then();
-
     res.status(200).json({
       success: true,
       event: response,
@@ -102,7 +91,6 @@ export const cancelEvent = async (req, res) => {
     res.status(500).send({ message: "Internal Server Error" });
   }
 };
-
 const sendCancelMail = async (eventId, eventType) => {
   const answers = await Response.find({ eventId });
   const mailList = answers
@@ -112,7 +100,6 @@ const sendCancelMail = async (eventId, eventType) => {
     .map((ans) => {
       return { mail: ans.guestEmail, username: ans.guestName };
     });
-
   let event = "wedding";
   switch (eventType) {
     case "WEDDING":

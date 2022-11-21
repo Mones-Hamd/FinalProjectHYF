@@ -47,6 +47,13 @@ const getTotalAnswersByKey = (answers, key) => {
 export const getAllTotalAnswers = (answers, keys) => {
   const allTotalAnswers = {};
   keys.forEach((key) => {
+    if (
+      key === "fullName" ||
+      key === "email" ||
+      key === "response" ||
+      key === "numberOfPeople"
+    )
+      return;
     const total = getTotalAnswersByKey(answers, key);
     allTotalAnswers[key] = total;
   });
@@ -67,4 +74,21 @@ export const getAllTotalAnswersPercentages = (answers, keys) => {
     });
   });
   return allTotalAnswersPercentage;
+};
+export const getChartsArrays = (answers, keys) => {
+  const allChartArray = [];
+  const allTotalAnswers = getAllTotalAnswers(answers, keys);
+  const allTotalAnswersArray = Object.values(allTotalAnswers);
+  allTotalAnswersArray.forEach((answer) => {
+    const obj = {};
+    obj["labels"] = Object.keys(answer);
+    obj["data"] = Object.values(answer);
+    allChartArray.push(obj);
+  });
+  return allChartArray;
+};
+export const getSubject = (answers, keys) => {
+  const allTotalAnswers = getAllTotalAnswers(answers, keys);
+
+  return Object.keys(allTotalAnswers);
 };
