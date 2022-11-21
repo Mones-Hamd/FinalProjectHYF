@@ -74,7 +74,6 @@ const LoginForm = () => {
         <div className="form-box">
           <form className="login-form" onSubmit={handleSubmit}>
             <h2 className="log-title">Login</h2>
-
             {inputs.map((input) => (
               <FormInput
                 key={input.id}
@@ -84,7 +83,7 @@ const LoginForm = () => {
                 errorMessage={input.errorMessage}
               />
             ))}
-              <a href="/forgotPassword">Forgot your password ?</a>
+            <a href="/forgotPassword">Forgot your password ?</a>
             <div className="remember-box">
               <input
                 type="checkbox"
@@ -99,7 +98,6 @@ const LoginForm = () => {
                 Login
               </button>
             </div>
-
             <label className="new-account-link ">
               Don`t have an account ,create an account{" "}
               <a href="/register"> here!</a>
