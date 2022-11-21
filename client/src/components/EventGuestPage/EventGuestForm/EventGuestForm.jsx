@@ -65,7 +65,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                 {question.attributes.type === "singleChoice" &&
                   question.options.map((option) => {
                     return (
-                      <div key={option.key} className="option">
+                      <div key={option.key} className="answer-input-box">
                         <input
                           type="radio"
                           required={question.attributes.required}
@@ -74,15 +74,15 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                           name={question.key}
                           onChange={onChange}
                           focused={focused.toString()}
-                        />{" "}
-                        {option.value}
+                        />
+                        <label className="value-box">{option.value}</label>
                       </div>
                     );
                   })}
                 {question.attributes.type === "multipleChoice" &&
                   question.options.map((option) => {
                     return (
-                      <div key={option.key} className="option">
+                      <div key={option.key} className="answer-input-box">
                         <input
                           className="radio-input"
                           required={question.attributes.required}
@@ -90,8 +90,8 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                           value={option.value}
                           name={question.key}
                           onChange={onChange}
-                        />{" "}
-                        {option.value}
+                        />
+                        <label className="value-box">{option.value}</label>
                       </div>
                     );
                   })}

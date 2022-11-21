@@ -9,21 +9,17 @@
 
 .cards-container {
   display: flex;
-  border-radius: 6px;
   color: #333;
-  background: var(--light-color);
-  padding: 1rem;
-  box-shadow: 0 0 1rem var(--dark-color);
   overflow-x: auto;
   position: relative;
   margin: auto;
-  margin-top: 5rem;
-  max-width: 70%;
+  margin-top: 1rem;
+  max-width: 75%;
   scroll-behavior: smooth;
 }
 .invitation-container {
   margin-top: 7rem;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
 }
 .header-box {
   display: flex;
@@ -35,13 +31,14 @@
 .cards-container::-webkit-scrollbar {
   display: none;
 }
-.errror-msg {
+.error-msg {
   margin: auto;
 }
 .slider-box {
   position: relative;
   display: flex;
-  width: auto;
+  width: 90%;
+  margin: auto;
   align-items: center;
   justify-content: center;
 }
@@ -49,7 +46,6 @@
 .slider-icon {
   opacity: 50%;
   cursor: pointer;
-  margin: auto;
 }
 .slider-icon:hover {
   opacity: 100%;

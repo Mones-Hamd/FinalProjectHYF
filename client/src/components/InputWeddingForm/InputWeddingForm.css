@@ -1,7 +1,7 @@
 .event-line-error-message {
   font-size: 12px;
   padding: 0.3rem;
-  margin-left: 1.5rem;
+
   color: rgb(241, 47, 13);
   display: none;
 }
@@ -9,24 +9,15 @@
 input:invalid[focused="true"] ~ .event-line-error-message {
   display: block;
 }
-
+.event-line {
+  width: 80%;
+  margin: auto;
+}
 .event-line-title {
   display: flex;
   flex-direction: column;
-  text-align: center;
 }
 
 datalist {
   background-color: rgb(241, 47, 13);
-}
-
-@media only screen and (min-width: 600px) {
-  .event-line-error-message {
-    margin-left: 3rem;
-  }
-}
-@media only screen and (min-width: 900px) {
-  .event-line-error-message {
-    margin-left: 5rem;
-  }
 }

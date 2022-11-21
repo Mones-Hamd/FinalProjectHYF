@@ -78,24 +78,29 @@ const SignUpForm = () => {
   return (
     <>
       <div className="signup-box">
-        <form className="signup-form" onSubmit={handleSubmit}>
-          <h2 className="create-title">Create new account</h2>
-          <hr />
-          {inputs.map((input) => (
-            <FormInput
-              key={input.id}
-              {...input}
-              value={values[input.name]}
-              onChange={onChange}
-              errorMessage={input.errorMessage}
-            />
-          ))}
-          <button className="sign-up-btn" disabled={isLoading}>
-            Sign-up
-          </button>
-        </form>
-        {error ? <ErrorMsg error={error} /> : <>{register.message}</>}
-        {isLoading && <Spinner />}
+        <div className="form-box">
+          <form className="signup-form" onSubmit={handleSubmit}>
+            <h2 className="create-title">Create new account</h2>
+
+            {inputs.map((input) => (
+              <FormInput
+                key={input.id}
+                {...input}
+                value={values[input.name]}
+                onChange={onChange}
+                errorMessage={input.errorMessage}
+              />
+            ))}
+            <div className="btn-box">
+              <button className="sign-up-btn" disabled={isLoading}>
+                Sign-up
+              </button>
+            </div>
+          </form>
+        </div>
+
+        {error ? <ErrorMsg error={error} /> : <></>}
+        {isLoading ? <Spinner /> : <></>}
       </div>
     </>
   );
