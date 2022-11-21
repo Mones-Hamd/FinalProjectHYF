@@ -11,12 +11,14 @@ import { toast } from "react-toastify";
 import { useResult } from "../../hooks/useResult";
 
 const EventPage = () => {
-  const { event, getOneEvent } = useEvent();
+  const { events } = useEvent();
   const { getResult } = useResult();
   const { eventId } = useParams();
   const navigate = useNavigate();
   const { isLoading, isSuccess, cancelEvent, cancelFetch } =
     useCancelEvent(eventId);
+  const event = events.find((event) => event._id === eventId);
+
   const generateUrl = () => {
     if (event?.shortLink) {
       return `${baseUrl}/to/${event.shortLink}`;
@@ -24,8 +26,6 @@ const EventPage = () => {
   };
 
   useEffect(() => {
-    getOneEvent.perform();
-
     return () => cancelFetch();
   }, []);
 
@@ -40,7 +40,8 @@ const EventPage = () => {
   };
 
   const showResults = () => {
-    getResult.perform();
+    getResult.perform;
+
     if (!getResult.isLoading) navigate(`/result/${event._id}`);
   };
   const copyLink = async () => {

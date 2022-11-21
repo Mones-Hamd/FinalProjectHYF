@@ -5,6 +5,7 @@ import "./result.css";
 import { useResult } from "../../hooks/useResult";
 import BarChart from "../../components/BarChart/BarChart";
 import PieChart from "../../components/PieChart/PieChart";
+import Spinner from "../../components/Spinner/Spinner";
 
 const Result = () => {
   const [show, setShow] = useState(false);
@@ -13,21 +14,27 @@ const Result = () => {
   useEffect(() => {
     getResult.perform();
   }, []);
-  const pieLable = ["Attending", "Not attending"];
+  const pieLable = ["Attending"];
 
   return (
-    <div className="containerResult">
-      <div className="guests-count-box">
-        <h4>Total result</h4>
-        <p>Guests number: {result?.attending}</p>
-        <p>Attending Percentage: {result?.attendingPercentage}% </p>
-        <p>Responses in your event: {result?.totalResponse}</p>
-        <PieChart
-          text="Attending chart"
-          labels={pieLable}
-          numberOfAttending={result?.totalResponse}
-          data={[result?.attending, result?.notAttending]}
-        />
+    <>
+      {" "}
+      {getResult.isLoading && <Spinner />}
+      <div className="containerResult">
+        <div className="guests-count-box">
+          <h4>Total result</h4>
+          <p>Guests number: {result?.attending}</p>
+          <p>Attending Percentage: {result?.attendingPercentage}% </p>
+          <p>Responses in your event: {result?.totalResponse}</p>
+        </div>
+        <div className="result-chart-component">
+          <PieChart
+            text="Attending chart"
+            labels={pieLable}
+            numberOfAttending={result?.totalResponse}
+            data={[result?.attending, result?.notAttending]}
+          />
+        </div>
         <button className="guestList-btn" onClick={() => setShow(!show)}>
           Show List{" "}
         </button>
@@ -44,21 +51,19 @@ const Result = () => {
               </ul>
             </div>
           )}
-        </div>
-      </div>
-      <div>
-        {" "}
+        </div>{" "}
         {result?.chartArray?.map((chart, indx) => (
-          <BarChart
-            key={indx}
-            text={result.subjectArray[indx]}
-            labels={chart.labels}
-            numberOfAttending={result.attending}
-            data={chart.data}
-          />
+          <div className="result-chart-component" key={indx}>
+            <BarChart
+              text={result.subjectArray[indx]}
+              labels={chart.labels}
+              numberOfAttending={result.attending}
+              data={chart.data}
+            />
+          </div>
         ))}
       </div>
-    </div>
+    </>
   );
 };
 export default Result;

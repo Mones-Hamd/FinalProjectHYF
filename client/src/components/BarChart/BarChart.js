@@ -26,7 +26,8 @@ const BarChart = ({ labels, numberOfAttending, data, text }) => {
       {
         label: `${numberOfAttending}  Answers`,
         data: data,
-        backgroundColor: ["rgba(53, 162, 235, 0.5)", "rgba(255, 99, 132, 0.5)"],
+        backgroundColor: ["#277da1", "#f3722c", "#f94144", "#43aa8b"],
+        borderColor: [""],
       },
     ],
   };

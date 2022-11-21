@@ -11,7 +11,7 @@ const PieChart = ({ labels, numberOfAttending, data, text }) => {
       {
         label: `${numberOfAttending}  Answers`,
         data: data,
-        backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
+        backgroundColor: ["#277da1", "#f3722c", "#f94144", "#43aa8b"],
       },
     ],
   };
