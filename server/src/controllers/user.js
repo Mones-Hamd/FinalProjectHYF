@@ -47,7 +47,9 @@ export const register = async (req, res) => {
     const user = await newUser.save();
 
     const token = await createToken(user);
-    const url = `${process.env.CLIENT_HOST}verifyAccount/user/${user._id}/token/${token.token}`;
+    const url = `${getBaseUrl()}/verifyAccount/user/${user._id}/token/${
+      token.token
+    }`;
     await sendMail({
       type: "VERIFY_ACCOUNT",
       subject: "Verify Email",
@@ -148,7 +150,9 @@ export const forgotPassword = async (req, res) => {
     if (!token) {
       token = await createToken(user);
     }
-    const url = `${process.env.CLIENT_HOST}forgetPassword/user/${user._id}/reset/${token.token}/`;
+    const url = `${getBaseUrl()}/forgetPassword/user/${user._id}/reset/${
+      token.token
+    }/`;
     await sendMail({
       type: "UPDATE_PASSWORD",
       subject: "Password Reset",
@@ -229,4 +233,9 @@ const isEmailExists = async (email) => {
 
 const isUsernameExists = async (username) => {
   return await User.findOne({ username: username });
+};
+const getBaseUrl = () => {
+  const host = process.env.CLIENT_HOST;
+  const port = process.env.CLIENT_PORT;
+  return host + (port ? `:${port}` : "");
 };
