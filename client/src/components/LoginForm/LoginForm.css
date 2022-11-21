@@ -60,6 +60,9 @@
 .form-box {
   padding: 10px;
 }
+.forget-password-link {
+  margin-left: 18px;
+}
 @media only screen and (min-width: 200px) {
   .login-box {
     max-width: 90%;

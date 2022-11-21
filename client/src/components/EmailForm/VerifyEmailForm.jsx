@@ -49,7 +49,7 @@ const VerifyEmailForm = () => {
       <div className="verify-box">
         <h1 className="verify-header">Forgot your password?</h1>
         <p className="verify-text">
-          Enter your registered email below to recive password reset link
+          Enter your registered email below to receive password reset link
         </p>
         <form className="verify-form" onSubmit={handleSubmit}>
           <FormInput
@@ -59,12 +59,14 @@ const VerifyEmailForm = () => {
             onChange={onChange}
             errorMessage={input.errorMessage}
           />
-          <button
-            type="submit"
-            className="btn btn-outline-primary send-link-btn"
-          >
-            Send-link
-          </button>
+          <div className="btn-box">
+            <button
+              type="submit"
+              className="btn btn-outline-primary send-link-btn"
+            >
+              Send-link
+            </button>
+          </div>
         </form>
         <div>
           {isLoading && <Spinner />}
@@ -78,15 +80,15 @@ const VerifyEmailForm = () => {
               <div className="alert alert-success" role="alert">
                 {message}
               </div>
-              <p>
-                Dont receive email ?? ..{" "}
+
+              <div className="btn-box">
                 <button
                   className="resend-email-button"
                   onClick={handleResendEmail}
                 >
                   resend email
                 </button>
-              </p>
+              </div>
             </div>
           )}
         </div>

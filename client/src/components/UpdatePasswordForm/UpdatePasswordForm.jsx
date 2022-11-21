@@ -60,7 +60,7 @@ const UpdatePasswordForm = ({ userId, token }) => {
       <div className="verify-box">
         <h1 className="verify-header">Reset your password!</h1>
         <p className="verify-text">
-          Enter your new passowrd below and confirme it.
+          Enter your new password below and confirmed it.
         </p>
         <form className="verify-form" onSubmit={handleSubmit}>
           {inputs.map((input) => (
