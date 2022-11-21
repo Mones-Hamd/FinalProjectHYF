@@ -18,7 +18,6 @@ const Result = () => {
 
   return (
     <>
-      {" "}
       {getResult.isLoading && <Spinner />}
       <div className="containerResult">
         <div className="guests-count-box">
@@ -36,7 +35,7 @@ const Result = () => {
           />
         </div>
         <button className="guestList-btn" onClick={() => setShow(!show)}>
-          Show List{" "}
+          Show List
         </button>
         <div>
           {show && (
@@ -51,7 +50,7 @@ const Result = () => {
               </ul>
             </div>
           )}
-        </div>{" "}
+        </div>
         {result?.chartArray?.map((chart, indx) => (
           <div className="result-chart-component" key={indx}>
             <BarChart
