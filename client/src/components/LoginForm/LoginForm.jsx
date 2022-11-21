@@ -83,7 +83,9 @@ const LoginForm = () => {
                 errorMessage={input.errorMessage}
               />
             ))}
-            <a href="/forgotPassword">Forgot your password ?</a>
+            <a className="forget-password-link" href="/forgotPassword">
+              Forgot your password ?
+            </a>
             <div className="remember-box">
               <input
                 type="checkbox"
