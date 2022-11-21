@@ -12,20 +12,26 @@ const Welcome = () => {
   return (
     <div className="welcome">
       <div className="header">
+        <div className="header-text-box">
+          <p>
+            While you are getting ready for your dreams come true , do not
+            stress for letting your relatives and friends know about your wedding! We are
+            here for you,just enjoy and celebrate it with your relatives and friends.
+          </p>
+        </div>
         <div className="image-container">
           <img src={photo} className="hero-img" alt="hero-image"></img>
         </div>
       </div>
       <div className="description">
         <h1 className="description">
-          Planning the Wedding of Your Dreams Just Got Easier{" "}
+          Planning the Wedding of Your Dreams Just Got Easier
         </h1>
       </div>
       <div className="desc1">
         <Main />
         <div className="desc1-container">
           <p>
-            {" "}
             You are getting married, what a great news! We know there are many
             questions in your mind to live this special moment perfectly. Enjoy
             your wedding because we are here for you! We have the answers to all
