@@ -19,7 +19,7 @@
   border-radius: 20px;
   text-align: center;
   font-size: 14px;
-  width: fit-content;
+  min-width: 100%;
 }
 .guests-count-box {
   padding: 1.5rem;
