@@ -15,8 +15,9 @@ const Welcome = () => {
         <div className="header-text-box">
           <p>
             While you are getting ready for your dreams come true , do not
-            stress for letting your relatives and friends know about your wedding! We are
-            here for you,just enjoy and celebrate it with your relatives and friends.
+            stress for letting your relatives and friends know about your
+            wedding! We are here for you,just enjoy and celebrate it with your
+            relatives and friends.
           </p>
         </div>
         <div className="image-container">
