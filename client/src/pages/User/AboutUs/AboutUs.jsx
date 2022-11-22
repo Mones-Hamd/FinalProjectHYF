@@ -53,7 +53,7 @@ const AboutUs = () => {
             <img src={beyzaPic} alt="teamPic2" className="team-pic" />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Beyza Gok</p>
+              <p className="team-member-name">Beyza Gök</p>
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
