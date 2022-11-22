@@ -46,7 +46,7 @@ export const getEventResults = async (req, res) => {
         },
       });
     } else {
-      res.json({
+      res.status(204).json({
         success: true,
         result:
           "Sorry! .... It seems that no one has answered your invitation yet ..",

@@ -58,3 +58,14 @@ h4 {
   margin: 20px auto;
   padding: 10px;
 }
+.no-result-msg {
+  font-size: large;
+  border-radius: 5px;
+}
+.sorry-span {
+  padding: 5px;
+  text-align: start;
+  border-radius: 5px;
+  background-color: #000;
+  color: white;
+}
