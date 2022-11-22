@@ -53,7 +53,7 @@ const AboutUs = () => {
             <img src={beyzaPic} alt="teamPic2" className="team-pic" />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Beyza Gok</p>
+              <p className="team-member-name">Beyza Gök</p>
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
@@ -70,12 +70,12 @@ const AboutUs = () => {
           </div>
           <div>
             <p className="paragraph">
-              “Looking for a challenging software engineer position where I can
-              use my educational background and specialised training to add
-              value to the firm and team. I enjoy (and consider myself good at)
-              solving problem, communicating with others and working with people
-              from different backgrounds, professions and skills. I look forward
-              to meeting you!”
+              “Hello, I am Beyza, here I am helping you as a software-engineer.
+              I am here to create great comfort with little touches, of course I
+              do it in the most fancy way possible. Speed chess, kickboxing and
+              tennis are my passions. Exploring the diversity in the world
+              improves my perspective on my profession and my career. Uniqueness
+              in diversity, unity in diversity here is my life motto”
             </p>
           </div>
         </div>
