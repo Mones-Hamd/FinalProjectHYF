@@ -45,7 +45,7 @@ const Home = () => {
               {" "}
               Start your wedding plan with creating your invitation{" "}
             </p>
-            <p className="website-info">
+            <p className="paragraph-app">
               You need minutes to create your wedding invitation. Our website
               builder makes it super easy to create your URL, add all your
               details and getting result for every question that you added. You
@@ -67,7 +67,7 @@ const Home = () => {
       <div className="invitation-container">
         <div className="container">
           <div className="header-box">
-            <h4 className="invitation-header">My Invitations</h4>
+            <h4 className=" invitation-header title-app">My Invitations</h4>
           </div>
 
           {events.length > 0 ? (
@@ -109,7 +109,7 @@ const Home = () => {
               {" "}
               Your love isn`t ordinary and neither are our websites.
             </p>
-            <p className="website-info">
+            <p className="paragraph-app">
               Consider all the wedding details guests may text or call you to
               ask about, like food or drink beverage dress code, and more. A
               custom wedding Form lets you include everything your guest list

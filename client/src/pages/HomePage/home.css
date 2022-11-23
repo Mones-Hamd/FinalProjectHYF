@@ -18,18 +18,9 @@
   margin: 3rem;
 }
 
-.website-info {
-  color: var(--primary-color);
-  font-size: 1.3rem;
-}
-
 .homePage .home-first-section button {
-  background-color: var(--accent-color);
-  color: var(--primary-light-color);
   padding: 1rem 2rem;
-  border-radius: 5px;
   margin: 1rem;
-  font-size: 1.2rem;
   width: 300px;
 }
 
@@ -50,7 +41,6 @@
 
 .homePage .invitation-header {
   text-decoration: none;
-  color: var(--primary-color);
 }
 
 .homePage .slider-box {
