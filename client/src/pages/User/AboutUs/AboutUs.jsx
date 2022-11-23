@@ -15,7 +15,7 @@ const AboutUs = () => {
   return (
     <div>
       <div className="home-container">
-        <h2 className="meet-team">Meet our team</h2>
+        <h1 className="meet-team">Meet our team</h1>
         <br />
 
         <div className="team-member-box">
@@ -23,7 +23,7 @@ const AboutUs = () => {
             <img src={monesPic} alt="teamPic1" className="team-pic" />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Mones Hamad</p>
+              <p className=" title-app">Mones Hamad</p>
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
@@ -39,7 +39,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-            <p className="paragraph">
+            <p className="paragraph paragraph-app">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
               eligendi tempora tenetur commodi exercitationem corporis facere
               perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
@@ -53,7 +53,7 @@ const AboutUs = () => {
             <img src={beyzaPic} alt="teamPic2" className="team-pic" />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Beyza Gok</p>
+              <p className="title-app">Beyza Gok</p>
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
@@ -69,7 +69,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-            <p className="paragraph">
+            <p className="paragraph paragraph-app">
               “Looking for a challenging software engineer position where I can
               use my educational background and specialised training to add
               value to the firm and team. I enjoy (and consider myself good at)
@@ -85,7 +85,7 @@ const AboutUs = () => {
             <img src={abdullaPic} alt="teamPic1" className="team-pic" />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Abdullah Samur</p>
+              <p className="title-app">Abdullah Samur</p>
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
@@ -101,7 +101,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-            <p className="paragraph">
+            <p className="paragraph paragraph-app">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
               eligendi tempora tenetur commodi exercitationem corporis facere
               perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
@@ -115,7 +115,7 @@ const AboutUs = () => {
             <img src={baraahPic} alt="teamPic1" className="team-pic" />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Baraah Ranneh</p>
+              <p className="title-app">Baraah Ranneh</p>
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
@@ -131,7 +131,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-            <p className="paragraph">
+            <p className="paragraph paragraph-app">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
               eligendi tempora tenetur commodi exercitationem corporis facere
               perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
@@ -149,7 +149,7 @@ const AboutUs = () => {
             />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Akın Tanış</p>
+              <p className="title-app">Akın Tanış</p>
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
@@ -165,7 +165,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-            <p className="paragraph">
+            <p className="paragraph paragraph-app">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
               eligendi tempora tenetur commodi exercitationem corporis facere
               perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
@@ -174,8 +174,8 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="teamIntro-container welcoming-section">
-          <h3 className="first-team-title">Making A Difference</h3>
-          <p className="aboutUs-paragraph">
+          <h1 className="first-team-title">Making A Difference</h1>
+          <p className="aboutUs-paragraph paragraph-app">
             Founded with the mission to create digital invitations that would
             provide all of the elegance of traditional invites without any of
             the waste, helping event hosts be more eco-friendly is at the core
@@ -187,11 +187,11 @@ const AboutUs = () => {
         </div>
 
         <div className="accordion accordion-flush" id="accordionFlushExample">
-          <h2>F&Q</h2>
+          <h1>F&Q</h1>
           <div className="accordion-item">
             <h3 className="accordion-header" id="flush-headingOne">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#flush-collapseOne"

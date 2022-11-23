@@ -129,6 +129,8 @@
 
   .welcome-img {
     border-radius: 15px;
+    width: 90%;
+    margin-left: 3rem;
   }
   .text {
     padding-left: 2rem;

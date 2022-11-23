@@ -46,7 +46,7 @@ const VerifyEmailForm = () => {
   };
   return (
     <div className="verify-container">
-      <div className="verify-box">
+      <div className="verify-box form-app">
         <h1 className="verify-header">Forgot your password?</h1>
         <p className="verify-text">
           Enter your registered email below to receive password reset link
@@ -60,10 +60,7 @@ const VerifyEmailForm = () => {
             errorMessage={input.errorMessage}
           />
           <div className="btn-box">
-            <button
-              type="submit"
-              className="btn btn-outline-primary send-link-btn"
-            >
+            <button type="submit" className="btn-app  send-link-btn">
               Send-link
             </button>
           </div>
@@ -83,7 +80,7 @@ const VerifyEmailForm = () => {
 
               <div className="btn-box">
                 <button
-                  className="resend-email-button"
+                  className="resend-email-button btn-app "
                   onClick={handleResendEmail}
                 >
                   resend email
