@@ -12,3 +12,21 @@
   text-decoration: none;
   list-style: none;
 }
+
+.title-app {
+  color: var(--accent-color);
+  font-size: 1.7rem;
+}
+
+.btn-app {
+  background-color: var(--accent-color);
+  color: var(--primary-light-color);
+  border-radius: 5px;
+  font-size: 1.2rem;
+  border: none;
+}
+.btn-app:hover {
+  color: var(--accent-color);
+  background-color: var(--primary-light-color);
+  border-radius: 5px;
+}

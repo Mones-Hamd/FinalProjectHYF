@@ -80,7 +80,7 @@ const SignUpForm = () => {
       <div className="signup-box">
         <div className="form-box">
           <form className="signup-form" onSubmit={handleSubmit}>
-            <h2 className="create-title">Create new account</h2>
+            <h2 className="create-title title-app">Create new account</h2>
 
             {inputs.map((input) => (
               <FormInput
@@ -92,7 +92,7 @@ const SignUpForm = () => {
               />
             ))}
             <div className="btn-box">
-              <button className="sign-up-btn" disabled={isLoading}>
+              <button className="sign-up-btn btn-app" disabled={isLoading}>
                 Sign-up
               </button>
             </div>

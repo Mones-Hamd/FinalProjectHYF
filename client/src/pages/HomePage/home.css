@@ -22,10 +22,6 @@
   color: var(--primary-color);
   font-size: 1.3rem;
 }
-.title-homepage {
-  color: var(--accent-color);
-  font-size: 1.7rem;
-}
 
 .homePage .home-first-section button {
   background-color: var(--accent-color);

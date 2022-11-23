@@ -41,7 +41,7 @@ const Home = () => {
         <div className="home-first-section">
           <img src={wedding} alt="wedding image" />
           <div className="content">
-            <p className="title-homepage">
+            <p className="title-app">
               {" "}
               Start your wedding plan with creating your invitation{" "}
             </p>
@@ -52,7 +52,10 @@ const Home = () => {
               can quickly add photo into your form andd add important details
               about your wedding day.
             </p>
-            <button className="home-create-button" onClick={handleOnClick}>
+            <button
+              className="home-create-button btn-app"
+              onClick={handleOnClick}
+            >
               Create invitation
             </button>
           </div>
@@ -102,7 +105,7 @@ const Home = () => {
         <div className="home-first-section">
           <img src={komjeImg} alt="komjeImg" />
           <div className="content">
-            <p className="title-homepage">
+            <p className=" title-app">
               {" "}
               Your love isn`t ordinary and neither are our websites.
             </p>
