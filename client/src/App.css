@@ -62,7 +62,7 @@ h1 {
 }
 
 .input-app {
-  height: 50px;
+  height: 45px;
   width: 80%;
   border-radius: var(--border-radius-btn-input);
   border: 1px solid var(--primary-color);

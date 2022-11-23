@@ -1,3 +1,11 @@
+.event-page-container {
+  min-height: 100vh;
+  margin-top: 4.4rem;
+}
+.img-box {
+  max-width: 60%;
+}
+
 .buttonGroup {
   display: flex;
   margin: 2rem auto;
@@ -7,9 +15,10 @@
 }
 
 .buttonGroup button {
-  border-radius: 5px;
-  background-color: var(--dark-color);
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--primary-light-color);
+  font-family: var(--title-font-family-title);
+  border-radius: var(--border-radius-btn-input);
   width: 15%;
   border: none;
   height: 50px;
@@ -22,15 +31,10 @@
 }
 
 .buttonGroup button:hover {
-  background-color: white;
-  color: var(--dark-color);
+  color: var(--accent-color);
+  background-color: var(--primary-light-color);
   border: 1px solid var(--dark-color);
-  border-radius: 5px;
-}
-
-.event-page-container {
-  min-height: 100vh;
-  margin-top: 3rem;
+  border-radius: var(--border-radius-btn-input);
 }
 
 .copyLinkGroup {
@@ -43,22 +47,21 @@
 
 .copyLinkGroup button {
   border-radius: 5px;
-  background-color: var(--dark-color);
-  color: white;
+  background-color: var(--accent-color);
+  color: var(--primary-light-color);
+  font-family: var(--title-font-family-title);
+  border-radius: var(--border-radius-btn-input);
   width: 20%;
-  border: none;
   margin-left: 5px;
   min-width: 100px;
 }
 .copyLinkGroup button:hover {
-  background-color: white;
-  color: var(--dark-color);
+  color: var(--accent-color);
+  background-color: var(--primary-light-color);
   border: 1px solid var(--dark-color);
-  border-radius: 5px;
+  border-radius: var(--border-radius-btn-input);
 }
-.img-box {
-  max-width: 50%;
-}
+
 .copyLinkGroup input[type="text"] {
   margin: 0px 0px 0px 10px;
   height: 47px;
@@ -67,8 +70,18 @@
 
 .details {
   margin: auto;
+  margin-top: 2rem;
   width: 60%;
   min-width: 400px;
+}
+.form {
+  margin: auto;
+  margin-top: 2rem;
+  width: 60%;
+  min-width: 400px;
+}
+.question-form {
+  padding-left: 25px;
 }
 
 .weddingDefault .title {
@@ -81,19 +94,13 @@
   line-height: 30px;
 }
 
-.form {
-  margin: 16px;
-  margin: auto;
-  width: 60%;
-  min-width: 400px;
-}
-
 .form .question {
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .form .required {
-  font-size: 10px;
+  font-size: 15px;
   color: red;
   visibility: visible;
   vertical-align: super;
@@ -123,5 +130,4 @@
   flex-direction: row;
   align-items: center;
   padding-left: 1rem;
-  margin-top: -1rem;
 }

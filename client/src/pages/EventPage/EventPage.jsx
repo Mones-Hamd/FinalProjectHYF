@@ -77,19 +77,27 @@ const EventPage = () => {
       </div>
       <div className="buttonGroup">
         <div className="btn-div">
-          <button type="button" disabled={isLoading} onClick={showResults}>
+          <button
+            type=" event-btn btn-app"
+            disabled={isLoading}
+            onClick={showResults}
+          >
             Show Results
           </button>
         </div>
         <div className="btn-div">
-          <button type="button" disabled={isLoading} onClick={cancelEvent}>
+          <button
+            type="event-btn btn-app"
+            disabled={isLoading}
+            onClick={cancelEvent}
+          >
             Cancel Event
           </button>
         </div>
       </div>
       <div className="copyLinkGroup" onClick={copyLink}>
         <input type="text" disabled value={generateUrl()}></input>
-        <button type="button" disabled={isLoading}>
+        <button type=" event-btn btn-app" disabled={isLoading}>
           Copy Link
         </button>
       </div>
@@ -101,7 +109,7 @@ export default EventPage;
 
 const getEventForm = (form) => {
   return (
-    <div>
+    <div className="question-form">
       {form?.map((question, index) => {
         return (
           <div key={question.key} className="question">
