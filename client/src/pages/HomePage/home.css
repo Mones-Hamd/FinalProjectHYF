@@ -30,9 +30,11 @@
 .homePage .home-first-section button {
   background-color: var(--accent-color);
   color: var(--primary-light-color);
-  padding: 1rem 5rem;
-  border-radius: 6px;
-  margin: 1rem 3rem;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  margin: 1rem;
+  font-size: 1.2rem;
+  width: 300px;
 }
 
 .homePage .invitation-container {
