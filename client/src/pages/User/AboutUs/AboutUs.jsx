@@ -133,10 +133,12 @@ const AboutUs = () => {
           </div>
           <div>
             <p className="paragraph paragraph-app">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
-              eligendi tempora tenetur commodi exercitationem corporis facere
-              perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
-              molestias velit quis id deleniti et non!
+              In a world full of uncertainties, I`ve found myself in a word full
+              of adventurers,challenges, puzzles to be tackled and solved. As a
+              fresh web-developer I know there is still a lot to learn ahead,
+              but for me it`s a matter of experiencing the journey rather than
+              the distention. Enjoy using our app and you can always reach us
+              for help and feedback
             </p>
           </div>
         </div>
