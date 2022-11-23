@@ -33,7 +33,7 @@ function FormInput({ onChange, errorMessage, ...inputProps }) {
             inputProps.name === "confirmpassword" && setFocused(true)
           }
           focused={focused.toString()}
-          className="input-placeholder"
+          className="input-placeholder input-app"
         />
 
         {inputProps.name === "password" ||

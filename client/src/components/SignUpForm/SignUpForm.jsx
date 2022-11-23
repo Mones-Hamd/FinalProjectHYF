@@ -77,7 +77,7 @@ const SignUpForm = () => {
 
   return (
     <>
-      <div className="signup-box">
+      <div className="signup-box form-app">
         <div className="form-box">
           <form className="signup-form" onSubmit={handleSubmit}>
             <h2 className="create-title title-app">Create new account</h2>
