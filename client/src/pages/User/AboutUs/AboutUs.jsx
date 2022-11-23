@@ -53,7 +53,6 @@ const AboutUs = () => {
             <img src={beyzaPic} alt="teamPic2" className="team-pic" />
             <hr />
             <div className="data-box">
-
               <p className="title-app">Beyza Gök</p>
 
               <div className="icon-social-box">
@@ -71,7 +70,6 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-
             <p className="paragraph paragraph-app">
               “Hello, I am Beyza, here I am helping you as a software-engineer.
               I am here to create great comfort with little touches, of course I
@@ -79,7 +77,6 @@ const AboutUs = () => {
               tennis are my passions. Exploring the diversity in the world
               improves my perspective on my profession and my career. Uniqueness
               in diversity, unity in diversity here is my life motto”
-
             </p>
           </div>
         </div>
