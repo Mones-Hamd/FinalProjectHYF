@@ -64,6 +64,7 @@ export const useAuth = () => {
       error: useLogin.error,
       performLogin: login,
       cancel: useLogin.cancelFetch,
+      isSuccess: useRegister.isSuccess,
     },
     register: {
       isLoading: useRegister.isLoading,
@@ -71,6 +72,7 @@ export const useAuth = () => {
       message: message,
       performRegister: register,
       cancel: useRegister.cancelFetch,
+      isSuccess: useRegister.isSuccess,
     },
     user: context.user,
     token: context.token,

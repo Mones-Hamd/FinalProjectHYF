@@ -2,7 +2,6 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useEventContext } from "../hooks/useEventContext";
 import useFetch from "../hooks/useFetch";
-
 import { toast } from "react-toastify";
 export const useEvent = () => {
   const { token } = useAuthContext();

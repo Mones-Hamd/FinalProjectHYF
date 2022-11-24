@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import FormInput from "../InputForm/FormInput.jsx";
 import "./signupForm.css";
-
-import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
+//import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
 import { useAuth } from "../../hooks/useAuth";
 import Spinner from "../Spinner/Spinner.jsx";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 
 const SignUpForm = () => {
   const [values, setValues] = useState({
@@ -15,11 +16,23 @@ const SignUpForm = () => {
   });
 
   const { register } = useAuth();
-  const { isLoading, error, performRegister, cancelFetch } = register;
+  const { isLoading, error, performRegister, cancelFetch, isSuccess } =
+    register;
 
   useEffect(() => {
+    if (error) {
+      toast.error("This e-mail is invalid or has been already used.", {
+        toastId: "signup-error",
+      });
+    }
+    if (isSuccess) {
+      toast.success("Please check your email and verify your account.", {
+        toastId: "signup-success",
+      });
+    }
+
     return cancelFetch;
-  }, []);
+  }, [cancelFetch, error, isSuccess]);
 
   const inputs = [
     {
@@ -77,6 +90,7 @@ const SignUpForm = () => {
 
   return (
     <>
+      <ToastContainer />
       <div className="signup-box form-app">
         <div className="form-box">
           <form className="signup-form" onSubmit={handleSubmit}>
@@ -98,8 +112,6 @@ const SignUpForm = () => {
             </div>
           </form>
         </div>
-
-        {error ? <ErrorMsg error={error} /> : <></>}
         {isLoading ? <Spinner /> : <></>}
       </div>
     </>

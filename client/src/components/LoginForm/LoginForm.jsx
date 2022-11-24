@@ -3,9 +3,10 @@ import FormInput from "../InputForm/FormInput.jsx";
 import "./LoginForm.css";
 import { useAuth } from "../../hooks/useAuth.jsx";
 
-import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
+//import ErrorMsg from "../ErrorMsg/ErrorMsg.jsx";
 import Spinner from "../Spinner/Spinner.jsx";
-
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 const REMEMBER_ME = "REMEMBER_ME";
 
 const LoginForm = () => {
@@ -16,14 +17,24 @@ const LoginForm = () => {
     confirmPassword: "",
   });
   const { login } = useAuth();
-  const { isLoading, error, performLogin, cancelFetch } = login;
+  const { isLoading, error, performLogin, cancelFetch, isSuccess } = login;
   const [checked, setChecked] = useState(
     localStorage.getItem(REMEMBER_ME) !== null
   );
 
   useEffect(() => {
+    if (error) {
+      toast.error("Either e-mail or password is incorrect.", {
+        toastId: "login-error",
+      });
+    }
+    if (isSuccess) {
+      toast.success("Great, you logged in!.", {
+        toastId: "login-success",
+      });
+    }
     return cancelFetch;
-  }, []);
+  }, [error, isSuccess, cancelFetch]);
 
   const inputs = [
     {
@@ -70,6 +81,7 @@ const LoginForm = () => {
 
   return (
     <>
+      <ToastContainer />
       <div className="login-box form-app">
         <div className="form-box">
           <form className="login-form" onSubmit={handleSubmit}>
@@ -101,15 +113,13 @@ const LoginForm = () => {
               </button>
             </div>
             <label className="new-account-link ">
-              Don`t have an account ,create an account{" "}
+              Do not have an account? Please register{" "}
               <a href="/register"> here!</a>
             </label>
           </form>
         </div>
         {isLoading ? <Spinner /> : <></>}
       </div>
-
-      {error ? <ErrorMsg error={error} /> : <></>}
     </>
   );
 };

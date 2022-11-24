@@ -2,13 +2,17 @@ import React, { useEffect, useState } from "react";
 import Spinner from "../../components/Spinner/Spinner";
 import useFetch from "../../hooks/useFetch";
 import PropTypes from "prop-types";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
+
 const VerifyEmail = ({ userId, token }) => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState();
   const route = `/user/${userId}/verify/${token}`;
+
   const onReceived = (result) => {
-    setMessage(result.message);
+    setMessage(result?.message);
   };
-  const { isLoading, error, performFetch, cancelFetch } = useFetch(
+  const { isLoading, error, performFetch, cancelFetch, isSuccess } = useFetch(
     route,
     onReceived
   );
@@ -21,20 +25,25 @@ const VerifyEmail = ({ userId, token }) => {
     };
     performFetch(options);
 
-    return cancelFetch;
+    return () => {
+      cancelFetch;
+    };
   }, []);
+  if (error) {
+    toast.error(message, {
+      toastId: "verify-error",
+    });
+  }
+  if (isSuccess) {
+    toast.success(message, {
+      toastId: "verify-success",
+    });
+  }
+
   return (
     <div>
+      <ToastContainer />
       {isLoading && <Spinner />}
-      {error ? (
-        <div className="alert alert-danger" role="alert">
-          {error}
-        </div>
-      ) : (
-        <div className="alert alert-success" role="alert">
-          {message}
-        </div>
-      )}
     </div>
   );
 };
