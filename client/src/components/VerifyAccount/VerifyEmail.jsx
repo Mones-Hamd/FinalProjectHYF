@@ -6,10 +6,11 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer, toast } from "react-toastify";
 
 const VerifyEmail = ({ userId, token }) => {
-  const [message, setMessage] = useState("");
+  const [message, setMessage] = useState();
   const route = `/user/${userId}/verify/${token}`;
+
   const onReceived = (result) => {
-    setMessage(result.message);
+    setMessage(result?.message);
   };
   const { isLoading, error, performFetch, cancelFetch, isSuccess } = useFetch(
     route,
@@ -24,24 +25,25 @@ const VerifyEmail = ({ userId, token }) => {
     };
     performFetch(options);
 
-    if (error) {
-      toast.error(message, {
-        toastId: "verify-error",
-      });
-    }
-    if (isSuccess) {
-      toast.success(message, {
-        toastId: "verify-success",
-      });
-    }
-    return cancelFetch;
-  }, [performFetch, error, isSuccess, cancelFetch]);
+    return () => {
+      cancelFetch;
+    };
+  }, []);
+  if (error) {
+    toast.error(message, {
+      toastId: "verify-error",
+    });
+  }
+  if (isSuccess) {
+    toast.success(message, {
+      toastId: "verify-success",
+    });
+  }
+
   return (
     <div>
       <ToastContainer />
       {isLoading && <Spinner />}
-
-      <p>hello</p>
     </div>
   );
 };
