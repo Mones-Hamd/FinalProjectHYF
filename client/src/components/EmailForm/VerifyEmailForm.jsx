@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FormInput from "../InputForm/FormInput";
 import useFetch from "../../hooks/useFetch";
 import Spinner from "../Spinner/Spinner";
 import "./VerifyEmailForm.css";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer, toast } from "react-toastify";
 const VerifyEmailForm = () => {
   const [value, setValue] = useState({
     email: "",
@@ -12,7 +14,7 @@ const VerifyEmailForm = () => {
     setMessage(result.message);
   };
   const route = "/user/forgotPassword";
-  const { isLoading, error, performFetch /* cancelFetch */ } = useFetch(
+  const { isLoading, error, performFetch, isSuccess } = useFetch(
     route,
     onReceived
   );
@@ -44,8 +46,23 @@ const VerifyEmailForm = () => {
   const handleResendEmail = (e) => {
     handleSubmit(e);
   };
+
+  useEffect(() => {
+    if (error) {
+      toast.error(message, {
+        toastId: "verify-error",
+      });
+    }
+    if (isSuccess) {
+      toast.success(message, {
+        toastId: "verify-success",
+      });
+    }
+  }, [error, isSuccess]);
   return (
     <div className="verify-container">
+      <ToastContainer />
+
       <div className="verify-box form-app">
         <h1 className="verify-header">Forgot your password?</h1>
         <p className="verify-text">
@@ -74,7 +91,7 @@ const VerifyEmailForm = () => {
           )}
           {message && (
             <div>
-              <div className="alert alert-success" role="alert">
+              <div className="alert alert-danger" role="alert">
                 {message}
               </div>
 
