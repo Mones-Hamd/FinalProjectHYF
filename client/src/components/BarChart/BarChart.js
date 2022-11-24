@@ -52,7 +52,7 @@ const BarChart = ({ labels, numberOfAttending, data, text }) => {
   };
   return (
     <div>
-      <Bar height={400} width={600} data={seedData} options={options} />
+      <Bar height={400} width={400} data={seedData} options={options} />
     </div>
   );
 };

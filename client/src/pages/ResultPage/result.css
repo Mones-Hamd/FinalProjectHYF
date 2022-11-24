@@ -55,6 +55,7 @@ h4 {
   text-decoration: underline;
 }
 .result-chart-component {
+  width: 100%;
   margin: 20px auto;
   padding: 10px;
 }
@@ -68,4 +69,15 @@ h4 {
   border-radius: 5px;
   background-color: #000;
   color: white;
+}
+.flex-bar-chart-section {
+  width: 90%;
+  display: flex;
+}
+@media (max-width: 600px) {
+  .flex-bar-chart-section {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
 }

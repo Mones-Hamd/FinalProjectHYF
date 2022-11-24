@@ -9,6 +9,7 @@ import Spinner from "../../components/Spinner/Spinner";
 
 const Result = () => {
   const [show, setShow] = useState(false);
+  const [flex, setFlex] = useState("");
   const { getResult, result } = useResult();
 
   useEffect(() => {
@@ -18,6 +19,7 @@ const Result = () => {
     };
   }, []);
   const pieLable = ["Attending"];
+  if (result?.chartArray.length > 3) setFlex("flex-bar-chart-section");
   return (
     <>
       {getResult.isLoading && <Spinner />}
@@ -56,16 +58,18 @@ const Result = () => {
                 </div>
               )}
             </div>
-            {result?.chartArray?.map((chart, indx) => (
-              <div className="result-chart-component" key={indx}>
-                <BarChart
-                  text={result.subjectArray[indx]}
-                  labels={chart.labels}
-                  numberOfAttending={result.attending}
-                  data={chart.data}
-                />
-              </div>
-            ))}
+            <div className={flex}>
+              {result?.chartArray?.map((chart, indx) => (
+                <div className="result-chart-component" key={indx}>
+                  <BarChart
+                    text={result.subjectArray[indx]}
+                    labels={chart.labels}
+                    numberOfAttending={result.attending}
+                    data={chart.data}
+                  />
+                </div>
+              ))}
+            </div>
           </>
         ) : (
           <div>
