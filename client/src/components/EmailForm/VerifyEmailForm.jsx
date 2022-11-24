@@ -50,12 +50,12 @@ const VerifyEmailForm = () => {
   useEffect(() => {
     if (error) {
       toast.error(message, {
-        toastId: "verify-error",
+        toastId: "mail-error",
       });
     }
     if (isSuccess) {
       toast.success(message, {
-        toastId: "verify-success",
+        toastId: "mail-success",
       });
     }
   }, [error, isSuccess]);
@@ -84,25 +84,15 @@ const VerifyEmailForm = () => {
         </form>
         <div>
           {isLoading && <Spinner />}
-          {error && (
-            <div className="alert alert-danger" role="alert">
-              {error}
-            </div>
-          )}
-          {message && (
-            <div>
-              <div className="alert alert-danger" role="alert">
-                {message}
-              </div>
 
-              <div className="btn-box">
-                <button
-                  className="resend-email-button btn-app "
-                  onClick={handleResendEmail}
-                >
-                  resend email
-                </button>
-              </div>
+          {message && (
+            <div className="btn-box">
+              <button
+                className="resend-email-button btn-app "
+                onClick={handleResendEmail}
+              >
+                Resend e-mail
+              </button>
             </div>
           )}
         </div>
