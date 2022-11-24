@@ -4,8 +4,7 @@
 
 .homePage .home-first-section {
   display: flex;
-  align-items: flex-end;
-  margin: 40px 0 80px 0;
+  align-items: center;
 }
 
 .homePage .home-first-section img {
@@ -14,21 +13,14 @@
   object-fit: cover;
 }
 
-.homePage .home-first-section .content {
-}
-
-.homePage .home-first-section p {
-  color: var(--primary-color);
-  font-size: 1.4rem;
+.content {
   margin: 3rem;
 }
 
 .homePage .home-first-section button {
-  background-color: var(--accent-color);
-  color: var(--primary-light-color);
-  padding: 1rem 5rem;
-  border-radius: 6px;
-  margin: 0 3rem;
+  padding: 1rem 2rem;
+  margin: 1rem;
+  width: 300px;
 }
 
 .homePage .invitation-container {
@@ -48,7 +40,6 @@
 
 .homePage .invitation-header {
   text-decoration: none;
-  color: var(--primary-color);
 }
 
 .homePage .slider-box {

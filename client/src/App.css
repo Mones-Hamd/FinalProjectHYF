@@ -5,9 +5,65 @@
   --primary-dark-color: #1f2232;
   --primary-light-color: #fde8e9;
   --error-color: #f48c06;
+  --white-color: #ffffff;
+  --font-size-paragraph: 1.2rem;
+  --font-size-title: 1.7rem;
+  --font-size-btn: 1.5rem;
+  --border-radius-btn-input: 5px;
+  --border-radius-form: 15px;
+  --title-font-family-title: new-spirit, serif;
 }
 
 * {
   text-decoration: none;
   list-style: none;
+}
+
+h1 {
+  color: var(--accent-color);
+  font-family: var(--title-font-family-title);
+}
+
+.title-app {
+  color: var(--accent-color);
+  font-size: var(--font-size-title);
+  font-family: var(--title-font-family-title);
+}
+
+.paragraph-app {
+  color: var(--primary-color);
+  font-size: var(--font-size-paragraph);
+}
+
+.form-app {
+  display: block;
+  width: fit-content;
+  background-color: var(--white-color);
+  color: var(--primary-color);
+  border-radius: var(--border-radius-form);
+  box-shadow: 0px 3px 6px var(--accent-color);
+  padding: 3rem 1rem 1.5rem 2rem;
+}
+
+.btn-app {
+  background-color: var(--accent-color);
+  color: var(--primary-light-color);
+  font-family: var(--title-font-family-title);
+  border-radius: var(--border-radius-btn-input);
+  font-size: var(--font-size-btn);
+  border: none;
+}
+
+.btn-app:hover {
+  color: var(--accent-color);
+  background-color: var(--primary-light-color);
+  border-radius: var(--border-radius-btn-input);
+  border: solid 1px var(--accent-color);
+}
+
+.input-app {
+  height: 45px;
+  width: 80%;
+  border-radius: var(--border-radius-btn-input);
+  border: 1px solid var(--primary-color);
 }

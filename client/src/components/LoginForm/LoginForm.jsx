@@ -70,10 +70,10 @@ const LoginForm = () => {
 
   return (
     <>
-      <div className="login-box">
+      <div className="login-box form-app">
         <div className="form-box">
           <form className="login-form" onSubmit={handleSubmit}>
-            <h2 className="log-title">Login</h2>
+            <h2 className="log-title title-app">Login</h2>
             {inputs.map((input) => (
               <FormInput
                 key={input.id}
@@ -95,8 +95,8 @@ const LoginForm = () => {
               />
               <label className="remeber-me">Remember me</label>
             </div>
-            <div className="btn-box">
-              <button className="log-in-btn" disabled={isLoading}>
+            <div className="btn-box ">
+              <button className="log-in-btn btn-app" disabled={isLoading}>
                 Login
               </button>
             </div>

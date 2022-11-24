@@ -2,27 +2,67 @@
   min-height: 100vh;
 }
 
-.description {
-  margin: 3rem auto;
+.par-2 {
+  font-weight: 500;
+  letter-spacing: -0.666667px;
+  line-height: 40px;
   text-align: center;
-  padding: 10px;
+  max-width: 100%;
 }
-.description > p {
-  letter-spacing: 2px;
-  text-indent: 2rem;
-  margin-top: 7rem;
+
+.text {
+  text-align: justify;
+  margin: 16px;
 }
-.description > h1 {
-  margin-bottom: 1rem;
-  text-indent: 2rem;
-  font-family: "Arial Black", sans-serif;
-  padding: 1rem;
+
+.btn-down {
+  padding: 1rem 2rem;
+  margin: 1rem;
+  width: 300px;
+}
+.btn-div {
+  text-align: center;
+}
+
+.header {
+  width: 80vw;
+  margin: auto;
+  margin-bottom: 25px;
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.header-text-box {
+  width: 50%;
+  justify-content: center;
+  padding: 15px;
+}
+
+.image-container {
+  width: 50%;
+  max-width: 700px;
+  margin: auto;
+}
+
+.welcome-img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  border-radius: 5px;
+}
+
+.description {
+  margin: auto;
+  text-align: center;
+  padding: 17px;
 }
 .desc1 {
   width: 80vw;
   margin: auto;
-  margin-bottom: 6rem;
-  margin-top: 6rem;
+  margin-bottom: 0.7rem;
+  margin-top: 0.7rem;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -30,14 +70,10 @@
 .desc1-container {
   width: 50%;
   justify-content: center;
-  padding: 15px;
+  padding: 35px;
+  text-align: center;
 }
 
-.desc1-container p {
-  font-size: 1.2rem;
-  line-height: 2rem;
-  margin-top: 6rem;
-}
 .aboutApp {
   display: flex;
   height: 500px;
@@ -45,11 +81,13 @@
   margin: auto;
   flex-wrap: wrap;
 }
+
 .free {
   width: 25%;
   display: flex;
   margin: auto;
 }
+
 .about-section {
   width: 150px;
   height: 150px;
@@ -58,87 +96,6 @@
   margin: auto;
 }
 
-.header {
-  width: 80vw;
-  margin: auto;
-  margin-bottom: 6rem;
-  margin-top: 6rem;
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-.header-text-box {
-  width: 50%;
-  justify-content: center;
-  padding: 15px;
-}
-.header-text-box p {
-  font-size: 1.2rem;
-  line-height: 2rem;
-  margin-top: 6rem;
-}
-.image-container {
-  width: 50%;
-  max-width: 700px;
-  margin-right: auto;
-  margin-left: auto;
-}
-.hero-img {
-  max-width: 100%;
-  height: auto;
-  vertical-align: bottom;
-  border-radius: 15px;
-}
-.down {
-  -webkit-box-align: center;
-  align-items: center;
-  display: flex;
-  flex-flow: row;
-  height: 400px;
-  -webkit-box-pack: center;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-  width: 100%;
-  background-color: rgb(24, 59, 84);
-  margin-bottom: 3rem;
-}
-
-.par-2 {
-  color: rgb(255, 255, 255);
-  font-family: new-spirit, serif;
-  font-weight: 500;
-  font-size: 64px;
-  letter-spacing: -0.666667px;
-  line-height: 90px;
-  margin: 0px 0px 20px;
-  text-align: center;
-  max-width: 100%;
-}
-.btn-down {
-  background-color: #ff8185;
-  color: white;
-  border-radius: 5px;
-  min-width: 200px;
-  border: none;
-  height: 50px;
-  margin: auto;
-  margin-top: 10px;
-}
-.btn-down:hover {
-  color: #ff8185;
-  background-color: #fdd1d3;
-}
-.down-container {
-  -webkit-box-align: center;
-  align-items: center;
-  display: flex;
-  flex-flow: column;
-  -webkit-box-pack: center;
-  justify-content: center;
-  position: relative;
-  z-index: 20;
-}
 .main1 {
   width: 50%;
   max-width: 700px;
@@ -153,42 +110,60 @@
   height: auto;
   vertical-align: bottom;
 }
+
 @media screen and (max-width: 600px) {
   .imagePhoto {
     border-radius: 0;
   }
+
   .main1 {
     width: 100vw;
   }
 }
-@media screen and (min-width: 1000px) {
+
+@media screen and (min-width: 800px) {
   .aboutApp {
     display: flex;
     flex-wrap: wrap;
   }
+
+  .welcome-img {
+    border-radius: 15px;
+    width: 90%;
+    margin-left: 3rem;
+  }
+  .text {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
 }
+
 @media screen and (max-width: 1000px) {
   .image-container {
     width: 100%;
   }
+
   .header-text-box {
     width: 100%;
   }
+
   .header {
     width: 100vw;
+    margin-top: 3rem;
   }
-  .hero-img {
-    border-radius: 0;
-  }
+
   .desc1-container {
     width: 100vw;
   }
+
   .main1 {
     width: 100%;
   }
+
   .desc1 {
     width: 100%;
   }
+
   .free {
     width: 50%;
   }

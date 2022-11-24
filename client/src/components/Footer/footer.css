@@ -1,17 +1,12 @@
-* {
-  font-family: "Poppins", sans-serif;
-}
-
 .footer {
+  margin-top: 2rem;
   width: 100%;
   background: linear-gradient(to right, #00093c, #2d0b00);
   position: relative;
-  font-size: 13px;
 }
 
 .container-footer {
   width: fit-content;
-
   margin: auto;
   display: flex;
   justify-content: space-between;
@@ -36,7 +31,7 @@
   margin-top: -2rem;
 }
 .text {
-  color: white;
+  color: var(--white-color);
   margin-top: 10px;
 }
 
@@ -67,29 +62,29 @@
 
 .mailp {
   padding: -32px;
-  color: white;
+  color: var(--white-color);
 }
 
 .mailp:hover {
-  color: tomato;
+  color: var(--primary-color);
 }
 
 .sci li a :hover {
-  background: tomato;
+  background: var(--accent-color);
   width: 120px;
 }
 
 .icons {
-  color: white;
+  color: var(--white-color);
 }
 
 .copyrightText {
   width: 100%;
-  background: #181818;
+  background: var(--primary-dark-color);
   padding-top: 15px;
   padding-bottom: 10px;
   text-align: center;
-  color: #999;
+  color: var(--accent-color);
 }
 
 .social-box {
@@ -103,7 +98,7 @@
   }
 
   .logo {
-    min-width: 200px;
+    min-width: 230px;
   }
 
   .social-box {

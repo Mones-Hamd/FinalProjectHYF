@@ -1,33 +1,15 @@
-:root {
-  --white-color: #fff;
-  --text-color: #edf6f9;
-  --light-color: #83c5be;
-  --dark-color: #006d77;
-  --orange-color: #e29578;
-  --light-orange-color: #ffddd2;
-  --black-color: #000;
-}
 .log-title {
   text-align: center;
   margin-left: -4rem;
   padding: 1rem;
 }
 .login-box {
-  display: block;
   margin: auto;
   margin-top: 5rem;
-  width: fit-content;
-  background-color: white;
-  color: black;
   border-radius: 15px;
-  padding: 3rem 1rem 1.5rem 2rem;
-
-  box-shadow: 0px 3px 6px var(--dark-color);
 }
 .log-in-btn {
   border-radius: 5px;
-  background-color: var(--dark-color);
-  color: white;
   width: 70%;
   border: none;
   height: 50px;
@@ -37,12 +19,7 @@
   width: 50%;
   margin: auto;
 }
-.log-in-btn:hover {
-  background-color: white;
-  color: var(--dark-color);
-  border: 1px solid var(--dark-color);
-  border-radius: 5px;
-}
+
 .input-check-box {
   width: 15px;
   margin-right: 10px;
@@ -52,7 +29,6 @@
   flex-direction: row;
   align-items: center;
   padding-left: 1rem;
-  margin-top: -1rem;
 }
 .new-account-link {
   margin-top: 15px;

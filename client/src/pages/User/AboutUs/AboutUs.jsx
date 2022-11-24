@@ -15,7 +15,7 @@ const AboutUs = () => {
   return (
     <div>
       <div className="home-container">
-        <h2 className="meet-team">Meet our team</h2>
+        <h1 className="meet-team">Meet our team</h1>
         <br />
 
         <div className="team-member-box">
@@ -23,7 +23,7 @@ const AboutUs = () => {
             <img src={monesPic} alt="teamPic1" className="team-pic" />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Mones Hamad</p>
+              <p className=" title-app">Mones Hamad</p>
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
@@ -39,7 +39,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-            <p className="paragraph">
+            <p className="paragraph paragraph-app">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
               eligendi tempora tenetur commodi exercitationem corporis facere
               perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
@@ -53,7 +53,8 @@ const AboutUs = () => {
             <img src={beyzaPic} alt="teamPic2" className="team-pic" />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Beyza Gök</p>
+              <p className="title-app">Beyza Gök</p>
+
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
@@ -69,7 +70,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-            <p className="paragraph">
+            <p className="paragraph paragraph-app">
               “Hello, I am Beyza, here I am helping you as a software-engineer.
               I am here to create great comfort with little touches, of course I
               do it in the most fancy way possible. Speed chess, kickboxing and
@@ -85,7 +86,7 @@ const AboutUs = () => {
             <img src={abdullaPic} alt="teamPic1" className="team-pic" />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Abdullah Samur</p>
+              <p className="title-app">Abdullah Samur</p>
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
@@ -101,7 +102,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-            <p className="paragraph">
+            <p className="paragraph paragraph-app">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
               eligendi tempora tenetur commodi exercitationem corporis facere
               perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
@@ -115,7 +116,7 @@ const AboutUs = () => {
             <img src={baraahPic} alt="teamPic1" className="team-pic" />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Baraah Ranneh</p>
+              <p className="title-app">Baraah Ranneh</p>
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
@@ -131,11 +132,13 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-            <p className="paragraph">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
-              eligendi tempora tenetur commodi exercitationem corporis facere
-              perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
-              molestias velit quis id deleniti et non!
+            <p className="paragraph paragraph-app">
+              In a world full of uncertainties, I`ve found myself in a word full
+              of adventurers,challenges, puzzles to be tackled and solved. As a
+              fresh web-developer I know there is still a lot to learn ahead,
+              but for me it`s a matter of experiencing the journey rather than
+              the distention. Enjoy using our app and you can always reach us
+              for help and feedback
             </p>
           </div>
         </div>
@@ -149,7 +152,7 @@ const AboutUs = () => {
             />
             <hr />
             <div className="data-box">
-              <p className="team-member-name">Akın Tanış</p>
+              <p className="title-app">Akın Tanış</p>
               <div className="icon-social-box">
                 <SocialIcon
                   className="icon-social"
@@ -165,7 +168,7 @@ const AboutUs = () => {
             </div>
           </div>
           <div>
-            <p className="paragraph">
+            <p className="paragraph paragraph-app">
               Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
               eligendi tempora tenetur commodi exercitationem corporis facere
               perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
@@ -174,8 +177,8 @@ const AboutUs = () => {
           </div>
         </div>
         <div className="teamIntro-container welcoming-section">
-          <h3 className="first-team-title">Making A Difference</h3>
-          <p className="aboutUs-paragraph">
+          <h1 className="first-team-title">Making A Difference</h1>
+          <p className="aboutUs-paragraph paragraph-app">
             Founded with the mission to create digital invitations that would
             provide all of the elegance of traditional invites without any of
             the waste, helping event hosts be more eco-friendly is at the core
@@ -187,11 +190,11 @@ const AboutUs = () => {
         </div>
 
         <div className="accordion accordion-flush" id="accordionFlushExample">
-          <h2>F&Q</h2>
+          <h1>F&Q</h1>
           <div className="accordion-item">
             <h3 className="accordion-header" id="flush-headingOne">
               <button
-                className="accordion-button collapsed"
+                className="accordion-button"
                 type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#flush-collapseOne"
