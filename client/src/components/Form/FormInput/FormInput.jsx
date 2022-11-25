@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { useState } from "react";
-import "../InputWeddingForm/InputWeddingForm.css";
+import "./FormInput.css";
 
-const InputWeddingForm = (props) => {
+const FormInput = (props) => {
   const [focused, setFocused] = useState(false);
-  const { label, errorMessage, onChange, ...inputProps } = props;
+  const { label, required, errorMessage, onChange, ...inputProps } = props;
 
   const handleFocus = () => {
     setFocused(true);
@@ -13,9 +13,13 @@ const InputWeddingForm = (props) => {
 
   return (
     <div className="event-line">
-      <label className="event-line-title">{label}</label>
+      <label className="event-line-title">
+        {label}
+        {required && <span>(required)</span>}
+      </label>
       <input
         {...inputProps}
+        required={required}
         onChange={onChange}
         onBlur={handleFocus}
         focused={focused.toString()}
@@ -26,10 +30,11 @@ const InputWeddingForm = (props) => {
   );
 };
 
-InputWeddingForm.propTypes = {
-  label: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired,
-  id: PropTypes.number.isRequired,
+FormInput.propTypes = {
+  label: PropTypes.string,
+  required: PropTypes.bool,
+  onChange: PropTypes.func,
+  id: PropTypes.number,
   errorMessage: PropTypes.string,
 };
-export default InputWeddingForm;
+export default FormInput;
