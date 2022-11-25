@@ -6,9 +6,12 @@
   --primary-light-color: #fde8e9;
   --error-color: #f48c06;
   --white-color: #ffffff;
+  --font-size-input: 1.1rem;
+  --font-size-input-label: 0.8rem;
+  --font-size-input-error: 0.7rem;
   --font-size-paragraph: 1.2rem;
   --font-size-title: 1.7rem;
-  --font-size-btn: 1.5rem;
+  --font-size-btn: 1.3rem;
   --border-radius-btn-input: 5px;
   --border-radius-form: 15px;
   --title-font-family-title: new-spirit, serif;

@@ -2,27 +2,19 @@ import React, { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEvent } from "../../hooks/useEvent";
 import { useCancelEvent } from "../../hooks/useCancelEvent";
-import { baseUrl } from "../../config/config";
 import "./eventPage.css";
 import Accordion from "../../components/Accordion/Accordion";
 import Spinner from "../../components/Spinner/Spinner";
-import { toast } from "react-toastify";
-import { useResult } from "../../hooks/useResult";
+import { generateLink, copyLink } from "../../util/utils";
+import defaultEventImage from "/public/defaultEventImage.jpeg";
 
 const EventPage = () => {
   const { events } = useEvent();
-  const { getResult } = useResult();
   const { eventId } = useParams();
   const navigate = useNavigate();
   const { isLoading, isSuccess, cancelEvent, cancelFetch } =
     useCancelEvent(eventId);
   const event = events.find((event) => event._id === eventId);
-
-  const generateUrl = () => {
-    if (event?.shortLink) {
-      return `${baseUrl}/to/${event.shortLink}`;
-    }
-  };
 
   useEffect(() => {
     return () => cancelFetch();
@@ -39,23 +31,7 @@ const EventPage = () => {
   };
 
   const showResults = () => {
-    getResult.perform;
-
-    if (!getResult.isLoading) navigate(`/result/${event._id}`);
-  };
-  const copyLink = async () => {
-    await navigator.clipboard.writeText(generateUrl());
-    toast.info("Copied", {
-      autoClose: 2000,
-      hideProgressBar: true,
-      isLoading: false,
-      closeButton: false,
-      icon: false,
-      bodyStyle: {
-        backgroundColor: "#000000ff",
-        width: "100%",
-      },
-    });
+    navigate(`/result/${event._id}`);
   };
 
   return (
@@ -64,8 +40,8 @@ const EventPage = () => {
       <div className="img-box">
         <img
           className="event-img"
-          src={event?.templateDetails?.images[0].url}
-          alt={event?.templateDetails?.images[0].alt}
+          src={event?.templateDetails?.images?.[0]?.url || defaultEventImage}
+          alt={event?.templateDetails?.images?.[0]?.alt || "event image"}
         />
       </div>
 
@@ -95,9 +71,13 @@ const EventPage = () => {
           </button>
         </div>
       </div>
-      <div className="copyLinkGroup" onClick={copyLink}>
-        <input type="text" disabled value={generateUrl()}></input>
-        <button type=" event-btn btn-app" disabled={isLoading}>
+      <div className="copyLinkGroup" onClick={() => copyLink(event?.shortLink)}>
+        <input
+          type="text"
+          disabled
+          value={generateLink(event?.shortLink)}
+        ></input>
+        <button type="event-btn btn-app" disabled={isLoading}>
           Copy Link
         </button>
       </div>
