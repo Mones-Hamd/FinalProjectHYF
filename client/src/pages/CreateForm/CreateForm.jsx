@@ -15,7 +15,7 @@ const CreateForm = () => {
   const [isEventCreated, setEventCreated] = useState(false);
 
   const onSuccess = () => {
-    toast.success("Congrats! Event created successfully!");
+    toast.success("Congrats! Invitation have created successfully!");
     setEventCreated(true);
   };
 
@@ -48,10 +48,12 @@ const CreateForm = () => {
 
   useEffect(() => {
     if (error) {
-      toast.error("Oops! Something went wrong. We cannot create your wedding.");
+      toast.error(
+        "Oops! Something went wrong. We cannot create your invitation."
+      );
     }
     if (isSuccess) {
-      toast.success("You have created your wedding successfully!");
+      toast.success("You have created your invitation successfully!");
     }
   }, [error, isSuccess]);
 
@@ -100,7 +102,9 @@ const CreateForm = () => {
       setEventCreated(true);
     } catch (error) {
       setIsImageUploading(false);
-      toast.error("Oops! Something went wrong. We cannot create your wedding.");
+      toast.error(
+        "Oops! Something went wrong. We cannot create your invitation."
+      );
     }
   };
 
