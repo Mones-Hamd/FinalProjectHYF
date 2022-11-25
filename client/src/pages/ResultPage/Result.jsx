@@ -9,58 +9,76 @@ import Spinner from "../../components/Spinner/Spinner";
 
 const Result = () => {
   const [show, setShow] = useState(false);
+  const [flex, setFlex] = useState("");
   const { getResult, result } = useResult();
 
   useEffect(() => {
     getResult.perform();
+    return () => {
+      getResult.cancel();
+    };
   }, []);
   const pieLable = ["Attending"];
-
+  if (result?.chartArray.length > 3) setFlex("flex-bar-chart-section");
   return (
     <>
       {getResult.isLoading && <Spinner />}
+
       <div className="containerResult">
         <div className="guests-count-box">
           <h4>Total result</h4>
-          <p>Guests number: {result?.attending}</p>
-          <p>Attending Percentage: {result?.attendingPercentage}% </p>
-          <p>Responses in your event: {result?.totalResponse}</p>
+          <p>Guests number: {result?.attending || 0}</p>
+          <p>Attending Percentage: {result?.attendingPercentage || 0}% </p>
+          <p>Responses in your event: {result?.totalResponse || 0}</p>
         </div>
-        <div className="result-chart-component">
-          <PieChart
-            text="Attending chart"
-            labels={pieLable}
-            numberOfAttending={result?.totalResponse}
-            data={[result?.attending, result?.notAttending]}
-          />
-        </div>
-        <button className="guestList-btn" onClick={() => setShow(!show)}>
-          Show List
-        </button>
-        <div>
-          {show && (
-            <div>
-              <hr />
-              <h3>Guests List </h3>
-              <hr />
-              <ul className="list-box">
-                {result.guestsInformation?.map((guest) => {
-                  return <li key={guest.guestName}>{guest.guestName}</li>;
-                })}
-              </ul>
+        {result ? (
+          <>
+            <div className="result-chart-component">
+              <PieChart
+                text="Attending chart"
+                labels={pieLable}
+                numberOfAttending={result?.totalResponse}
+                data={[result?.attending, result?.notAttending]}
+              />
             </div>
-          )}
-        </div>
-        {result?.chartArray?.map((chart, indx) => (
-          <div className="result-chart-component" key={indx}>
-            <BarChart
-              text={result.subjectArray[indx]}
-              labels={chart.labels}
-              numberOfAttending={result.attending}
-              data={chart.data}
-            />
+            <button className="guestList-btn" onClick={() => setShow(!show)}>
+              Show List
+            </button>
+            <div>
+              {show && (
+                <div>
+                  <hr />
+                  <h3>Guests List </h3>
+                  <hr />
+                  <ul className="list-box">
+                    {result.guestsInformation?.map((guest) => {
+                      return <li key={guest.guestName}>{guest.guestName}</li>;
+                    })}
+                  </ul>
+                </div>
+              )}
+            </div>
+            <div className={flex}>
+              {result?.chartArray?.map((chart, indx) => (
+                <div className="result-chart-component" key={indx}>
+                  <BarChart
+                    text={result.subjectArray[indx]}
+                    labels={chart.labels}
+                    numberOfAttending={result.attending}
+                    data={chart.data}
+                  />
+                </div>
+              ))}
+            </div>
+          </>
+        ) : (
+          <div>
+            <p className="no-result-msg">
+              <span className="sorry-span">Sorry !.. </span>
+              <br></br>It seems that no one has answered your invitation yet.
+            </p>
           </div>
-        ))}
+        )}
       </div>
     </>
   );

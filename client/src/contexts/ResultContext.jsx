@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 export const ResultContext = createContext();
 
 export const ResultContextProvider = ({ children }) => {
-  const [result, setResult] = useState([]);
+  const [result, setResult] = useState();
 
   return (
     <ResultContext.Provider value={{ result, setResult }}>
