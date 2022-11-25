@@ -21,7 +21,7 @@ const Welcome = () => {
             your wedding?
             <br />
             We are here for you, just enjoy and celebrate it with your beloved
-            ones, while tracking with KOMJE all the details you need.
+            ones, while tracking with Komje all the details you need.
           </p>
           <div className="btn-div">
             <Link to="/register">
@@ -44,7 +44,7 @@ const Welcome = () => {
         <div className="desc1-container">
           <p className="paragraph-app text ">
             You are getting married, what a great news! We know there are many
-            things to take care of. KOMJE allows you to create a customized
+            things to take care of. Komje allows you to create a customized
             wedding invitation. With couple of clicks, get a sharable link of
             your wedding event.
             <br />
