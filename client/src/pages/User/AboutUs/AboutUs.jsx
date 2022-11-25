@@ -181,11 +181,11 @@ const AboutUs = () => {
           <p className="aboutUs-paragraph paragraph-app">
             Founded with the mission to create digital invitations that would
             provide all of the elegance of traditional invites without any of
-            the waste, helping event hosts be more eco-friendly is at the core
-            of what we do. Through partnerships with the National Forest
-            Foundation, Mountains to Sound, the National Park Foundation, and 1%
-            for the Planet, our online invitations will continue to do more than
-            just save paper. Together we can invite a greener future.
+            the waste, helping event hosts, and be more eco-friendly is our
+            ultimate goal.
+            <br />
+            Our online invitations will continue to do more than just save
+            paper. Together we can invite a greener future.
           </p>
         </div>
 
@@ -266,7 +266,7 @@ const AboutUs = () => {
             >
               <div className="accordion-body">
                 Using Komje it will be easy to cancel you invitation, just click
-                on <code>Cancel invitation button</code>
+                on <code> Cancel invitation button</code>
                 and we will send an email for all guests to inform them.
               </div>
             </div>
