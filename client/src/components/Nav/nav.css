@@ -124,19 +124,20 @@
 .logo-text {
   display: flex;
   justify-content: center;
-  height: 5rem;
+  height: 4rem;
   font-family: "Poppins", sans-serif;
   margin: 3rem;
   font-size: 20px;
   border-radius: 3rem;
   margin-left: 3rem;
+  mix-blend-mode: multiply;
 }
 
 .navbar-text-hamburger {
   display: flex;
   justify-content: flex-start;
   padding-top: 0.4rem;
-  height: 3rem;
+  height: 4rem;
   color: var(--dark-colour);
   font-family: "Poppins", sans-serif;
   border-bottom: 1px solid;
@@ -247,6 +248,7 @@
     font-size: 1.4rem;
   }
   .logo-text {
-    margin: auto;
+    margin: 1rem;
+    mix-blend-mode: multiply;
   }
 }
