@@ -17,6 +17,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 15%),
+    -2px -2px 5px 1px rgb(0 0 0 / 15%);
+  margin-bottom: 4rem;
 }
 
 .menu {

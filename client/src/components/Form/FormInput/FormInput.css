@@ -1,0 +1,70 @@
+.event-line-error-message {
+  font-size: var(--font-size-input-error);
+  padding: 0.3rem;
+  color: var(--error-color);
+  display: none;
+}
+
+input:invalid[focused="true"] ~ .event-line-error-message {
+  display: block;
+}
+
+.event-line {
+  width: 100%;
+  margin: auto;
+}
+
+.event-line-title {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 4px 0;
+  color: var(--primary-dark-color);
+  font-size: 0.9rem;
+}
+
+.event-line-title span {
+  font-size: var(--font-size-input-label);
+  color: var(--secondary-color);
+  visibility: visible;
+  vertical-align: super;
+  display: contents;
+}
+
+.event-line input {
+  color: var(--accent-color) !important;
+  padding: 8px !important;
+  width: 100%;
+  font-size: var(--font-size-input);
+}
+
+.event-line input::placeholder {
+  color: var(--secondary-color) !important;
+  width: 100%;
+}
+
+.event-line-description {
+  color: var(--accent-color) !important;
+  padding: 8px !important;
+  width: 100%;
+}
+
+.event-line-description::placeholder {
+  color: var(--secondary-color) !important;
+  padding: 8px !important;
+  width: 100%;
+}
+
+.komje-form-option {
+  width: 95%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  color: var(--primary-dark-color);
+  font-size: 0.9rem;
+}
+
+.komje-form-option input {
+  width: 16px;
+  margin: -6px 10px;
+}

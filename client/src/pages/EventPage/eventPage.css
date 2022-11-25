@@ -37,35 +37,13 @@
   border-radius: var(--border-radius-btn-input);
 }
 
-.copyLinkGroup {
-  display: flex;
-  padding-right: 10px;
-  width: 50%;
-  margin: auto;
-  min-width: 300px;
+.event-page-container {
+  min-height: 100vh;
+  margin-top: 3rem;
 }
 
-.copyLinkGroup button {
-  border-radius: 5px;
-  background-color: var(--accent-color);
-  color: var(--primary-light-color);
-  font-family: var(--title-font-family-title);
-  border-radius: var(--border-radius-btn-input);
-  width: 20%;
-  margin-left: 5px;
-  min-width: 100px;
-}
-.copyLinkGroup button:hover {
-  color: var(--accent-color);
-  background-color: var(--primary-light-color);
-  border: 1px solid var(--dark-color);
-  border-radius: var(--border-radius-btn-input);
-}
-
-.copyLinkGroup input[type="text"] {
-  margin: 0px 0px 0px 10px;
-  height: 47px;
-  flex-grow: 1;
+.img-box {
+  max-width: 50%;
 }
 
 .details {
