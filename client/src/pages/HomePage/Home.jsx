@@ -47,13 +47,11 @@ const Home = () => {
               Start your wedding plan with creating your invitation{" "}
             </p>
             <p className="paragraph-app">
-
               You need minutes to create your wedding invitation. Our website
               builder makes it super easy to create your sharable link, add all
               your details and get back the guests attending list with their
               preferences. You can quickly add photo into your form and add
               details about your wedding day.
-
             </p>
             <Button onClick={handleOnClick} label="Create invitation" />
           </div>
