@@ -62,10 +62,10 @@ const Nav = () => {
             {!isAuthenticated ? (
               <>
                 <Link to="/login">
-                  <button className="navbar-button">Log in</button>
+                  <button className="navbar-button">Login</button>
                 </Link>
                 <Link to="/register">
-                  <button className="navbar-button">Sign up</button>
+                  <button className="navbar-button">Sign Up</button>
                 </Link>
               </>
             ) : (
@@ -78,7 +78,7 @@ const Nav = () => {
                 <Link to="/login">
                   {user ? (
                     <button className="button-hamburger" onClick={logout}>
-                      Log Out
+                      Logout
                     </button>
                   ) : (
                     <button className="navbar-button" onClick={goLogin}>
@@ -105,16 +105,16 @@ const Nav = () => {
                     {user.username}
                   </Link>
                   <button className="button-hamburger" onClick={logout}>
-                    Log out
+                    Logout
                   </button>
                 </>
               ) : (
                 <>
                   <Link to="/login">
-                    <button className="button-hamburger">Log in</button>
+                    <button className="button-hamburger">Login</button>
                   </Link>
                   <Link to="/register">
-                    <button className="button-hamburger">Signup</button>
+                    <button className="button-hamburger">Sign Up</button>
                   </Link>
                 </>
               )}
