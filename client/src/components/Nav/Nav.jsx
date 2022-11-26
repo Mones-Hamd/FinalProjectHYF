@@ -64,11 +64,11 @@ const Nav = () => {
               <>
                 <Link to="/login" className="links">
                   <BiLogIn color="#1f2232" className="nav-icons" />
-                  Log in
+                  Login
                 </Link>
                 <Link to="/register" className="links">
                   <MdAppRegistration color="#1f2232" className="nav-icons" />
-                  Sign up
+                  Sign Up
                 </Link>
               </>
             ) : (
@@ -81,7 +81,7 @@ const Nav = () => {
                     <span className="links " onClick={logout}>
                       {" "}
                       <BiLogOut color="#1f2232" className="nav-icons" />
-                      Log Out
+                      Logout
                     </span>
                   ) : (
                     <button className="navbar-button" onClick={goLogin}>
@@ -110,18 +110,18 @@ const Nav = () => {
                   <span className="links-hamburger " onClick={logout}>
                     {" "}
                     <BiLogOut color="#1f2232" className="nav-icons" />
-                    Log Out
+                    Logout
                   </span>
                 </>
               ) : (
                 <>
                   <Link to="/login" className="links-hamburger">
                     <BiLogIn color="#1f2232" className="nav-icons" />
-                    Log in
+                    Login
                   </Link>
                   <Link to="/register" className="links-hamburger">
                     <MdAppRegistration color="#bc9ec1" className="nav-icons" />
-                    Sign up
+                    Sign Up
                   </Link>
                 </>
               )}
