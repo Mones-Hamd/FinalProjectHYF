@@ -11,12 +11,19 @@
   --light-orange-colour: #ffddd2;
   --black-colour: #000;
 }
+body {
+  width: 100%;
+}
+.nav-container {
+  width: 100%;
+}
 .nav-bar {
   background-color: rgba(255, 255, 255, 0.5);
   height: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 97%;
 }
 
 .menu {
@@ -52,7 +59,13 @@
 .buttons-hamburger {
   display: flex;
   justify-content: space-between;
-  margin-right: 4rem;
+  align-items: center;
+}
+.links-hamburger {
+  margin: 12px 50px 0 1px;
+  text-decoration: none;
+  list-style: none;
+  color: #006d77;
 }
 .navbar-button {
   background-color: linear-gradient(
@@ -98,14 +111,27 @@
   transform: scale(1.02);
   color: var(--dark-colour);
 }
-
+.navbar-links {
+  display: none;
+  justify-content: space-between;
+}
 .links {
   height: 5rem;
   align-self: flex-start;
-  align-items: center;
   display: none;
   text-decoration: none;
   list-style: none;
+  color: #006d77;
+  align-items: center;
+  justify-content: space-between;
+  transition: 0.3s ease-in-out;
+}
+.links:hover {
+  transform: scale(1.04);
+  text-decoration: underline;
+  background-color: var(--primary-color);
+  border-radius: var(--border-radius-btn-input);
+  color: #006d77;
 }
 
 .navbar-text {
@@ -163,7 +189,7 @@
 }
 
 .user-name-nav {
-  color: var(--dark-color);
+  color: var(--primary-light-color);
   font-family: "Poppins", sans-serif;
   font-size: 1.3em;
   /* margin-top: 0.8rem; */
@@ -172,20 +198,18 @@
   margin-right: 0.5rem;
 }
 
-.user-name-nav p {
-  margin-bottom: 0px;
-}
-
 .user-name-hamburger {
-  color: var(--dark-colour);
+  color: var(--primary-light-color);
   font-family: "Poppins", sans-serif;
   font-size: 1.3em;
   list-style: none;
   text-decoration: none;
   padding-top: 1rem;
 }
-
-@media only screen and (min-width: 1000px) {
+.right-links {
+  text-decoration: none;
+}
+@media only screen and (min-width: 850px) {
   .hamburger {
     display: none;
   }
@@ -195,13 +219,17 @@
     height: 7rem;
     padding: 1.1rem 0;
   }
+  .navbar-links {
+    display: flex;
+  }
   .links {
     display: flex;
     align-self: center;
     height: 2rem;
     font-size: 1rem;
     margin-left: 2rem;
-    color: var(--dark-color);
+    text-decoration: none;
+    color: var(--primary-light-color);
   }
   .menu {
     display: none;
@@ -220,6 +248,11 @@
     justify-content: flex-start;
     margin: 0rem 1rem 0rem 0rem;
     font-size: 0.9rem;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .right-links {
+    display: flex;
   }
 }
 

@@ -6,9 +6,12 @@ import "./nav.css";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-
+import { BiHome, BiLogIn, BiLogOut } from "react-icons/bi";
 import { useAuth } from "../../hooks/useAuth";
-
+import { IoCreateOutline } from "react-icons/io5";
+import { BsInfoCircle } from "react-icons/bs";
+import { MdAppRegistration } from "react-icons/md";
+import { CgProfile } from "react-icons/cg";
 const Nav = () => {
   const [sidebar, setSidebar] = useState(false);
   const { user, logout } = useAuth();
@@ -22,30 +25,35 @@ const Nav = () => {
   const showSidebar = () => setSidebar(!sidebar);
 
   return (
-    <div>
+    <div className="nav-container">
       <IconContext.Provider value={{ color: "#000000" }}>
         <div className="nav-bar">
-          <div className="links">
+          <div className="navbar-links">
             {!isAuthenticated && (
-              <div className="links">
+              <>
                 <Link to="/" className="links">
+                  <BiHome color="#bc9ec1" className="nav-icons" />
                   Home
                 </Link>
                 <Link to="/aboutUs" className="links">
+                  <BsInfoCircle color="#bc9ec1" className="nav-icons" />
                   About Us
                 </Link>
-              </div>
+              </>
             )}
 
             {isAuthenticated && (
               <>
                 <Link to="/homePage" className="links">
+                  <BiHome color="#bc9ec1" className="nav-icons" />
                   Home
                 </Link>
                 <Link to="/createForm" className="links">
+                  <IoCreateOutline color="#bc9ec1" className="nav-icons" />
                   Create Form
                 </Link>
                 <Link to="/aboutUs" className="links">
+                  <BsInfoCircle color="#bc9ec1" className="nav-icons" />
                   About Us
                 </Link>
               </>
@@ -61,25 +69,30 @@ const Nav = () => {
           <ul className="navbar-buttons">
             {!isAuthenticated ? (
               <>
-                <Link to="/login">
-                  <button className="navbar-button">Log in</button>
+                <Link to="/login" className="links">
+                  <BiLogIn color="#bc9ec1" className="nav-icons" />
+                  Log in
                 </Link>
-                <Link to="/register">
-                  <button className="navbar-button">Sign up</button>
+                <Link to="/register" className="links">
+                  <MdAppRegistration color="#bc9ec1" className="nav-icons" />
+                  Sign up
                 </Link>
               </>
             ) : (
               <>
                 {user && user.username && (
                   <div className="user-name-nav">
-                    <p className="user-name-nav">Hello {user.username}</p>
+                    <CgProfile color="#bc9ec1" className="nav-icons" />
+                    {user.username}
                   </div>
                 )}
-                <Link to="/login">
+                <Link to="/login" className="right-links">
                   {user ? (
-                    <button className="button-hamburger" onClick={logout}>
+                    <span className="links " onClick={logout}>
+                      {" "}
+                      <BiLogOut color="#bc9ec1" className="nav-icons" />
                       Log Out
-                    </button>
+                    </span>
                   ) : (
                     <button className="navbar-button" onClick={goLogin}>
                       {" "}
@@ -104,17 +117,21 @@ const Nav = () => {
                   <Link to="/" className="user-name-hamburger">
                     {user.username}
                   </Link>
-                  <button className="button-hamburger" onClick={logout}>
-                    Log out
-                  </button>
+                  <span className="links-hamburger " onClick={logout}>
+                    {" "}
+                    <BiLogOut color="#bc9ec1" className="nav-icons" />
+                    Log Out
+                  </span>
                 </>
               ) : (
                 <>
-                  <Link to="/login">
-                    <button className="button-hamburger">Log in</button>
+                  <Link to="/login" className="links-hamburger">
+                    <BiLogIn color="#bc9ec1" className="nav-icons" />
+                    Log in
                   </Link>
-                  <Link to="/register">
-                    <button className="button-hamburger">Signup</button>
+                  <Link to="/register" className="links-hamburger">
+                    <MdAppRegistration color="#bc9ec1" className="nav-icons" />
+                    Sign up
                   </Link>
                 </>
               )}
