@@ -5,7 +5,8 @@
 
 .inputLine {
   margin-right: -5rem;
-  width: 100%;
+  width: 80%;
+  margin: auto;
 }
 
 .error-span {
@@ -25,6 +26,7 @@ input:invalid[focused="true"] ~ span {
 .hideIcon {
   cursor: pointer;
   padding-left: 10px;
+  margin-left: -35px;
 }
 
 .input-placeholder {

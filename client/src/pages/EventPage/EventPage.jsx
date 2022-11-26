@@ -8,6 +8,10 @@ import Spinner from "../../components/Spinner/Spinner";
 import { generateLink, copyLink } from "../../util/utils";
 import defaultEventImage from "/public/defaultEventImage.jpeg";
 
+import FormInput from "../../components/Form/FormInput/FormInput";
+import FormSingleChoice from "../../components/Form/FormInput/FormSingleChoice";
+import FormMultipleChoice from "../../components/Form/FormInput/FormMultipleChoice";
+
 const EventPage = () => {
   const { events } = useEvent();
   const { eventId } = useParams();
@@ -37,7 +41,7 @@ const EventPage = () => {
   return (
     <div className="event-page-container">
       {(isLoading || isSuccess) && <Spinner />}
-      <div className="img-box">
+      <div className="img-guest-box">
         <img
           className="event-img"
           src={event?.templateDetails?.images?.[0]?.url || defaultEventImage}
@@ -75,9 +79,10 @@ const EventPage = () => {
         <input
           type="text"
           disabled
+          className="copyLink-input"
           value={generateLink(event?.shortLink)}
         ></input>
-        <button type="event-btn btn-app" disabled={isLoading}>
+        <button className="copy-link-button" disabled={isLoading}>
           Copy Link
         </button>
       </div>
@@ -90,57 +95,59 @@ export default EventPage;
 const getEventForm = (form) => {
   return (
     <div className="question-form">
-      {form?.map((question, index) => {
-        return (
-          <div key={question.key} className="question">
-            <div>
-              {index + 1} - {question.label}{" "}
-              {question.attributes.required && (
-                <span className="required">(required)</span>
-              )}
-            </div>
-            <div>
+      <form>
+        {form?.map((question, index) => {
+          return (
+            <>
               {question.attributes.type === "text" && (
-                <input type="text" disabled placeholder="free text"></input>
+                <FormInput
+                  key={question.key}
+                  disabled
+                  label={`${index + 1} - ${question.label}`}
+                  required={question.attributes.required}
+                  placeholder="free text"
+                />
               )}
               {question.attributes.type === "email" && (
-                <input type="email" disabled placeholder="email"></input>
+                <FormInput
+                  key={question.key}
+                  disabled
+                  label={`${index + 1} - ${question.label}`}
+                  required={question.attributes.required}
+                  placeholder="email"
+                />
               )}
               {question.attributes.type === "number" && (
-                <input type="number" disabled placeholder="number"></input>
+                <FormInput
+                  key={question.key}
+                  disabled
+                  label={`${index + 1} - ${question.label}`}
+                  required={question.attributes.required}
+                  placeholder="number"
+                />
               )}
-              {question.attributes.type === "singleChoice" &&
-                question.options.map((option) => {
-                  return (
-                    <div key={option.key} className="option">
-                      <input
-                        type="radio"
-                        value={option.value}
-                        name={option.key}
-                        disabled
-                      />{" "}
-                      {option.value}
-                    </div>
-                  );
-                })}
-              {question.attributes.type === "multipleChoice" &&
-                question.options.map((option) => {
-                  return (
-                    <div key={option.key} className="option">
-                      <input
-                        type="checkbox"
-                        value={option.value}
-                        name={option.key}
-                        disabled
-                      />{" "}
-                      {option.value}
-                    </div>
-                  );
-                })}
-            </div>
-          </div>
-        );
-      })}
+              {question.attributes.type === "singleChoice" && (
+                <FormSingleChoice
+                  key={question.key}
+                  disabled
+                  label={`${index + 1} - ${question.label}`}
+                  required={question.attributes.required}
+                  options={question.options}
+                />
+              )}
+              {question.attributes.type === "multipleChoice" && (
+                <FormMultipleChoice
+                  key={question.key}
+                  disabled
+                  label={`${index + 1} - ${question.label}`}
+                  required={question.attributes.required}
+                  options={question.options}
+                />
+              )}
+            </>
+          );
+        })}
+      </form>
     </div>
   );
 };

@@ -1,11 +1,26 @@
 .questionBox {
   display: flex;
   flex-direction: column;
+  max-width: 100%;
   margin: auto;
-  align-items: left;
+
   margin-top: 2rem;
 }
-
+.eventGuest-form-box {
+  margin: auto;
+  min-width: 300px;
+  width: 60%;
+}
+.guest-form-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  min-width: 250px;
+}
+.full-name-input-box {
+  margin-top: 20px;
+}
 .text-number-input {
   padding: 15px;
   width: 80%;
@@ -37,7 +52,7 @@
 
 .required {
   font-size: 10px;
-  color: red;
+  color: var(--secondary-color);
   visibility: visible;
   vertical-align: super;
 }
@@ -57,16 +72,16 @@
   margin-bottom: 15px;
 }
 .guest-submit-btn {
-  border-radius: 10px;
-  width: 7rem;
+  border-radius: 5px;
+  width: 150px;
   padding: 10px;
   color: white;
-  background-color: var(--dark-color);
-  margin-bottom: 3rem;
+  background-color: var(--accent-color);
+  margin: auto;
+  margin-bottom: 2rem;
 }
 .weddingDefault {
-  margin-left: 5rem;
-}
-.questionBox {
-  margin-left: 5rem;
+  width: 50%;
+  margin: auto;
+  padding: 50px 0;
 }

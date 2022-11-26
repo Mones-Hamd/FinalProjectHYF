@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Accordion from "../../components/Accordion/Accordion";
 
 import EventGuestForm from "../../components/EventGuestPage/EventGuestForm/EventGuestForm";
 import EventInfo from "../../components/EventGuestPage/EventInfo/EventInfo";
@@ -67,22 +68,25 @@ function EventGuestPage() {
 
   return (
     <div className="eventContainer">
-      <div className="img-box">
+      <div className="img-box-guestPage">
         <img
           className="event-img"
           src={event?.templateDetails?.images?.[0]?.url || defaultEventImage}
           alt={event?.templateDetails?.images?.[0]?.alt || "event image"}
         />
       </div>
-
-      <EventInfo {...event?.templateDetails} className="information-box" />
-
-      <EventGuestForm
-        formProps={event?.form}
-        onChange={onChange}
-        onSubmit={submit}
-      />
-
+      <div className="eventGuestPage-content">
+        <Accordion title="Details">
+          <EventInfo {...event?.templateDetails} className="information-box" />
+        </Accordion>
+        <Accordion title="Form">
+          <EventGuestForm
+            formProps={event?.form}
+            onChange={onChange}
+            onSubmit={submit}
+          />
+        </Accordion>
+      </div>
       {isLoading ? <Spinner /> : <></>}
     </div>
   );

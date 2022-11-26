@@ -7,5 +7,6 @@
 .accordion-content {
   border-top: 1px solid var(--bs-accordion-border-color);
   box-shadow: inset 0px 11px 8px -10px var(--bs-accordion-border-color);
-  padding-right: 50px;
+
+  display: flex;
 }
