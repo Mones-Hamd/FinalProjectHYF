@@ -2,7 +2,7 @@
   margin: 2rem auto 2rem auto;
 }
 .signup-form {
-  width: 90%;
+  width: 100%;
   margin: auto;
 }
 .btn-box {
@@ -20,7 +20,9 @@
   margin: auto;
   margin-top: 10px;
 }
-
+.error-span {
+  font-size: 8px;
+}
 .form-box {
   padding: 10px;
 }
@@ -28,7 +30,7 @@
   .signup-box {
     max-width: 90%;
     margin: auto;
-    margin-top: -8rem;
+    margin-top: -5rem;
   }
   .sign-up-btn {
     min-width: 50px;

@@ -40,7 +40,8 @@ h1 {
 
 .form-app {
   display: block;
-  width: fit-content;
+  width: 50%;
+  min-width: 360px;
   background-color: var(--white-color);
   color: var(--primary-color);
   border-radius: var(--border-radius-form);
