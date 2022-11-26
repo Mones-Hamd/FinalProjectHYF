@@ -1,6 +1,6 @@
 .log-title {
   text-align: center;
-  margin-left: -4rem;
+
   padding: 1rem;
 }
 .login-box {
@@ -13,11 +13,12 @@
   width: 70%;
   border: none;
   height: 50px;
-  margin: 2rem 0;
+  margin: 2rem auto;
 }
 .btn-box {
   width: 50%;
   margin: auto;
+  display: flex;
 }
 
 .input-check-box {
@@ -29,16 +30,20 @@
   flex-direction: row;
   align-items: center;
   padding-left: 1rem;
+  width: 45%;
+  margin-left: 2rem;
 }
 .new-account-link {
   margin-top: 0.5rem;
+  margin-left: 2rem;
+  padding-left: 1rem;
 }
 .form-box {
   padding: 10px;
 }
-.forget-password-link {
-  margin-left: 18px;
+.loginPage-form-box {
 }
+
 .login-labels {
   display: flex;
   flex-direction: column;
@@ -52,4 +57,6 @@
   .log-in-btn {
     min-width: 50px;
   }
+}
+.login-form {
 }

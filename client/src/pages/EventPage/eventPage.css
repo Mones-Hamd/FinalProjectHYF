@@ -3,67 +3,79 @@
   margin-top: 4.4rem;
 }
 .img-box {
-  max-width: 60%;
+  max-width: 50%;
+  margin: auto;
+}
+.copy-link-button {
+  background: var(--accent-color);
+  color: var(--primary-light-color);
+  border: 1px solid var(--accent-color);
+  padding: 0.4rem 0.5rem;
+  border-radius: var(--border-radius-btn-input);
+  margin: 0.5rem 0 0.5rem 0.5rem;
+  cursor: pointer;
+  font-size: var(--font-size-btn);
+  font-family: var(--title-font-family-title);
+}
+.img-guest-box {
+  width: 100%;
+  display: flex;
+}
+.copy-link-button:hover {
+  background-color: var(--primary-light-color);
+  color: var(--accent-color);
 }
 
+.copyLink-input {
+  width: 70%;
+}
+.copyLinkGroup {
+  max-width: 500px;
+  margin: 3rem auto;
+  padding: 0.5rem;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+.copyLinkGroup input {
+  padding-left: 0.6rem;
+}
 .buttonGroup {
   display: flex;
-  margin: 2rem auto;
+  margin: 4rem auto;
   width: 50%;
   justify-content: space-around;
   align-items: center;
-}
-
-.buttonGroup button {
-  background-color: var(--accent-color);
-  color: var(--primary-light-color);
-  font-family: var(--title-font-family-title);
-  border-radius: var(--border-radius-btn-input);
-  width: 15%;
-  border: none;
-  height: 50px;
-  margin: auto;
-  margin-top: 10px;
-  max-width: 200px;
-  min-width: 120px;
-  padding: 5px;
-  margin-right: 5px;
-}
-
-.buttonGroup button:hover {
-  color: var(--accent-color);
-  background-color: var(--primary-light-color);
-  border: 1px solid var(--dark-color);
-  border-radius: var(--border-radius-btn-input);
 }
 
 .event-page-container {
   min-height: 100vh;
   margin-top: 3rem;
 }
-
-.img-box {
-  max-width: 50%;
+.event-page-container button {
+  padding: 1rem;
+  width: 160px;
 }
-
 .details {
   margin: auto;
   margin-top: 2rem;
   width: 60%;
-  min-width: 400px;
+  min-width: 300px;
 }
 .form {
   margin: auto;
   margin-top: 2rem;
   width: 60%;
-  min-width: 400px;
+  min-width: 300px;
 }
 .question-form {
-  padding-left: 25px;
+  width: 100%;
+  padding: 20px;
+  margin: auto;
 }
 
 .weddingDefault .title {
-  color: dimgray;
+  color: var(--secondary-color);
   visibility: visible;
   font-size: 15px;
 }
@@ -79,7 +91,7 @@
 
 .form .required {
   font-size: 15px;
-  color: red;
+
   visibility: visible;
   vertical-align: super;
 }

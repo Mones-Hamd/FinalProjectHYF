@@ -7,6 +7,9 @@ const EventInfo = ({ ...infos }) => {
     year: "numeric",
     month: "short",
     day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
   });
 
   return (
@@ -29,7 +32,7 @@ const EventInfo = ({ ...infos }) => {
         {infos.contactName}
       </div>
       <div className="item">
-        <span className="title">PS:</span> {infos.description}
+        <span className="title">PS:</span> <p> {infos.description}</p>
       </div>
     </div>
   );

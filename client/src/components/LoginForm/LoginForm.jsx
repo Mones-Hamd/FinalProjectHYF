@@ -83,7 +83,7 @@ const LoginForm = () => {
     <>
       <ToastContainer />
       <div className="login-box form-app">
-        <div className="form-box">
+        <div className="loginPage-form-box">
           <form className="login-form" onSubmit={handleSubmit}>
             <h2 className="log-title title-app">Login</h2>
             {inputs.map((input) => (
