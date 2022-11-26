@@ -11,6 +11,7 @@ import defaultEventImage from "/public/defaultEventImage.jpeg";
 import FormInput from "../../components/Form/FormInput/FormInput";
 import FormSingleChoice from "../../components/Form/FormInput/FormSingleChoice";
 import FormMultipleChoice from "../../components/Form/FormInput/FormMultipleChoice";
+import Button from "../../components/Button/Button";
 
 const EventPage = () => {
   const { events } = useEvent();
@@ -55,26 +56,7 @@ const EventPage = () => {
       <div className="form">
         <Accordion title="Form">{getEventForm(event?.form)}</Accordion>
       </div>
-      <div className="buttonGroup">
-        <div className="btn-div">
-          <button
-            type=" event-btn btn-app"
-            disabled={isLoading}
-            onClick={showResults}
-          >
-            Show Results
-          </button>
-        </div>
-        <div className="btn-div">
-          <button
-            type="event-btn btn-app"
-            disabled={isLoading}
-            onClick={cancelEvent}
-          >
-            Cancel Event
-          </button>
-        </div>
-      </div>
+
       <div className="copyLinkGroup" onClick={() => copyLink(event?.shortLink)}>
         <input
           type="text"
@@ -82,9 +64,24 @@ const EventPage = () => {
           className="copyLink-input"
           value={generateLink(event?.shortLink)}
         ></input>
-        <button className="copy-link-button" disabled={isLoading}>
-          Copy Link
-        </button>
+
+        <Button label="Copy Link" disabled={isLoading} />
+      </div>
+      <div className="buttonGroup">
+        <div className="btn-div">
+          <Button
+            onClick={showResults}
+            label="Show Results"
+            disabled={isLoading}
+          />
+        </div>
+        <div className="btn-div">
+          <Button
+            onClick={cancelEvent}
+            label="Cancel Event"
+            disabled={isLoading}
+          />
+        </div>
       </div>
     </div>
   );
