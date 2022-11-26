@@ -13,7 +13,7 @@
   justify-content: space-between;
   align-items: center;
 
-  width: 97%;
+  width: 100%;
 
   box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 15%),
     -2px -2px 5px 1px rgb(0 0 0 / 15%);
@@ -118,10 +118,10 @@
 .links:hover {
   transform: scale(1.04);
   text-decoration: underline;
-  background-color: var(--primary-color);
+
   border-radius: var(--border-radius-btn-input);
 
-  color: var(--primary-light-color);
+  color: var(--primary-dark-color);
 }
 
 .navbar-text {
@@ -180,7 +180,7 @@
 }
 
 .user-name-nav {
-  color: var(--primary-color);
+  color: var(--primary-dark-color);
 
   font-family: "Poppins", sans-serif;
   font-size: 1.3em;
@@ -191,7 +191,7 @@
 }
 
 .user-name-hamburger {
-  color: var(--primary-color);
+  color: var(--primary-dark-color);
   font-family: "Poppins", sans-serif;
   font-size: 1.3em;
   list-style: none;
@@ -223,7 +223,7 @@
 
     text-decoration: none;
 
-    color: var(--primary-light-color);
+    color: var(--primary-dark-color);
   }
   .menu {
     display: none;

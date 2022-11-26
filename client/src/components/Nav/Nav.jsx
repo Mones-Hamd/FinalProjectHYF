@@ -6,12 +6,10 @@ import "./nav.css";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
-import { BiHome, BiLogIn, BiLogOut } from "react-icons/bi";
+import { BiLogIn, BiLogOut } from "react-icons/bi";
 import { useAuth } from "../../hooks/useAuth";
-import { IoCreateOutline } from "react-icons/io5";
-import { BsInfoCircle } from "react-icons/bs";
+
 import { MdAppRegistration } from "react-icons/md";
-import { CgProfile } from "react-icons/cg";
 const Nav = () => {
   const [sidebar, setSidebar] = useState(false);
   const { user, logout } = useAuth();
@@ -32,11 +30,9 @@ const Nav = () => {
             {!isAuthenticated && (
               <>
                 <Link to="/" className="links">
-                  <BiHome color="#bc9ec1" className="nav-icons" />
                   Home
                 </Link>
                 <Link to="/aboutUs" className="links">
-                  <BsInfoCircle color="#bc9ec1" className="nav-icons" />
                   About Us
                 </Link>
               </>
@@ -45,15 +41,12 @@ const Nav = () => {
             {isAuthenticated && (
               <>
                 <Link to="/homePage" className="links">
-                  <BiHome color="#bc9ec1" className="nav-icons" />
                   Home
                 </Link>
                 <Link to="/createForm" className="links">
-                  <IoCreateOutline color="#bc9ec1" className="nav-icons" />
                   Create Form
                 </Link>
                 <Link to="/aboutUs" className="links">
-                  <BsInfoCircle color="#bc9ec1" className="nav-icons" />
                   About Us
                 </Link>
               </>
@@ -70,27 +63,24 @@ const Nav = () => {
             {!isAuthenticated ? (
               <>
                 <Link to="/login" className="links">
-                  <BiLogIn color="#bc9ec1" className="nav-icons" />
+                  <BiLogIn color="#1f2232" className="nav-icons" />
                   Log in
                 </Link>
                 <Link to="/register" className="links">
-                  <MdAppRegistration color="#bc9ec1" className="nav-icons" />
+                  <MdAppRegistration color="#1f2232" className="nav-icons" />
                   Sign up
                 </Link>
               </>
             ) : (
               <>
                 {user && user.username && (
-                  <div className="user-name-nav">
-                    <CgProfile color="#bc9ec1" className="nav-icons" />
-                    {user.username}
-                  </div>
+                  <div className="user-name-nav">{user.username}</div>
                 )}
                 <Link to="/login" className="right-links">
                   {user ? (
                     <span className="links " onClick={logout}>
                       {" "}
-                      <BiLogOut color="#bc9ec1" className="nav-icons" />
+                      <BiLogOut color="#1f2232" className="nav-icons" />
                       Log Out
                     </span>
                   ) : (
@@ -119,14 +109,14 @@ const Nav = () => {
                   </Link>
                   <span className="links-hamburger " onClick={logout}>
                     {" "}
-                    <BiLogOut color="#bc9ec1" className="nav-icons" />
+                    <BiLogOut color="#1f2232" className="nav-icons" />
                     Log Out
                   </span>
                 </>
               ) : (
                 <>
                   <Link to="/login" className="links-hamburger">
-                    <BiLogIn color="#bc9ec1" className="nav-icons" />
+                    <BiLogIn color="#1f2232" className="nav-icons" />
                     Log in
                   </Link>
                   <Link to="/register" className="links-hamburger">
