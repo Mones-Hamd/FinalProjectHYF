@@ -65,8 +65,8 @@ const Footer = () => {
               <h5 className="text">Contact Us</h5>
             </div>
             <p className="mail">
-              <a className="mailp" href="mailto:komje-app@outlook.com">
-                komje.app@gmail.com.{" "}
+              <a className="mailp" href="mailto: komje.app@gmail.com">
+                komje.app@gmail.com{" "}
               </a>
             </p>
           </div>
