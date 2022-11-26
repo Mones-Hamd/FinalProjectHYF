@@ -7,7 +7,6 @@ import Accordion from "../../components/Accordion/Accordion";
 import Spinner from "../../components/Spinner/Spinner";
 import { generateLink, copyLink } from "../../util/utils";
 import defaultEventImage from "/public/defaultEventImage.jpeg";
-
 import FormInput from "../../components/Form/FormInput/FormInput";
 import FormSingleChoice from "../../components/Form/FormInput/FormSingleChoice";
 import FormMultipleChoice from "../../components/Form/FormInput/FormMultipleChoice";

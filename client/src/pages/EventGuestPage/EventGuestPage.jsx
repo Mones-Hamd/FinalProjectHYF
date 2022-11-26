@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import Accordion from "../../components/Accordion/Accordion";
-
+import AccordionGuestPage from "../../components/EventGuestPage/AccordionForGuestPage/AccordionGuestPage";
 import EventGuestForm from "../../components/EventGuestPage/EventGuestForm/EventGuestForm";
 import EventInfo from "../../components/EventGuestPage/EventInfo/EventInfo";
 import Spinner from "../../components/Spinner/Spinner";
@@ -76,16 +75,16 @@ function EventGuestPage() {
         />
       </div>
       <div className="eventGuestPage-content">
-        <Accordion title="Details">
+        <AccordionGuestPage title="Details" isActive={true}>
           <EventInfo {...event?.templateDetails} className="information-box" />
-        </Accordion>
-        <Accordion title="Form">
+        </AccordionGuestPage>
+        <AccordionGuestPage title="Form" isActive={true}>
           <EventGuestForm
             formProps={event?.form}
             onChange={onChange}
             onSubmit={submit}
           />
-        </Accordion>
+        </AccordionGuestPage>
       </div>
       {isLoading ? <Spinner /> : <></>}
     </div>
