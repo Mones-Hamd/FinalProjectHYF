@@ -39,7 +39,7 @@ const SignUpForm = () => {
       id: 1,
       name: "username",
       type: "text",
-      placeholder: "User Name",
+      placeholder: "Username",
       errorMessage:
         "User name should be 3-16 characters and should not include any special character!",
       pattern: "^[A-Za-z0-9]{3,16}$",
@@ -69,7 +69,7 @@ const SignUpForm = () => {
       name: "confirmpassword",
       type: "password",
       placeholder: "Confirm Password",
-      errorMessage: "Passwords dont match",
+      errorMessage: "Password and confirm password must be match.",
       pattern: values.password,
       required: true,
     },
@@ -94,7 +94,7 @@ const SignUpForm = () => {
       <div className="signup-box form-app">
         <div className="form-box">
           <form className="signup-form" onSubmit={handleSubmit}>
-            <h2 className="create-title title-app">Create new account</h2>
+            <h2 className="create-title title-app">Create New Account</h2>
 
             {inputs.map((input) => (
               <FormInput
@@ -107,7 +107,7 @@ const SignUpForm = () => {
             ))}
             <div className="btn-box">
               <button className="sign-up-btn btn-app" disabled={isLoading}>
-                Sign-up
+                Sign Up
               </button>
             </div>
           </form>

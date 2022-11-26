@@ -2,28 +2,24 @@
   text-decoration: none;
   list-style: none;
 }
-:root {
-  --white-colour: #fff;
-  --text-colour: #edf6f9;
-  --light-colour: #83c5be;
-  --dark-colour: #006d77;
-  --orange-colour: #e29578;
-  --light-orange-colour: #ffddd2;
-  --black-colour: #000;
-}
-body {
-  width: 100%;
-}
+
 .nav-container {
   width: 100%;
 }
+
 .nav-bar {
   background-color: rgba(255, 255, 255, 0.5);
   height: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
   width: 97%;
+
+  box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 15%),
+    -2px -2px 5px 1px rgb(0 0 0 / 15%);
+  margin-bottom: 4rem;
+
 }
 
 .menu {
@@ -36,7 +32,7 @@ body {
   background: none;
 }
 .nav-menu {
-  background-color: white;
+  background-color: var(--white-color);
   width: 25rem;
   height: 100%;
   display: flex;
@@ -68,35 +64,28 @@ body {
   color: #006d77;
 }
 .navbar-button {
-  background-color: linear-gradient(
-    to right,
-    var(--light-colour),
-    var(--dark-colour)
-  );
   border-radius: 0.65rem;
   border: none;
-  box-shadow: 0px 3px 6px var(--dark-color);
+  box-shadow: 0px 3px 6px var(--primary-light-color);
   padding: 0.5rem 1rem;
   font-family: "Poppins", sans-serif;
   align-items: center;
   margin-left: 1rem;
   width: 8rem;
   margin-top: 0.8rem;
+  color: var(--primary-light-color);
+  background-color: var(--accent-color);
 }
 .navbar-button:hover {
   cursor: pointer;
   transform: scale(1.02);
-  color: var(--dark-colour);
+  color: var(--primary-light-color);
 }
 .button-hamburger {
-  background-color: linear-gradient(
-    to,
-    var(--light-colour),
-    var(--dark-colour)
-  );
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  background-color: var(--accent-color);
+  box-shadow: 0px 3px 6px var(--accent-color);
   border: none;
-  color: var(--dark-colour);
+  color: var(--primary-light-color);
   border-radius: 10px;
   padding: 0.4rem 0.5rem;
   /* margin: 0.5rem 0rem 3rem 0rem; */
@@ -109,7 +98,7 @@ body {
 .button-hamburger:hover {
   cursor: pointer;
   transform: scale(1.02);
-  color: var(--dark-colour);
+  color: var(--primary-light-color);
 }
 .navbar-links {
   display: none;
@@ -121,6 +110,7 @@ body {
   display: none;
   text-decoration: none;
   list-style: none;
+
   color: #006d77;
   align-items: center;
   justify-content: space-between;
@@ -131,7 +121,10 @@ body {
   text-decoration: underline;
   background-color: var(--primary-color);
   border-radius: var(--border-radius-btn-input);
-  color: #006d77;
+
+
+  color: var(--primary-light-color);
+
 }
 
 .navbar-text {
@@ -147,19 +140,20 @@ body {
 .logo-text {
   display: flex;
   justify-content: center;
-  height: 5rem;
+  height: 4rem;
   font-family: "Poppins", sans-serif;
   margin: 3rem;
   font-size: 20px;
   border-radius: 3rem;
   margin-left: 3rem;
+  mix-blend-mode: multiply;
 }
 
 .navbar-text-hamburger {
   display: flex;
   justify-content: flex-start;
   padding-top: 0.4rem;
-  height: 3rem;
+  height: 4rem;
   color: var(--dark-colour);
   font-family: "Poppins", sans-serif;
   border-bottom: 1px solid;
@@ -171,12 +165,12 @@ body {
 .navbar-text-hamburger:hover {
   cursor: pointer;
   transform: scale(1.02);
-  color: var(--dark-color);
+  color: var(--accent-color);
 }
 
 .nav-menu-items {
   width: 100%;
-  color: var(--dark-color);
+  color: var(--primary-color);
 }
 
 .nav-bar-toggle {
@@ -189,7 +183,9 @@ body {
 }
 
 .user-name-nav {
-  color: var(--primary-light-color);
+
+  color: var(--primary-color);
+
   font-family: "Poppins", sans-serif;
   font-size: 1.3em;
   /* margin-top: 0.8rem; */
@@ -199,7 +195,9 @@ body {
 }
 
 .user-name-hamburger {
-  color: var(--primary-light-color);
+
+
+  color: var(--primary-color);
   font-family: "Poppins", sans-serif;
   font-size: 1.3em;
   list-style: none;
@@ -228,7 +226,9 @@ body {
     height: 2rem;
     font-size: 1rem;
     margin-left: 2rem;
+
     text-decoration: none;
+
     color: var(--primary-light-color);
   }
   .menu {
@@ -277,6 +277,7 @@ body {
     font-size: 1.4rem;
   }
   .logo-text {
-    margin: auto;
+    margin: 1rem;
+    mix-blend-mode: multiply;
   }
 }

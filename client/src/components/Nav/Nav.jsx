@@ -69,6 +69,7 @@ const Nav = () => {
           <ul className="navbar-buttons">
             {!isAuthenticated ? (
               <>
+
                 <Link to="/login" className="links">
                   <BiLogIn color="#bc9ec1" className="nav-icons" />
                   Log in
@@ -76,6 +77,7 @@ const Nav = () => {
                 <Link to="/register" className="links">
                   <MdAppRegistration color="#bc9ec1" className="nav-icons" />
                   Sign up
+
                 </Link>
               </>
             ) : (
@@ -88,11 +90,13 @@ const Nav = () => {
                 )}
                 <Link to="/login" className="right-links">
                   {user ? (
+
                     <span className="links " onClick={logout}>
                       {" "}
                       <BiLogOut color="#bc9ec1" className="nav-icons" />
                       Log Out
                     </span>
+
                   ) : (
                     <button className="navbar-button" onClick={goLogin}>
                       {" "}
@@ -117,6 +121,7 @@ const Nav = () => {
                   <Link to="/" className="user-name-hamburger">
                     {user.username}
                   </Link>
+
                   <span className="links-hamburger " onClick={logout}>
                     {" "}
                     <BiLogOut color="#bc9ec1" className="nav-icons" />
@@ -132,6 +137,8 @@ const Nav = () => {
                   <Link to="/register" className="links-hamburger">
                     <MdAppRegistration color="#bc9ec1" className="nav-icons" />
                     Sign up
+
+                 
                   </Link>
                 </>
               )}

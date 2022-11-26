@@ -7,6 +7,7 @@ import Spinner from "../../components/Spinner/Spinner";
 import { useEvent } from "../../hooks/useEvent";
 import useFetch from "../../hooks/useFetch";
 import "./EventGuestPage.css";
+import defaultEventImage from "/public/defaultEventImage.jpeg";
 
 function EventGuestPage() {
   const { event, getOneEvent } = useEvent();
@@ -69,8 +70,8 @@ function EventGuestPage() {
       <div className="img-box">
         <img
           className="event-img"
-          src={event?.templateDetails?.images[0].url}
-          alt={event?.templateDetails?.images[0].alt}
+          src={event?.templateDetails?.images?.[0]?.url || defaultEventImage}
+          alt={event?.templateDetails?.images?.[0]?.alt || "event image"}
         />
       </div>
 

@@ -14,7 +14,7 @@ export const useCancelEvent = (eventId) => {
   const onReceived = () => {
     setEvents((events) => events.filter((event) => event._id !== eventId));
     setEvent(null);
-    toast.success("You have deleted the event successfully!", {
+    toast.success("You have deleted your invitation successfully!", {
       onClose: () => {
         navigate("/homePage");
       },

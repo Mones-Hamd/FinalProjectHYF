@@ -27,7 +27,7 @@ const UpdatePasswordForm = ({ userId, token }) => {
       name: "confirmpassword",
       type: "password",
       placeholder: "Confirm Password",
-      errorMessage: "Passwords dont match",
+      errorMessage: "Password and confirm password must be match.",
       pattern: values.password,
       required: true,
     },

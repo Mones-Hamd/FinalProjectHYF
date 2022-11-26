@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import "./home.css";
-import { useEvent } from "../../hooks/useEvent";
-import Card from "../../components/HomaPage/Card/Card";
 import { MdChevronLeft, MdChevronRight } from "react-icons/md";
+import { useEvent } from "../../hooks/useEvent";
+import "./home.css";
+import Card from "../../components/HomaPage/Card/Card";
 import Spinner from "../../components/Spinner/Spinner";
 import komjeImg from "./img/komje.png";
+import Button from "../../components/Button/Button";
 
 const Home = () => {
   const { events, getAll } = useEvent();
@@ -47,17 +48,12 @@ const Home = () => {
             </p>
             <p className="paragraph-app">
               You need minutes to create your wedding invitation. Our website
-              builder makes it super easy to create your URL, add all your
-              details and getting result for every question that you added. You
-              can quickly add photo into your form andd add important details
-              about your wedding day.
+              builder makes it super easy to create your sharable link, add all
+              your details and get back the guests attending list with their
+              preferences. You can quickly add photo into your form and add
+              details about your wedding day.
             </p>
-            <button
-              className="home-create-button btn-app"
-              onClick={handleOnClick}
-            >
-              Create invitation
-            </button>
+            <Button onClick={handleOnClick} label="Create invitation" />
           </div>
         </div>
       </div>
@@ -107,13 +103,13 @@ const Home = () => {
           <div className="content">
             <p className=" title-app">
               {" "}
-              Your love isn`t ordinary and neither are our websites.
+              Your love isn`t ordinary and neither is our website.
             </p>
             <p className="paragraph-app">
               Consider all the wedding details guests may text or call you to
-              ask about, like food or drink beverage dress code, and more. A
-              custom wedding Form lets you include everything your guest list
-              may need to prepare for your wedding day.
+              ask about, like food, beverage, dress code, and more. A custom
+              wedding form lets you include everything your guest list may need
+              to prepare for your wedding day.
             </p>
           </div>
         </div>
