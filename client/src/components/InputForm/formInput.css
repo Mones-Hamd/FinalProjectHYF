@@ -13,7 +13,9 @@
   color: var(--error-color);
   visibility: hidden;
 }
-
+.inputLine input[type="password"] {
+  padding-right: 2rem;
+}
 input:invalid[focused="true"] {
   border: 1px solid;
 }
