@@ -2,15 +2,6 @@
   text-decoration: none;
   list-style: none;
 }
-:root {
-  --white-colour: #fff;
-  --text-colour: #edf6f9;
-  --light-colour: #83c5be;
-  --dark-colour: #006d77;
-  --orange-colour: #e29578;
-  --light-orange-colour: #ffddd2;
-  --black-colour: #000;
-}
 
 .nav-container {
   width: 100%;
@@ -21,7 +12,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
+
+  width: 97%;
+
+  box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 15%),
+    -2px -2px 5px 1px rgb(0 0 0 / 15%);
+  margin-bottom: 4rem;
 }
 
 .menu {
@@ -124,7 +120,8 @@
   text-decoration: underline;
   background-color: var(--primary-color);
   border-radius: var(--border-radius-btn-input);
-  color: #006d77;
+
+  color: var(--primary-light-color);
 }
 
 .navbar-text {
@@ -183,7 +180,8 @@
 }
 
 .user-name-nav {
-  color: var(--primary-light-color);
+  color: var(--primary-color);
+
   font-family: "Poppins", sans-serif;
   font-size: 1.3em;
   /* margin-top: 0.8rem; */
@@ -193,7 +191,7 @@
 }
 
 .user-name-hamburger {
-  color: var(--primary-light-color);
+  color: var(--primary-color);
   font-family: "Poppins", sans-serif;
   font-size: 1.3em;
   list-style: none;
@@ -222,7 +220,9 @@
     height: 2rem;
     font-size: 1rem;
     margin-left: 2rem;
+
     text-decoration: none;
+
     color: var(--primary-light-color);
   }
   .menu {
