@@ -63,6 +63,7 @@
 
 .info {
   margin-bottom: 0.75rem;
+  color: var(--primary-color);
 }
 .prev-btn,
 .next-btn {
@@ -80,13 +81,14 @@
 }
 .random-btn {
   margin-top: 0.5rem;
-  color: var(--accent-color);
+  color: var(--primary-light-color);
   padding: 0.25rem 0.5rem;
   text-transform: capitalize;
   border-radius: 0.25rem;
   transition: all 0.3s linear;
   border-color: transparent;
   cursor: pointer;
+  background-color: var(--accent-color);
 }
 .random-btn:hover {
   background: var(--primary-light-color);
