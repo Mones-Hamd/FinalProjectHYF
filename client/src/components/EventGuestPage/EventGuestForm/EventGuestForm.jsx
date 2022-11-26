@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 
 import "./EventGuestForm.css";
+import Button from "../../Button/Button";
 const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
   const [focused, setFocused] = useState(false);
 
@@ -102,8 +103,7 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
               </div>
             );
           })}
-
-          <button className="guest-submit-btn">Submit</button>
+          <Button label="Submit" />
         </form>
       </div>
     </div>
