@@ -78,7 +78,6 @@
 .aboutApp {
   display: flex;
   height: 400px;
-  width: 100vw;
   margin: auto;
   flex-wrap: wrap;
 }

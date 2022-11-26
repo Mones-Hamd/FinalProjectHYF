@@ -51,7 +51,7 @@ const LoginForm = () => {
       type: "password",
       placeholder: "Password",
       errorMessage:
-        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+        "Password should be 8-20 characters and contain at least 1 uppercase,1 lowercase, 1 number and 1 special character!",
       pattern:
         "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,20}$",
       required: true,
@@ -96,14 +96,16 @@ const LoginForm = () => {
               />
             ))}
 
-            <div className="remember-box">
-              <input
-                type="checkbox"
-                checked={checked}
-                onChange={handleChangeCheckBox}
-                className="input-check-box"
-              />
-              <label className="remeber-me">Remember me</label>
+            <div className="remember-box ">
+              <div>
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={handleChangeCheckBox}
+                  className="input-check-box"
+                />
+                <label className="remeber-me">Remember me</label>
+              </div>
             </div>
             <div className="btn-box ">
               <button className="log-in-btn btn-app" disabled={isLoading}>

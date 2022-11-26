@@ -4,17 +4,18 @@
 }
 
 .inputLine {
-  margin-right: -5rem;
   width: 80%;
   margin: auto;
 }
 
 .error-span {
-  font-size: 12px;
+  font-size: 8px;
   color: var(--error-color);
   visibility: hidden;
 }
-
+.inputLine input[type="password"] {
+  padding-right: 2rem;
+}
 input:invalid[focused="true"] {
   border: 1px solid;
 }

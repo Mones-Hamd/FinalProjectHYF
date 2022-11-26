@@ -70,7 +70,7 @@
   scroll-behavior: smooth;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .homePage .home-first-section {
     display: flex;
     flex-direction: column;
