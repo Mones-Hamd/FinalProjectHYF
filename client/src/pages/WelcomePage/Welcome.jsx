@@ -17,10 +17,11 @@ const Welcome = () => {
           <h1 className="par-2">Ready When You Are</h1>
           <p className="paragraph-app text ">
             We know how important and valuable every minute of your dream day.
-            So, why don`t you save yourself the stress, while you are getting
-            ready for your wedding, We are here for you, just enjoy and
-            celebrate it with your beloved ones, while you can track with KOMJE
-            all the details you need.
+            So, why don`t you save yourself the stress while getting ready for
+            your wedding?
+            <br />
+            We are here for you, just enjoy and celebrate it with your beloved
+            ones, while tracking with Komje all the details you need.
           </p>
           <div className="btn-div">
             <Link to="/register">
@@ -43,9 +44,12 @@ const Welcome = () => {
         <div className="desc1-container">
           <p className="paragraph-app text ">
             You are getting married, what a great news! We know there are many
-            questions in your mind.Enjoy your wedding because we are here for
-            you! Click, create, send and see all the answers you want from your
-            guests.
+            things to take care of. Komje allows you to create a customized
+            wedding invitation. With couple of clicks, get a sharable link of
+            your wedding event.
+            <br />
+            Simply fill out the when and where, share the link, and receive your
+            guests responses in one place. guests.
           </p>
         </div>
       </div>
