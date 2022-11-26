@@ -40,10 +40,15 @@ const AboutUs = () => {
           </div>
           <div>
             <p className="paragraph paragraph-app">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
-              eligendi tempora tenetur commodi exercitationem corporis facere
-              perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
-              molestias velit quis id deleniti et non!
+              “You dont have to be great to start, But you have to start to be
+              great. (Zig Zigglar)“ <br />
+              therefore, I sm starting my career as a junior web developer to
+              create the greatness that every web developer aspire to, and I
+              think it will be a good start after completing this project that
+              taught me a new skills .<br />
+              As a funny fact about me, If i start a conversation with “Guess
+              what ...“, make sure after that sentence there is a negative
+              sentence for instanse “I found a bug“
             </p>
           </div>
         </div>
