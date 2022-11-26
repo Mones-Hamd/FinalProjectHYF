@@ -2,15 +2,7 @@
   text-decoration: none;
   list-style: none;
 }
-:root {
-  --white-colour: #fff;
-  --text-colour: #edf6f9;
-  --light-colour: #83c5be;
-  --dark-colour: #006d77;
-  --orange-colour: #e29578;
-  --light-orange-colour: #ffddd2;
-  --black-colour: #000;
-}
+
 .nav-bar {
   background-color: rgba(255, 255, 255, 0.5);
   height: 4rem;
@@ -32,7 +24,7 @@
   background: none;
 }
 .nav-menu {
-  background-color: white;
+  background-color: var(--white-color);
   width: 25rem;
   height: 100%;
   display: flex;
@@ -58,35 +50,28 @@
   margin-right: 4rem;
 }
 .navbar-button {
-  background-color: linear-gradient(
-    to right,
-    var(--light-colour),
-    var(--dark-colour)
-  );
   border-radius: 0.65rem;
   border: none;
-  box-shadow: 0px 3px 6px var(--dark-color);
+  box-shadow: 0px 3px 6px var(--primary-light-color);
   padding: 0.5rem 1rem;
   font-family: "Poppins", sans-serif;
   align-items: center;
   margin-left: 1rem;
   width: 8rem;
   margin-top: 0.8rem;
+  color: var(--primary-light-color);
+  background-color: var(--accent-color);
 }
 .navbar-button:hover {
   cursor: pointer;
   transform: scale(1.02);
-  color: var(--dark-colour);
+  color: var(--primary-light-color);
 }
 .button-hamburger {
-  background-color: linear-gradient(
-    to,
-    var(--light-colour),
-    var(--dark-colour)
-  );
-  box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+  background-color: var(--accent-color);
+  box-shadow: 0px 3px 6px var(--accent-color);
   border: none;
-  color: var(--dark-colour);
+  color: var(--primary-light-color);
   border-radius: 10px;
   padding: 0.4rem 0.5rem;
   /* margin: 0.5rem 0rem 3rem 0rem; */
@@ -99,7 +84,7 @@
 .button-hamburger:hover {
   cursor: pointer;
   transform: scale(1.02);
-  color: var(--dark-colour);
+  color: var(--primary-light-color);
 }
 
 .links {
@@ -109,6 +94,7 @@
   display: none;
   text-decoration: none;
   list-style: none;
+  color: var(--primary-light-color);
 }
 
 .navbar-text {
@@ -149,12 +135,12 @@
 .navbar-text-hamburger:hover {
   cursor: pointer;
   transform: scale(1.02);
-  color: var(--dark-color);
+  color: var(--accent-color);
 }
 
 .nav-menu-items {
   width: 100%;
-  color: var(--dark-color);
+  color: var(--primary-color);
 }
 
 .nav-bar-toggle {
@@ -167,7 +153,7 @@
 }
 
 .user-name-nav {
-  color: var(--dark-color);
+  color: var(--primary-color);
   font-family: "Poppins", sans-serif;
   font-size: 1.3em;
   /* margin-top: 0.8rem; */
@@ -181,7 +167,7 @@
 }
 
 .user-name-hamburger {
-  color: var(--dark-colour);
+  color: var(--primary-color);
   font-family: "Poppins", sans-serif;
   font-size: 1.3em;
   list-style: none;
@@ -205,7 +191,7 @@
     height: 2rem;
     font-size: 1rem;
     margin-left: 2rem;
-    color: var(--dark-color);
+    color: var(--primary-light-color);
   }
   .menu {
     display: none;
