@@ -11,9 +11,7 @@
   --light-orange-colour: #ffddd2;
   --black-colour: #000;
 }
-body {
-  width: 100%;
-}
+
 .nav-container {
   width: 100%;
 }
@@ -23,7 +21,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 97%;
+  width: 100%;
 }
 
 .menu {
@@ -48,7 +46,9 @@ body {
   padding-left: 1rem;
   z-index: 2;
 }
-
+.nav-icons {
+  margin-right: 8px;
+}
 .nav-menu.active {
   left: 0;
   transition: 350ms;
