@@ -95,9 +95,7 @@ const LoginForm = () => {
                 errorMessage={input.errorMessage}
               />
             ))}
-            <a className="forget-password-link" href="/forgotPassword">
-              Forgot your password ?
-            </a>
+
             <div className="remember-box">
               <input
                 type="checkbox"
@@ -112,10 +110,16 @@ const LoginForm = () => {
                 Login
               </button>
             </div>
-            <label className="new-account-link ">
-              Do not have an account? Please register{" "}
-              <a href="/register"> here!</a>
-            </label>
+            <div className="login-labels">
+              <label className="new-account-link ">
+                Do not have an account? Please register{" "}
+                <a href="/register"> here!</a>
+              </label>
+              <label className="new-account-link ">
+                Forgot your password? Please click{" "}
+                <a href="/forgotPassword">here!</a>
+              </label>
+            </div>
           </form>
         </div>
         {isLoading ? <Spinner /> : <></>}

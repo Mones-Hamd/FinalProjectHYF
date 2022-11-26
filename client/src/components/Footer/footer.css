@@ -5,24 +5,24 @@
   position: relative;
 }
 
-.container-footer {
+.footer .container-footer {
   width: fit-content;
   margin: auto;
   display: flex;
   justify-content: space-between;
 }
 
-.contact-us-box {
+.footer .contact-us-box {
   margin-top: -3rem;
 }
 
-.logo {
+.footer .logo {
   width: 150px;
   border-radius: 5rem;
   padding: 10px;
 }
 
-.icons {
+.footer .icons {
   width: 40px;
   height: 40px;
   text-align: center;
@@ -30,25 +30,25 @@
   margin-right: 15px;
   margin-top: -2rem;
 }
-.text {
+.footer .text {
   color: var(--white-color);
   margin-top: 10px;
 }
 
-.social-icons {
+.footer .social-icons {
   margin-left: -32px;
 }
 
-.sci {
+.footer .sci {
   margin-top: 20px;
   display: flex;
 }
 
-.sci li {
+.footer .sci li {
   list-style: none;
 }
 
-.sci li a {
+.footer .sci li a {
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -60,25 +60,25 @@
   border-radius: 4px;
 }
 
-.mailp {
+.footer .mailp {
   padding: -32px;
   color: var(--white-color);
 }
 
-.mailp:hover {
+.footer .mailp:hover {
   color: var(--primary-color);
 }
 
-.sci li a :hover {
+.footer .sci li a :hover {
   background: var(--accent-color);
   width: 120px;
 }
 
-.icons {
+.footer .icons {
   color: var(--white-color);
 }
 
-.copyrightText {
+.footer .copyrightText {
   width: 100%;
   background: var(--primary-dark-color);
   padding-top: 15px;
@@ -87,7 +87,7 @@
   color: var(--accent-color);
 }
 
-.social-box {
+.footer .social-box {
   padding: 10px;
 }
 
@@ -97,50 +97,50 @@
     width: 100%;
   }
 
-  .logo {
+  .footer .logo {
     min-width: 230px;
   }
 
-  .social-box {
+  .footer .social-box {
     margin-left: 3rem;
   }
 
-  .contact-container {
+  .footer .contact-container {
     display: flex;
     flex-direction: row;
     margin: auto;
   }
 
-  .col {
-    flex-basis: 100%;
+  .footer .col {
+    /* flex-basis: 100%; */
   }
 
-  .col:nth-child(2),
-  .col:nth-child(3) {
-    flex-basis: 100%;
+  .footer .col:nth-child(2),
+  .footer .col:nth-child(3) {
+    /* flex-basis: 100%; */
   }
 
-  .contact-us-box {
+  .footer .contact-us-box {
     margin-top: 10px;
   }
 }
 
 @media (min-width: 1100px) {
-  .contact-us-box {
+  .footer .contact-us-box {
     margin-left: 10rem;
   }
 
-  .logo {
+  .footer .logo {
     margin-right: 10rem;
   }
 }
 
 @media (min-width: 1100px) {
-  .contact-us-box {
+  .footer .contact-us-box {
     margin-left: 10rem;
   }
 
-  .logo {
+  .footer .logo {
     margin-right: 10rem;
   }
 }
