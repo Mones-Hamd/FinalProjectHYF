@@ -55,7 +55,7 @@ const Welcome = () => {
       </div>
       <div>
         <div className="description">
-          <h1 className="description">ADVANTAGES OF USING KOMJE ! </h1>
+          <h1 className="description">Advantages of Using Komje! </h1>
         </div>
       </div>
 
