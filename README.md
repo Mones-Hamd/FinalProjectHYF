@@ -128,6 +128,7 @@ For more information on how these work together including the automatic deployme
 - `jest` || To run our tests and coverage. See [docs](https://jestjs.io/)
 - `jest-fetch-mock` || To mock out the backend for our testing purposes. See [docs](https://github.com/jefflau/jest-fetch-mock#readme)
 - `prop-types` || To type-check our components. See [docs](https://github.com/facebook/prop-types)
+- `react-toastify` || React-Toastify allows you to add notifications to your app with ease. See [docs](https://www.npmjs.com/package/react-toastify)
 
 ### 3.3 Server-side libraries
 
