@@ -39,21 +39,19 @@ const FormQuestion = ({
     setQuestion(question);
   };
 
-  const onChangeOptions = (key, value) => {
+  const onChangeOptions = ({ key, value }) => {
     const options = question.options;
-    let option = options.find((o) => Object.keys(o)[0] === key);
+    let option = options.find((o) => o.key === key);
     if (!option) {
-      option = {};
+      option = { key, value: "" };
       options.push(option);
     }
-    option[key] = value;
+    option.value = value;
     setQuestion(question);
   };
 
   const deleteOption = (option) => {
-    question.options = question.options.filter(
-      (o) => Object.keys(o)[0] !== Object.keys(option)[0]
-    );
+    question.options = question.options.filter((o) => o.key !== option.key);
     setQuestion(question);
   };
 

@@ -13,14 +13,14 @@ const FormOptionCreator = ({
 }) => {
   const createOptionKey = () => {
     let length = options.length;
-    while (options.some((o) => Object.keys(o)[0].split("_")[1] == length)) {
+    while (options.some((o) => o.key.split("_")[1] == length)) {
       length++;
     }
     return `option_${length}`;
   };
 
   const addOption = () => {
-    onChangeOption(createOptionKey(), "");
+    onChangeOption({ key: createOptionKey(), value: "" });
   };
 
   useEffect(() => {
@@ -32,10 +32,8 @@ const FormOptionCreator = ({
   return (
     <div className="options">
       {options.map((option, index) => {
-        const key = Object.keys(option)[0];
-        const value = option[key];
         return (
-          <div key={key} className="option">
+          <div key={option.key} className="option">
             <input type={type} disabled />
             <FormInput
               disabled={disabled}
@@ -43,8 +41,10 @@ const FormOptionCreator = ({
               placeholder="Enter an option"
               required
               errorMessage="At least 2 options required."
-              onChange={(e) => onChangeOption(key, e.target.value)}
-              value={value}
+              onChange={(e) =>
+                onChangeOption({ key: option.key, value: e.target.value })
+              }
+              value={option.value}
             />
             {index > 1 && (
               <FaTrash

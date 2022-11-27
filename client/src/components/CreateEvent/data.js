@@ -116,10 +116,12 @@ export const defaultQuestions = [
     },
     options: [
       {
-        option_1: "yes",
+        key: "option_1",
+        value: "yes",
       },
       {
-        option_2: "no",
+        key: "option_2",
+        value: "no",
       },
     ],
   },
