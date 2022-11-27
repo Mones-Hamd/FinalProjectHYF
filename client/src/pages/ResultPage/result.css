@@ -53,6 +53,11 @@ h4 {
   width: 100%;
   margin: 20px auto;
   padding: 10px;
+  grid-column: span 6;
+
+  padding: 3rem 1rem 5rem 1rem;
+  box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 15%),
+    -2px -2px 5px 1px rgb(0 0 0 / 15%);
 }
 .no-result-msg {
   font-size: large;
@@ -66,8 +71,10 @@ h4 {
   color: white;
 }
 .flex-bar-chart-section {
-  width: 90%;
-  display: flex;
+  gap: 20px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 }
 @media (max-width: 600px) {
   .flex-bar-chart-section {
