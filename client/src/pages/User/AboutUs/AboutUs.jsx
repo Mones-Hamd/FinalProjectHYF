@@ -40,10 +40,15 @@ const AboutUs = () => {
           </div>
           <div>
             <p className="paragraph paragraph-app">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
-              eligendi tempora tenetur commodi exercitationem corporis facere
-              perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
-              molestias velit quis id deleniti et non!
+              “You dont have to be great to start, But you have to start to be
+              great. (Zig Zigglar)“ <br />
+              therefore, I sm starting my career as a junior web developer to
+              create the greatness that every web developer aspire to, and I
+              think it will be a good start after completing this project that
+              taught me a new skills .<br />
+              As a funny fact about me, If i start a conversation with “Guess
+              what ...“, make sure after that sentence there is a negative
+              sentence for instanse “I found a bug“
             </p>
           </div>
         </div>
@@ -181,11 +186,11 @@ const AboutUs = () => {
           <p className="aboutUs-paragraph paragraph-app">
             Founded with the mission to create digital invitations that would
             provide all of the elegance of traditional invites without any of
-            the waste, helping event hosts be more eco-friendly is at the core
-            of what we do. Through partnerships with the National Forest
-            Foundation, Mountains to Sound, the National Park Foundation, and 1%
-            for the Planet, our online invitations will continue to do more than
-            just save paper. Together we can invite a greener future.
+            the waste, helping event hosts, and be more eco-friendly is our
+            ultimate goal.
+            <br />
+            Our online invitations will continue to do more than just save
+            paper. Together we can invite a greener future.
           </p>
         </div>
 
@@ -266,7 +271,7 @@ const AboutUs = () => {
             >
               <div className="accordion-body">
                 Using Komje it will be easy to cancel you invitation, just click
-                on <code>Cancel invitation button</code>
+                on <code> Cancel invitation button</code>
                 and we will send an email for all guests to inform them.
               </div>
             </div>

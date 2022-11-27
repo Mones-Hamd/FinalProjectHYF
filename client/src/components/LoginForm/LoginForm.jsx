@@ -51,7 +51,7 @@ const LoginForm = () => {
       type: "password",
       placeholder: "Password",
       errorMessage:
-        "Password should be 8-20 characters and include at least 1 letter, 1 number and 1 special character!",
+        "Password should be 8-20 characters and contain at least 1 uppercase,1 lowercase, 1 number and 1 special character!",
       pattern:
         "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-.]).{8,20}$",
       required: true,
@@ -83,7 +83,7 @@ const LoginForm = () => {
     <>
       <ToastContainer />
       <div className="login-box form-app">
-        <div className="form-box">
+        <div className="loginPage-form-box">
           <form className="login-form" onSubmit={handleSubmit}>
             <h2 className="log-title title-app">Login</h2>
             {inputs.map((input) => (
@@ -95,27 +95,33 @@ const LoginForm = () => {
                 errorMessage={input.errorMessage}
               />
             ))}
-            <a className="forget-password-link" href="/forgotPassword">
-              Forgot your password ?
-            </a>
-            <div className="remember-box">
-              <input
-                type="checkbox"
-                checked={checked}
-                onChange={handleChangeCheckBox}
-                className="input-check-box"
-              />
-              <label className="remeber-me">Remember me</label>
+
+            <div className="remember-box ">
+              <div>
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={handleChangeCheckBox}
+                  className="input-check-box"
+                />
+                <label className="remeber-me">Remember me</label>
+              </div>
             </div>
             <div className="btn-box ">
               <button className="log-in-btn btn-app" disabled={isLoading}>
                 Login
               </button>
             </div>
-            <label className="new-account-link ">
-              Do not have an account? Please register{" "}
-              <a href="/register"> here!</a>
-            </label>
+            <div className="login-labels">
+              <label className="new-account-link ">
+                Do not have an account? Please register{" "}
+                <a href="/register"> here!</a>
+              </label>
+              <label className="new-account-link ">
+                Forgot your password? Please click{" "}
+                <a href="/forgotPassword">here!</a>
+              </label>
+            </div>
           </form>
         </div>
         {isLoading ? <Spinner /> : <></>}

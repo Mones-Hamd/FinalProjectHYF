@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import AccordionGuestPage from "../../components/EventGuestPage/AccordionForGuestPage/AccordionGuestPage";
 import EventGuestForm from "../../components/EventGuestPage/EventGuestForm/EventGuestForm";
 import EventInfo from "../../components/EventGuestPage/EventInfo/EventInfo";
 import Spinner from "../../components/Spinner/Spinner";
@@ -67,22 +67,25 @@ function EventGuestPage() {
 
   return (
     <div className="eventContainer">
-      <div className="img-box">
+      <div className="img-box-guestPage">
         <img
           className="event-img"
           src={event?.templateDetails?.images?.[0]?.url || defaultEventImage}
           alt={event?.templateDetails?.images?.[0]?.alt || "event image"}
         />
       </div>
-
-      <EventInfo {...event?.templateDetails} className="information-box" />
-
-      <EventGuestForm
-        formProps={event?.form}
-        onChange={onChange}
-        onSubmit={submit}
-      />
-
+      <div className="eventGuestPage-content">
+        <AccordionGuestPage title="Details" isActive={true}>
+          <EventInfo {...event?.templateDetails} className="information-box" />
+        </AccordionGuestPage>
+        <AccordionGuestPage title="Form" isActive={true}>
+          <EventGuestForm
+            formProps={event?.form}
+            onChange={onChange}
+            onSubmit={submit}
+          />
+        </AccordionGuestPage>
+      </div>
       {isLoading ? <Spinner /> : <></>}
     </div>
   );

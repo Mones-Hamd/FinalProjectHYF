@@ -57,6 +57,7 @@
   margin: auto;
   text-align: center;
   padding: 17px;
+  margin-top: 1rem;
 }
 .desc1 {
   width: 80vw;
@@ -76,8 +77,7 @@
 
 .aboutApp {
   display: flex;
-  height: 500px;
-  width: 100vw;
+  height: 400px;
   margin: auto;
   flex-wrap: wrap;
 }
@@ -91,8 +91,8 @@
 .about-section {
   width: 150px;
   height: 150px;
-  border-right: 10px solid #ff8185;
-  border-bottom: 10px solid #ff8185;
+  border-right: 10px solid var(--accent-color);
+  border-bottom: 10px solid var(--accent-color);
   margin: auto;
 }
 
@@ -125,6 +125,7 @@
   .aboutApp {
     display: flex;
     flex-wrap: wrap;
+    margin-top: -2rem;
   }
 
   .welcome-img {

@@ -22,8 +22,8 @@ const VerifyEmailForm = () => {
     id: 1,
     name: "email",
     type: "email",
-    placeholder: "Type your Email Adress here!",
-    errorMessage: "It should be a valid email address!",
+    placeholder: "Your email address",
+    errorMessage: "Please enter a valid email address.",
     required: true,
   };
   const handleSubmit = (e) => {
@@ -66,7 +66,8 @@ const VerifyEmailForm = () => {
       <div className="verify-box form-app">
         <h1 className="verify-header">Forgot your password?</h1>
         <p className="verify-text">
-          Enter your registered email below to receive password reset link
+          Do not worry, enter your registered email to reset your password and
+          click reset button.
         </p>
         <form className="verify-form" onSubmit={handleSubmit}>
           <FormInput
@@ -78,7 +79,7 @@ const VerifyEmailForm = () => {
           />
           <div className="btn-box">
             <button type="submit" className="btn-app  send-link-btn">
-              Send-link
+              Reset
             </button>
           </div>
         </form>

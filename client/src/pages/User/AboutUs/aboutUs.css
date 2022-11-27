@@ -13,6 +13,7 @@
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  min-width: 300px;
 }
 .accordion-button {
   margin-left: -0.8rem;
