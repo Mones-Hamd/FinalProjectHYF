@@ -21,8 +21,12 @@
 
 .team-member-box {
   margin: 2rem;
-  border: solid 2px var(--accent-color);
+  box-shadow: 0px 4px 12px var(--accent-color);
   border-radius: 15px;
+}
+.team-member-box:hover {
+  box-shadow: 0px 6px 18px var(--accent-color);
+  transition: 0.5s;
 }
 
 .team-pic {
