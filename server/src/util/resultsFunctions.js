@@ -36,9 +36,25 @@ const getTotalAnswersByKey = (answers, key) => {
   const obj = {};
   getTargetResponses(answers).forEach((answer) => {
     answer.responses.forEach((response) => {
-      if (response.question === key && !Number(response.answer)) {
-        const amount = (obj[response.answer] || 0) + 1;
-        obj[response.answer] = amount;
+      if (response.question === key) {
+        if (
+          key === "question_1" ||
+          key === "question_2" ||
+          key === "question_3"
+        )
+          return;
+        if (Array.isArray(response.answer) && response.answer.length > 1) {
+          let newObj = {};
+          response.answer.map((ans) => {
+            newObj = { key, answer: [ans] };
+
+            const amount = (obj[newObj.answer] || 0) + 1;
+            obj[newObj.answer] = amount;
+          });
+        } else {
+          const amount = (obj[response.answer] || 0) + 1;
+          obj[response.answer] = amount;
+        }
       }
     });
   });
