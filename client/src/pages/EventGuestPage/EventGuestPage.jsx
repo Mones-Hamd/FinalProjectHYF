@@ -27,10 +27,7 @@ function EventGuestPage() {
     navigate("/");
   };
   const POST_RESPONSE_ROUTE = "/response/";
-  const { isLoading, /* error ,*/ performFetch /* cancelFetch */ } = useFetch(
-    POST_RESPONSE_ROUTE,
-    onReceived
-  );
+  const { isLoading, performFetch } = useFetch(POST_RESPONSE_ROUTE, onReceived);
 
   const submit = async (e) => {
     e.preventDefault();
@@ -48,10 +45,10 @@ function EventGuestPage() {
     };
 
     requestBody.guestName = requestBody.responses.find(
-      (item) => item.question === "fullName"
+      (item) => item.question === "question_1"
     ).answer;
     requestBody.guestEmail = requestBody.responses.find(
-      (item) => item.question === "email"
+      (item) => item.question === "question_2"
     ).answer;
 
     const options = {
@@ -62,7 +59,6 @@ function EventGuestPage() {
       body: JSON.stringify(requestBody),
     };
     performFetch(options);
-    //console.log("success", JSON.stringify(requestBody));
   };
 
   return (

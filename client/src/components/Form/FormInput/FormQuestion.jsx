@@ -84,7 +84,7 @@ const FormQuestion = ({
         />
         <FormOption
           key={"required"}
-          optionKey="required"
+          option={{ key: "required", value: "required" }}
           checked={!!question.attributes.required}
           disabled={disabled}
           onChange={onRequiredChanged}
