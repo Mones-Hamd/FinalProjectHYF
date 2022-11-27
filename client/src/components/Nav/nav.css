@@ -19,11 +19,15 @@
     -2px -2px 5px 1px rgb(0 0 0 / 15%);
   margin-bottom: 4rem;
 }
-
+.logo-box-nav-bar {
+  padding: 0.2rem;
+  display: flex;
+}
 .menu {
   margin-left: 1.3rem;
   font-size: 2rem;
   background: none;
+  position: absolute;
 }
 .menu-close {
   font-size: 2rem;
@@ -48,6 +52,12 @@
 .nav-menu.active {
   left: 0;
   transition: 350ms;
+}
+.navbar-button-group {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
 }
 .navbar-buttons {
   display: none;
@@ -101,8 +111,7 @@
   color: var(--primary-light-color);
 }
 .navbar-links {
-  display: none;
-  justify-content: space-between;
+  width: 33%;
 }
 .links {
   height: 5rem;
@@ -136,14 +145,15 @@
 }
 .logo-text {
   display: flex;
-  justify-content: center;
-  height: 4rem;
+
+  height: 6rem;
   font-family: "Poppins", sans-serif;
-  margin: 3rem;
+
   font-size: 20px;
   border-radius: 3rem;
-  margin-left: 3rem;
+
   mix-blend-mode: multiply;
+  margin: auto;
 }
 
 .navbar-text-hamburger {
@@ -242,6 +252,11 @@
     justify-content: flex-start;
     margin: 0rem 1rem 0rem 0rem;
     font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .logo-text {
+    height: 3.5rem;
   }
 }
 @media only screen and (min-width: 1000px) {

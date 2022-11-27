@@ -91,9 +91,10 @@
 .about-section {
   width: 150px;
   height: 150px;
-  border-right: 10px solid var(--accent-color);
-  border-bottom: 10px solid var(--accent-color);
+
+  box-shadow: 0px 3px 6px var(--accent-color);
   margin: auto;
+  border-radius: 15px;
 }
 
 .main1 {

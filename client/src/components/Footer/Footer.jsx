@@ -15,7 +15,7 @@ const Footer = () => {
         </div>
 
         <div className="contact-container">
-          <div className="col social-box">
+          <div className="social-box">
             <h5 className="text">Follow Us</h5>
 
             <div className="social-icons">
@@ -61,12 +61,11 @@ const Footer = () => {
           </div>
 
           <div className=" contact-us-box">
-            <div>
-              <h5 className="text">Contact Us</h5>
-            </div>
+            <h5 className="text">Contact Us</h5>
+
             <p className="mail">
               <a className="mailp" href="mailto: komje.app@gmail.com">
-                komje.app@gmail.com{" "}
+                komje.app@gmail.com
               </a>
             </p>
           </div>

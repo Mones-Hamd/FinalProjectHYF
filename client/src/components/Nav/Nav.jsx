@@ -56,43 +56,46 @@ const Nav = () => {
             <FaBars className="hamburger" onClick={showSidebar} />
           </Link>
           <Link to="/">
-            <img className="logo-text" src={logo} />
+            <div className="logo-box-nav-bar">
+              <img className="logo-text" src={logo} />
+            </div>
           </Link>
-
-          <ul className="navbar-buttons">
-            {!isAuthenticated ? (
-              <>
-                <Link to="/login" className="links">
-                  <BiLogIn color="#1f2232" className="nav-icons" />
-                  Login
-                </Link>
-                <Link to="/register" className="links">
-                  <MdAppRegistration color="#1f2232" className="nav-icons" />
-                  Sign Up
-                </Link>
-              </>
-            ) : (
-              <>
-                {user && user.username && (
-                  <div className="user-name-nav">{user.username}</div>
-                )}
-                <Link to="/login" className="right-links">
-                  {user ? (
-                    <span className="links " onClick={logout}>
-                      {" "}
-                      <BiLogOut color="#1f2232" className="nav-icons" />
-                      Logout
-                    </span>
-                  ) : (
-                    <button className="navbar-button" onClick={goLogin}>
-                      {" "}
-                      Profile{" "}
-                    </button>
+          <div className="navbar-button-group">
+            <ul className="navbar-buttons">
+              {!isAuthenticated ? (
+                <>
+                  <Link to="/login" className="links">
+                    <BiLogIn color="#1f2232" className="nav-icons" />
+                    Login
+                  </Link>
+                  <Link to="/register" className="links">
+                    <MdAppRegistration color="#1f2232" className="nav-icons" />
+                    Sign Up
+                  </Link>
+                </>
+              ) : (
+                <>
+                  {user && user.username && (
+                    <div className="user-name-nav">{user.username}</div>
                   )}
-                </Link>
-              </>
-            )}
-          </ul>
+                  <Link to="/login" className="right-links">
+                    {user ? (
+                      <span className="links " onClick={logout}>
+                        {" "}
+                        <BiLogOut color="#1f2232" className="nav-icons" />
+                        Logout
+                      </span>
+                    ) : (
+                      <button className="navbar-button" onClick={goLogin}>
+                        {" "}
+                        Profile{" "}
+                      </button>
+                    )}
+                  </Link>
+                </>
+              )}
+            </ul>
+          </div>
         </div>
         <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
           <ul className="nav-menu-items" onClick={showSidebar}>
