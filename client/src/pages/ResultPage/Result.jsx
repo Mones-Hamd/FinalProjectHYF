@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./result.css";
@@ -6,20 +6,23 @@ import { useResult } from "../../hooks/useResult";
 import BarChart from "../../components/BarChart/BarChart";
 import PieChart from "../../components/PieChart/PieChart";
 import Spinner from "../../components/Spinner/Spinner";
+import { ResultContext } from "../../contexts/ResultContext";
 
 const Result = () => {
   const [show, setShow] = useState(false);
-  const [flex, setFlex] = useState("");
-  const { getResult, result } = useResult();
 
+  const { getResult } = useResult();
+  const { result } = useContext(ResultContext);
   useEffect(() => {
     getResult.perform();
+
     return () => {
       getResult.cancel();
     };
   }, []);
+
   const pieLable = ["Attending"];
-  if (result?.chartArray.length > 3) setFlex("flex-bar-chart-section");
+
   return (
     <>
       {getResult.isLoading && <Spinner />}
@@ -58,7 +61,11 @@ const Result = () => {
                 </div>
               )}
             </div>
-            <div className={flex}>
+            <div
+              className={
+                result?.chartArray.length > 3 ? "flex-bar-chart-section" : null
+              }
+            >
               {result?.chartArray?.map((chart, indx) => (
                 <div className="result-chart-component" key={indx}>
                   <BarChart

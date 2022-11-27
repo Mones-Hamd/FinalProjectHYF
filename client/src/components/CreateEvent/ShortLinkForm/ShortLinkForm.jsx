@@ -19,7 +19,12 @@ const ShortLinkForm = ({ shortLink, disabled }) => {
     <FormContainer title="Share the link with your friends">
       <form className="short-link-form">
         <FormInput disabled value={generateLink(shortLink)} />
-        <Button label="Copy Link" disabled={disabled} onClick={onClick} />
+        <Button
+          label="Copy Link"
+          type="button"
+          disabled={disabled}
+          onClick={onClick}
+        />
       </form>
     </FormContainer>
   );

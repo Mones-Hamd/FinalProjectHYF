@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 import Spinner from "../../components/Spinner/Spinner";
 import Stepper from "../../components/Stepper/Stepper";
 import EventDetailsForm from "../../components/CreateEvent/EventDetailsForm/EventDetailsForm";
-import QuestionForm from "../../components/CreateEvent/QuestionsForm/QuestionForm";
+import QuestionsForm from "../../components/CreateEvent/QuestionsForm/QuestionsForm";
 import ImageForm from "../../components/CreateEvent/ImageForm/ImageForm";
 import ShortLinkForm from "../../components/CreateEvent/ShortLinkForm/ShortLinkForm";
 import { defaultQuestions } from "../../components/CreateEvent/data";
@@ -111,7 +111,7 @@ const CreateForm = () => {
   return (
     <div className="create-form-page">
       {(isLoading || isImageUploading) && <Spinner />}
-      <Stepper submitFunc={createEvent} submitStep={2}>
+      <Stepper submitStep={2}>
         <EventDetailsForm
           label="Details"
           values={values}
@@ -122,11 +122,12 @@ const CreateForm = () => {
           imageFile={imageFile}
           setImageFile={setImageFile}
         />
-        <QuestionForm
+        <QuestionsForm
           label="Form"
           form={form}
           setForm={setForm}
           isEventCreated={isEventCreated}
+          submitFunc={createEvent}
         />
         <ShortLinkForm
           label="Short link"

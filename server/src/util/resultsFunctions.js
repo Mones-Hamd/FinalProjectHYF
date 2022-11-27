@@ -5,7 +5,7 @@ const getTargetResponses = (answers) => {
   const targetResponses = [];
   answers.forEach((answer) => {
     answer.responses.forEach((response) => {
-      if (response.question === "response" && response.answer === "yes") {
+      if (response.question === "question_3" && response.answer === "yes") {
         targetResponses.push(answer);
       }
     });
@@ -36,7 +36,7 @@ const getTotalAnswersByKey = (answers, key) => {
   const obj = {};
   getTargetResponses(answers).forEach((answer) => {
     answer.responses.forEach((response) => {
-      if (response.question === key) {
+      if (response.question === key && !Number(response.answer)) {
         const amount = (obj[response.answer] || 0) + 1;
         obj[response.answer] = amount;
       }
@@ -44,18 +44,13 @@ const getTotalAnswersByKey = (answers, key) => {
   });
   return obj;
 };
-export const getAllTotalAnswers = (answers, keys) => {
+export const getAllTotalAnswers = (answers, keys, labels) => {
   const allTotalAnswers = {};
-  keys.forEach((key) => {
-    if (
-      key === "fullName" ||
-      key === "email" ||
-      key === "response" ||
-      key === "numberOfPeople"
-    )
+  keys.forEach((key, indx) => {
+    if (key === "question_1" || key === "question_2" || key === "question_3")
       return;
     const total = getTotalAnswersByKey(answers, key);
-    allTotalAnswers[key] = total;
+    allTotalAnswers[labels[indx]] = total;
   });
   return allTotalAnswers;
 };
@@ -75,20 +70,22 @@ export const getAllTotalAnswersPercentages = (answers, keys) => {
   });
   return allTotalAnswersPercentage;
 };
-export const getChartsArrays = (answers, keys) => {
+export const getChartsArrays = (answers, keys, labels) => {
   const allChartArray = [];
-  const allTotalAnswers = getAllTotalAnswers(answers, keys);
+  const allTotalAnswers = getAllTotalAnswers(answers, keys, labels);
   const allTotalAnswersArray = Object.values(allTotalAnswers);
   allTotalAnswersArray.forEach((answer) => {
     const obj = {};
-    obj["labels"] = Object.keys(answer);
-    obj["data"] = Object.values(answer);
-    allChartArray.push(obj);
+    if (Object.keys(answer).length > 0 && Object.values(answer).length > 0) {
+      obj["labels"] = Object.keys(answer);
+      obj["data"] = Object.values(answer);
+
+      allChartArray.push(obj);
+    }
   });
   return allChartArray;
 };
-export const getSubject = (answers, keys) => {
-  const allTotalAnswers = getAllTotalAnswers(answers, keys);
-
+export const getSubject = (answers, keys, labels) => {
+  const allTotalAnswers = getAllTotalAnswers(answers, keys, labels);
   return Object.keys(allTotalAnswers);
 };

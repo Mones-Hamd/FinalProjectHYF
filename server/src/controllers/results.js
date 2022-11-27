@@ -15,6 +15,7 @@ export const getEventResults = async (req, res) => {
   try {
     const targetEvent = await Event.findById(eventId);
     const keys = targetEvent.form.map((question) => question.key);
+    const labels = targetEvent.form.map((question) => question.label);
 
     const answers = await Response.find({ eventId });
 
@@ -27,12 +28,11 @@ export const getEventResults = async (req, res) => {
         notAttending: numberOfNotAttending(answers),
         attendingPercentage: countPercentage(totalResponse, attending),
         guestsInformation: getGuestsInformation(answers),
-        allTotalAnswers: getAllTotalAnswers(answers, keys),
+        allTotalAnswers: getAllTotalAnswers(answers, keys, labels),
         allTotalAnswersPercentage: getAllTotalAnswersPercentages(answers, keys),
-        subjectArray: getSubject(answers, keys),
-        chartArray: getChartsArrays(answers, keys),
+        subjectArray: getSubject(answers, keys, labels),
+        chartArray: getChartsArrays(answers, keys, labels),
       };
-
       res.status(200).json({
         success: true,
         result,
