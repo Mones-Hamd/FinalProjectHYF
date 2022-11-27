@@ -92,7 +92,7 @@ export const detailsFormInputs = [
 
 export const defaultQuestions = [
   {
-    key: "fullName",
+    key: "question_1",
     label: "Please enter your full name?",
     attributes: {
       type: "text",
@@ -100,7 +100,7 @@ export const defaultQuestions = [
     },
   },
   {
-    key: "email",
+    key: "question_2",
     label: "Enter your email?",
     attributes: {
       type: "email",
@@ -108,7 +108,7 @@ export const defaultQuestions = [
     },
   },
   {
-    key: "response",
+    key: "question_3",
     label: "Are you going to join us?",
     attributes: {
       type: "singleChoice",
@@ -116,56 +116,10 @@ export const defaultQuestions = [
     },
     options: [
       {
-        key: "1",
-        value: "yes",
+        option_1: "yes",
       },
       {
-        key: "2",
-        value: "no",
-      },
-    ],
-  },
-  {
-    key: "diet",
-    label: "Please select your diet",
-    attributes: {
-      type: "singleChoice",
-      required: false,
-    },
-    options: [
-      {
-        key: "1",
-        value: "Vegetarian",
-      },
-      {
-        key: "2",
-        value: "Vegan",
-      },
-      {
-        key: "3",
-        value: "Halal",
-      },
-      {
-        key: "4",
-        value: "Normal",
-      },
-    ],
-  },
-  {
-    key: "car",
-    label: "Will you come with your own car?",
-    attributes: {
-      type: "singleChoice",
-      required: false,
-    },
-    options: [
-      {
-        key: "1",
-        value: "yes",
-      },
-      {
-        key: "2",
-        value: "no",
+        option_2: "no",
       },
     ],
   },

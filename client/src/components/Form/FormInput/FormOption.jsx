@@ -1,16 +1,25 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const FormOption = ({ option, type, ...optionProps }) => {
+const FormOption = ({
+  optionKey,
+  checked,
+  type,
+  disabled,
+  onChange,
+  ...optionProps
+}) => {
   return (
-    <div key={option.key} className="komje-form-option">
+    <div key={optionKey} className="komje-form-option">
       <input
         type={type}
-        value={option.value}
-        name={option.key}
+        name={optionKey}
+        disabled={disabled}
+        onChange={onChange}
+        checked={checked}
         {...optionProps}
       />{" "}
-      {option.value}
+      {optionKey}
     </div>
   );
 };
@@ -18,6 +27,9 @@ const FormOption = ({ option, type, ...optionProps }) => {
 export default FormOption;
 
 FormOption.propTypes = {
-  option: PropTypes.object,
+  optionKey: PropTypes.string,
+  checked: PropTypes.bool,
   type: PropTypes.string,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
 };

@@ -5,20 +5,22 @@ import "./FormInput.css";
 
 const FormInput = (props) => {
   const [focused, setFocused] = useState(false);
-  const { label, required, errorMessage, onChange, ...inputProps } = props;
+  const { label, value, required, errorMessage, onChange, ...inputProps } =
+    props;
 
   const handleFocus = () => {
     setFocused(true);
   };
 
   return (
-    <div className="event-line">
+    <div key={inputProps.key} className="event-line">
       <label className="event-line-title">
         {label}
         {required && <span>(required)</span>}
       </label>
       <input
         {...inputProps}
+        value={value}
         required={required}
         onChange={onChange}
         onBlur={handleFocus}
@@ -32,6 +34,7 @@ const FormInput = (props) => {
 
 FormInput.propTypes = {
   label: PropTypes.string,
+  value: PropTypes.string,
   required: PropTypes.bool,
   onChange: PropTypes.func,
   id: PropTypes.number,
