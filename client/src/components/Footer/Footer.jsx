@@ -22,7 +22,7 @@ const Footer = () => {
               <ul className="sci">
                 <li>
                   <a
-                    href="https://www.facebook.com"
+                    href="https://www.facebook.com/people/Komje-App/100088080527367/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -31,7 +31,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.instagram.com"
+                    href="https://www.instagram.com/komjeapp/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -40,7 +40,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.linkedin.com"
+                    href="https://www.linkedin.com/in/komje-app-48b8bb258/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -49,7 +49,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.twitter.com"
+                    href="https://twitter.com/AppKomje"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
