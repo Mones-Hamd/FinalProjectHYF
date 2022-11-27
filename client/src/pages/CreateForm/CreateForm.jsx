@@ -111,7 +111,7 @@ const CreateForm = () => {
   return (
     <div className="create-form-page">
       {(isLoading || isImageUploading) && <Spinner />}
-      <Stepper submitFunc={createEvent} submitStep={2}>
+      <Stepper submitStep={2}>
         <EventDetailsForm
           label="Details"
           values={values}
@@ -127,6 +127,7 @@ const CreateForm = () => {
           form={form}
           setForm={setForm}
           isEventCreated={isEventCreated}
+          submitFunc={createEvent}
         />
         <ShortLinkForm
           label="Short link"

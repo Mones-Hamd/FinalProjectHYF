@@ -6,7 +6,7 @@ import "./StepHandler.css";
 import ProgressBar from "../ProgressBar/ProgressBar";
 import Button from "../../Button/Button";
 
-const StepHandler = ({ children, submitFunc, submitStep }) => {
+const StepHandler = ({ children, submitStep }) => {
   const navigate = useNavigate();
   const { step, submit, prev } = useContext(StepperContext);
 
@@ -22,12 +22,7 @@ const StepHandler = ({ children, submitFunc, submitStep }) => {
   const getButtonLabel = () =>
     isLastStep() ? "Home Page" : isSubmitStep() ? "Create Event" : "Next";
 
-  const onClick = () =>
-    isLastStep()
-      ? navigate("/homePage")
-      : isSubmitStep()
-      ? submitFunc()
-      : submit();
+  const onClick = () => (isLastStep() ? navigate("/homePage") : submit());
 
   return (
     <>
@@ -52,6 +47,5 @@ export default StepHandler;
 
 StepHandler.propTypes = {
   children: PropTypes.node,
-  submitFunc: PropTypes.func,
   submitStep: PropTypes.number,
 };

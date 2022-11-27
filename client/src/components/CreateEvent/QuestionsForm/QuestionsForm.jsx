@@ -1,12 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useRef } from "react";
 import PropTypes from "prop-types";
 import FormContainer from "../../Form/FormContainer/FormContainer";
 import { StepperContext } from "../../../contexts/StepperContext";
 import Button from "../../Button/Button";
 import FormQuestion from "../../Form/FormInput/FormQuestion";
 
-const QuestionsForm = ({ form, setForm, isEventCreated }) => {
-  const { next } = useContext(StepperContext);
+const QuestionsForm = ({ form, setForm, submitFunc, isEventCreated }) => {
+  const formRef = useRef();
+  const { setValidation, next } = useContext(StepperContext);
   const [counter, setCounter] = useState(4);
 
   useEffect(() => {
@@ -14,6 +15,15 @@ const QuestionsForm = ({ form, setForm, isEventCreated }) => {
       next();
     }
   }, [isEventCreated, form]);
+
+  useEffect(() => {
+    setValidation(2, submitForm);
+  }, []);
+
+  const submitForm = () =>
+    formRef.current.dispatchEvent(
+      new Event("submit", { bubbles: true, cancelable: true })
+    );
 
   const questionModel = {
     key: `question_${counter}`,
@@ -48,9 +58,33 @@ const QuestionsForm = ({ form, setForm, isEventCreated }) => {
     });
   };
 
+  const validateForm = (e) => {
+    const form = e.target;
+    const elements = Array.from(form.elements);
+    let firstInvalidElement;
+    elements.forEach((element) => {
+      if (!element.checkValidity() && !firstInvalidElement) {
+        firstInvalidElement = element;
+      }
+      element.focus();
+    });
+    if (firstInvalidElement) {
+      firstInvalidElement.focus();
+    }
+
+    return form.checkValidity();
+  };
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    if (validateForm(e)) {
+      submitFunc();
+    }
+  };
+
   return (
     <FormContainer title="Create Your RSVP Questions">
-      <form>
+      <form className="komje-form" ref={formRef} onSubmit={onSubmit}>
         {form?.map((question, index) => {
           return (
             <FormQuestion
@@ -74,5 +108,6 @@ export default QuestionsForm;
 QuestionsForm.propTypes = {
   form: PropTypes.array,
   setForm: PropTypes.func,
+  submitFunc: PropTypes.func,
   isEventCreated: PropTypes.bool,
 };
