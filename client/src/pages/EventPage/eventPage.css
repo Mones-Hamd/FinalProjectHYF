@@ -1,6 +1,10 @@
 .event-page-container {
-  min-height: 100vh;
-  margin-top: 4.4rem;
+  min-height: calc(100vh - 413px) !important;
+  display: block;
+  margin: 1rem auto 2rem auto;
+  width: 50rem;
+  background-color: var(--white-color);
+  padding: 1rem 1rem 3rem 1rem;
 }
 .img-box {
   max-width: 50%;
@@ -29,22 +33,28 @@
 .copyLink-input {
   width: 70%;
 }
-.copyLinkGroup {
-  max-width: 500px;
-  margin: 3rem auto;
-  padding: 0.5rem;
+.copy-link-group {
   min-width: 300px;
   display: flex;
   justify-content: center;
 }
-.copyLinkGroup input {
-  padding-left: 0.6rem;
+
+.copy-link-group .shot-link {
+  width: 100%;
 }
-.buttonGroup {
+
+.copy-link-group .shot-link input {
+  padding: 18px !important;
+}
+
+.copy-link-group button {
+  margin-top: 25px;
+}
+
+.button-group {
   display: flex;
-  margin: 4rem auto;
-  width: 50%;
-  justify-content: space-around;
+  margin: 1rem auto;
+  justify-content: center;
   align-items: center;
 }
 
@@ -59,13 +69,11 @@
 .details {
   margin: auto;
   margin-top: 2rem;
-  width: 60%;
   min-width: 300px;
 }
 .form {
   margin: auto;
   margin-top: 2rem;
-  width: 60%;
   min-width: 300px;
 }
 .question-form {
@@ -120,4 +128,24 @@
   flex-direction: row;
   align-items: center;
   padding-left: 1rem;
+}
+
+@media (max-width: 600px) {
+  .event-page-container {
+    width: 100%;
+  }
+
+  .event-page-container button {
+    padding: 1rem;
+    width: 100%;
+    margin: 0.5rem auto;
+  }
+
+  .copy-link-group {
+    flex-direction: column;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
 }

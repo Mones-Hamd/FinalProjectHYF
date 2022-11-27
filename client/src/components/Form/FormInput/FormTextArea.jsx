@@ -14,7 +14,6 @@ const FormTextArea = ({ label, value, onChange }) => {
         rows="5"
         cols="15"
         value={value}
-        minLength="15"
         maxLength="500"
         onChange={onChange}
       />

@@ -56,31 +56,28 @@ const EventPage = () => {
         <Accordion title="Form">{getEventForm(event?.form)}</Accordion>
       </div>
 
-      <div className="copyLinkGroup" onClick={() => copyLink(event?.shortLink)}>
-        <input
-          type="text"
-          disabled
-          className="copyLink-input"
-          value={generateLink(event?.shortLink)}
-        ></input>
-
-        <Button label="Copy Link" disabled={isLoading} />
+      <div className="copy-link-group">
+        <div className="shot-link">
+          <FormInput disabled value={generateLink(event?.shortLink)} />
+        </div>
+        <Button
+          label="Copy Link"
+          type="button"
+          disabled={isLoading}
+          onClick={() => copyLink(event?.shortLink)}
+        />
       </div>
-      <div className="buttonGroup">
-        <div className="btn-div">
-          <Button
-            onClick={showResults}
-            label="Show Results"
-            disabled={isLoading}
-          />
-        </div>
-        <div className="btn-div">
-          <Button
-            onClick={cancelEvent}
-            label="Cancel Event"
-            disabled={isLoading}
-          />
-        </div>
+      <div className="button-group">
+        <Button
+          onClick={showResults}
+          label="Show Results"
+          disabled={isLoading}
+        />
+        <Button
+          onClick={cancelEvent}
+          label="Cancel Event"
+          disabled={isLoading}
+        />
       </div>
     </div>
   );
