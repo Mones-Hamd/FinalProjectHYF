@@ -7,7 +7,7 @@ This is the final project for the HackYourFuture curriculum we did as a class us
 Komje
 
 We know how important and valuable every minute of your dream day.
-So, why don`t you save yourself the stress while getting ready for
+So, why do not you save yourself the stress while getting ready for
 your wedding? Komje is here for you.
 
 Ask all your questions about the guests, easily share the invitation online and see the answers with a chart.
