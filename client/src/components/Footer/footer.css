@@ -6,9 +6,9 @@
 }
 
 .footer .container-footer {
-  margin: auto;
+  padding-right: 6rem;
+  padding-left: 6rem;
   display: flex;
-  width: 80%;
 }
 
 .footer .contact-us-box {
@@ -121,17 +121,12 @@
     margin-top: 10px;
   }
 }
-
-@media (min-width: 1100px) {
-  .footer .contact-us-box {
-    margin-left: 10rem;
-  }
-
-  .footer .logo {
-    margin-right: 10rem;
+@media (max-width: 850px) {
+  .footer .container-footer {
+    padding-right: 0rem;
+    padding-left: 0rem;
   }
 }
-
 @media (min-width: 1100px) {
   .footer .contact-us-box {
     margin-left: 10rem;
