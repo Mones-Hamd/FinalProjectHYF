@@ -108,10 +108,10 @@ const AboutUs = () => {
           </div>
           <div>
             <p className="paragraph paragraph-app">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
-              eligendi tempora tenetur commodi exercitationem corporis facere
-              perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
-              molestias velit quis id deleniti et non!
+              Hi there! ,It is Abdullah ,I am junior web developer ,I love
+              solving issues with my own way and creating some cool stuff. We
+              enjoyed and learned a lot while building the application ,hope you
+              enjoy while you are using it too!
             </p>
           </div>
         </div>
