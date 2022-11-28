@@ -11,7 +11,7 @@
   box-shadow: 0px 3px 6px var(--accent-color);
   padding: 3rem 2rem 1.5rem 2rem;
   border-radius: var(--border-radius-form);
-  width: 400px;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
   text-align: center;
@@ -24,7 +24,7 @@
   box-shadow: 0px 3px 6px var(--accent-color);
   padding: 3rem 2rem 1.5rem 2rem;
   border-radius: var(--border-radius-form);
-  width: 400px;
+  width: 80%;
   margin-left: auto;
   margin-right: auto;
 }
