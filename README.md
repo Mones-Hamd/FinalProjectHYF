@@ -14,7 +14,7 @@ Ask all your questions about the guests, easily share the invitation online and 
 
 Our online invitations will continue to do more than just save paper. Together we can invite a greener future.
 
-`[Click here for the Demo version](TODO: add link)`
+`[Click here for the Demo version](https://c38-group1.herokuapp.com/)`
 
 # Built with
 
