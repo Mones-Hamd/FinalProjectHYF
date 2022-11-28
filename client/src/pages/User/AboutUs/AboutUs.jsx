@@ -174,10 +174,13 @@ const AboutUs = () => {
           </div>
           <div>
             <p className="paragraph paragraph-app">
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quia
-              eligendi tempora tenetur commodi exercitationem corporis facere
-              perspiciatis excepturi quidem fugiat? Fugit asperiores saepe,
-              molestias velit quis id deleniti et non!
+              Thank you very much. Because it is necessary to choose the time to
+              do the exercise of the body that is convenient to be aware of the
+              fact that it should be avoided? He runs away from the rougher
+              often, who wants trouble and who does not!
+              <span role="img" aria-label="Grinning face">
+                😀
+              </span>
             </p>
           </div>
         </div>
@@ -194,85 +197,87 @@ const AboutUs = () => {
           </p>
         </div>
 
-        <div className="accordion accordion-flush" id="accordionFlushExample">
-          <h1>F&Q</h1>
-          <div className="accordion-item">
-            <h3 className="accordion-header" id="flush-headingOne">
-              <button
-                className="accordion-button"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseOne"
-                aria-expanded="false"
-                aria-controls="flush-collapseOne"
+        <div className="faq">
+          <div className="accordion accordion-flush" id="accordionFlushExample">
+            <h1>F&Q</h1>
+            <div className="accordion-item">
+              <h3 className="accordion-header" id="flush-headingOne">
+                <button
+                  className="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseOne"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseOne"
+                >
+                  How to write invitation card?
+                </button>
+              </h3>
+              <div
+                id="flush-collapseOne"
+                className="accordion-collapse collapse"
+                aria-labelledby="flush-headingOne"
+                data-bs-parent="#accordionFlushExample"
               >
-                How to write invitation card?
-              </button>
-            </h3>
-            <div
-              id="flush-collapseOne"
-              className="accordion-collapse collapse"
-              aria-labelledby="flush-headingOne"
-              data-bs-parent="#accordionFlushExample"
-            >
-              <div className="accordion-body">
-                Writing an invitation card is simple. Address your card to the
-                person you’re inviting; name the event you’re inviting them to;
-                spell out the date, time and location; and provide contact
-                details so they can RSVP. Be sure to note if you want to mention
-                any thing in your invitation.
+                <div className="accordion-body">
+                  Writing an invitation card is simple. Address your card to the
+                  person you’re inviting; name the event you’re inviting them
+                  to; spell out the date, time and location; and provide contact
+                  details so they can RSVP. Be sure to note if you want to
+                  mention any thing in your invitation.
+                </div>
               </div>
             </div>
-          </div>
-          <div className="accordion-item">
-            <h3 className="accordion-header" id="flush-headingTwo">
-              <button
-                className="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseTwo"
-                aria-expanded="false"
-                aria-controls="flush-collapseTwo"
+            <div className="accordion-item">
+              <h3 className="accordion-header" id="flush-headingTwo">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseTwo"
+                >
+                  What do you include on an invitation?
+                </button>
+              </h3>
+              <div
+                id="flush-collapseTwo"
+                className="accordion-collapse collapse"
+                aria-labelledby="flush-headingTwo"
+                data-bs-parent="#accordionFlushExample"
               >
-                What do you include on an invitation?
-              </button>
-            </h3>
-            <div
-              id="flush-collapseTwo"
-              className="accordion-collapse collapse"
-              aria-labelledby="flush-headingTwo"
-              data-bs-parent="#accordionFlushExample"
-            >
-              <div className="accordion-body">
-                An invitation card should include text that describes the basic
-                wedding details, images or illustrations to make the card stand
-                out and white space to balance it all out.
+                <div className="accordion-body">
+                  An invitation card should include text that describes the
+                  basic wedding details, images or illustrations to make the
+                  card stand out and white space to balance it all out.
+                </div>
               </div>
             </div>
-          </div>
-          <div className="accordion-item">
-            <h3 className="accordion-header" id="flush-headingThree">
-              <button
-                className="accordion-button collapsed"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#flush-collapseThree"
-                aria-expanded="false"
-                aria-controls="flush-collapseThree"
+            <div className="accordion-item">
+              <h3 className="accordion-header" id="flush-headingThree">
+                <button
+                  className="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#flush-collapseThree"
+                  aria-expanded="false"
+                  aria-controls="flush-collapseThree"
+                >
+                  Canceling the invitation
+                </button>
+              </h3>
+              <div
+                id="flush-collapseThree"
+                className="accordion-collapse collapse"
+                aria-labelledby="flush-headingThree"
+                data-bs-parent="#accordionFlushExample"
               >
-                Canceling the invitation
-              </button>
-            </h3>
-            <div
-              id="flush-collapseThree"
-              className="accordion-collapse collapse"
-              aria-labelledby="flush-headingThree"
-              data-bs-parent="#accordionFlushExample"
-            >
-              <div className="accordion-body">
-                Using Komje it will be easy to cancel you invitation, just click
-                on <code> Cancel invitation button</code>
-                and we will send an email for all guests to inform them.
+                <div className="accordion-body">
+                  Using Komje it will be easy to cancel you invitation, just
+                  click on <code> Cancel invitation button</code>
+                  and we will send an email for all guests to inform them.
+                </div>
               </div>
             </div>
           </div>

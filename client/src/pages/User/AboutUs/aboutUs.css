@@ -9,8 +9,8 @@
   text-align: justify;
   margin: 2rem;
 }
-.accordion {
-  width: 80%;
+.faq .accordion {
+  width: 80% !important;
   margin-left: auto;
   margin-right: auto;
   min-width: 300px;
@@ -21,8 +21,10 @@
 
 .team-member-box {
   margin: 2rem;
-  box-shadow: 0px 4px 12px var(--accent-color);
+  box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 15%),
+    -2px -2px 5px 1px rgb(0 0 0 / 15%);
   border-radius: 15px;
+  padding: 1rem 2rem 2rem 2rem;
 }
 .team-member-box:hover {
   box-shadow: 0px 6px 18px var(--accent-color);

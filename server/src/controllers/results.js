@@ -14,6 +14,11 @@ export const getEventResults = async (req, res) => {
   const eventId = req.params.eventId;
   try {
     const targetEvent = await Event.findById(eventId);
+    if (targetEvent.creatorId !== req.user._id.toString()) {
+      res.status(400).json({ success: false });
+      return;
+    }
+
     const keys = targetEvent.form.map((question) => question.key);
     const labels = targetEvent.form.map((question) => question.label);
 

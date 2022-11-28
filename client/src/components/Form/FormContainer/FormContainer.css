@@ -20,9 +20,21 @@
   width: 80%;
   margin: 0 auto;
 }
-
+.information-about-form {
+  width: 80%;
+  border: 1px solid var(--secondary-color);
+  padding: 20px;
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 10px;
+  font-size: var(--font-size-input);
+  color: var(--accent-color) !important;
+}
 @media only screen and (max-width: 600px) {
   .komje-form-container {
+    width: 100%;
+  }
+  .information-about-form {
     width: 100%;
   }
 

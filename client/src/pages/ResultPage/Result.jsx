@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.js";
 import "./result.css";
@@ -7,10 +7,9 @@ import BarChart from "../../components/BarChart/BarChart";
 import PieChart from "../../components/PieChart/PieChart";
 import Spinner from "../../components/Spinner/Spinner";
 import { ResultContext } from "../../contexts/ResultContext";
+import Accordion from "../../components/Accordion/Accordion";
 
 const Result = () => {
-  const [show, setShow] = useState(false);
-
   const { getResult } = useResult();
   const { result } = useContext(ResultContext);
   useEffect(() => {
@@ -21,7 +20,7 @@ const Result = () => {
     };
   }, []);
 
-  const pieLable = ["Attending"];
+  const pieLabel = ["Attending"];
 
   return (
     <>
@@ -31,37 +30,35 @@ const Result = () => {
         <div className="guests-count-box">
           <h1>Total result</h1>
           <hr />
-          <p className="paragraph-app">
-            Guests number: {result?.attending || 0}
-          </p>
-          <p className="paragraph-app">
-            Responses in your event: {result?.totalResponse || 0}
-          </p>
-          <p className="paragraph-app">
-            Attending Percentage: {result?.attendingPercentage || 0}%{" "}
-          </p>
+          <div className="guess-count">
+            <p className="paragraph-app">
+              Guests number: {result?.attending || 0} /{" "}
+              {result?.totalResponse || 0}
+            </p>
+            <p className="paragraph-app">
+              Attending Percentage: {result?.attendingPercentage || 0}%{" "}
+            </p>
+          </div>
         </div>
-        <button
-          className="guestList-btn btn-app"
-          onClick={() => setShow(!show)}
-        >
-          Show List
-        </button>
+
         <div>
-          {show && (
-            <div className="lists-box">
-              <h1>Guests List </h1>
-              <hr />
-              <ul className="list-box">
-                {result.guestsInformation?.map((guest) => {
-                  return (
-                    <li className="paragraph-app" key={guest.guestName}>
-                      {guest.guestName}
-                    </li>
-                  );
-                })}
-              </ul>
-            </div>
+          {result && (
+            <Accordion title="Guests List">
+              <div className="guest-list">
+                <table width="100%">
+                  <tbody>
+                    {result.guestsInformation?.map((guest) => {
+                      return (
+                        <tr key={guest.guestName}>
+                          <td className="guest-name">{guest.guestName}</td>
+                          <td className="guest-email">{guest.guestEmail}</td>
+                        </tr>
+                      );
+                    })}
+                  </tbody>
+                </table>
+              </div>
+            </Accordion>
           )}
         </div>
         {result ? (
@@ -69,7 +66,7 @@ const Result = () => {
             <div className="result-chart-component">
               <PieChart
                 text="Attending chart"
-                labels={pieLable}
+                labels={pieLabel}
                 numberOfAttending={result?.totalResponse}
                 data={[result?.attending, result?.notAttending]}
               />
