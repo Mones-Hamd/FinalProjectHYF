@@ -19,11 +19,15 @@
     -2px -2px 5px 1px rgb(0 0 0 / 15%);
   margin-bottom: 4rem;
 }
-
+.logo-box-nav-bar {
+  padding: 0.2rem;
+  display: flex;
+}
 .menu {
   margin-left: 1.3rem;
   font-size: 2rem;
   background: none;
+  position: absolute;
 }
 .menu-close {
   font-size: 2rem;
@@ -49,6 +53,12 @@
   left: 0;
   transition: 350ms;
 }
+.navbar-button-group {
+  width: 33%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
+}
 .navbar-buttons {
   display: none;
 }
@@ -61,7 +71,7 @@
   margin: 12px 50px 0 1px;
   text-decoration: none;
   list-style: none;
-  color: #006d77;
+  color: var(--primary-color);
 }
 .navbar-button {
   border-radius: 0.65rem;
@@ -101,8 +111,7 @@
   color: var(--primary-light-color);
 }
 .navbar-links {
-  display: none;
-  justify-content: space-between;
+  width: 33%;
 }
 .links {
   height: 5rem;
@@ -110,7 +119,7 @@
   display: none;
   text-decoration: none;
   list-style: none;
-  color: #006d77;
+  color: var(--primary-color);
   align-items: center;
   justify-content: space-between;
   transition: 0.3s ease-in-out;
@@ -136,14 +145,15 @@
 }
 .logo-text {
   display: flex;
-  justify-content: center;
-  height: 4rem;
+
+  height: 6rem;
   font-family: "Poppins", sans-serif;
-  margin: 3rem;
+
   font-size: 20px;
   border-radius: 3rem;
-  margin-left: 3rem;
+
   mix-blend-mode: multiply;
+  margin: auto;
 }
 
 .navbar-text-hamburger {
@@ -180,7 +190,7 @@
 }
 
 .user-name-nav {
-  color: var(--primary-dark-color);
+  color: var(--primary-color);
 
   font-family: "Poppins", sans-serif;
   font-size: 1.3em;
@@ -220,10 +230,8 @@
     height: 2rem;
     font-size: 1rem;
     margin-left: 2rem;
-
     text-decoration: none;
-
-    color: var(--primary-dark-color);
+    color: var(--primary-color);
   }
   .menu {
     display: none;
@@ -242,6 +250,14 @@
     justify-content: flex-start;
     margin: 0rem 1rem 0rem 0rem;
     font-size: 0.9rem;
+  }
+}
+@media only screen and (max-width: 850px) {
+  .logo-text {
+    height: 3.5rem;
+    position: absolute;
+    right: 2rem;
+    top: 0.4rem;
   }
 }
 @media only screen and (min-width: 1000px) {

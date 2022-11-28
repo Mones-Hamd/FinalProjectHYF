@@ -39,7 +39,7 @@ input:invalid[focused="true"] ~ .event-line-error-message {
 }
 
 .event-line input::placeholder {
-  color: var(--secondary-color) !important;
+  color: var(--place-holder) !important;
   width: 100%;
 }
 
@@ -50,7 +50,7 @@ input:invalid[focused="true"] ~ .event-line-error-message {
 }
 
 .event-line-description::placeholder {
-  color: var(--secondary-color) !important;
+  color: var(--place-holder) !important;
   padding: 8px !important;
   width: 100%;
 }

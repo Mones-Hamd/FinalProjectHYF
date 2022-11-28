@@ -30,7 +30,7 @@ const FormQuestion = ({
   };
 
   const onChangeMinNumber = (e) => {
-    question.attributes.min = e.target.checked;
+    question.attributes.min = e.target.value;
     setQuestion(question);
   };
 
@@ -98,13 +98,15 @@ const FormQuestion = ({
             label="Min"
             placeholder="Minimum allowed number"
             onChange={onChangeMinNumber}
-            value={question.attributes.mix}
+            type="number"
+            value={question.attributes.min}
           />
           <FormInput
             disabled={disabled}
             label="Max"
             placeholder="Maximum allowed number"
             onChange={onChangeMaxNumber}
+            type="number"
             value={question.attributes.max}
           />
         </div>

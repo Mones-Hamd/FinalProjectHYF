@@ -44,7 +44,7 @@ const Home = () => {
           <div className="content">
             <p className="title-app">
               {" "}
-              Start your wedding plan with creating your invitation{" "}
+              Start Your Wedding Plan With Creating Your Invitation{" "}
             </p>
             <p className="paragraph-app">
               You need minutes to create your wedding invitation. Our website
@@ -103,7 +103,7 @@ const Home = () => {
           <div className="content">
             <p className=" title-app">
               {" "}
-              Your love isn`t ordinary and neither is our website.
+              Your Love isn`t Ordinary and Neither is Our Website.
             </p>
             <p className="paragraph-app">
               Consider all the wedding details guests may text or call you to

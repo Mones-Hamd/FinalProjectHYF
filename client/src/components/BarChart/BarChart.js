@@ -36,7 +36,7 @@ const BarChart = ({ labels, numberOfAttending, data, text }) => {
     scales: {
       y: {
         suggestedMin: 0,
-        suggestedMax: numberOfAttending,
+        suggestedMax: numberOfAttending + 1,
       },
     },
     responsive: true,

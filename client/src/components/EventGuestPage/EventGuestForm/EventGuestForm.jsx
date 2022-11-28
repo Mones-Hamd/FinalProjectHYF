@@ -90,10 +90,11 @@ const EventGuestForm = ({ onChange, onSubmit, formProps }) => {
                           <input
                             className="radio-input"
                             required={question.attributes.required}
-                            type="radio"
+                            type="checkbox"
                             value={option.value}
+                            checked={option.checked}
                             name={question.key}
-                            onChange={onChange}
+                            onChange={(e) => onChange(e, true)}
                           />
                           <label className="value-box">{option.value}</label>
                         </div>

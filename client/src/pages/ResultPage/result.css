@@ -1,32 +1,50 @@
 .containerResult {
-  margin: auto;
-  margin-top: 1.6rem;
   padding: 0.4rem 3rem;
-  border-radius: 20px;
-  text-align: center;
-  font-size: 14px;
-  min-width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 .guests-count-box {
-  box-shadow: 0px 3px 6px var(--accent-color);
+  box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 15%),
+    -2px -2px 5px 1px rgb(0 0 0 / 15%);
   padding: 3rem 2rem 1.5rem 2rem;
   border-radius: var(--border-radius-form);
-  width: 400px;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: -0.6rem;
   text-align: center;
 }
+.guests-count-box .guess-count {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 40px;
+}
+
 .count-box {
   display: flex;
   justify-content: space-between;
 }
 .lists-box {
-  box-shadow: 0px 3px 6px var(--accent-color);
   padding: 3rem 2rem 1.5rem 2rem;
-  border-radius: var(--border-radius-form);
-  width: 400px;
   margin-left: auto;
   margin-right: auto;
+  text-align: start;
+}
+
+.guest-list {
+  color: var(--primary-color);
+  font-size: var(--font-size-paragraph);
+  text-align: start;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.guest-list td {
+  padding: 0.5rem 2rem;
+}
+
+.guest-list tr:nth-child(even) {
+  background-color: var(--primary-light-color);
 }
 
 .guestList-btn {
@@ -44,9 +62,7 @@
   margin-top: -1rem;
   float: right;
 }
-.list-box {
-  text-align: start;
-}
+
 .result-chart-component {
   width: 100%;
   margin: 20px auto;
@@ -78,5 +94,24 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+
+  .containerResult {
+    padding: 0.4rem 1rem;
+  }
+
+  .guests-count-box {
+    margin-bottom: 1.2rem;
+  }
+
+  .guests-count-box .guess-count {
+    flex-direction: column;
+    gap: 0px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .guests-count-box {
+    margin-bottom: 1.2rem;
   }
 }

@@ -9,10 +9,11 @@
 .create-form-image-preview-default {
   width: 100%;
   max-height: 300px;
-  object-fit: cover;
+  object-fit: contain;
   margin: auto;
   border-radius: 5px;
   cursor: pointer;
+  background-color: #e9eef0;
 }
 
 .create-form-upload-file-button-container {
