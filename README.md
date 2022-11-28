@@ -1,4 +1,4 @@
-![Preview of Komje!]
+![Preview of Komje!](/client/src/Image/app.GIF)
 
 # Class 38-GROUP01 final project : Komje
 
