@@ -15,14 +15,14 @@ const Footer = () => {
         </div>
 
         <div className="contact-container">
-          <div className="col social-box">
+          <div className="social-box">
             <h5 className="text">Follow Us</h5>
 
             <div className="social-icons">
               <ul className="sci">
                 <li>
                   <a
-                    href="https://www.facebook.com"
+                    href="https://www.facebook.com/people/Komje-App/100088080527367/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -31,7 +31,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.instagram.com"
+                    href="https://www.instagram.com/komjeapp/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -40,7 +40,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.linkedin.com"
+                    href="https://www.linkedin.com/in/komje-app-48b8bb258/"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -49,7 +49,7 @@ const Footer = () => {
                 </li>
                 <li>
                   <a
-                    href="https://www.twitter.com"
+                    href="https://twitter.com/AppKomje"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -61,12 +61,11 @@ const Footer = () => {
           </div>
 
           <div className=" contact-us-box">
-            <div>
-              <h5 className="text">Contact Us</h5>
-            </div>
+            <h5 className="text">Contact Us</h5>
+
             <p className="mail">
               <a className="mailp" href="mailto: komje.app@gmail.com">
-                komje.app@gmail.com{" "}
+                komje.app@gmail.com
               </a>
             </p>
           </div>

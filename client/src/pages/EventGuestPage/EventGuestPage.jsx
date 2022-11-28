@@ -18,8 +18,29 @@ function EventGuestPage() {
     return () => getOneEvent.cancel();
   }, []);
 
-  const onChange = (e) => {
-    setFormValues({ ...formValues, [e.target.name]: e.target.value });
+  const onChange = (e, isMultipleChoice) => {
+    setFormValues((formValues) => {
+      if (isMultipleChoice) {
+        if (!formValues) {
+          formValues = {};
+        }
+        if (!formValues[e.target.name]) {
+          formValues[e.target.name] = [e.target.value];
+        }
+        const oldValues = formValues?.[e.target.name];
+        if (e.target.checked) {
+          oldValues.push(e.target.value);
+          const newValues = [...new Set(oldValues)];
+          return { ...formValues, [e.target.name]: newValues };
+        } else {
+          const newValues = oldValues.filter(
+            (value) => value !== e.target.value
+          );
+          return { ...formValues, [e.target.name]: newValues };
+        }
+      }
+      return { ...formValues, [e.target.name]: e.target.value };
+    });
   };
 
   const navigate = useNavigate();

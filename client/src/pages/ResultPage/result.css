@@ -1,12 +1,3 @@
-:root {
-  --white-color: #fff;
-  --text-color: #edf6f9;
-  --light-color: #83c5be;
-  --dark-color: #006d77;
-  --orange-color: #e29578;
-  --light-orange-color: #ffddd2;
-  --black-color: #000;
-}
 .containerResult {
   margin: auto;
   margin-top: 1.6rem;
@@ -17,23 +8,33 @@
   min-width: 100%;
 }
 .guests-count-box {
-  padding: 1.5rem;
-  margin: 2rem;
-  border-radius: 20px;
+  box-shadow: 0px 3px 6px var(--accent-color);
+  padding: 3rem 2rem 1.5rem 2rem;
+  border-radius: var(--border-radius-form);
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 .count-box {
   display: flex;
   justify-content: space-between;
 }
+.lists-box {
+  box-shadow: 0px 3px 6px var(--accent-color);
+  padding: 3rem 2rem 1.5rem 2rem;
+  border-radius: var(--border-radius-form);
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .guestList-btn {
   width: fit-content;
   font-size: large;
   padding: 10px;
-  margin: 0.3rem;
+  margin: 1rem;
   font-size: 14px;
-  background-color: #83c5be;
-  border-radius: 5px;
-  border: none;
 }
 .exit {
   padding: 0.5rem;
@@ -46,15 +47,11 @@
 .list-box {
   text-align: start;
 }
-h4 {
-  text-decoration: underline;
-}
 .result-chart-component {
   width: 100%;
   margin: 20px auto;
   padding: 10px;
   grid-column: span 6;
-
   padding: 3rem 1rem 5rem 1rem;
   box-shadow: 2px 2px 5px 1px rgb(0 0 0 / 15%),
     -2px -2px 5px 1px rgb(0 0 0 / 15%);
@@ -67,8 +64,8 @@ h4 {
   padding: 5px;
   text-align: start;
   border-radius: 5px;
-  background-color: #000;
-  color: white;
+  background-color: var(--primary-dark-color);
+  color: var(--white-color);
 }
 .flex-bar-chart-section {
   gap: 20px;
