@@ -129,6 +129,13 @@ For more information on how these work together including the automatic deployme
 - `jest-fetch-mock` || To mock out the backend for our testing purposes. See [docs](https://github.com/jefflau/jest-fetch-mock#readme)
 - `prop-types` || To type-check our components. See [docs](https://github.com/facebook/prop-types)
 - `react-toastify` || React-Toastify allows you to add notifications to your app with ease. See [docs](https://www.npmjs.com/package/react-toastify)
+- `react-social-icons` || A set of beautiful svg social icons. [docs](https://www.npmjs.com/package/react-social-icons)
+- `react-router-dom` ||
+  It is enables you to implement dynamic routing in a web app. It allows you to display pages and allow users to navigate them. [docs](https://v5.reactrouter.com/web/guides/quick-start)
+- `react-icons` || Include popular icons in React projects easily use with react-icons. [docs](https://react-icons.github.io/react-icons/).
+- `chart.js` || The most popular charting library.See [docs](https://www.chartjs.org/)
+- `bootstrap` ||For syntax for template designs. See [docs](https://getbootstrap.com/)
+- `@fortawesome/react-fontawesome`|For icons and design. See [docs](https://fontawesome.com/v5/docs/web/use-with/react)
 
 ### 3.3 Server-side libraries
 
