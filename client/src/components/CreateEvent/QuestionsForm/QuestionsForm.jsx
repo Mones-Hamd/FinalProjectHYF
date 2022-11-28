@@ -87,11 +87,11 @@ const QuestionsForm = ({ form, setForm, submitFunc, isEventCreated }) => {
       <div className="information-about-form">
         <div></div>
         <p>
-          - First 3 questions can not be removed or edited ,Those are minimum
+          - First 3 questions can not be removed or edited, Those are minimum
           requirements for event cards.
         </p>
         <p>
-          - You can add ,remove questions and also options for your question.
+          - You can add, remove questions and also options for your question.
         </p>
       </div>
       <form className="komje-form" ref={formRef} onSubmit={onSubmit}>
