@@ -18,7 +18,7 @@
 }
 
 .komje-button:disabled {
-  background-color: var(--secondary-color);
+  background-color: var(--accent-color);
   color: var(--primary-light-color);
   border: 1px solid var(--primary-light-color);
   cursor: not-allowed;
